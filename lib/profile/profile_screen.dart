@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../auth/sign_in_screen.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -6,364 +7,474 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F6F8), // Light grey background
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 16.0),
-          child: Image.asset(
-            'assets/Sufar Logo Blue.png',
-            errorBuilder: (context, error, stackTrace) =>
-                const Icon(Icons.travel_explore, color: Color(0xFF1A94C4)),
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search, color: Colors.grey),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.person_outline, color: Colors.grey),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            children: [
-              // Profile Header
-              Container(
-                padding: const EdgeInsets.all(24),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.02),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
+      backgroundColor: const Color(0xFFF5F6F8),
+      body: SafeArea(
+        child: Column(
+          children: [
+            // Custom App Bar
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 8.0,
+              ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/Sufar Logo Blue.png',
+                    height: 40,
+                    errorBuilder: (context, error, stackTrace) => const Icon(
+                      Icons.travel_explore,
+                      color: Color(0xFF1A94C4),
+                      size: 30,
                     ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF0D4B88),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'JD',
-                        style: TextStyle(
+                  ),
+                  const Spacer(),
+                  IconButton(
+                    icon: const Icon(Icons.menu, color: Colors.black54),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.chat_bubble_outline,
+                      color: Colors.black54,
+                    ),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.logout, color: Colors.redAccent),
+                    onPressed: () {
+                      _showLogoutDialog(context);
+                    },
+                  ),
+                ],
+              ),
+            ),
+
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      // Main Profile Card
+                      Container(
+                        padding: const EdgeInsets.all(24),
+                        decoration: BoxDecoration(
                           color: Colors.white,
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
+                          borderRadius: BorderRadius.circular(24),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.05),
+                              blurRadius: 20,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
                         ),
-                      ),
-                    ),
-                    const SizedBox(width: 24),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'John Doe',
-                                style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF0D1C52),
-                                ),
-                              ),
-                              ElevatedButton.icon(
+                        child: Column(
+                          children: [
+                            // Edit Profile Button
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: ElevatedButton.icon(
                                 onPressed: () {},
                                 icon: const Icon(
-                                  Icons.edit,
+                                  Icons.settings_outlined,
                                   size: 16,
                                   color: Colors.white,
                                 ),
                                 label: const Text(
                                   'Edit Profile',
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                                 ),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xFF1A94C4),
+                                  elevation: 0,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
                                   padding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 8,
+                                    horizontal: 20,
+                                    vertical: 10,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                          const SizedBox(height: 8),
-                          _buildIconText(
-                            Icons.email_outlined,
-                            'john.doe@example.com',
-                          ),
-                          const SizedBox(height: 4),
-                          _buildIconText(
-                            Icons.location_on_outlined,
-                            'New York, USA',
-                          ),
-                          const SizedBox(height: 4),
-                          _buildIconText(
-                            Icons.calendar_today_outlined,
-                            'Member since January 2023',
-                          ),
-
-                          const SizedBox(height: 24),
-                          Row(
-                            children: [
-                              _buildStat('12', 'Destinations'),
-                              const SizedBox(width: 24),
-                              _buildStat('8', 'Travel Plans'),
-                              const SizedBox(width: 24),
-                              _buildStat('25', 'Bookmarks'),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 24),
-
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Saved Destinations
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: const [
-                            Icon(
-                              Icons.favorite_border,
-                              color: Color(0xFF1A94C4),
                             ),
-                            SizedBox(width: 8),
-                            Text(
-                              'Saved Destinations',
-                              style: TextStyle(
-                                color: Color(0xFF0D1C52),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
+
+                            // User Info Row
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: 80,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFF0D4B88),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: const Text(
+                                    'JD',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: 16),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'John Doe',
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: Color(0xFF0D1C52),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 8),
+                                      _buildIconText(
+                                        Icons.email_outlined,
+                                        'john.doe@example.com',
+                                      ),
+                                      const SizedBox(height: 4),
+                                      _buildIconText(
+                                        Icons.location_on_outlined,
+                                        'New York, USA',
+                                      ),
+                                      const SizedBox(height: 4),
+                                      _buildIconText(
+                                        Icons.calendar_today_outlined,
+                                        'Member since January 2023',
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(height: 24),
+
+                            // Stats Section - Vertical Cards
+                            _buildStat('12', 'Destinations'),
+                            const SizedBox(height: 12),
+                            _buildStat('8', 'Travel Plans'),
+                            const SizedBox(height: 12),
+                            _buildStat('25', 'Bookmarks'),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 24),
+
+                      // Saved Destinations
+                      Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: const [
+                                Icon(
+                                  Icons.favorite_border,
+                                  color: Color(0xFF1A94C4),
+                                ),
+                                SizedBox(width: 8),
+                                Text(
+                                  'Saved Destinations',
+                                  style: TextStyle(
+                                    color: Color(0xFF0D1C52),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 16),
+                            _buildSavedItem(
+                              'Bali, Indonesia',
+                              'Saved on Dec 10, 2024',
+                              Colors.brown[300], // Palm tree vibe
+                            ),
+                            const SizedBox(height: 16),
+                            _buildSavedItem(
+                              'Swiss Alps',
+                              'Saved on Dec 5, 2024',
+                              Colors.green[300], // Nature vibe
+                            ),
+                            const SizedBox(height: 16),
+                            _buildSavedItem(
+                              'Paris, France',
+                              'Saved on Nov 28, 2024',
+                              Colors.orange[300], // City vibe
                             ),
                           ],
                         ),
-                        const SizedBox(height: 16),
-                        _buildSavedItem(
-                          'Bali, Indonesia',
-                          'Saved on Dec 10, 2024',
-                          Colors.purple[100],
-                        ),
-                        const SizedBox(height: 12),
-                        _buildSavedItem(
-                          'Swiss Alps',
-                          'Saved on Dec 5, 2024',
-                          Colors.green[100],
-                        ),
-                        const SizedBox(height: 12),
-                        _buildSavedItem(
-                          'Paris, France',
-                          'Saved on Nov 28, 2024',
-                          Colors.orange[100],
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 24),
+                      ),
 
-                  // Bookmarked Hotels
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: const [
-                            Icon(
-                              Icons.bookmark_border,
-                              color: Color(0xFF1A94C4),
+                      const SizedBox(height: 24),
+
+                      // Bookmarked Hotels
+                      Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: const [
+                                Icon(
+                                  Icons.bookmark_border,
+                                  color: Color(0xFF1A94C4),
+                                ),
+                                SizedBox(width: 8),
+                                Text(
+                                  'Bookmarked Hotels',
+                                  style: TextStyle(
+                                    color: Color(0xFF0D1C52),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
                             ),
-                            SizedBox(width: 8),
-                            Text(
-                              'Bookmarked Hotels',
-                              style: TextStyle(
-                                color: Color(0xFF0D1C52),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
+                            const SizedBox(height: 16),
+                            _buildHotelItem(
+                              'The Mulia Resort',
+                              'Bali, Indonesia',
+                              '\$250',
+                            ),
+                            const SizedBox(height: 16),
+                            _buildHotelItem(
+                              'Four Seasons',
+                              'Paris, France',
+                              '\$380',
+                            ),
+                            const SizedBox(height: 16),
+                            _buildHotelItem(
+                              'Alpine Lodge',
+                              'Swiss Alps',
+                              '\$320',
                             ),
                           ],
                         ),
-                        const SizedBox(height: 16),
-                        _buildHotelItem(
-                          'The Mulia Resort',
-                          'Bali, Indonesia',
-                          '\$250',
-                        ),
-                        const SizedBox(height: 12),
-                        _buildHotelItem(
-                          'Four Seasons',
-                          'Paris, France',
-                          '\$380',
-                        ),
-                        const SizedBox(height: 12),
-                        _buildHotelItem('Alpine Lodge', 'Swiss Alps', '\$320'),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 40),
-
-              // Past AI Travel Plans
-              Row(
-                children: const [
-                  Icon(Icons.description_outlined, color: Color(0xFF1A94C4)),
-                  SizedBox(width: 8),
-                  Text(
-                    'Past AI Travel Plans',
-                    style: TextStyle(
-                      color: Color(0xFF0D1C52),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                children: [
-                  Expanded(
-                    child: _buildPlanCard(
-                      'Thailand Adventure',
-                      '7 days',
-                      '\$1,500',
-                      'Nov 15, 2024',
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: _buildPlanCard(
-                      'European Tour',
-                      '14 days',
-                      '\$3,200',
-                      'Oct 20, 2024',
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: _buildPlanCard(
-                      'Dubai Experience',
-                      '5 days',
-                      '\$2,000',
-                      'Sep 12, 2024',
-                    ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 40),
-
-              // Bottom CTA
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 40,
-                  horizontal: 24,
-                ),
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF1A94C4), Color(0xFF0D1C52)],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Column(
-                  children: [
-                    const Text(
-                      'Start Planning Your Next Adventure',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    const Text(
-                      'Use our AI planner to create your perfect itinerary',
-                      style: TextStyle(color: Colors.white70),
-                    ),
-                    const SizedBox(height: 24),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: const Color(0xFF1A94C4),
+
+                      const SizedBox(height: 24),
+
+                      // Past AI Travel Plans
+                      Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: const [
+                                Icon(
+                                  Icons.description_outlined,
+                                  color: Color(0xFF1A94C4),
+                                ),
+                                SizedBox(width: 8),
+                                Text(
+                                  'Past AI Travel Plans',
+                                  style: TextStyle(
+                                    color: Color(0xFF0D1C52),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 16),
+                            _buildPlanCard(
+                              'Thailand Adventure',
+                              '7 days',
+                              '\$1,500',
+                              'Nov 15, 2024',
+                            ),
+                            const SizedBox(height: 16),
+                            _buildPlanCard(
+                              'European Tour',
+                              '14 days',
+                              '\$3,200',
+                              'Oct 20, 2024',
+                            ),
+                            const SizedBox(height: 16),
+                            _buildPlanCard(
+                              'Dubai Experience',
+                              '5 days',
+                              '\$2,000',
+                              'Sep 12, 2024',
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 40),
+
+                      // Bottom CTA
+                      Container(
+                        width: double.infinity,
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 32,
-                          vertical: 16,
+                          vertical: 32,
+                          horizontal: 24,
+                        ),
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFF1A94C4), Color(0xFF0D1C52)],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          borderRadius: BorderRadius.circular(24),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xFF1A94C4).withOpacity(0.3),
+                              blurRadius: 20,
+                              offset: const Offset(0, 10),
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          children: [
+                            const Text(
+                              'Start Planning Your Next Adventure',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            const Text(
+                              'Use our AI planner to create your perfect itinerary',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white70,
+                                fontSize: 13,
+                              ),
+                            ),
+                            const SizedBox(height: 24),
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                foregroundColor: const Color(0xFF1A94C4),
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 32,
+                                  vertical: 16,
+                                ),
+                              ),
+                              child: const Text(
+                                'Create New Plan',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      child: const Text('Create New Plan'),
-                    ),
-                  ],
+                      const SizedBox(height: 20),
+                    ],
+                  ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
+    );
+  }
+
+  void _showLogoutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Logout'),
+          content: const Text('Are you sure you want to logout?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Close dialog
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Close dialog
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SignInScreen()),
+                  (route) => false,
+                );
+              },
+              child: const Text('Logout', style: TextStyle(color: Colors.red)),
+            ),
+          ],
+        );
+      },
     );
   }
 
   Widget _buildIconText(IconData icon, String text) {
     return Row(
       children: [
-        Icon(icon, size: 14, color: Colors.grey),
+        Icon(icon, size: 14, color: const Color(0xFF8FA2B4)),
         const SizedBox(width: 8),
-        Text(text, style: const TextStyle(color: Colors.grey, fontSize: 13)),
+        Expanded(
+          child: Text(
+            text,
+            style: const TextStyle(color: Color(0xFF5D6B78), fontSize: 13),
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
       ],
     );
   }
 
   Widget _buildStat(String value, String label) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: 20),
       decoration: BoxDecoration(
-        color: const Color(0xFFF5F6F8),
-        borderRadius: BorderRadius.circular(8),
+        color: const Color(0xFFF7F9FC),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         children: [
           Text(
             value,
             style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              fontSize: 28,
               color: Color(0xFF1A94C4),
             ),
           ),
-          Text(label, style: const TextStyle(color: Colors.grey, fontSize: 12)),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: const TextStyle(color: Color(0xFF5D6B78), fontSize: 14),
+          ),
         ],
       ),
     );
@@ -371,10 +482,10 @@ class ProfilePage extends StatelessWidget {
 
   Widget _buildSavedItem(String title, String date, Color? color) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
+        color: const Color(0xFFF7F9FC),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
         children: [
@@ -382,13 +493,10 @@ class ProfilePage extends StatelessWidget {
             width: 60,
             height: 60,
             decoration: BoxDecoration(
-              color: color ?? Colors.grey[200],
-              borderRadius: BorderRadius.circular(8),
+              color: color ?? Colors.grey[300],
+              borderRadius: BorderRadius.circular(12),
             ),
-            child: const Icon(
-              Icons.image,
-              color: Colors.white24,
-            ), // Placeholder
+            child: Icon(Icons.image, color: Colors.white.withOpacity(0.5)),
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -399,19 +507,34 @@ class ProfilePage extends StatelessWidget {
                   title,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
+                    fontSize: 15,
                     color: Color(0xFF0D1C52),
                   ),
                 ),
+                const SizedBox(height: 4),
                 Text(
                   date,
-                  style: const TextStyle(color: Colors.grey, fontSize: 12),
+                  style: const TextStyle(
+                    color: Color(0xFF8FA2B4),
+                    fontSize: 12,
+                  ),
                 ),
               ],
             ),
           ),
-          const Text(
-            'View ->',
-            style: TextStyle(color: Color(0xFF1A94C4), fontSize: 12),
+          Row(
+            children: const [
+              Text(
+                'View',
+                style: TextStyle(
+                  color: Color(0xFF1A94C4),
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              SizedBox(width: 4),
+              Icon(Icons.arrow_forward, size: 14, color: Color(0xFF1A94C4)),
+            ],
           ),
         ],
       ),
@@ -422,8 +545,8 @@ class ProfilePage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
+        color: const Color(0xFFF7F9FC),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -435,19 +558,25 @@ class ProfilePage extends StatelessWidget {
                 name,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
+                  fontSize: 15,
                   color: Color(0xFF0D1C52),
                 ),
               ),
+              const SizedBox(height: 6),
               Row(
                 children: [
                   const Icon(
                     Icons.location_on_outlined,
-                    size: 12,
-                    color: Colors.grey,
+                    size: 14,
+                    color: Color(0xFF8FA2B4),
                   ),
+                  const SizedBox(width: 4),
                   Text(
                     location,
-                    style: const TextStyle(color: Colors.grey, fontSize: 12),
+                    style: const TextStyle(
+                      color: Color(0xFF8FA2B4),
+                      fontSize: 13,
+                    ),
                   ),
                 ],
               ),
@@ -460,12 +589,13 @@ class ProfilePage extends StatelessWidget {
                 price,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
+                  fontSize: 18,
                   color: Color(0xFF1A94C4),
                 ),
               ),
               const Text(
                 '/night',
-                style: TextStyle(color: Colors.grey, fontSize: 10),
+                style: TextStyle(color: Color(0xFF8FA2B4), fontSize: 11),
               ),
             ],
           ),
@@ -481,9 +611,9 @@ class ProfilePage extends StatelessWidget {
     String date,
   ) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: const Color(0xFFF7F9FC),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -493,49 +623,54 @@ class ProfilePage extends StatelessWidget {
             title,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
+              fontSize: 16,
               color: Color(0xFF0D1C52),
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
           Row(
             children: [
               const Icon(
                 Icons.calendar_today_outlined,
-                size: 12,
-                color: Colors.grey,
+                size: 14,
+                color: Color(0xFF8FA2B4),
               ),
-              const SizedBox(width: 4),
+              const SizedBox(width: 6),
               Text(
                 duration,
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
+                style: const TextStyle(fontSize: 13, color: Color(0xFF5D6B78)),
               ),
             ],
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 8),
           Text(
-            'Budget:\n$budget',
-            style: const TextStyle(fontSize: 12, color: Colors.grey),
+            'Budget: $budget',
+            style: const TextStyle(fontSize: 13, color: Color(0xFF5D6B78)),
           ),
           const SizedBox(height: 8),
           Text(
             'Created: $date',
-            style: const TextStyle(fontSize: 10, color: Colors.grey),
+            style: const TextStyle(fontSize: 12, color: Color(0xFF8FA2B4)),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 16),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF1A94C4),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 0,
-                ), // small button
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                elevation: 0,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
               ),
               child: const Text(
                 'View Plan',
-                style: TextStyle(color: Colors.white, fontSize: 12),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),

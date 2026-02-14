@@ -44,6 +44,11 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
             icon: const Icon(Icons.person_outline, color: Colors.grey),
             onPressed: () {},
           ),
+          IconButton(
+            icon: const Icon(Icons.home, color: Colors.grey),
+            onPressed: () =>
+                Navigator.of(context).popUntil((route) => route.isFirst),
+          ),
         ],
       ),
       body: SingleChildScrollView(

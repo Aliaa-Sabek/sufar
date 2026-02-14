@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'flight_search_screen.dart';
+import 'flight_search_screen_v2.dart';
 
 class FlightLandingPage extends StatelessWidget {
   const FlightLandingPage({super.key});

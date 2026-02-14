@@ -25,6 +25,11 @@ class OfficeDetailsPage extends StatelessWidget {
             icon: const Icon(Icons.share, color: Colors.black),
             onPressed: () {},
           ),
+          IconButton(
+            icon: const Icon(Icons.home, color: Colors.black),
+            onPressed: () =>
+                Navigator.of(context).popUntil((route) => route.isFirst),
+          ),
         ],
       ),
       body: SingleChildScrollView(

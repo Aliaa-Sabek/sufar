@@ -43,6 +43,11 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
             icon: const Icon(Icons.person_outline, color: Colors.grey),
             onPressed: () {},
           ),
+          IconButton(
+            icon: const Icon(Icons.home, color: Colors.grey),
+            onPressed: () =>
+                Navigator.of(context).popUntil((route) => route.isFirst),
+          ),
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(60),

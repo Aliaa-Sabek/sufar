@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'booking/booking_screen_1.dart';
 import 'flights/flight_landing_screen_v2.dart';
-import 'travel_offices/travel_offices_directory.dart';
-import 'ai_planner/ai_planner_screen.dart';
-import 'visa_advisor/visa_advisor_screen.dart';
-import 'chat_bot/chat_bot_screen.dart';
+import 'home/home_screen.dart';
+import 'home/services_screen.dart';
 import 'profile/profile_screen.dart';
+import 'chat_bot/chat_bot_screen.dart';
+import 'onboarding/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,130 +22,100 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1A94C4)),
         useMaterial3: true,
       ),
-      home: const DashboardScreen(),
+      home: const SplashScreen(),
     );
   }
 }
 
-class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sufar Navigation Hub'),
-        centerTitle: true,
-        backgroundColor: const Color(0xFF1A94C4),
-        foregroundColor: Colors.white,
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Wrap(
-          spacing: 16,
-          runSpacing: 16,
-          alignment: WrapAlignment.center,
-          children: [
-            _buildNavCard(
-              context,
-              'Flights (New)',
-              Icons.flight,
-              const FlightLandingPage(),
-              color: Colors.blueAccent,
-            ),
-            _buildNavCard(
-              context,
-              'Hotel Booking',
-              Icons.hotel,
-              const BookingPage1(),
-              color: Colors.orangeAccent,
-            ),
-            _buildNavCard(
-              context,
-              'Travel Offices',
-              Icons.store,
-              const TravelOfficesDirectory(),
-              color: Colors.green,
-            ),
-            _buildNavCard(
-              context,
-              'AI Planner',
-              Icons.auto_awesome,
-              const AIPlannerPage(),
-              color: Colors.purpleAccent,
-            ),
-            _buildNavCard(
-              context,
-              'Visa Advisor',
-              Icons.article,
-              const VisaAdvisorPage(),
-              color: Colors.redAccent,
-            ),
-            _buildNavCard(
-              context,
-              'Chat Bot',
-              Icons.chat,
-              const ChatBotPage(),
-              color: Colors.teal,
-            ),
-            _buildNavCard(
-              context,
-              'Profile',
-              Icons.person,
-              const ProfilePage(),
-              color: Colors.indigo,
-            ),
-          ],
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int _currentIndex = 0;
+
+  void _onNavigate(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  void _navigateToServices(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ServicesScreen(
+          onNavigate: (index) {
+            Navigator.pop(context); // Close the Services Screen
+            _onNavigate(index); // Switch the tab
+          },
         ),
       ),
     );
   }
 
-  Widget _buildNavCard(
-    BuildContext context,
-    String title,
-    IconData icon,
-    Widget page, {
-    Color? color,
-  }) {
-    return SizedBox(
-      width: 150,
-      height: 150,
-      child: Card(
-        elevation: 4,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        color: Colors.white,
-        surfaceTintColor: Colors.white,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(16),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => page),
-            );
+  void _navigateToChat(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ChatBotPage()),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      HomeScreen(
+        onNavigateToServices: () => _navigateToServices(context),
+        onNavigateToProfile: () =>
+            _onNavigate(2), // Switch to Profile Tab (index 2)
+        onNavigateToChat: () => _navigateToChat(context),
+        onNavigateToFlights: () => _onNavigate(1),
+      ),
+      const FlightLandingPage(),
+      const ProfilePage(),
+    ];
+
+    return Scaffold(
+      body: IndexedStack(index: _currentIndex, children: pages),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 10,
+              offset: const Offset(0, -2),
+            ),
+          ],
+        ),
+        child: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
           },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: (color ?? Colors.blue).withOpacity(0.1),
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(icon, size: 32, color: color ?? Colors.blue),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
-              ),
-            ],
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          selectedItemColor: const Color(0xFF1A94C4),
+          unselectedItemColor: Colors.grey,
+          selectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 12,
           ),
+          unselectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 12,
+          ),
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+            BottomNavigationBarItem(icon: Icon(Icons.flight), label: 'Flight'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          ],
         ),
       ),
     );

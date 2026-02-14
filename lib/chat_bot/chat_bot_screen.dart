@@ -21,8 +21,16 @@ class ChatBotPage extends StatelessWidget {
                 const Icon(Icons.travel_explore, color: Color(0xFF1A94C4)),
           ),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.home, color: Colors.grey),
+            onPressed: () =>
+                Navigator.of(context).popUntil((route) => route.isFirst),
+          ),
+        ],
       ),
       body: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Main Chat Area (Taking up most space)
           Expanded(
@@ -108,7 +116,7 @@ class ChatBotPage extends StatelessWidget {
                                   ),
                                   const SizedBox(height: 8),
                                   const Text(
-                                    "Hello! I'm Travello AI, your personal travel assistant. How can I help you plan your journey today?",
+                                    "Hello! I'm Sufar AI, your personal travel assistant. How can I help you plan your journey today?",
                                     style: TextStyle(color: Color(0xFF0D1C52)),
                                   ),
                                   const SizedBox(height: 8),
@@ -176,163 +184,172 @@ class ChatBotPage extends StatelessWidget {
               800) // Simple responsive check
             Container(
               width: 350,
-              padding: const EdgeInsets.all(24),
               color: Colors.white,
-              child: Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(24),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: Colors.grey.shade200),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Quick Actions',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF0D1C52),
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        _buildQuickAction(
-                          Icons.location_on_outlined,
-                          'Find Destinations',
-                        ),
-                        const SizedBox(height: 8),
-                        _buildQuickAction(
-                          Icons.flight_takeoff,
-                          'Search Flights',
-                        ),
-                        const SizedBox(height: 8),
-                        _buildQuickAction(Icons.hotel_outlined, 'Book Hotels'),
-                        const SizedBox(height: 8),
-                        _buildQuickAction(
-                          Icons.description_outlined,
-                          'Visa Info',
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  Container(
-                    padding: const EdgeInsets.all(24),
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFF1A94C4), Color(0xFF0D4B88)],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(24),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: Colors.grey.shade200),
                       ),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: const [
-                            Icon(
-                              Icons.info_outline,
-                              color: Colors.white,
-                              size: 20,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Quick Actions',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF0D1C52),
                             ),
-                            SizedBox(width: 8),
-                            Text(
-                              'Pro Tips',
-                              style: TextStyle(
+                          ),
+                          const SizedBox(height: 16),
+                          _buildQuickAction(
+                            Icons.location_on_outlined,
+                            'Find Destinations',
+                          ),
+                          const SizedBox(height: 8),
+                          _buildQuickAction(
+                            Icons.flight_takeoff,
+                            'Search Flights',
+                          ),
+                          const SizedBox(height: 8),
+                          _buildQuickAction(
+                            Icons.hotel_outlined,
+                            'Book Hotels',
+                          ),
+                          const SizedBox(height: 8),
+                          _buildQuickAction(
+                            Icons.description_outlined,
+                            'Visa Info',
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    Container(
+                      padding: const EdgeInsets.all(24),
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFF1A94C4), Color(0xFF0D4B88)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: const [
+                              Icon(
+                                Icons.info_outline,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                                size: 20,
+                              ),
+                              SizedBox(width: 8),
+                              Text(
+                                'Pro Tips',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 16),
+                          _buildProTip('Be specific about your preferences'),
+                          _buildProTip('Mention your budget range'),
+                          _buildProTip('Share your travel dates'),
+                          _buildProTip('Ask follow-up questions'),
+                          _buildProTip('Use quick actions for faster help'),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    Container(
+                      padding: const EdgeInsets.all(24),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: Colors.grey.shade200),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Need More Help?',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF0D1C52),
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            'Connect with our travel experts for personalized assistance.',
+                            style: TextStyle(
+                              color: Colors.grey[600],
+                              fontSize: 12,
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF1A94C4),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              child: const Text(
+                                'Contact Support',
+                                style: TextStyle(color: Colors.white),
                               ),
                             ),
-                          ],
-                        ),
-                        const SizedBox(height: 16),
-                        _buildProTip('Be specific about your preferences'),
-                        _buildProTip('Mention your budget range'),
-                        _buildProTip('Share your travel dates'),
-                        _buildProTip('Ask follow-up questions'),
-                        _buildProTip('Use quick actions for faster help'),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  Container(
-                    padding: const EdgeInsets.all(24),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: Colors.grey.shade200),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Need More Help?',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF0D1C52),
                           ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'Connect with our travel experts for personalized assistance.',
-                          style: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 12,
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF1A94C4),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                            child: const Text(
-                              'Contact Support',
-                              style: TextStyle(color: Colors.white),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    Container(
+                      padding: const EdgeInsets.all(24),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: Colors.grey.shade200),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Example Questions',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF0D1C52),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  Container(
-                    padding: const EdgeInsets.all(24),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: Colors.grey.shade200),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Example Questions',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF0D1C52),
+                          const SizedBox(height: 16),
+                          _buildExampleQuestion(
+                            "What's the best time to visit Japan?",
                           ),
-                        ),
-                        const SizedBox(height: 16),
-                        _buildExampleQuestion(
-                          "What's the best time to visit Japan?",
-                        ),
-                        const SizedBox(height: 8),
-                        _buildExampleQuestion("I have \$2000 for a week trip"),
-                        const SizedBox(height: 8),
-                        _buildExampleQuestion("Do I need a visa for Thailand?"),
-                      ],
+                          const SizedBox(height: 8),
+                          _buildExampleQuestion(
+                            "I have \$2000 for a week trip",
+                          ),
+                          const SizedBox(height: 8),
+                          _buildExampleQuestion(
+                            "Do I need a visa for Thailand?",
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
         ],

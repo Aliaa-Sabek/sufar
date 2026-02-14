@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'booking_stepper.dart';
-import 'booking_screen_1.dart';
 
 class BookingPage4 extends StatelessWidget {
   const BookingPage4({super.key});
@@ -29,6 +28,11 @@ class BookingPage4 extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.person_outline, color: Colors.grey),
             onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.home, color: Colors.grey),
+            onPressed: () =>
+                Navigator.of(context).popUntil((route) => route.isFirst),
           ),
         ],
       ),
@@ -77,11 +81,7 @@ class BookingPage4 extends StatelessWidget {
             TextButton(
               onPressed: () {
                 // Navigate back to the start and clear stack
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (context) => const BookingPage1()),
-                  (route) => false,
-                );
+                Navigator.of(context).popUntil((route) => route.isFirst);
               },
               child: const Text(
                 'Back to Home',
