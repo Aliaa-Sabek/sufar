@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../ApiKeys.dart';
 
-// the model
+// Message model
 
 class ChatMessage {
   final String text;
@@ -16,6 +17,8 @@ class ChatMessage {
   }) : time = time ?? DateTime.now();
 }
 
+// Page
+
 class ChatBotPage extends StatefulWidget {
   const ChatBotPage({super.key});
 
@@ -24,9 +27,9 @@ class ChatBotPage extends StatefulWidget {
 }
 
 class _ChatBotPageState extends State<ChatBotPage> {
+  // Groq config
 
-  static const String _groqApiKey =
-      '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'; // API's key Groq
+  static const String _groqApiKey = ApiKeys.groqApiKey;
   static const String _model = 'llama-3.1-8b-instant';
   static const String _systemPrompt =
       'You are Sufar AI, a friendly and knowledgeable travel assistant for the Sufar travel app. '
@@ -34,7 +37,6 @@ class _ChatBotPageState extends State<ChatBotPage> {
       'and provide travel tips. Keep responses concise, helpful, and friendly. '
       'Always stay on travel-related topics.';
 
-  // ── State ─────────────────────────────────────────────────────────────────
   final TextEditingController _inputController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   final List<ChatMessage> _messages = [
@@ -46,7 +48,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
   ];
   bool _isTyping = false;
 
-  // ── API call ──────────────────────────────────────────────────────────────
+  // API call
 
   Future<void> _sendMessage(String text) async {
     if (text.trim().isEmpty) return;
@@ -122,6 +124,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
     final isWide = MediaQuery.of(context).size.width > 800;
@@ -167,6 +170,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
     );
   }
 
+
   Widget _buildHeader() {
     return Container(
       color: const Color(0xFF0D4B88),
@@ -208,6 +212,8 @@ class _ChatBotPageState extends State<ChatBotPage> {
       ),
     );
   }
+
+  // Message list
 
   Widget _buildMessageList() {
     return ListView.builder(
@@ -354,6 +360,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
     );
   }
 
+  // Input bar
 
   Widget _buildInputBar() {
     return Container(
@@ -411,6 +418,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
     );
   }
 
+  // Sidebar
 
   Widget _buildSidebar() {
     return Container(
@@ -612,6 +620,8 @@ class _ChatBotPageState extends State<ChatBotPage> {
     super.dispose();
   }
 }
+
+// dot animation
 
 class _BouncingDot extends StatefulWidget {
   final Duration delay;

@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../ApiKeys.dart';
 
-// Model
+// ── Model ──────────────────────────────────────────────────────────────────
+
 class Hotel {
   final int id;
   final String name;
@@ -41,7 +43,8 @@ class Hotel {
   }
 }
 
-// Helpers
+// helpers
+
 IconData _amenityIcon(String amenity) {
   switch (amenity) {
     case 'free_wifi':         return Icons.wifi;
@@ -67,7 +70,8 @@ String _amenityLabel(String amenity) {
       .join(' ');
 }
 
-// the screen =
+
+
 class HotelBookingScreen extends StatefulWidget {
   const HotelBookingScreen({super.key});
 
@@ -77,8 +81,7 @@ class HotelBookingScreen extends StatefulWidget {
 
 class _HotelBookingScreenState extends State<HotelBookingScreen> {
   static const String _baseUrl = 'https://api.hotels-api.com/v1/hotels/search';
-  static const String _apiKey =
-      '72bda0e16bc68d187c6296acad54918211911c2b2706b11bf26ee76808aaf343';
+  static const String _apiKey = ApiKeys.hotelsApiKey;
 
   final TextEditingController _cityController = TextEditingController();
 
@@ -164,7 +167,8 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
       setState(() => _isLoading = false);
     }
   }
-  // screen builder
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -328,7 +332,8 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
   }
 }
 
-// Hotel's card
+// Hotel cards
+
 class _HotelCard extends StatelessWidget {
   final Hotel hotel;
   const _HotelCard({required this.hotel});
@@ -445,7 +450,8 @@ class _HotelCard extends StatelessWidget {
   }
 }
 
-// the badge of the rating
+// Rating badge
+
 class _RatingBadge extends StatelessWidget {
   final double rating;
   const _RatingBadge({required this.rating});
