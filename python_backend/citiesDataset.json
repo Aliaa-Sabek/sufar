@@ -1,0 +1,5544 @@
+[
+  {
+    "city": "Cairo",
+    "city_ar": "القاهرة",
+    "slug": "cairo",
+    "country": "Egypt",
+    "country_ar": "مصر",
+    "region": "North Africa",
+    "coverImage": "cairo/cover.jpg",
+    "description": "Explore Cairo, the capital of Egypt, known for its ancient pyramids, vibrant culture, and Nile River views.",
+    "highlights": [
+      "Pyramids of Giza",
+      "Nile River",
+      "Egyptian Museum",
+      "Khan El Khalili Bazaar"
+    ],
+    "galleryImages": [
+      "cairo/gallery/1.jpg",
+      "cairo/gallery/2.jpg",
+      "cairo/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Hyatt Regency Cairo West",
+        "slug": "hyatt-regency-cairo-west",
+        "stars": 5,
+        "rating": 4.5,
+        "reviewsCount": 1200,
+        "description": "Luxury hotel near Giza Pyramids with spa, pool, and premium dining experience.",
+        "location": {
+          "address": "6th of October City",
+          "city": "Cairo",
+          "country": "Egypt"
+        },
+        "startingFrom": 200,
+        "facilities": [
+          "Pool",
+          "Free WiFi",
+          "Spa",
+          "Gym",
+          "Restaurant",
+          "Room Service"
+        ],
+        "images": [
+          "cairo/hyatt-regency-cairo-west/1.jpg",
+          "cairo/hyatt-regency-cairo-west/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 200
+          },
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 180
+          },
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 260
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Pyramisa Suites Hotel Cairo",
+        "slug": "pyramisa-suites-cairo",
+        "stars": 4,
+        "rating": 4.2,
+        "reviewsCount": 980,
+        "description": "Central Cairo hotel in Dokki with Nile views, spa, and multiple restaurants.",
+        "location": {
+          "address": "Dokki",
+          "city": "Cairo",
+          "country": "Egypt"
+        },
+        "startingFrom": 100,
+        "facilities": [
+          "Pool",
+          "Free WiFi",
+          "Spa",
+          "Restaurant",
+          "City View"
+        ],
+        "images": [
+          "cairo/pyramisa-suites-cairo/1.jpg",
+          "cairo/pyramisa-suites-cairo/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 100
+          },
+          {
+            "name": "Deluxe Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 130
+          },
+          {
+            "name": "Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 160
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Steigenberger Hotel El Tahrir Cairo",
+        "slug": "steigenberger-el-tahrir",
+        "stars": 4,
+        "rating": 4.4,
+        "reviewsCount": 1100,
+        "description": "Modern hotel in Tahrir Square overlooking the Egyptian Museum.",
+        "location": {
+          "address": "Tahrir Square",
+          "city": "Cairo",
+          "country": "Egypt"
+        },
+        "startingFrom": 150,
+        "facilities": [
+          "Pool",
+          "Free WiFi",
+          "Gym",
+          "Restaurant",
+          "Room Service"
+        ],
+        "images": [
+          "cairo/steigenberger-el-tahrir/1.jpg",
+          "cairo/steigenberger-el-tahrir/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 150
+          },
+          {
+            "name": "Superior Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 180
+          },
+          {
+            "name": "Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 230
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Hilton Cairo Grand Nile",
+        "slug": "hilton-grand-nile",
+        "stars": 5,
+        "rating": 4.3,
+        "reviewsCount": 1400,
+        "description": "Luxury Nile-view hotel with multiple restaurants, entertainment, and spa.",
+        "location": {
+          "address": "Nile Corniche",
+          "city": "Cairo",
+          "country": "Egypt"
+        },
+        "startingFrom": 180,
+        "facilities": [
+          "Pool",
+          "Free WiFi",
+          "Spa",
+          "Gym",
+          "Restaurant",
+          "Nile View"
+        ],
+        "images": [
+          "cairo/hilton-grand-nile/1.jpg",
+          "cairo/hilton-grand-nile/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Room Nile View",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 180
+          },
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 150
+          },
+          {
+            "name": "Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 250
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Safir Hotel Cairo",
+        "slug": "safir-hotel-cairo",
+        "stars": 4,
+        "rating": 4.1,
+        "reviewsCount": 870,
+        "description": "Comfortable hotel in central Cairo with pool, spa, and good value.",
+        "location": {
+          "address": "Dokki",
+          "city": "Cairo",
+          "country": "Egypt"
+        },
+        "startingFrom": 110,
+        "facilities": [
+          "Pool",
+          "Free WiFi",
+          "Spa",
+          "Gym",
+          "Restaurant"
+        ],
+        "images": [
+          "cairo/safir-hotel-cairo/1.jpg",
+          "cairo/safir-hotel-cairo/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 110
+          },
+          {
+            "name": "Deluxe Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 140
+          },
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 180
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Alexandria",
+    "city_ar": "الإسكندرية",
+    "slug": "alexandria",
+    "country": "Egypt",
+    "country_ar": "مصر",
+    "region": "North Africa",
+    "coverImage": "alexandria/cover.jpg",
+    "description": "Discover Alexandria, the Mediterranean jewel of Egypt, known for its rich history, sea views, and cultural landmarks.",
+    "highlights": [
+      "Bibliotheca Alexandrina",
+      "Qaitbay Citadel",
+      "Alexandria Corniche",
+      "Roman Amphitheatre"
+    ],
+    "galleryImages": [
+      "alexandria/gallery/1.jpg",
+      "alexandria/gallery/2.jpg",
+      "alexandria/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Le Metropole Luxury Heritage Hotel",
+        "slug": "le-metropole-alexandria",
+        "stars": 5,
+        "rating": 4.6,
+        "reviewsCount": 1200,
+        "description": "Historic luxury hotel overlooking the Mediterranean with elegant rooms and French dining.",
+        "location": {
+          "address": "El Raml Station",
+          "city": "Alexandria",
+          "country": "Egypt"
+        },
+        "startingFrom": 130,
+        "facilities": [
+          "Free WiFi",
+          "Restaurant",
+          "Room Service",
+          "Sea View",
+          "Air Conditioning"
+        ],
+        "images": [
+          "alexandria/le-metropole/1.jpg",
+          "alexandria/le-metropole/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 140
+          },
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 120
+          },
+          {
+            "name": "Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 200
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Steigenberger Cecil Hotel Alexandria",
+        "slug": "steigenberger-cecil-alexandria",
+        "stars": 4,
+        "rating": 4.5,
+        "reviewsCount": 1100,
+        "description": "Elegant historic hotel in the heart of Alexandria overlooking the sea and yacht club.",
+        "location": {
+          "address": "Saad Zaghloul Square",
+          "city": "Alexandria",
+          "country": "Egypt"
+        },
+        "startingFrom": 160,
+        "facilities": [
+          "Free WiFi",
+          "Restaurant",
+          "Bar",
+          "Room Service",
+          "Sea View"
+        ],
+        "images": [
+          "alexandria/cecil/1.jpg",
+          "alexandria/cecil/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 170
+          },
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 150
+          },
+          {
+            "name": "Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 260
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Nubian Village by the Sea",
+        "slug": "nubian-village-alexandria",
+        "stars": 4,
+        "rating": 4.3,
+        "reviewsCount": 600,
+        "description": "Beachfront apartment-style stay with sea views, ideal for families and groups.",
+        "location": {
+          "address": "Cleopatra Beach",
+          "city": "Alexandria",
+          "country": "Egypt"
+        },
+        "startingFrom": 90,
+        "facilities": [
+          "Free WiFi",
+          "Kitchen",
+          "Air Conditioning",
+          "Sea View",
+          "Balcony"
+        ],
+        "images": [
+          "alexandria/nubian/1.jpg",
+          "alexandria/nubian/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Apartment",
+            "type": "Suite",
+            "capacity": 6,
+            "pricePerNight": 100
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Windsor Palace Hotel",
+        "slug": "windsor-palace-alexandria",
+        "stars": 4,
+        "rating": 4.4,
+        "reviewsCount": 900,
+        "description": "Historic waterfront hotel with rooftop views and classic luxury interiors.",
+        "location": {
+          "address": "Corniche",
+          "city": "Alexandria",
+          "country": "Egypt"
+        },
+        "startingFrom": 100,
+        "facilities": [
+          "Free WiFi",
+          "Restaurant",
+          "Sea View",
+          "Room Service",
+          "Air Conditioning"
+        ],
+        "images": [
+          "alexandria/windsor/1.jpg",
+          "alexandria/windsor/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 110
+          },
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 90
+          },
+          {
+            "name": "Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 160
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Downtown Sea View Suites",
+        "slug": "downtown-sea-view-alexandria",
+        "stars": 4,
+        "rating": 4.2,
+        "reviewsCount": 500,
+        "description": "Modern apartment-style suites with sea views and full amenities in central Alexandria.",
+        "location": {
+          "address": "Anfoushi",
+          "city": "Alexandria",
+          "country": "Egypt"
+        },
+        "startingFrom": 80,
+        "facilities": [
+          "Free WiFi",
+          "Kitchen",
+          "Air Conditioning",
+          "Sea View",
+          "Washing Machine"
+        ],
+        "images": [
+          "alexandria/downtown/1.jpg",
+          "alexandria/downtown/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Apartment",
+            "type": "Suite",
+            "capacity": 6,
+            "pricePerNight": 100
+          }
+        ],
+        "locationType": "Beach"
+      }
+    ]
+  },
+  {
+    "city": "Amman",
+    "city_ar": "عمان",
+    "slug": "amman",
+    "country": "Jordan",
+    "country_ar": "الأردن",
+    "region": "Middle East",
+    "coverImage": "amman/cover.jpg",
+    "description": "Explore Amman, the capital of Jordan, known for its ancient history, vibrant culture, and modern lifestyle.",
+    "highlights": [
+      "Roman Amphitheatre",
+      "Al-Husseini Mosque",
+      "Jordan Museum",
+      "Downtown Amman"
+    ],
+    "galleryImages": [
+      "amman/gallery/1.jpg",
+      "amman/gallery/2.jpg",
+      "amman/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Coral Tower Hotel",
+        "slug": "coral-tower-amman",
+        "stars": 4,
+        "rating": 4,
+        "reviewsCount": 780,
+        "description": "Modern hotel located in Abdali Boulevard offering comfortable rooms and business-friendly facilities.",
+        "location": {
+          "address": "Abdali Boulevard",
+          "city": "Amman",
+          "country": "Jordan"
+        },
+        "startingFrom": 120,
+        "facilities": [
+          "Free WiFi",
+          "Restaurant",
+          "Room Service",
+          "Parking",
+          "Air Conditioning"
+        ],
+        "images": [
+          "amman/coral-tower/1.jpg",
+          "amman/coral-tower/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Studio King or Twin",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 130
+          },
+          {
+            "name": "Junior Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 150
+          },
+          {
+            "name": "Presidential Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 220
+          },
+          {
+            "name": "Two Bedroom Apartment",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 200
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "DoubleTree by Hilton Amman",
+        "slug": "doubletree-hilton-amman",
+        "stars": 5,
+        "rating": 4.5,
+        "reviewsCount": 1200,
+        "description": "Luxury hotel with indoor and outdoor pools, premium services, and modern accommodations.",
+        "location": {
+          "address": "Amman City Center",
+          "city": "Amman",
+          "country": "Jordan"
+        },
+        "startingFrom": 150,
+        "facilities": [
+          "Free WiFi",
+          "Pool",
+          "Restaurant",
+          "Gym",
+          "Bar",
+          "Room Service"
+        ],
+        "images": [
+          "amman/doubletree/1.jpg",
+          "amman/doubletree/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Studio",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 150
+          },
+          {
+            "name": "Studio with Two Beds",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 150
+          },
+          {
+            "name": "King Studio with Balcony",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 180
+          },
+          {
+            "name": "Two Bedroom Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 260
+          },
+          {
+            "name": "One Bedroom King Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 200
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Boho Boutique Hotel Amman",
+        "slug": "boho-boutique-amman",
+        "stars": 3,
+        "rating": 4,
+        "reviewsCount": 500,
+        "description": "Affordable boutique hotel offering cozy rooms and central location in Amman.",
+        "location": {
+          "address": "Near Zahran Palace",
+          "city": "Amman",
+          "country": "Jordan"
+        },
+        "startingFrom": 70,
+        "facilities": [
+          "Free WiFi",
+          "Room Service",
+          "Air Conditioning",
+          "City View"
+        ],
+        "images": [
+          "amman/boho/1.jpg",
+          "amman/boho/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 80
+          },
+          {
+            "name": "Deluxe Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 100
+          },
+          {
+            "name": "Deluxe Double or Twin",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 100
+          },
+          {
+            "name": "Twin Room with Balcony",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 110
+          },
+          {
+            "name": "Junior Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 150
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Radisson Blu Hotel Amman Galleria Mall",
+        "slug": "radisson-blu-amman",
+        "stars": 5,
+        "rating": 4.4,
+        "reviewsCount": 900,
+        "description": "Luxury hotel connected to Galleria Mall offering modern rooms and premium facilities.",
+        "location": {
+          "address": "Galleria Mall",
+          "city": "Amman",
+          "country": "Jordan"
+        },
+        "startingFrom": 180,
+        "facilities": [
+          "Free WiFi",
+          "Restaurant",
+          "Gym",
+          "Room Service",
+          "Parking"
+        ],
+        "images": [
+          "amman/radisson/1.jpg",
+          "amman/radisson/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Junior Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 180
+          },
+          {
+            "name": "Premium Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 220
+          },
+          {
+            "name": "Two Bedroom Family Room",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 250
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Aswan",
+    "city_ar": "أسوان",
+    "slug": "aswan",
+    "country": "Egypt",
+    "country_ar": "مصر",
+    "region": "North Africa",
+    "coverImage": "aswan/cover.jpg",
+    "description": "Discover Aswan, the peaceful city along the Nile, known for its stunning river views, islands, and ancient history.",
+    "highlights": [
+      "Abu Simbel Temple",
+      "Philae Temple",
+      "Felucca Sailing",
+      "Nubian Village"
+    ],
+    "galleryImages": [
+      "aswan/gallery/1.jpg",
+      "aswan/gallery/2.jpg",
+      "aswan/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Movenpick Resort Aswan",
+        "slug": "movenpick-aswan",
+        "stars": 5,
+        "rating": 4.7,
+        "reviewsCount": 1500,
+        "description": "Luxury island resort on Elephantine Island offering panoramic Nile views and peaceful atmosphere.",
+        "location": {
+          "address": "Elephantine Island",
+          "city": "Aswan",
+          "country": "Egypt"
+        },
+        "startingFrom": 280,
+        "facilities": [
+          "Pool",
+          "Free WiFi",
+          "Spa",
+          "Restaurant",
+          "Boat Transfer",
+          "Nile View"
+        ],
+        "images": [
+          "aswan/movenpick/1.jpg",
+          "aswan/movenpick/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Classic Nile View Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 270
+          },
+          {
+            "name": "Superior Nile View Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 320
+          },
+          {
+            "name": "Duplex Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 450
+          },
+          {
+            "name": "Panoramic Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 500
+          },
+          {
+            "name": "Presidential Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 900
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Sofitel Legend Old Cataract",
+        "slug": "sofitel-old-cataract",
+        "stars": 5,
+        "rating": 4.9,
+        "reviewsCount": 2000,
+        "description": "Historic luxury hotel on the Nile, known for its royal heritage and Agatha Christie legacy.",
+        "location": {
+          "address": "Nile Corniche",
+          "city": "Aswan",
+          "country": "Egypt"
+        },
+        "startingFrom": 900,
+        "facilities": [
+          "Pool",
+          "Spa",
+          "Free WiFi",
+          "Luxury Dining",
+          "Nile View",
+          "Historic Palace"
+        ],
+        "images": [
+          "aswan/sofitel/1.jpg",
+          "aswan/sofitel/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Classic Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 900
+          },
+          {
+            "name": "Premium Nile View Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 1100
+          },
+          {
+            "name": "Historical Wing Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 1400
+          },
+          {
+            "name": "Agatha Christie Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 2200
+          },
+          {
+            "name": "Presidential Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 3000
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Tolip Aswan Hotel",
+        "slug": "tolip-aswan",
+        "stars": 4,
+        "rating": 4.3,
+        "reviewsCount": 900,
+        "description": "Modern hotel on the Nile Corniche offering great location and good value.",
+        "location": {
+          "address": "Nile Corniche",
+          "city": "Aswan",
+          "country": "Egypt"
+        },
+        "startingFrom": 130,
+        "facilities": [
+          "Free WiFi",
+          "Restaurant",
+          "Pool",
+          "Gym",
+          "Nile View"
+        ],
+        "images": [
+          "aswan/tolip/1.jpg",
+          "aswan/tolip/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Classic Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 130
+          },
+          {
+            "name": "Deluxe Nile View Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 180
+          },
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 240
+          },
+          {
+            "name": "Junior Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 280
+          },
+          {
+            "name": "Executive Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 350
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Pyramisa Island Resort Aswan",
+        "slug": "pyramisa-island-aswan",
+        "stars": 5,
+        "rating": 4.4,
+        "reviewsCount": 1100,
+        "description": "Relaxing island resort surrounded by nature with private beaches and pools.",
+        "location": {
+          "address": "Elephantine Island",
+          "city": "Aswan",
+          "country": "Egypt"
+        },
+        "startingFrom": 180,
+        "facilities": [
+          "Pool",
+          "Free WiFi",
+          "Private Beach",
+          "Restaurant",
+          "Garden",
+          "Nile View"
+        ],
+        "images": [
+          "aswan/pyramisa/1.jpg",
+          "aswan/pyramisa/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 150
+          },
+          {
+            "name": "Nile View Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 200
+          },
+          {
+            "name": "Deluxe Nile View Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 240
+          },
+          {
+            "name": "Junior Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 300
+          },
+          {
+            "name": "Two Bedroom Villa",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 450
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Basma Hotel Aswan",
+        "slug": "basma-aswan",
+        "stars": 4,
+        "rating": 4.2,
+        "reviewsCount": 800,
+        "description": "Hilltop hotel offering panoramic views of the Nile and peaceful artistic atmosphere.",
+        "location": {
+          "address": "Obelisk Hill",
+          "city": "Aswan",
+          "country": "Egypt"
+        },
+        "startingFrom": 110,
+        "facilities": [
+          "Pool",
+          "Free WiFi",
+          "Restaurant",
+          "Garden",
+          "Panoramic View"
+        ],
+        "images": [
+          "aswan/basma/1.jpg",
+          "aswan/basma/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Garden View Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 110
+          },
+          {
+            "name": "City View Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 140
+          },
+          {
+            "name": "Nile View Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 180
+          },
+          {
+            "name": "Nile View Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 250
+          },
+          {
+            "name": "Presidential Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 400
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Sharm El Sheikh",
+    "city_ar": "شرم الشيخ",
+    "slug": "sharm-el-sheikh",
+    "country": "Egypt",
+    "country_ar": "مصر",
+    "region": "Red Sea",
+    "coverImage": "sharm/cover.jpg",
+    "description": "A luxury Red Sea destination known for beaches, diving, and world-class resorts.",
+    "hotels": [
+      {
+        "name": "Pickalbatros Laguna Club Resort",
+        "slug": "pickalbatros-laguna-club",
+        "stars": 5,
+        "rating": 4.6,
+        "reviewsCount": 1500,
+        "description": "Luxury resort with private beach, aqua park, and multiple dining options.",
+        "location": {
+          "address": "Nabq Bay",
+          "city": "Sharm El Sheikh",
+          "country": "Egypt"
+        },
+        "startingFrom": 130,
+        "facilities": [
+          "Private Beach",
+          "Pool",
+          "Spa",
+          "Gym",
+          "Waterpark",
+          "Restaurant"
+        ],
+        "images": [
+          "sharm/pickalbatros/1.jpg",
+          "sharm/pickalbatros/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 140
+          },
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 130
+          },
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 200
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Cleopatra Luxury Resort Sharm",
+        "slug": "cleopatra-luxury-resort",
+        "stars": 5,
+        "rating": 4.7,
+        "reviewsCount": 1300,
+        "description": "Adults-only luxury resort with spa, private beach, and fine dining.",
+        "location": {
+          "address": "Rehana Beach",
+          "city": "Sharm El Sheikh",
+          "country": "Egypt"
+        },
+        "startingFrom": 170,
+        "facilities": [
+          "Private Beach",
+          "Pool",
+          "Spa",
+          "Gym",
+          "Restaurant",
+          "Yoga"
+        ],
+        "images": [
+          "sharm/cleopatra/1.jpg",
+          "sharm/cleopatra/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 180
+          },
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 160
+          },
+          {
+            "name": "Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 250
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "White Hills Resort",
+        "slug": "white-hills-resort",
+        "stars": 5,
+        "rating": 4.8,
+        "reviewsCount": 900,
+        "description": "High-end beachfront resort with luxury spa and diving experiences.",
+        "location": {
+          "address": "White Knight Bay",
+          "city": "Sharm El Sheikh",
+          "country": "Egypt"
+        },
+        "startingFrom": 220,
+        "facilities": [
+          "Private Beach",
+          "Pool",
+          "Spa",
+          "Diving",
+          "Gym",
+          "Restaurant"
+        ],
+        "images": [
+          "sharm/white-hills/1.jpg",
+          "sharm/white-hills/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 250
+          },
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 230
+          },
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 350
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Sunrise Montemare Resort",
+        "slug": "sunrise-montemare",
+        "stars": 5,
+        "rating": 4.7,
+        "reviewsCount": 1200,
+        "description": "Luxury resort with private beach, spa, and fine dining restaurants.",
+        "location": {
+          "address": "Ras Um Sid",
+          "city": "Sharm El Sheikh",
+          "country": "Egypt"
+        },
+        "startingFrom": 230,
+        "facilities": [
+          "Private Beach",
+          "Pool",
+          "Spa",
+          "Gym",
+          "Restaurants",
+          "VIP Services"
+        ],
+        "images": [
+          "sharm/montemare/1.jpg",
+          "sharm/montemare/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 240
+          },
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 220
+          },
+          {
+            "name": "Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 320
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Xperience Kiroseiz Parkland",
+        "slug": "xperience-kiroseiz",
+        "stars": 4,
+        "rating": 4.3,
+        "reviewsCount": 800,
+        "description": "All-inclusive resort with aqua park and multiple pools near Naama Bay.",
+        "location": {
+          "address": "Naama Bay",
+          "city": "Sharm El Sheikh",
+          "country": "Egypt"
+        },
+        "startingFrom": 100,
+        "facilities": [
+          "Pool",
+          "Waterpark",
+          "Gym",
+          "Restaurant",
+          "Entertainment"
+        ],
+        "images": [
+          "sharm/kiroseiz/1.jpg",
+          "sharm/kiroseiz/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 110
+          },
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 100
+          },
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 150
+          }
+        ],
+        "locationType": "Beach"
+      }
+    ]
+  },
+  {
+    "city": "Hurghada",
+    "city_ar": "الغردقة",
+    "slug": "hurghada",
+    "country": "Egypt",
+    "region": "Red Sea",
+    "coverImage": "hurghada/cover.jpg",
+    "description": "Hurghada is a top Red Sea destination known for its beaches, resorts, and diving spots.",
+    "highlights": [
+      "Red Sea Beaches",
+      "Snorkeling & Diving",
+      "Desert Safari",
+      "Marina Nightlife"
+    ],
+    "galleryImages": [
+      "hurghada/gallery/1.jpg",
+      "hurghada/gallery/2.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Steigenberger ALDAU Beach Hotel",
+        "slug": "steigenberger-aldau",
+        "stars": 5,
+        "rating": 4.7,
+        "description": "Luxury beachfront hotel with large gardens, private beach, and premium service.",
+        "location": {
+          "city": "Hurghada",
+          "country": "Egypt"
+        },
+        "startingFrom": 6000,
+        "images": [
+          "hurghada/steigenberger/1.jpg",
+          "hurghada/steigenberger/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 6500
+          },
+          {
+            "name": "Superior Suite Sea View",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 8500
+          },
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 8000
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "SUNRISE Garden Beach Resort",
+        "slug": "sunrise-garden-beach",
+        "stars": 5,
+        "rating": 4.5,
+        "description": "Family-friendly resort with water park and daily entertainment.",
+        "location": {
+          "city": "Hurghada",
+          "country": "Egypt"
+        },
+        "startingFrom": 5500,
+        "images": [
+          "hurghada/sunrise/1.jpg",
+          "hurghada/sunrise/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Superior Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 6000
+          },
+          {
+            "name": "Deluxe Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 7500
+          },
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 8000
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Pickalbatros Alf Leila Wa Leila",
+        "slug": "alf-leila-wa-leila",
+        "stars": 4,
+        "rating": 4.4,
+        "description": "Entertainment-themed resort inspired by Arabian Nights with aqua park.",
+        "location": {
+          "city": "Hurghada",
+          "country": "Egypt"
+        },
+        "startingFrom": 4500,
+        "images": [
+          "hurghada/alf-leila/1.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 5000
+          },
+          {
+            "name": "Deluxe Pool View",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 6500
+          },
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 8500
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "The Makadi Spa Hotel",
+        "slug": "makadi-spa",
+        "stars": 5,
+        "rating": 4.6,
+        "description": "Adults-only peaceful resort perfect for couples and honeymoon.",
+        "location": {
+          "city": "Hurghada",
+          "country": "Egypt"
+        },
+        "startingFrom": 6500,
+        "images": [
+          "hurghada/makadi/1.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Junior Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 7000
+          },
+          {
+            "name": "Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 9000
+          },
+          {
+            "name": "Private Pool Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 14000
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "The Oberoi Beach Resort",
+        "slug": "oberoi-hurghada",
+        "stars": 5,
+        "rating": 4.9,
+        "description": "Ultra luxury resort offering privacy, premium service, and stunning sea views.",
+        "location": {
+          "city": "Hurghada",
+          "country": "Egypt"
+        },
+        "startingFrom": 18000,
+        "images": [
+          "hurghada/oberoi/1.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 20000
+          },
+          {
+            "name": "Superior Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 26000
+          },
+          {
+            "name": "Premier Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 40000
+          }
+        ],
+        "locationType": "Beach"
+      }
+    ]
+  },
+  {
+    "city": "Beirut",
+    "city_ar": "بيروت",
+    "country": "Lebanon",
+    "country_ar": "لبنان",
+    "region": "Middle East",
+    "hotels": [
+      {
+        "name": "Crowne Plaza Beirut by IHG",
+        "slug": "crowne-plaza-beirut-by-ihg",
+        "stars": 5,
+        "rating": 3.9,
+        "location": "Hamra Street, Beirut",
+        "distance_to_airport_km": 8,
+        "rooms": [
+          {
+            "type": "Standard Room",
+            "size_sqm": "24-33",
+            "beds": "2 Twin or 1 King",
+            "features": [
+              "Balcony",
+              "Sea View",
+              "Lounge Access"
+            ],
+            "price_usd": 5527,
+            "capacity": 2
+          },
+          {
+            "type": "Premium Room",
+            "size_sqm": "30-32",
+            "beds": "1 King",
+            "features": [
+              "Balcony",
+              "Sea View",
+              "Lounge Access"
+            ],
+            "price_usd": 7652,
+            "capacity": 2
+          },
+          {
+            "type": "Junior Suite",
+            "size_sqm": 48,
+            "beds": "1 King",
+            "price_usd": 9097,
+            "capacity": 2
+          },
+          {
+            "type": "Falls Suite",
+            "size_sqm": 73,
+            "beds": "1 King",
+            "price_usd": 10097,
+            "capacity": 2
+          },
+          {
+            "type": "Crowne Suite",
+            "size_sqm": 151,
+            "beds": "1 King + 2 Twin",
+            "features": [
+              "Sea View",
+              "Lounge Access"
+            ],
+            "price_usd": 10097,
+            "capacity": 2
+          },
+          {
+            "type": "Taj Suite",
+            "size_sqm": 145,
+            "beds": "1 King + 2 Twin",
+            "features": [
+              "Balcony"
+            ],
+            "price_usd": 12097,
+            "capacity": 2
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Radisson Blu Martinez Beirut",
+        "slug": "radisson-blu-martinez-beirut",
+        "stars": 5,
+        "rating": 4.2,
+        "location": "Beirut City Center",
+        "distance_to_airport_km": 10,
+        "rooms": [
+          {
+            "type": "Cozy Small Room",
+            "beds": "1 Queen or 1 King",
+            "price_usd": 10097,
+            "capacity": 2
+          },
+          {
+            "type": "Executive Room with Lounge Access",
+            "beds": "1 King or 2 Queen",
+            "price_usd": 9097,
+            "capacity": 4
+          },
+          {
+            "type": "Junior Corner Suite",
+            "beds": "1 King",
+            "price_usd": 7097,
+            "capacity": 3
+          },
+          {
+            "type": "Suite with Lounge Access",
+            "beds": "1 King",
+            "price_usd": 8097,
+            "capacity": 4
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "The Smallville Hotel",
+        "slug": "the-smallville-hotel",
+        "stars": 5,
+        "rating": 4.5,
+        "location": "Badaro District, Beirut",
+        "distance_to_airport_km": 10,
+        "rooms": [
+          {
+            "type": "Deluxe Twin Room",
+            "beds": "2 Twin Beds",
+            "price_usd": 6097,
+            "capacity": 3
+          },
+          {
+            "type": "Premium King Room",
+            "beds": "1 Double Bed",
+            "price_usd": 10097,
+            "capacity": 3
+          },
+          {
+            "type": "Premium One-Bedroom Suite",
+            "beds": "1 Double Bed",
+            "price_usd": 9097,
+            "capacity": 3
+          },
+          {
+            "type": "Two Bedroom Empire Suite",
+            "beds": "2 Double Beds",
+            "price_usd": 7097,
+            "capacity": 4
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Eden Hotel",
+        "slug": "eden-hotel-beirut",
+        "stars": 4,
+        "rating": 4,
+        "location": "Beirut",
+        "distance_to_airport_km": 11,
+        "rooms": [
+          {
+            "type": "Deluxe Double Room",
+            "beds": "2 Single Beds",
+            "price_usd": 4783,
+            "capacity": 2
+          },
+          {
+            "type": "Executive Suite",
+            "beds": "1 King + Sofa Beds",
+            "price_usd": 11957,
+            "capacity": 2
+          },
+          {
+            "type": "Family Suite",
+            "beds": "1 King + 2 Single Beds + Sofa Beds",
+            "price_usd": 16739,
+            "capacity": 4
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Ramada by Wyndham Downtown Beirut",
+        "slug": "ramada-downtown-beirut",
+        "stars": 4,
+        "rating": 4.4,
+        "location": "Downtown Beirut",
+        "distance_to_airport_km": 11,
+        "rooms": [
+          {
+            "type": "Standard King Room",
+            "beds": "1 Double Bed",
+            "price_usd": 5739,
+            "capacity": 2
+          },
+          {
+            "type": "Deluxe Room",
+            "beds": "1 Queen + Sofa Bed",
+            "price_usd": 5739,
+            "capacity": 4
+          },
+          {
+            "type": "Standard Accessible Room",
+            "beds": "2 Queen Beds",
+            "price_usd": 7097,
+            "capacity": 4
+          },
+          {
+            "type": "Standard Accessible King Room",
+            "beds": "1 King Bed",
+            "price_usd": 10097,
+            "capacity": 2
+          },
+          {
+            "type": "Deluxe King Room",
+            "beds": "1 King + Sofa Bed",
+            "price_usd": 12097,
+            "capacity": 3
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ],
+    "slug": "beirut"
+  },
+  {
+    "city": "Riyadh",
+    "city_ar": "الرياض",
+    "country": "Saudi Arabia",
+    "country_ar": "السعودية",
+    "region": "Middle East",
+    "hotels": [
+      {
+        "name": "Radisson Hotel Riyadh Airport",
+        "slug": "radisson-hotel-riyadh-airport",
+        "stars": 4,
+        "rating": 4.3,
+        "location": "Near King Khalid International Airport",
+        "distance_to_airport_km": 1,
+        "rooms": [
+          {
+            "type": "Standard Room",
+            "size_sqm": 62,
+            "beds": "1 King or 2 Twin",
+            "price_usd": 9097,
+            "capacity_adults": 2,
+            "capacity_children": 2
+          },
+          {
+            "type": "Superior Room with Balcony",
+            "beds": "1 King or 2 Twin",
+            "price_usd": 10097,
+            "capacity_adults": 2,
+            "capacity_children": 2
+          },
+          {
+            "type": "Two Bedroom Suite",
+            "beds": "2 King",
+            "price_usd": 11097,
+            "capacity_adults": 6,
+            "capacity_children": 3
+          },
+          {
+            "type": "Two Bedroom Duplex Suite",
+            "beds": "2 King",
+            "price_usd": 12097,
+            "capacity_adults": 4,
+            "capacity_children": 2
+          },
+          {
+            "type": "Three Bedroom Executive Villa with Terrace",
+            "beds": "2 King",
+            "price_usd": 6097,
+            "capacity_adults": 6,
+            "capacity_children": 4
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Sofitel Riyadh Hotel and Convention Centre",
+        "slug": "sofitel-riyadh-hotel-convention-centre",
+        "stars": 5,
+        "rating": 4.2,
+        "location": "Riyadh city",
+        "distance_to_airport_km": 32,
+        "rooms": [
+          {
+            "type": "Superior Room",
+            "beds": "1 King",
+            "size_sqm": 43,
+            "price_usd": 297,
+            "capacity": 2
+          },
+          {
+            "type": "Deluxe Room City View",
+            "beds": "1 King or 2 Single",
+            "size_sqm": 44,
+            "price_usd": 338,
+            "capacity": 2,
+            "features": [
+              "City View"
+            ]
+          },
+          {
+            "type": "Luxury Spacious Room City View",
+            "beds": "1 King",
+            "size_sqm": 55,
+            "price_usd": 379,
+            "capacity": 2,
+            "features": [
+              "City View"
+            ]
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "AW Hotel Riyadh",
+        "slug": "aw-hotel-riyadh",
+        "stars": 4,
+        "rating": 4.2,
+        "location": "Riyadh city",
+        "distance_to_airport_km": 30,
+        "rooms": [
+          {
+            "type": "Standard King Room",
+            "beds": "1 Double Bed",
+            "price_usd": 12097,
+            "capacity": 2
+          },
+          {
+            "type": "Standard Twin Room",
+            "beds": "2 Single Beds",
+            "price_usd": 11097,
+            "capacity": 2
+          },
+          {
+            "type": "King Suite",
+            "beds": "1 Double Bed",
+            "price_usd": 9097,
+            "capacity": 2
+          },
+          {
+            "type": "Handicap Room",
+            "beds": "1 Double Bed",
+            "price_usd": 8097,
+            "capacity": 2
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Radisson Blu Hotel Riyadh Convention and Exhibition Center",
+        "slug": "radisson-blu-riyadh-convention-exhibition-center",
+        "stars": 5,
+        "rating": 4.3,
+        "location": "Riyadh city",
+        "distance_to_airport_km": 23,
+        "rooms": [
+          {
+            "type": "Standard Room",
+            "size_sqm": 32,
+            "beds": "1 King or 2 Twin",
+            "price_usd": 10097,
+            "capacity_adults": 2,
+            "capacity_children": 1
+          },
+          {
+            "type": "Superior Room",
+            "size_sqm": 32,
+            "beds": "1 King or 2 Twin",
+            "price_usd": 9097,
+            "capacity_adults": 2,
+            "capacity_children": 1
+          },
+          {
+            "type": "Junior Suite with Lounge Access",
+            "size_sqm": 55,
+            "beds": "1 King or 2 Twin",
+            "price_usd": 11097,
+            "capacity_adults": 3,
+            "capacity_children": 2
+          },
+          {
+            "type": "Executive Suite with Lounge Access",
+            "beds": "1 King or 2 Twin",
+            "price_usd": 13097,
+            "capacity_adults": 3,
+            "capacity_children": 2
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Modrest Hotel Riyadh",
+        "slug": "modrest-hotel-riyadh",
+        "stars": 5,
+        "rating": 4.4,
+        "location": "Riyadh city",
+        "distance_to_airport_km": 20,
+        "rooms": [
+          {
+            "type": "Executive Suite",
+            "size_sqm": 80,
+            "beds": "2 King",
+            "price_usd": 6097,
+            "capacity_adults": 4
+          },
+          {
+            "type": "Junior Suite",
+            "size_sqm": 60,
+            "beds": "1 King",
+            "price_usd": 8097,
+            "capacity_adults": 2
+          },
+          {
+            "type": "Deluxe Room",
+            "size_sqm": 35,
+            "beds": "1 King",
+            "price_usd": 11097,
+            "capacity_adults": 2
+          },
+          {
+            "type": "Basic Room",
+            "size_sqm": 40,
+            "beds": "1 King",
+            "price_usd": 9097,
+            "capacity_adults": 4
+          },
+          {
+            "type": "Standard King Room",
+            "size_sqm": 25,
+            "beds": "1 Double Bed",
+            "price_usd": 10097,
+            "capacity_adults": 3
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ],
+    "slug": "riyadh"
+  },
+  {
+    "city": "London",
+    "city_ar": "لندن",
+    "slug": "london",
+    "country": "United Kingdom",
+    "country_ar": "المملكة المتحدة",
+    "region": "Western Europe",
+    "coverImage": "london/cover.jpg",
+    "description": "Explore London, the capital of the United Kingdom, a 21st-century city with history stretching back to Roman times, known for its iconic landmarks and vibrant culture.",
+    "highlights": [
+      "Buckingham Palace",
+      "London Eye",
+      "Tower of London",
+      "British Museum"
+    ],
+    "galleryImages": [
+      "london/gallery/1.jpg",
+      "london/gallery/2.jpg",
+      "london/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Hyatt Regency London - The Churchill",
+        "slug": "hyatt-regency-london-churchill",
+        "stars": 5,
+        "rating": 4.4,
+        "reviewsCount": 1500,
+        "description": "Luxury hotel in Marylebone, near Hyde Park and Oxford Street, featuring family-friendly suites and unique Churchill-themed artwork.",
+        "location": {
+          "address": "Portman Square, Marylebone",
+          "city": "London",
+          "country": "United Kingdom"
+        },
+        "startingFrom": 430,
+        "facilities": [
+          "Regency Club lounges",
+          "24-hour fitness center",
+          "Spa services",
+          "Tennis court",
+          "Free WiFi",
+          "The Montagu Kitchen"
+        ],
+        "images": [
+          "london/hyatt-regency-london-churchill/1.jpg",
+          "london/hyatt-regency-london-churchill/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Bed",
+            "type": "Double",
+            "capacity": 1,
+            "pricePerNight": 430
+          },
+          {
+            "name": "Twin Beds",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 430
+          },
+          {
+            "name": "Family Room Garden View",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 1250
+          },
+          {
+            "name": "King Bed with Garden View",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 517
+          },
+          {
+            "name": "The Churchill Residential Suite",
+            "type": "Suite",
+            "capacity": 6,
+            "pricePerNight": 3724
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "St. James' Court, A Taj Hotel, London",
+        "slug": "st-james-court-taj-london",
+        "stars": 4,
+        "rating": 4.2,
+        "reviewsCount": 1250,
+        "description": "Centrally located luxury hotel near Buckingham Palace with a peaceful courtyard and Michelin-starred dining.",
+        "location": {
+          "address": "Buckingham Gate, Westminster",
+          "city": "London",
+          "country": "United Kingdom"
+        },
+        "startingFrom": 240,
+        "facilities": [
+          "Spa & Wellness Center",
+          "24-hour Gym",
+          "Michelin-starred Quilon",
+          "Free WiFi",
+          "Afternoon Tea at Kona"
+        ],
+        "images": [
+          "london/st-james-court-taj-london/1.jpg",
+          "london/st-james-court-taj-london/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Executive Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 240
+          },
+          {
+            "name": "Executive King Room",
+            "type": "King",
+            "capacity": 3,
+            "pricePerNight": 317
+          },
+          {
+            "name": "Premium Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 423
+          },
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 655
+          },
+          {
+            "name": "Premium Master Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 671
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Chapter Ealing in North Acton",
+        "slug": "chapter-ealing-north-acton",
+        "stars": 3,
+        "rating": 3.8,
+        "reviewsCount": 600,
+        "description": "Practical and eco-friendly accommodation with kitchenettes, ideal for budget-conscious solo travelers and short stays.",
+        "location": {
+          "address": "North Acton",
+          "city": "London",
+          "country": "United Kingdom"
+        },
+        "startingFrom": 157,
+        "facilities": [
+          "Free WiFi",
+          "Fitness Room",
+          "Kitchenette",
+          "Eco-friendly/Carbon-offset",
+          "Luggage storage"
+        ],
+        "images": [
+          "london/chapter-ealing-north-acton/1.jpg",
+          "london/chapter-ealing-north-acton/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Compact Room - Single - Lower Ground",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 157
+          },
+          {
+            "name": "Compact Room - Single",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 161
+          },
+          {
+            "name": "Compact Room - Queen - Lower Ground",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 177
+          },
+          {
+            "name": "Original Studio - Kitchenette",
+            "type": "Studio",
+            "capacity": 4,
+            "pricePerNight": 229
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Park Plaza London Waterloo",
+        "slug": "park-plaza-london-waterloo",
+        "stars": 4,
+        "rating": 4.2,
+        "reviewsCount": 1800,
+        "description": "Modern hotel near London Eye and South Bank featuring an indoor pool and rooms with London skyline views.",
+        "location": {
+          "address": "Hercules Road, Waterloo",
+          "city": "London",
+          "country": "United Kingdom"
+        },
+        "startingFrom": 206,
+        "facilities": [
+          "Indoor swimming pool",
+          "Sauna & Steam room",
+          "Gym",
+          "ESPA bathroom amenities",
+          "On-site coffee bar"
+        ],
+        "images": [
+          "london/park-plaza-london-waterloo/1.jpg",
+          "london/park-plaza-london-waterloo/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Superior Twin Room",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 206
+          },
+          {
+            "name": "Executive Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 232
+          },
+          {
+            "name": "One Bedroom Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 231
+          },
+          {
+            "name": "Executive Studio King Room",
+            "type": "Studio",
+            "capacity": 3,
+            "pricePerNight": 261
+          },
+          {
+            "name": "Studio Twin Room",
+            "type": "Studio",
+            "capacity": 3,
+            "pricePerNight": 281
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "The Prince Akatoki London",
+        "slug": "prince-akatoki-london",
+        "stars": 5,
+        "rating": 4.5,
+        "reviewsCount": 950,
+        "description": "Luxury 5-star experience inspired by Japanese hospitality, featuring minimalist design and a tranquil atmosphere.",
+        "location": {
+          "address": "Great Cumberland Place, Marylebone",
+          "city": "London",
+          "country": "United Kingdom"
+        },
+        "startingFrom": 291,
+        "facilities": [
+          "TOKii Japanese Dining",
+          "The Malt Lounge and Bar",
+          "TOTO smart toilets",
+          "Yoga mat set",
+          "Rain showers"
+        ],
+        "images": [
+          "london/prince-akatoki-london/1.jpg",
+          "london/prince-akatoki-london/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 291
+          },
+          {
+            "name": "Executive Junior Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 439
+          },
+          {
+            "name": "Studio Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 505
+          },
+          {
+            "name": "One Bedroom Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 589
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Abu Dhabi",
+    "city_ar": "أبوظبي",
+    "slug": "abu-dhabi",
+    "country": "United Arab Emirates",
+    "country_ar": "الإمارات العربية المتحدة",
+    "region": "Middle East",
+    "coverImage": "abu-dhabi/cover.jpg",
+    "description": "Abu Dhabi, the capital of the UAE, features a blend of ancient heritage and modern architecture on the shores of the Arabian Gulf.",
+    "highlights": [
+      "Sheikh Zayed Grand Mosque",
+      "Emirates Palace",
+      "Louvre Abu Dhabi",
+      "Yas Island"
+    ],
+    "galleryImages": [
+      "abu-dhabi/gallery/1.jpg",
+      "abu-dhabi/gallery/2.jpg",
+      "abu-dhabi/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Emirates Palace Mandarin Oriental",
+        "slug": "emirates-palace",
+        "stars": 5,
+        "rating": 4.9,
+        "reviewsCount": 2500,
+        "description": "An architectural masterpiece with Islamic inspiration, featuring 394 luxury rooms and a dome coated in 22-carat gold.",
+        "location": {
+          "address": "West Corniche Road",
+          "city": "Abu Dhabi",
+          "country": "United Arab Emirates"
+        },
+        "startingFrom": 1800,
+        "facilities": [
+          "Private Beach",
+          "10 Restaurants",
+          "3 Swimming Pools",
+          "Global Spa",
+          "Free WiFi"
+        ],
+        "images": [
+          "abu-dhabi/emirates-palace/1.jpg",
+          "abu-dhabi/emirates-palace/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 1800
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 2600
+          },
+          {
+            "name": "VIP Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 8500
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "The St. Regis Abu Dhabi",
+        "slug": "st-regis-abu-dhabi",
+        "stars": 5,
+        "rating": 4.8,
+        "reviewsCount": 1800,
+        "description": "A luxury 54-story tower overlooking the Corniche with stunning views of the Gulf and Abu Dhabi skyline.",
+        "location": {
+          "address": "Nation Towers, Corniche",
+          "city": "Abu Dhabi",
+          "country": "United Arab Emirates"
+        },
+        "startingFrom": 1400,
+        "facilities": [
+          "Infinity Pool",
+          "2 Fine Dining Restaurants",
+          "24/7 Butler Service",
+          "Spa",
+          "Gym"
+        ],
+        "images": [
+          "abu-dhabi/st-regis/1.jpg",
+          "abu-dhabi/st-regis/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 1400
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 2100
+          },
+          {
+            "name": "Abu Dhabi Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 5200
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Hilton Abu Dhabi Corniche",
+        "slug": "hilton-abu-dhabi-corniche",
+        "stars": 4,
+        "rating": 4.4,
+        "reviewsCount": 1200,
+        "description": "A 4-star hotel on the Corniche coast, offering a private beach and comprehensive facilities at reasonable prices.",
+        "location": {
+          "address": "Corniche Road",
+          "city": "Abu Dhabi",
+          "country": "United Arab Emirates"
+        },
+        "startingFrom": 550,
+        "facilities": [
+          "Private Beach",
+          "2 Pools",
+          "Fitness Center",
+          "Free WiFi",
+          "Restaurant"
+        ],
+        "images": [
+          "abu-dhabi/hilton-corniche/1.jpg",
+          "abu-dhabi/hilton-corniche/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 550
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 750
+          },
+          {
+            "name": "Executive Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 1500
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Yas Island Rotana",
+        "slug": "yas-island-rotana",
+        "stars": 3,
+        "rating": 4.2,
+        "reviewsCount": 950,
+        "description": "Excellent value hotel located next to Yas Marina Circuit and Yas Mall, ideal for entertainment lovers.",
+        "location": {
+          "address": "Yas Island",
+          "city": "Abu Dhabi",
+          "country": "United Arab Emirates"
+        },
+        "startingFrom": 300,
+        "facilities": [
+          "Pool",
+          "2 Restaurants",
+          "Business Center",
+          "Free WiFi",
+          "Gym"
+        ],
+        "images": [
+          "abu-dhabi/yas-rotana/1.jpg",
+          "abu-dhabi/yas-rotana/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 300
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 420
+          },
+          {
+            "name": "Family Suite",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 750
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Citymax Boutique",
+        "slug": "citymax-boutique-abu-dhabi",
+        "stars": 2,
+        "rating": 3.8,
+        "reviewsCount": 500,
+        "description": "Budget boutique hotel offering clean and comfortable service in the heart of Abu Dhabi.",
+        "location": {
+          "address": "City Center",
+          "city": "Abu Dhabi",
+          "country": "United Arab Emirates"
+        },
+        "startingFrom": 150,
+        "facilities": [
+          "Free WiFi",
+          "Snack Bar",
+          "Room Service",
+          "Air Conditioning"
+        ],
+        "images": [
+          "abu-dhabi/citymax/1.jpg",
+          "abu-dhabi/citymax/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 150
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 220
+          },
+          {
+            "name": "Superior Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 320
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Dubai",
+    "city_ar": "دبي",
+    "slug": "dubai",
+    "country": "United Arab Emirates",
+    "country_ar": "الإمارات العربية المتحدة",
+    "region": "Middle East",
+    "coverImage": "dubai/cover.jpg",
+    "description": "Dubai, the city of dreams and innovation, known for its skyscrapers, luxury shopping, and being a 21st-century icon.",
+    "highlights": [
+      "Burj Khalifa",
+      "Burj Al Arab",
+      "The Palm Jumeirah",
+      "Dubai Mall"
+    ],
+    "galleryImages": [
+      "dubai/gallery/1.jpg",
+      "dubai/gallery/2.jpg",
+      "dubai/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Burj Al Arab Jumeirah",
+        "slug": "burj-al-arab",
+        "stars": 5,
+        "rating": 4.9,
+        "reviewsCount": 3000,
+        "description": "The world's most famous sail-shaped hotel. Features 202 duplex suites and is often described as a 7-star hotel.",
+        "location": {
+          "address": "Jumeirah Beach",
+          "city": "Dubai",
+          "country": "United Arab Emirates"
+        },
+        "startingFrom": 7500,
+        "facilities": [
+          "Underwater Restaurant",
+          "Rooftop Helipad",
+          "9 Restaurants",
+          "Butler Service",
+          "Private Beach"
+        ],
+        "images": [
+          "dubai/burj-al-arab/1.jpg",
+          "dubai/burj-al-arab/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe Single Suite",
+            "type": "Suite",
+            "capacity": 1,
+            "pricePerNight": 7500
+          },
+          {
+            "name": "Double Duplex Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 11000
+          },
+          {
+            "name": "Royal Suite",
+            "type": "Suite",
+            "capacity": 6,
+            "pricePerNight": 65000
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Atlantis The Palm",
+        "slug": "atlantis-the-palm",
+        "stars": 5,
+        "rating": 4.7,
+        "reviewsCount": 5000,
+        "description": "An integrated entertainment destination on Palm Jumeirah, home to the largest water park in the Middle East and a giant aquarium.",
+        "location": {
+          "address": "Palm Jumeirah",
+          "city": "Dubai",
+          "country": "United Arab Emirates"
+        },
+        "startingFrom": 1900,
+        "facilities": [
+          "Aquaventure Waterpark",
+          "Lost Chambers Aquarium",
+          "21 Restaurants",
+          "Private Beach",
+          "Global Spa"
+        ],
+        "images": [
+          "dubai/atlantis/1.jpg",
+          "dubai/atlantis/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 1900
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 2700
+          },
+          {
+            "name": "Underwater Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 12000
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Marriott Harbour City",
+        "slug": "marriott-harbour-city",
+        "stars": 4,
+        "rating": 4.3,
+        "reviewsCount": 1100,
+        "description": "First-class business hotel in Dubai Internet City with premium commercial and leisure facilities.",
+        "location": {
+          "address": "Dubai Internet City",
+          "city": "Dubai",
+          "country": "United Arab Emirates"
+        },
+        "startingFrom": 700,
+        "facilities": [
+          "Conference Center",
+          "Infinity Pool",
+          "2 International Restaurants",
+          "Free WiFi",
+          "Gym"
+        ],
+        "images": [
+          "dubai/marriott-harbour/1.jpg",
+          "dubai/marriott-harbour/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 700
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 950
+          },
+          {
+            "name": "Executive Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 2200
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Ibis Styles Dubai Jumeirah",
+        "slug": "ibis-styles-jumeirah",
+        "stars": 3,
+        "rating": 4,
+        "reviewsCount": 800,
+        "description": "Modern hotel with a vibrant design, suitable for young travelers and families on a budget.",
+        "location": {
+          "address": "Jumeirah District",
+          "city": "Dubai",
+          "country": "United Arab Emirates"
+        },
+        "startingFrom": 280,
+        "facilities": [
+          "Rooftop Pool",
+          "Free Breakfast",
+          "Free WiFi",
+          "Restaurant",
+          "Gym"
+        ],
+        "images": [
+          "dubai/ibis-styles/1.jpg",
+          "dubai/ibis-styles/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 280
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 380
+          },
+          {
+            "name": "Superior Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 500
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Eurostars Prima Dubai",
+        "slug": "eurostars-prima-dubai",
+        "stars": 2,
+        "rating": 3.5,
+        "reviewsCount": 400,
+        "description": "Clean budget hotel suitable for short stays or business travelers with limited budgets.",
+        "location": {
+          "address": "Al Qusais",
+          "city": "Dubai",
+          "country": "United Arab Emirates"
+        },
+        "startingFrom": 120,
+        "facilities": [
+          "Breakfast Room",
+          "Laundry Service",
+          "Free WiFi in Lobby",
+          "Air Conditioning"
+        ],
+        "images": [
+          "dubai/eurostars-prima/1.jpg",
+          "dubai/eurostars-prima/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 120
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 180
+          },
+          {
+            "name": "Deluxe Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 250
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Doha",
+    "city_ar": "الدوحة",
+    "slug": "doha",
+    "country": "Qatar",
+    "country_ar": "قطر",
+    "region": "Middle East",
+    "coverImage": "doha/cover.jpg",
+    "description": "Doha, the capital of Qatar, offers a unique blend of authentic Gulf heritage and modern skylines on the Eastern Corniche.",
+    "highlights": [
+      "Museum of Islamic Art",
+      "Souq Waqif",
+      "The Pearl-Qatar",
+      "Katara Cultural Village"
+    ],
+    "galleryImages": [
+      "doha/gallery/1.jpg",
+      "doha/gallery/2.jpg",
+      "doha/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Four Seasons Hotel Doha",
+        "slug": "four-seasons-doha",
+        "stars": 5,
+        "rating": 4.9,
+        "reviewsCount": 2100,
+        "description": "An architectural masterpiece on the Doha Corniche, blending international luxury with Gulf authenticity.",
+        "location": {
+          "address": "The Corniche",
+          "city": "Doha",
+          "country": "Qatar"
+        },
+        "startingFrom": 1650,
+        "facilities": [
+          "Private Beach",
+          "Global Spa",
+          "5 Fine Dining Restaurants",
+          "Infinity Pool",
+          "Free WiFi"
+        ],
+        "images": [
+          "doha/four-seasons/1.jpg",
+          "doha/four-seasons/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 1650
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 4,
+            "pricePerNight": 2500
+          },
+          {
+            "name": "Penthouse Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 9200
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Sheraton Grand Doha Resort",
+        "slug": "sheraton-grand-doha",
+        "stars": 5,
+        "rating": 4.8,
+        "reviewsCount": 2800,
+        "description": "A historic Doha landmark with its unique pyramidal design, featuring vast gardens and a private lagoon.",
+        "location": {
+          "address": "Al Corniche Street",
+          "city": "Doha",
+          "country": "Qatar"
+        },
+        "startingFrom": 1100,
+        "facilities": [
+          "10,000 sqm Gardens",
+          "Spa Center",
+          "Multiple Sports Courts",
+          "6 Restaurants",
+          "Private Beach"
+        ],
+        "images": [
+          "doha/sheraton-grand/1.jpg",
+          "doha/sheraton-grand/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 1100
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 4,
+            "pricePerNight": 1700
+          },
+          {
+            "name": "Royal Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 5800
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Crowne Plaza Doha",
+        "slug": "crowne-plaza-doha",
+        "stars": 4,
+        "rating": 4.3,
+        "reviewsCount": 1300,
+        "description": "A premium business hotel in the heart of Doha's commercial district, providing high-level conference services.",
+        "location": {
+          "address": "Business Park",
+          "city": "Doha",
+          "country": "Qatar"
+        },
+        "startingFrom": 580,
+        "facilities": [
+          "Integrated Business Center",
+          "Pool",
+          "Spa",
+          "2 Restaurants",
+          "Free WiFi"
+        ],
+        "images": [
+          "doha/crowne-plaza/1.jpg",
+          "doha/crowne-plaza/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 580
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 820
+          },
+          {
+            "name": "Executive Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 1800
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "citizenM Doha",
+        "slug": "citizenm-doha",
+        "stars": 4,
+        "rating": 4.5,
+        "reviewsCount": 700,
+        "description": "A modern boutique technology hotel in the Msheireb Heritage District. Everything is app-controlled.",
+        "location": {
+          "address": "Msheireb Downtown",
+          "city": "Doha",
+          "country": "Qatar"
+        },
+        "startingFrom": 350,
+        "facilities": [
+          "24/7 Lobby & Cafe",
+          "Co-working Space",
+          "Smart Room Control",
+          "High-speed WiFi",
+          "Rooftop"
+        ],
+        "images": [
+          "doha/citizenm/1.jpg",
+          "doha/citizenm/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Room",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 350
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 480
+          },
+          {
+            "name": "Plus Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 650
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Liwan Hotel Apartments",
+        "slug": "liwan-apartments-doha",
+        "stars": 3,
+        "rating": 4,
+        "reviewsCount": 450,
+        "description": "Fully equipped hotel apartments, an excellent choice for long stays or families.",
+        "location": {
+          "address": "Al Rayyan District",
+          "city": "Doha",
+          "country": "Qatar"
+        },
+        "startingFrom": 180,
+        "facilities": [
+          "Equipped Kitchen",
+          "Free Laundry",
+          "Free Parking",
+          "Free WiFi",
+          "Room Service"
+        ],
+        "images": [
+          "doha/liwan-apartments/1.jpg",
+          "doha/liwan-apartments/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Single Apartment",
+            "type": "Single",
+            "capacity": 1,
+            "pricePerNight": 180
+          },
+          {
+            "name": "Double Apartment",
+            "type": "Double",
+            "capacity": 4,
+            "pricePerNight": 300
+          },
+          {
+            "name": "Family Apartment",
+            "type": "Family",
+            "capacity": 6,
+            "pricePerNight": 500
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Barcelona",
+    "city_ar": "برشلونة",
+    "slug": "barcelona",
+    "country": "Spain",
+    "country_ar": "إسبانيا",
+    "region": "Europe",
+    "coverImage": "barcelona/cover.jpg",
+    "description": "Barcelona, a Mediterranean jewel known for its unique art, modernist architecture by Gaudí, and vibrant culinary scene in the heart of Catalonia.",
+    "highlights": [
+      "La Sagrada Família",
+      "Park Güell",
+      "Casa Batlló",
+      "Las Ramblas"
+    ],
+    "galleryImages": [
+      "barcelona/gallery/1.jpg",
+      "barcelona/gallery/2.jpg",
+      "barcelona/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Hotel El Palace Barcelona",
+        "slug": "hotel-el-palace-barcelona",
+        "stars": 5,
+        "rating": 4.7,
+        "reviewsCount": 231,
+        "description": "A historic luxury hotel opened in 1919, featuring a neo-classical façade, a Mayan-style luxury spa, and a rooftop garden with panoramic city views.",
+        "location": {
+          "address": "Eixample District",
+          "city": "Barcelona",
+          "country": "Spain"
+        },
+        "startingFrom": 1158,
+        "facilities": [
+          "Mayan-style Spa",
+          "Rooftop Garden",
+          "Outdoor Pool",
+          "Fitness Center",
+          "Limousine Service"
+        ],
+        "images": [
+          "barcelona/el-palace/1.jpg",
+          "barcelona/el-palace/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Family Suite",
+            "type": "Family",
+            "capacity": 5,
+            "pricePerNight": 1981
+          },
+          {
+            "name": "Two-bedroom Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 2946
+          },
+          {
+            "name": "Superior Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 1158
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Renaissance Barcelona Hotel",
+        "slug": "renaissance-barcelona",
+        "stars": 5,
+        "rating": 4.4,
+        "reviewsCount": 35,
+        "description": "An elegant hotel in the heart of the city featuring Gaudí-inspired décor and a stylish rooftop bar (Goja Rooftop) offering Mediterranean cuisine.",
+        "location": {
+          "address": "Passeig de Gràcia Area",
+          "city": "Barcelona",
+          "country": "Spain"
+        },
+        "startingFrom": 498,
+        "facilities": [
+          "Goja Rooftop",
+          "Rumbo Bar & Eatery",
+          "Fitness Center",
+          "Concierge Service",
+          "Free WiFi"
+        ],
+        "images": [
+          "barcelona/renaissance/1.jpg",
+          "barcelona/renaissance/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Prestige Room",
+            "type": "Double/Twin",
+            "capacity": 3,
+            "pricePerNight": 498
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Novotel Barcelona City",
+        "slug": "novotel-barcelona-city",
+        "stars": 4,
+        "rating": 4.2,
+        "reviewsCount": 1000,
+        "description": "Situated in the avant-garde area near Glories Tower, this hotel offers a seasonal rooftop pool and Mediterranean dining with panoramic views.",
+        "location": {
+          "address": "Avinguda Diagonal, 201",
+          "city": "Barcelona",
+          "country": "Spain"
+        },
+        "startingFrom": 250,
+        "facilities": [
+          "Rooftop Swimming Pool",
+          "Gourmet Bar",
+          "Gym",
+          "Free WiFi for Kids",
+          "Meeting Rooms"
+        ],
+        "images": [
+          "barcelona/novotel/1.jpg",
+          "barcelona/novotel/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 408
+          },
+          {
+            "name": "Suite (Wing)",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 412
+          },
+          {
+            "name": "Standard Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 250
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Barceló Raval",
+        "slug": "barcelo-raval",
+        "stars": 4,
+        "rating": 4.5,
+        "reviewsCount": 820,
+        "description": "A modern and sophisticated design hotel in the vibrant El Raval neighborhood, famous for its 360º panoramic rooftop terrace and pool.",
+        "location": {
+          "address": "El Raval",
+          "city": "Barcelona",
+          "country": "Spain"
+        },
+        "startingFrom": 223,
+        "facilities": [
+          "360º Rooftop Terrace",
+          "Rooftop Pool",
+          "B-Lounge Restaurant",
+          "Gym",
+          "Free WiFi"
+        ],
+        "images": [
+          "barcelona/barcelo-raval/1.jpg",
+          "barcelona/barcelo-raval/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Superior Adjoining Rooms",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 446
+          },
+          {
+            "name": "Superior Triple Room",
+            "type": "Triple",
+            "capacity": 3,
+            "pricePerNight": 312
+          },
+          {
+            "name": "Superior Double or Twin Room",
+            "type": "Double/Twin",
+            "capacity": 2,
+            "pricePerNight": 223
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Astoria Hotel",
+        "slug": "astoria-hotel-barcelona",
+        "stars": 3,
+        "rating": 4.3,
+        "reviewsCount": 450,
+        "description": "Combines original Art Nouveau features with modern facilities, located just off Diagonal Avenue with a seasonal rooftop pool.",
+        "location": {
+          "address": "Eixample / Diagonal Avenue",
+          "city": "Barcelona",
+          "country": "Spain"
+        },
+        "startingFrom": 203,
+        "facilities": [
+          "Rooftop Pool",
+          "Gym",
+          "Catalan Restaurant",
+          "Art Nouveau Features",
+          "24-hour Front Desk"
+        ],
+        "images": [
+          "barcelona/astoria/1.jpg",
+          "barcelona/astoria/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Double or Twin Room",
+            "type": "Double/Twin",
+            "capacity": 2,
+            "pricePerNight": 203
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Paris",
+    "city_ar": "باريس",
+    "slug": "paris",
+    "country": "France",
+    "country_ar": "فرنسا",
+    "region": "Europe",
+    "coverImage": "paris/cover.jpg",
+    "description": "Paris, the City of Light, is a world capital of art, fashion, and gastronomy. It is famous for its iconic landmarks, romantic atmosphere, and rich historical heritage.",
+    "highlights": [
+      "Eiffel Tower",
+      "Louvre Museum",
+      "Arc de Triomphe",
+      "Champs-Élysées"
+    ],
+    "galleryImages": [
+      "paris/gallery/1.jpg",
+      "paris/gallery/2.jpg",
+      "paris/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Hôtel du Collectionneur",
+        "slug": "hotel-du-collectionneur",
+        "stars": 5,
+        "rating": 4.3,
+        "reviewsCount": 380,
+        "description": "Featuring Art Deco décor, this hotel is a 10-minute walk from the Champs-Élysées. It offers a new luxury spa and an Andalusian courtyard.",
+        "location": {
+          "address": "Directly opposite Parc Monceau",
+          "city": "Paris",
+          "country": "France"
+        },
+        "startingFrom": 565.7,
+        "facilities": [
+          "Luxury Spa",
+          "Fitness Center",
+          "Le Collectionneur Restaurant",
+          "Andalusian Courtyard",
+          "On-site Parking"
+        ],
+        "images": [
+          "paris/collectionneur/1.jpg",
+          "paris/collectionneur/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe King Room",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 565.7
+          },
+          {
+            "name": "Prestige King Unit",
+            "type": "Prestige",
+            "capacity": 2,
+            "pricePerNight": 755
+          },
+          {
+            "name": "Deluxe Room with Two Double Beds",
+            "type": "Double",
+            "capacity": 4,
+            "pricePerNight": 755
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Hotel SAX Paris, LXR Hotels & Resorts",
+        "slug": "hotel-sax-paris",
+        "stars": 5,
+        "rating": 4.8,
+        "reviewsCount": 34,
+        "description": "A luxury 5-star property located near the Rodin Museum, offering an outdoor pool, a garden, and exceptional personalized service.",
+        "location": {
+          "address": "Near Rodin Museum",
+          "city": "Paris",
+          "country": "France"
+        },
+        "startingFrom": 951,
+        "facilities": [
+          "Outdoor Pool",
+          "Sauna & Hot Tub",
+          "Garden",
+          "Fine Dining Restaurant",
+          "24-hour Front Desk"
+        ],
+        "images": [
+          "paris/sax-paris/1.jpg",
+          "paris/sax-paris/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe King Room",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 951
+          },
+          {
+            "name": "Prestige Twin Room",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 951
+          },
+          {
+            "name": "Three Connecting Family Rooms",
+            "type": "Family",
+            "capacity": 3,
+            "pricePerNight": 3401
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Pullman Paris Eiffel Tower",
+        "slug": "pullman-paris-eiffel-tower",
+        "stars": 4,
+        "rating": 4.3,
+        "reviewsCount": 980,
+        "description": "Located at the foot of the Eiffel Tower, this hotel offers spectacular views and a seasonal rooftop bar called '10e Ciel'.",
+        "location": {
+          "address": "Left Bank, near Eiffel Tower",
+          "city": "Paris",
+          "country": "France"
+        },
+        "startingFrom": 651,
+        "facilities": [
+          "10e Ciel Rooftop Bar",
+          "FRAME Brasserie",
+          "Panoramic Event Spaces",
+          "Fitness Center",
+          "Balconies with Views"
+        ],
+        "images": [
+          "paris/pullman-eiffel/1.jpg",
+          "paris/pullman-eiffel/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Classic Twin Room with Balcony",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 651
+          },
+          {
+            "name": "Deluxe Twin Room Top Floor",
+            "type": "Triple",
+            "capacity": 3,
+            "pricePerNight": 1215
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Rochester Champs Elysees",
+        "slug": "rochester-champs-elysees",
+        "stars": 4,
+        "rating": 4.5,
+        "reviewsCount": 190,
+        "description": "A 4-star hotel steps from the Champs-Élysées, featuring a classic French style, a spa with hammam, and a cozy lounge bar.",
+        "location": {
+          "address": "Near Saint-Philippe-du-Roule Metro",
+          "city": "Paris",
+          "country": "France"
+        },
+        "startingFrom": 445,
+        "facilities": [
+          "Spa with Hammam",
+          "Fitness Center",
+          "Lounge Bar",
+          "Concierge Service",
+          "American Breakfast"
+        ],
+        "images": [
+          "paris/rochester/1.jpg",
+          "paris/rochester/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Classic Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 445
+          },
+          {
+            "name": "Deluxe Double or Twin Room",
+            "type": "Double/Twin",
+            "capacity": 4,
+            "pricePerNight": 645
+          },
+          {
+            "name": "Junior Wing",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 720
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Hôtel Eden Opéra",
+        "slug": "eden-opera",
+        "stars": 3,
+        "rating": 4.3,
+        "reviewsCount": 530,
+        "description": "Located near Pigalle, this modern hotel features a sake bar and the 'Le Pigalle Fromage Club' restaurant.",
+        "location": {
+          "address": "Near Galeries Lafayette",
+          "city": "Paris",
+          "country": "France"
+        },
+        "startingFrom": 275,
+        "facilities": [
+          "Sake Bar",
+          "Le Pigalle Fromage Club",
+          "Terrace Breakfast",
+          "Chromecast in Rooms",
+          "24-hour Reception"
+        ],
+        "images": [
+          "paris/eden-opera/1.jpg",
+          "paris/eden-opera/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Superior Triple Room",
+            "type": "Triple",
+            "capacity": 3,
+            "pricePerNight": 275
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Rome",
+    "city_ar": "روما",
+    "slug": "rome",
+    "country": "Italy",
+    "country_ar": "إيطاليا",
+    "region": "Europe",
+    "coverImage": "rome/cover.jpg",
+    "description": "The Eternal City, where ancient history meets modern life. From the iconic Colosseum to the artistic treasures of the Vatican, Rome is a living museum under the Mediterranean sun.",
+    "highlights": [
+      "The Colosseum",
+      "Trevi Fountain",
+      "The Pantheon",
+      "Vatican Museums"
+    ],
+    "galleryImages": [
+      "rome/gallery/1.jpg",
+      "rome/gallery/2.jpg",
+      "rome/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Hotel Palazzo Manfredi",
+        "slug": "palazzo-manfredi",
+        "stars": 5,
+        "rating": 4.5,
+        "reviewsCount": 84,
+        "description": "A luxury hotel offering stunning views of the Colosseum from its rooftop terrace. Known for its elegant rooms and the unique opportunity to rent a Lamborghini.",
+        "location": {
+          "address": "Via Labicana, 125 (Near Colosseo Metro)",
+          "city": "Rome",
+          "country": "Italy"
+        },
+        "startingFrom": 799,
+        "facilities": [
+          "Rooftop Terrace",
+          "Colosseum Views",
+          "Lamborghini Rental",
+          "Self-catering Apartments",
+          "Cocktail Bar"
+        ],
+        "images": [
+          "rome/palazzo-manfredi/1.jpg",
+          "rome/palazzo-manfredi/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Luxury Apartment",
+            "type": "Apartment",
+            "capacity": 5,
+            "pricePerNight": 799
+          },
+          {
+            "name": "Jinnah Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 2705
+          },
+          {
+            "name": "Luxury Suite with Hot Tub",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 2435
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Singer Palace Hotel Roma",
+        "slug": "singer-palace-hotel",
+        "stars": 5,
+        "rating": 4.8,
+        "reviewsCount": 87,
+        "description": "Set on the famous Via del Corso shopping street, this boutique hotel features a rooftop restaurant and elegant Art Deco-inspired design.",
+        "location": {
+          "address": "Via del Corso (Near Trevi Fountain)",
+          "city": "Rome",
+          "country": "Italy"
+        },
+        "startingFrom": 584,
+        "facilities": [
+          "Rooftop Restaurant",
+          "Homemade Breakfast",
+          "Italian Seafood Dining",
+          "Concierge Service",
+          "Air Conditioning"
+        ],
+        "images": [
+          "rome/singer-palace/1.jpg",
+          "rome/singer-palace/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe Two-Bedroom Suite",
+            "type": "Suite",
+            "capacity": 5,
+            "pricePerNight": 1635
+          },
+          {
+            "name": "Junior Suite",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 993
+          },
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 584
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Hotel dei Barbieri",
+        "slug": "hotel-dei-barbieri",
+        "stars": 4,
+        "rating": 4.3,
+        "reviewsCount": 187,
+        "description": "A stylish and modern hotel located near Largo Argentina, offering contemporary design within walking distance of the Pantheon and Piazza Navona.",
+        "location": {
+          "address": "Near Largo Argentina",
+          "city": "Rome",
+          "country": "Italy"
+        },
+        "startingFrom": 509,
+        "facilities": [
+          "Daily Italian Breakfast",
+          "Bicycle Rental",
+          "Concierge Service",
+          "Free WiFi",
+          "Tour Desk"
+        ],
+        "images": [
+          "rome/dei-barbieri/1.jpg",
+          "rome/dei-barbieri/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Two Adjoining Rooms",
+            "type": "Family",
+            "capacity": 5,
+            "pricePerNight": 779
+          },
+          {
+            "name": "Superior Double Room",
+            "type": "Double",
+            "capacity": 3,
+            "pricePerNight": 509
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "FH55 Grand Hotel Palatino",
+        "slug": "grand-hotel-palatino",
+        "stars": 4,
+        "rating": 4.5,
+        "reviewsCount": 975,
+        "description": "Located in the historic Monti District, this hotel offers a generous American bar and traditional Roman dishes at Le Spighe restaurant.",
+        "location": {
+          "address": "Monti District (Near Cavour Metro)",
+          "city": "Rome",
+          "country": "Italy"
+        },
+        "startingFrom": 392,
+        "facilities": [
+          "Le Spighe Restaurant",
+          "American Bar",
+          "Buffet Breakfast from 06:30",
+          "Business Meeting Rooms",
+          "City View Rooms"
+        ],
+        "images": [
+          "rome/grand-hotel-palatino/1.jpg",
+          "rome/grand-hotel-palatino/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe Family Room",
+            "type": "Family",
+            "capacity": 5,
+            "pricePerNight": 1405
+          },
+          {
+            "name": "Suite with Spa Bath",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 1220
+          },
+          {
+            "name": "Classic Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 392
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Hotel Alessandrino",
+        "slug": "hotel-alessandrino",
+        "stars": 3,
+        "rating": 3.9,
+        "reviewsCount": 175,
+        "description": "A quiet residential hotel near the Vatican, featuring a rooftop terrace with breathtaking views of St. Peter's Basilica.",
+        "location": {
+          "address": "Near San Pietro Railway Station",
+          "city": "Rome",
+          "country": "Italy"
+        },
+        "startingFrom": 261,
+        "facilities": [
+          "Rooftop Terrace",
+          "Vatican Views",
+          "24-hour Front Desk",
+          "Free WiFi",
+          "Snack Bar"
+        ],
+        "images": [
+          "rome/alessandrino/1.jpg",
+          "rome/alessandrino/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 5,
+            "pricePerNight": 278
+          },
+          {
+            "name": "Triple Room",
+            "type": "Triple",
+            "capacity": 3,
+            "pricePerNight": 261
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Los Angeles",
+    "city_ar": "لوس أنجلوس",
+    "slug": "los-angeles",
+    "country": "United States",
+    "country_ar": "الولايات المتحدة الأمريكية",
+    "region": "North America",
+    "coverImage": "los-angeles/cover.jpg",
+    "description": "The entertainment capital of the world, Los Angeles offers iconic Hollywood landmarks, stunning Pacific beaches, and a diverse cultural landscape from Downtown to Santa Monica.",
+    "highlights": [
+      "Hollywood Sign",
+      "Santa Monica Pier",
+      "Griffith Observatory",
+      "The Getty Center"
+    ],
+    "galleryImages": [
+      "los-angeles/gallery/1.jpg",
+      "los-angeles/gallery/2.jpg",
+      "los-angeles/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "InterContinental - Los Angeles Downtown",
+        "slug": "intercontinental-la-downtown",
+        "stars": 5,
+        "rating": 4.4,
+        "reviewsCount": null,
+        "description": "Located in the tallest building in the West, this hotel features Spire 73, the tallest open-air bar in the Western Hemisphere, and an outdoor pool.",
+        "location": {
+          "address": "Downtown Los Angeles",
+          "city": "Los Angeles",
+          "country": "USA"
+        },
+        "startingFrom": 356,
+        "facilities": [
+          "Outdoor Pool",
+          "Spire 73 Rooftop Bar",
+          "La Boucherie Steakhouse",
+          "Fitness Center",
+          "Free WiFi"
+        ],
+        "images": [
+          "los-angeles/intercontinental/1.jpg",
+          "los-angeles/intercontinental/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Classic King Room Skyline View",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 356
+          },
+          {
+            "name": "Classic 2 Queen City View",
+            "type": "Double Queen",
+            "capacity": 4,
+            "pricePerNight": 356
+          },
+          {
+            "name": "Junior Suite City View",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 416
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Level Hollywood",
+        "slug": "level-hollywood",
+        "stars": 5,
+        "rating": 4.7,
+        "reviewsCount": null,
+        "description": "Sophisticated apartment-style living with full kitchens and in-suite laundry, plus premium amenities like a steam room and outdoor pool.",
+        "location": {
+          "address": "Hollywood",
+          "city": "Los Angeles",
+          "country": "USA"
+        },
+        "startingFrom": 175,
+        "facilities": [
+          "Full Kitchens",
+          "In-suite Laundry",
+          "Outdoor Pool",
+          "Spa & Wellness Center",
+          "Fitness Room"
+        ],
+        "images": [
+          "los-angeles/level-hollywood/1.jpg",
+          "los-angeles/level-hollywood/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Level Suite (Studio)",
+            "type": "Studio",
+            "capacity": 2,
+            "pricePerNight": 175
+          },
+          {
+            "name": "Two Bedroom Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 400
+          },
+          {
+            "name": "Townhome",
+            "type": "Townhome",
+            "capacity": 6,
+            "pricePerNight": 300
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "The LINE Hotel LA",
+        "slug": "the-line-hotel-la",
+        "stars": 4,
+        "rating": 4,
+        "reviewsCount": null,
+        "description": "A stylish mid-century building in Koreatown featuring floor-to-ceiling windows and poolside dining at Openaire Restaurant.",
+        "location": {
+          "address": "Koreatown",
+          "city": "Los Angeles",
+          "country": "USA"
+        },
+        "startingFrom": 249,
+        "facilities": [
+          "Outdoor Pool",
+          "Openaire Restaurant",
+          "Fitness Center",
+          "Bicycle Hire",
+          "Art Collective Poketo"
+        ],
+        "images": [
+          "los-angeles/the-line/1.jpg",
+          "los-angeles/the-line/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Room",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 249
+          },
+          {
+            "name": "Double Double Room",
+            "type": "Double",
+            "capacity": 4,
+            "pricePerNight": 279
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "The Biltmore Los Angeles",
+        "slug": "the-biltmore-la",
+        "stars": 4,
+        "rating": 4,
+        "reviewsCount": null,
+        "description": "An iconic historic landmark in the heart of Downtown, featuring a Roman-style indoor pool and timeless grand architecture.",
+        "location": {
+          "address": "Downtown / Pershing Square",
+          "city": "Los Angeles",
+          "country": "USA"
+        },
+        "startingFrom": 229,
+        "facilities": [
+          "Roman-style Indoor Pool",
+          "Smeraldi's Restaurant",
+          "Historic Gallery Bar",
+          "Fitness Center",
+          "Concierge Service"
+        ],
+        "images": [
+          "los-angeles/biltmore/1.jpg",
+          "los-angeles/biltmore/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe Room",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 229
+          },
+          {
+            "name": "Deluxe Two Double Room",
+            "type": "Double",
+            "capacity": 4,
+            "pricePerNight": 229
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Olyver Hotel",
+        "slug": "olyver-hotel",
+        "stars": 3,
+        "rating": 4.2,
+        "reviewsCount": null,
+        "description": "A comfortable 3-star hotel offering budget-friendly accommodations with an on-site restaurant serving Korean cuisine.",
+        "location": {
+          "address": "Near Microsoft Theater",
+          "city": "Los Angeles",
+          "country": "USA"
+        },
+        "startingFrom": 165,
+        "facilities": [
+          "On-site Restaurant",
+          "Sun Terrace",
+          "Business Area",
+          "24-hour Front Desk",
+          "Luggage Storage"
+        ],
+        "images": [
+          "los-angeles/olyver/1.jpg",
+          "los-angeles/olyver/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Queen Room",
+            "type": "Queen",
+            "capacity": 2,
+            "pricePerNight": 165
+          },
+          {
+            "name": "Twin Room",
+            "type": "Double",
+            "capacity": 4,
+            "pricePerNight": 182
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "New York",
+    "city_ar": "نيويورك",
+    "slug": "new-york",
+    "country": "United States",
+    "country_ar": "الولايات المتحدة الأمريكية",
+    "region": "North America",
+    "coverImage": "new-york/cover.jpg",
+    "description": "The city that never sleeps. From the bright lights of Times Square to the green expanse of Central Park, New York City is a global hub of culture, fashion, and history.",
+    "highlights": [
+      "Times Square",
+      "Statue of Liberty",
+      "Empire State Building",
+      "Central Park"
+    ],
+    "galleryImages": [
+      "new-york/gallery/1.jpg",
+      "new-york/gallery/2.jpg",
+      "new-york/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "New York Marriott Marquis",
+        "slug": "marriott-marquis-ny",
+        "stars": 5,
+        "rating": 4.2,
+        "reviewsCount": null,
+        "description": "An iconic hotel in the heart of Times Square featuring 'The View', NYC’s only revolving rooftop restaurant, and spacious, recently renovated accommodations.",
+        "location": {
+          "address": "Times Square, Midtown Manhattan",
+          "city": "New York",
+          "country": "USA"
+        },
+        "startingFrom": 509,
+        "facilities": [
+          "Revolving Rooftop Restaurant",
+          "Fitness Center",
+          "M Club Lounge",
+          "Business Center",
+          "Times Square Views"
+        ],
+        "images": [
+          "new-york/marriott-marquis/1.jpg",
+          "new-york/marriott-marquis/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe Room (2 Double Beds)",
+            "type": "Double",
+            "capacity": 4,
+            "pricePerNight": 509
+          },
+          {
+            "name": "Family Corner Connector",
+            "type": "Family",
+            "capacity": 7,
+            "pricePerNight": 1128
+          },
+          {
+            "name": "Deluxe One Bedroom Suite (M Club Access)",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 1309
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Iroquois New York Times Square",
+        "slug": "iroquois-ny",
+        "stars": 5,
+        "rating": 4.3,
+        "reviewsCount": null,
+        "description": "A luxury boutique hotel offering celebrity-style treatment, a Finnish sauna, and nightly turn-down service with Le Belge chocolates.",
+        "location": {
+          "address": "Midtown Manhattan (Near Times Square)",
+          "city": "New York",
+          "country": "USA"
+        },
+        "startingFrom": 345,
+        "facilities": [
+          "Finnish Sauna",
+          "24-hour Fitness Center",
+          "Nightly Turn-down Service",
+          "Complimentary WiFi",
+          "Daily New York Times Delivery"
+        ],
+        "images": [
+          "new-york/iroquois/1.jpg",
+          "new-york/iroquois/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Superior Queen",
+            "type": "Queen",
+            "capacity": 2,
+            "pricePerNight": 345
+          },
+          {
+            "name": "Deluxe 2 Double Beds",
+            "type": "Double",
+            "capacity": 4,
+            "pricePerNight": 535
+          },
+          {
+            "name": "Executive Three-bedroom Suite",
+            "type": "Suite",
+            "capacity": 6,
+            "pricePerNight": 2100
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Hilton New York Times Square",
+        "slug": "hilton-ny-times-square",
+        "stars": 4,
+        "rating": 3.9,
+        "reviewsCount": null,
+        "description": "Boasting unparalleled city views and themed suites, this hotel is steps away from Broadway and the New York Public Library.",
+        "location": {
+          "address": "Times Square South",
+          "city": "New York",
+          "country": "USA"
+        },
+        "startingFrom": 394,
+        "facilities": [
+          "Fitness Center",
+          "Themed Suites",
+          "On-site Restaurant",
+          "Concierge Service",
+          "Pet-friendly"
+        ],
+        "images": [
+          "new-york/hilton/1.jpg",
+          "new-york/hilton/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "King Bed Deluxe High Floor",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 394
+          },
+          {
+            "name": "Empire View Studio Suite",
+            "type": "Studio",
+            "capacity": 4,
+            "pricePerNight": 474
+          },
+          {
+            "name": "Lion King/Aladdin Themed Suite",
+            "type": "Themed Suite",
+            "capacity": 4,
+            "pricePerNight": 582
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Element Times Square West",
+        "slug": "element-times-square",
+        "stars": 4,
+        "rating": 4,
+        "reviewsCount": null,
+        "description": "A stylish hotel in the Theater District offering rooms with kitchenettes, perfect for longer stays and independent living.",
+        "location": {
+          "address": "Theater District / Times Square West",
+          "city": "New York",
+          "country": "USA"
+        },
+        "startingFrom": 291,
+        "facilities": [
+          "Full Kitchenettes",
+          "Complimentary Breakfast",
+          "Bicycle Rentals",
+          "24-hour Gourmet Pantry",
+          "On-site Gym"
+        ],
+        "images": [
+          "new-york/element/1.jpg",
+          "new-york/element/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Traditional King with Kitchenette",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 291
+          },
+          {
+            "name": "Traditional Two Double Beds",
+            "type": "Double",
+            "capacity": 4,
+            "pricePerNight": 371
+          },
+          {
+            "name": "King One Bedroom Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 371
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Four Points by Sheraton New York Downtown",
+        "slug": "four-points-ny-downtown",
+        "stars": 3,
+        "rating": 4.1,
+        "reviewsCount": null,
+        "description": "Ideally located in the Financial District, providing simple and practical accommodations near Wall Street and Ground Zero.",
+        "location": {
+          "address": "Financial District",
+          "city": "New York",
+          "country": "USA"
+        },
+        "startingFrom": 286,
+        "facilities": [
+          "State-of-the-art Fitness Center",
+          "Free WiFi",
+          "Daily Bottled Water",
+          "24-hour Front Desk",
+          "Soundproof Windows"
+        ],
+        "images": [
+          "new-york/four-points/1.jpg",
+          "new-york/four-points/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Guest Room (2 Double Beds)",
+            "type": "Double",
+            "capacity": 4,
+            "pricePerNight": 286
+          },
+          {
+            "name": "King Bed High Floor",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 320
+          },
+          {
+            "name": "Corner King Room",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 292
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Istanbul",
+    "city_ar": "إسطنبول",
+    "slug": "istanbul",
+    "country": "Turkey",
+    "country_ar": "تركيا",
+    "region": "Europe/Asia",
+    "coverImage": "istanbul/cover.jpg",
+    "description": "Where East meets West, Istanbul is a city of timeless beauty, vibrant bazaars, and majestic mosques, spanning across two continents along the Bosphorus.",
+    "highlights": [
+      "Hagia Sophia",
+      "Blue Mosque",
+      "Grand Bazaar",
+      "Bosphorus Cruise"
+    ],
+    "galleryImages": [
+      "istanbul/gallery/1.jpg",
+      "istanbul/gallery/2.jpg",
+      "istanbul/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Ramada By Wyndham Istanbul Pera Taksim",
+        "slug": "ramada-istanbul-pera",
+        "stars": 4,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "Located in the vibrant Pera/Taksim area, this hotel features uniquely decorated rooms with quotes from famous philosophers and a Mediterranean restaurant with a summer balcony.",
+        "location": {
+          "address": "Pera / Taksim District",
+          "city": "Istanbul",
+          "country": "Turkey"
+        },
+        "startingFrom": 5234,
+        "facilities": [
+          "2 Swimming Pools",
+          "Spa and Wellness Centre",
+          "The Junction Restaurant & Bar",
+          "Fitness Centre",
+          "Concierge Services"
+        ],
+        "images": [
+          "istanbul/ramada-pera/1.jpg",
+          "istanbul/ramada-pera/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 5234
+          },
+          {
+            "name": "Standard Triple Room",
+            "type": "Triple",
+            "capacity": 3,
+            "pricePerNight": 7438
+          },
+          {
+            "name": "Family Room",
+            "type": "Family",
+            "capacity": 4,
+            "pricePerNight": 8540
+          },
+          {
+            "name": "Three Bedroom Suite",
+            "type": "Suite",
+            "capacity": 6,
+            "pricePerNight": 12397
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Days Inn & Suites by Wyndham Istanbul Esenyurt",
+        "slug": "days-inn-esenyurt",
+        "stars": 5,
+        "rating": 4.5,
+        "reviewsCount": null,
+        "description": "A world-class service experience offering a rooftop pool, hammam, and a family-friendly restaurant serving American cuisine with halal options.",
+        "location": {
+          "address": "Esenyurt District",
+          "city": "Istanbul",
+          "country": "Turkey"
+        },
+        "startingFrom": 3591,
+        "facilities": [
+          "Rooftop Swimming Pool",
+          "Hammam & Steam Room",
+          "Sun Terrace",
+          "Free Parking",
+          "Business Area"
+        ],
+        "images": [
+          "istanbul/days-inn/1.jpg",
+          "istanbul/days-inn/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "One-Bedroom Suite with Kitchen",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 3591
+          },
+          {
+            "name": "Standard Twin Room",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 8969
+          },
+          {
+            "name": "Exclusive Suite (2 Bedrooms)",
+            "type": "Suite",
+            "capacity": 5,
+            "pricePerNight": 21560
+          },
+          {
+            "name": "Family Suite with Kitchen",
+            "type": "Family Suite",
+            "capacity": 4,
+            "pricePerNight": 17326
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Pisa Hotel",
+        "slug": "pisa-hotel-istanbul",
+        "stars": 4,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "Situated in the heart of the Laleli district, within walking distance of the Grand Bazaar and Suleymaniye Mosque, offering a rich buffet breakfast.",
+        "location": {
+          "address": "Laleli District",
+          "city": "Istanbul",
+          "country": "Turkey"
+        },
+        "startingFrom": 2699,
+        "facilities": [
+          "Rich Buffet Breakfast",
+          "Snack Bar",
+          "Airport Transfer Service",
+          "24-hour Front Desk",
+          "Car Rental"
+        ],
+        "images": [
+          "istanbul/pisa-hotel/1.jpg",
+          "istanbul/pisa-hotel/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 2699
+          },
+          {
+            "name": "Double or Twin Room",
+            "type": "Double/Twin",
+            "capacity": 2,
+            "pricePerNight": 2699
+          },
+          {
+            "name": "Landmark View Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 3969
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "La Wisteria Boutique Hotel Istanbul",
+        "slug": "la-wisteria-boutique",
+        "stars": 4,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "A modern boutique property in the Sisli district, only 5 years old, featuring Turkish bath facilities and views of the city near Bomontiada.",
+        "location": {
+          "address": "Sisli District",
+          "city": "Istanbul",
+          "country": "Turkey"
+        },
+        "startingFrom": 3174,
+        "facilities": [
+          "Turkish Bath",
+          "Spa Facilities",
+          "Airport Shuttle",
+          "24-hour Front Desk",
+          "City View Rooms"
+        ],
+        "images": [
+          "istanbul/la-wisteria/1.jpg",
+          "istanbul/la-wisteria/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 3174
+          },
+          {
+            "name": "Comfort Double Room (High Floor)",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 3464
+          },
+          {
+            "name": "Deluxe Family Room",
+            "type": "Family",
+            "capacity": 3,
+            "pricePerNight": 4840
+          },
+          {
+            "name": "Corner Triple Room",
+            "type": "Triple",
+            "capacity": 3,
+            "pricePerNight": 5422
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "The Prenses Hotel Yenikapi Istanbul",
+        "slug": "prenses-hotel-yenikapi",
+        "stars": 3,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "Conveniently located near Yenikapi station and the Column of Constantine, this hotel offers family-friendly rooms with parquet floors and a city terrace.",
+        "location": {
+          "address": "Yenikapi",
+          "city": "Istanbul",
+          "country": "Turkey"
+        },
+        "startingFrom": 4898,
+        "facilities": [
+          "City Terrace",
+          "Daily Housekeeping",
+          "Tour Desk",
+          "Lift",
+          "Free WiFi"
+        ],
+        "images": [
+          "istanbul/prenses-hotel/1.jpg",
+          "istanbul/prenses-hotel/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Double or Twin Room",
+            "type": "Double/Twin",
+            "capacity": 2,
+            "pricePerNight": 4898
+          },
+          {
+            "name": "Standard Triple Room",
+            "type": "Triple",
+            "capacity": 3,
+            "pricePerNight": 6122
+          },
+          {
+            "name": "Standard Family Room",
+            "type": "Family",
+            "capacity": 3,
+            "pricePerNight": 6122
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Tokyo",
+    "city_ar": "طوكيو",
+    "slug": "tokyo",
+    "country": "Japan",
+    "country_ar": "اليابان",
+    "region": "Asia",
+    "coverImage": "tokyo/cover.jpg",
+    "description": "A seamless blend of ancient traditions and futuristic technology, Tokyo offers neon-lit skyscrapers, serene temples, and world-class culinary experiences across its diverse wards.",
+    "highlights": [
+      "Shibuya Crossing",
+      "Tokyo Skytree",
+      "Senso-ji Temple",
+      "Meiji Jingu Shrine"
+    ],
+    "galleryImages": [
+      "tokyo/gallery/1.jpg",
+      "tokyo/gallery/2.jpg",
+      "tokyo/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Grand Prince Hotel Shin Takanawa",
+        "slug": "grand-prince-shin-takanawa",
+        "stars": 5,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "Offering a 5-star experience in Minato-ku, this hotel features spacious rooms with balconies, a beautiful garden, and a romantic restaurant serving diverse Asian cuisines.",
+        "location": {
+          "address": "Minato-ku",
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "startingFrom": 8631,
+        "facilities": [
+          "4 Restaurants",
+          "Fitness Centre",
+          "Garden",
+          "24-hour Front Desk",
+          "Private Parking"
+        ],
+        "images": [
+          "tokyo/grand-prince/1.jpg",
+          "tokyo/grand-prince/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Twin Room",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 8631
+          },
+          {
+            "name": "Superior Twin Room",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 10624
+          },
+          {
+            "name": "Club King Room with Lounge Access",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 17705
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Grand Nikko Tokyo Daiba",
+        "slug": "grand-nikko-daiba",
+        "stars": 5,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "A city resort in the Tokyo Bay area, offering panoramic views of the Rainbow Bridge and Tokyo Tower from its upper floors and spectacular dining on the 30th floor.",
+        "location": {
+          "address": "Odaiba, Tokyo Bay",
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "startingFrom": 14907,
+        "facilities": [
+          "Indoor Swimming Pool",
+          "6 Restaurants",
+          "Skyline Views",
+          "Fitness Centre",
+          "Free WiFi"
+        ],
+        "images": [
+          "tokyo/grand-nikko/1.jpg",
+          "tokyo/grand-nikko/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Double Superior Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 14907
+          },
+          {
+            "name": "Superior Twin Room",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 15938
+          },
+          {
+            "name": "Executive Deluxe Twin Room (25th/26th Floor)",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 29599
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Hotel Yaenomidori Tokyo",
+        "slug": "yaenomidori-tokyo",
+        "stars": 4,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "A pleasant stay featuring Japanese cuisine at the on-site restaurant and air-conditioned rooms equipped with bidets and work desks.",
+        "location": {
+          "address": "Central Tokyo",
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "startingFrom": 10103,
+        "facilities": [
+          "On-site Restaurant",
+          "Garden",
+          "24-hour Front Desk",
+          "Daily Housekeeping",
+          "Luggage Storage"
+        ],
+        "images": [
+          "tokyo/yaenomidori/1.jpg",
+          "tokyo/yaenomidori/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Small Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 10103
+          },
+          {
+            "name": "Standard Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 13074
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Ueno Rose",
+        "slug": "ueno-rose-apartment",
+        "stars": 3,
+        "rating": 4.5,
+        "reviewsCount": null,
+        "description": "Spacious apartment-style living in the city centre, featuring a fully equipped kitchen, sauna, and hot tub facilities near Akiba Shrine.",
+        "location": {
+          "address": "Taito-ku (Near Iriya Station)",
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "startingFrom": 3457,
+        "facilities": [
+          "Fully Equipped Kitchen",
+          "Washing Machine",
+          "Sauna",
+          "Hot Tub / Jacuzzi",
+          "Free WiFi"
+        ],
+        "images": [
+          "tokyo/ueno-rose/1.jpg",
+          "tokyo/ueno-rose/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "One-Bedroom Apartment",
+            "type": "Apartment",
+            "capacity": 4,
+            "pricePerNight": 3457
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Sakura Hotel Nippori",
+        "slug": "sakura-hotel-nippori",
+        "stars": 2,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "Conveniently located near Sendagi Station, offering a mix of Western-style and Japanese-style rooms with shared facilities and a continental breakfast.",
+        "location": {
+          "address": "Bunkyo-ku (Near Sendagi Station)",
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "startingFrom": 3142,
+        "facilities": [
+          "24-hour Front Desk",
+          "Luggage Storage",
+          "Shared Kitchen/Bathroom",
+          "Restaurant & Bar",
+          "Laundry Service"
+        ],
+        "images": [
+          "tokyo/sakura-nippori/1.jpg",
+          "tokyo/sakura-nippori/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Western-Style Room (Shared Bathroom)",
+            "type": "Bunk/Sofa",
+            "capacity": 2,
+            "pricePerNight": 3142
+          },
+          {
+            "name": "Japanese-Style Room (Shared Bathroom)",
+            "type": "Futon",
+            "capacity": 3,
+            "pricePerNight": 4285
+          },
+          {
+            "name": "Japanese-Style Room (Shared Bathroom)",
+            "type": "Futon",
+            "capacity": 4,
+            "pricePerNight": 4856
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Maldives",
+    "city_ar": "جزر المالديف",
+    "slug": "maldives",
+    "country": "Maldives",
+    "country_ar": "جزر المالديف",
+    "region": "South Asia",
+    "coverImage": "maldives/cover.jpg",
+    "description": "A tropical paradise of pristine white beaches and turquoise lagoons. The Maldives is the ultimate destination for luxury overwater villas, world-class diving, and unparalleled serenity.",
+    "highlights": [
+      "Overwater Villas",
+      "Scuba Diving & Snorkeling",
+      "Sunset Cruises",
+      "Underwater Dining"
+    ],
+    "galleryImages": [
+      "maldives/gallery/1.jpg",
+      "maldives/gallery/2.jpg",
+      "maldives/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Constance Moofushi Maldives - All Inclusive",
+        "slug": "constance-moofushi",
+        "stars": 5,
+        "rating": 4.6,
+        "reviewsCount": null,
+        "description": "A luxurious beach escape in the South Ari Atoll featuring an infinity pool, overwater spa, and designer villas with uninterrupted Indian Ocean views.",
+        "location": {
+          "address": "South Ari Atoll, Himandhoo",
+          "city": "Maldives",
+          "country": "Maldives"
+        },
+        "startingFrom": 69316,
+        "facilities": [
+          "Infinity Pool",
+          "Overwater Uspa",
+          "Yoga Pavilion",
+          "Diving & Beach Volleyball",
+          "All-Inclusive Dining"
+        ],
+        "images": [
+          "maldives/constance-moofushi/1.jpg",
+          "maldives/constance-moofushi/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Water Villa with Pool",
+            "type": "Water Villa",
+            "capacity": 2,
+            "pricePerNight": 69316
+          },
+          {
+            "name": "Beach Villa with Private Pool",
+            "type": "Beach Villa",
+            "capacity": 2,
+            "pricePerNight": 112190
+          },
+          {
+            "name": "Two-bedroom Beach Residence",
+            "type": "Residence",
+            "capacity": 6,
+            "pricePerNight": 246922
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Heritance Aarah - Premium All Inclusive",
+        "slug": "heritance-aarah",
+        "stars": 5,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "A premium resort in the Raa Atoll accessible by seaplane, offering an extensive dining package across 5 restaurants and exclusive ocean suites with butler service.",
+        "location": {
+          "address": "Raa Atoll",
+          "city": "Maldives",
+          "country": "Maldives"
+        },
+        "startingFrom": 53900,
+        "facilities": [
+          "5 Specialty Restaurants",
+          "Infinity Pool Bar",
+          "Personalized Butler Service",
+          "Private Beach Area",
+          "Premium All-Inclusive Package"
+        ],
+        "images": [
+          "maldives/heritance-aarah/1.jpg",
+          "maldives/heritance-aarah/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Beach Villa - Personalized Butler",
+            "type": "Beach Villa",
+            "capacity": 2,
+            "pricePerNight": 53900
+          },
+          {
+            "name": "Ocean Suite with Infinity Pool",
+            "type": "Ocean Suite",
+            "capacity": 3,
+            "pricePerNight": 89995
+          },
+          {
+            "name": "Two Bedroom Family Beach Villa",
+            "type": "Family Villa",
+            "capacity": 4,
+            "pricePerNight": 105048
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Sevinex Inn",
+        "slug": "sevinex-inn",
+        "stars": 3,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "A charming guest house on Feridhoo Island offering a private beach area, free bicycles, and activities like snorkeling and cycling for a local Maldivian experience.",
+        "location": {
+          "address": "Feridhoo, North Ari Atoll",
+          "city": "Maldives",
+          "country": "Maldives"
+        },
+        "startingFrom": 2829,
+        "facilities": [
+          "Private Beach Area",
+          "Free Bicycles",
+          "Outdoor Fireplace",
+          "Snorkeling Activities",
+          "Halal Dining Options"
+        ],
+        "images": [
+          "maldives/sevinex-inn/1.jpg",
+          "maldives/sevinex-inn/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe Room",
+            "type": "Deluxe",
+            "capacity": 2,
+            "pricePerNight": 2829
+          },
+          {
+            "name": "Double Room with Balcony",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 3389
+          }
+        ],
+        "locationType": "Beach"
+      }
+    ]
+  },
+  {
+    "city": "Makkah",
+    "city_ar": "مكة المكرمة",
+    "slug": "makkah",
+    "country": "Saudi Arabia",
+    "country_ar": "المملكة العربية السعودية",
+    "region": "Middle East",
+    "coverImage": "Makkah/cover.jpg",
+    "description": "The holiest city in Islam and the birthplace of Prophet Muhammad. Makkah is the center of the Islamic world, attracting millions of pilgrims annually for Hajj and Umrah at the Masjid Al Haram.",
+    "highlights": [
+      "Masjid Al Haram",
+      "Kaaba",
+      "Hira Cave",
+      "Jabal al-Nour"
+    ],
+    "galleryImages": [
+      "Makkah/gallery/1.jpg",
+      "Makkah/gallery/2.jpg",
+      "Makkah/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Park Inn by Radisson Makkah Aziziyah",
+        "slug": "park-inn-aziziyah",
+        "stars": 5,
+        "rating": 4.2,
+        "reviewsCount": null,
+        "description": "Elegant 5-star accommodation in Aziziyah featuring spacious air-conditioned rooms, a steam room, and a family-friendly restaurant serving global cuisines.",
+        "location": {
+          "address": "Aziziyah District (7 km from Haram)",
+          "city": "Makkah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 1243,
+        "facilities": [
+          "Fitness Centre",
+          "Steam Room",
+          "Free On-site Parking",
+          "British/French/Middle Eastern Restaurant",
+          "Coffee Shop"
+        ],
+        "images": [
+          "Makkah/park-inn/1.jpg",
+          "Makkah/park-inn/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Guest Room",
+            "type": "Standard",
+            "capacity": 2,
+            "pricePerNight": 1243
+          },
+          {
+            "name": "Superior Room - High Floor",
+            "type": "Superior",
+            "capacity": 2,
+            "pricePerNight": 1658
+          },
+          {
+            "name": "One-Bedroom Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 4559
+          },
+          {
+            "name": "Two-Bedroom Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 5388
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "DoubleTree by Hilton Makkah Aziziyah",
+        "slug": "doubletree-hilton-aziziyah",
+        "stars": 4,
+        "rating": 4.4,
+        "reviewsCount": null,
+        "description": "A modern stay near Um AlQura University offering family rooms, a kids' club, and an international restaurant with a buffet breakfast.",
+        "location": {
+          "address": "Aziziyah District (8 km from Haram)",
+          "city": "Makkah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 2487,
+        "facilities": [
+          "Kids' Club",
+          "International Restaurant",
+          "Concierge Service",
+          "Free On-site Parking",
+          "24-hour Front Desk"
+        ],
+        "images": [
+          "Makkah/doubletree/1.jpg",
+          "Makkah/doubletree/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Triple Room",
+            "type": "Triple",
+            "capacity": 3,
+            "pricePerNight": 2487
+          },
+          {
+            "name": "Quadruple Room",
+            "type": "Quad",
+            "capacity": 4,
+            "pricePerNight": 4282
+          },
+          {
+            "name": "Deluxe Triple Room with City View",
+            "type": "Deluxe",
+            "capacity": 3,
+            "pricePerNight": 3937
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Le Meridien Towers Makkah",
+        "slug": "le-meridien-towers",
+        "stars": 5,
+        "rating": 4.3,
+        "reviewsCount": null,
+        "description": "Elegant suites equipped with kitchenettes, offering a 24-hour free shuttle service to Masjid Al Haram (3 minutes away) and rich local cuisine.",
+        "location": {
+          "address": "Kudai (Near Haram)",
+          "city": "Makkah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 2749,
+        "facilities": [
+          "24-hour Shuttle Service",
+          "Kitchenettes in rooms",
+          "Business Centre",
+          "Lobby Lounge",
+          "Gift Shop"
+        ],
+        "images": [
+          "Makkah/meridien-towers/1.jpg",
+          "Makkah/meridien-towers/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Diplomatic Room (Twin/Single)",
+            "type": "Standard",
+            "capacity": 2,
+            "pricePerNight": 2749
+          },
+          {
+            "name": "Executive 1 Bedroom Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 3716
+          },
+          {
+            "name": "Royal 2 Bedroom Presidential Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 5512
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Al Kiram Hotel Al Azizia",
+        "slug": "al-kiram-hotel",
+        "stars": 3,
+        "rating": 4.2,
+        "reviewsCount": null,
+        "description": "A well-located hotel in Aziziyah near Madhbaḩ Ismā‘īl, featuring soundproofed family rooms and attentive staff services.",
+        "location": {
+          "address": "Aziziyah District (6 km from Haram)",
+          "city": "Makkah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 1019,
+        "facilities": [
+          "Minimarket",
+          "Coffee Shop",
+          "Soundproof Rooms",
+          "Free Off-site Parking",
+          "Daily Housekeeping"
+        ],
+        "images": [
+          "Makkah/al-kiram/1.jpg",
+          "Makkah/al-kiram/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Twin Room",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 1019
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Al Kiswah Towers Hotel",
+        "slug": "al-kiswah-towers",
+        "stars": null,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "Strategically located just 900m from Masjid Al Haram, providing modern and practical rooms with easy access to major pilgrimage sites.",
+        "location": {
+          "address": "At Taysir District (900m from Haram)",
+          "city": "Makkah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 1865,
+        "facilities": [
+          "Free WiFi",
+          "24-hour Reception",
+          "Proximity to Haram",
+          "Information Desk",
+          "Modern Elevators"
+        ],
+        "images": [
+          "Makkah/al-kiswah/1.jpg",
+          "Makkah/al-kiswah/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Twin Room",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 1865
+          },
+          {
+            "name": "Classic Triple Room",
+            "type": "Triple",
+            "capacity": 3,
+            "pricePerNight": 1865
+          },
+          {
+            "name": "Standard Quadruple Room",
+            "type": "Quad",
+            "capacity": 4,
+            "pricePerNight": 2072
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Jeddah",
+    "city_ar": "جدة",
+    "slug": "jeddah",
+    "country": "Saudi Arabia",
+    "country_ar": "المملكة العربية السعودية",
+    "region": "Middle East",
+    "coverImage": "jeddah/cover.jpg",
+    "description": "The Bride of the Red Sea, Jeddah is a major port city known for its stunning corniche, historic Al-Balad district, and vibrant shopping malls, serving as a gateway for pilgrims to Makkah.",
+    "highlights": [
+      "King Fahad Fountain",
+      "Jeddah Corniche",
+      "Al-Balad (Historic Jeddah)",
+      "Red Sea Mall"
+    ],
+    "galleryImages": [
+      "jeddah/gallery/1.jpg",
+      "jeddah/gallery/2.jpg",
+      "jeddah/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "JOUDYAN Red Sea Mall Jeddah",
+        "slug": "joudyan-red-sea-mall",
+        "stars": 5,
+        "rating": 4.6,
+        "reviewsCount": null,
+        "description": "Attached to Jeddah’s Red Sea Mall, this modern hotel offers stylish rooms with floor-to-ceiling windows and panoramic Red Sea views, featuring a spa with a steam bath and a tennis court.",
+        "location": {
+          "address": "Red Sea Mall, Ash Shati",
+          "city": "Jeddah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 8868,
+        "facilities": [
+          "Direct Mall Access",
+          "Full-service Spa",
+          "Ladies Gym",
+          "Tennis Court",
+          "Panoramic View Restaurant"
+        ],
+        "images": [
+          "jeddah/joudyan/1.jpg",
+          "jeddah/joudyan/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 8868
+          },
+          {
+            "name": "Standard Double Room - Sea View",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 10235
+          },
+          {
+            "name": "Junior Suite - Sea View",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 13651
+          }
+        ],
+        "locationType": "Beach"
+      },
+      {
+        "name": "Best Western Plus Jeddah Hotel Madinah Road",
+        "slug": "best-western-plus-madinah-rd",
+        "stars": 4,
+        "rating": null,
+        "reviewsCount": null,
+        "description": "Located near Mall of Arabia, this hotel features a rooftop swimming pool, diverse dining options including African and British cuisines, and modern rooms with work desks.",
+        "location": {
+          "address": "Madinah Road",
+          "city": "Jeddah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 6127,
+        "facilities": [
+          "Rooftop Swimming Pool",
+          "Fitness Centre & Sauna",
+          "Special Diet Menus",
+          "Paid Airport Shuttle",
+          "Business Area"
+        ],
+        "images": [
+          "jeddah/best-western/1.jpg",
+          "jeddah/best-western/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Deluxe King Room",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 6127
+          },
+          {
+            "name": "Superior King Room",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 7241
+          },
+          {
+            "name": "Executive King Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 15597
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Hayat Al Rose Hotel Appartment",
+        "slug": "hayat-al-rose",
+        "stars": 3,
+        "rating": 4,
+        "reviewsCount": null,
+        "description": "Aparthotel-style units featuring kitchenettes and washing machines, conveniently located a short walk from the Jeddah International Exhibition Center.",
+        "location": {
+          "address": "Near Exhibition Center",
+          "city": "Jeddah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 3476,
+        "facilities": [
+          "Kitchenette & Washing Machine",
+          "Minimarket on site",
+          "Outdoor Fireplace",
+          "Free On-site Parking",
+          "Facilities for Disabled Guests"
+        ],
+        "images": [
+          "jeddah/hayat-al-rose/1.jpg",
+          "jeddah/hayat-al-rose/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Superior Double Room",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 3476
+          },
+          {
+            "name": "Junior Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 3841
+          },
+          {
+            "name": "Two-Bedroom Suite",
+            "type": "Suite",
+            "capacity": 4,
+            "pricePerNight": 7864
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Crown Town Hotel",
+        "slug": "crown-town-hotel",
+        "stars": 2,
+        "rating": 4.5,
+        "reviewsCount": null,
+        "description": "Featuring a year-round outdoor pool and close proximity to King Fahad Fountain, this hotel offers comfortable rooms with seating areas and an on-site restaurant.",
+        "location": {
+          "address": "Al Ruwais District",
+          "city": "Jeddah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 3516,
+        "facilities": [
+          "Outdoor Pool",
+          "Free Private Parking",
+          "24-hour Front Desk",
+          "Restaurant",
+          "Free WiFi"
+        ],
+        "images": [
+          "jeddah/crown-town/1.jpg",
+          "jeddah/crown-town/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Standard Twin Room",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 3516
+          },
+          {
+            "name": "Deluxe Double Room - Partial Sea View",
+            "type": "Double",
+            "capacity": 2,
+            "pricePerNight": 3750
+          },
+          {
+            "name": "Deluxe King Suite",
+            "type": "Suite",
+            "capacity": 2,
+            "pricePerNight": 6328
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Novotel Jeddah Tahlia",
+        "slug": "novotel-jeddah-tahlia",
+        "stars": 4,
+        "rating": 4.2,
+        "reviewsCount": null,
+        "description": "Strategically located on the famous Tahlia Street, offering rooftop pool access and panoramic city views from The Palm restaurant.",
+        "location": {
+          "address": "Tahlia Street",
+          "city": "Jeddah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 5498,
+        "facilities": [
+          "Rooftop Swimming Pool",
+          "Steam Room & Sauna",
+          "Palm Restaurant",
+          "Fitness Center",
+          "Luxury Glass Rain Showers"
+        ],
+        "images": [
+          "jeddah/novotel-tahlia/1.jpg",
+          "jeddah/novotel-tahlia/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Superior Double Room with Sofa Bed",
+            "type": "Double",
+            "capacity": 3,
+            "pricePerNight": 5498
+          },
+          {
+            "name": "Deluxe Room with 2 Single Beds",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 6149
+          },
+          {
+            "name": "Executive Suite with King Bed",
+            "type": "Suite",
+            "capacity": 3,
+            "pricePerNight": 11285
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  },
+  {
+    "city": "Al Madinah",
+    "city_ar": "المدينة المنورة",
+    "slug": "al-madinah",
+    "country": "Saudi Arabia",
+    "country_ar": "المملكة العربية السعودية",
+    "region": "Middle East",
+    "coverImage": "madinah/cover.jpg",
+    "description": "The second holiest city in Islam, Al Madinah is home to Al-Masjid an-Nabawi (The Prophet's Mosque). It is a city of immense spiritual significance, peace, and Islamic history.",
+    "highlights": [
+      "Al-Masjid an-Nabawi",
+      "Quba Mosque",
+      "Mount Uhud",
+      "Jannat al-Baqi"
+    ],
+    "galleryImages": [
+      "madinah/gallery/1.jpg",
+      "madinah/gallery/2.jpg",
+      "madinah/gallery/3.jpg"
+    ],
+    "hotels": [
+      {
+        "name": "Sofitel Shahd Al Madinah",
+        "slug": "sofitel-shahd-al-madinah",
+        "stars": 5,
+        "rating": 4.8,
+        "reviewsCount": null,
+        "description": "Located in the pedestrian area just a minute's walk from Al-Masjid an-Nabawi, this luxury hotel features partial Haram views, the exclusive Club Sofitel, and international dining at Arabesque.",
+        "location": {
+          "address": "Pedestrian Area, Near Al-Masjid an-Nabawi",
+          "city": "Al Madinah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 10851,
+        "facilities": [
+          "Club Sofitel Access",
+          "Concierge Service",
+          "Arabic Buffet Breakfast",
+          "Paid Parking",
+          "ATM & Currency Exchange"
+        ],
+        "images": [
+          "madinah/sofitel/1.jpg",
+          "madinah/sofitel/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Classic Room King Bed",
+            "type": "King",
+            "capacity": 2,
+            "pricePerNight": 10851
+          },
+          {
+            "name": "Deluxe Club Room",
+            "type": "Club",
+            "capacity": 2,
+            "pricePerNight": null
+          },
+          {
+            "name": "Family Suite",
+            "type": "Suite",
+            "capacity": 6,
+            "pricePerNight": null
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Millennium Taiba Hotel",
+        "slug": "millennium-taiba-hotel",
+        "stars": 4,
+        "rating": 4.7,
+        "reviewsCount": null,
+        "description": "Offering a modern and traditional ambiance just 8 minutes from the Prophet's Mosque, featuring a fitness centre and a variety of international breakfast options.",
+        "location": {
+          "address": "8-minute walk from Al-Masjid an-Nabawi",
+          "city": "Al Madinah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 5787,
+        "facilities": [
+          "Fitness Centre",
+          "Free On-site Parking",
+          "Bicycle Parking",
+          "Business Area",
+          "Paid Shuttle Service"
+        ],
+        "images": [
+          "madinah/millennium/1.jpg",
+          "madinah/millennium/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Superior Twin Room with City View",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 5787
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Tulip Inn Al Daar Rawafid",
+        "slug": "tulip-inn-al-daar",
+        "stars": 3,
+        "rating": 4.7,
+        "reviewsCount": null,
+        "description": "An exceptionally located 3-star hotel less than 10 meters from Al-Masjid an-Nabawi (Door 9), providing advice for local planning and international breakfast.",
+        "location": {
+          "address": "Central Madinah, Next to Door 9",
+          "city": "Al Madinah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 5567,
+        "facilities": [
+          "Lobby Snack Bar",
+          "Coffee Tray in Rooms",
+          "International Breakfast",
+          "Free WiFi",
+          "Local Planning Advice"
+        ],
+        "images": [
+          "madinah/tulip-inn/1.jpg",
+          "madinah/tulip-inn/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Twin Room with City View",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 5567
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Al Ansar Palace Golden Tulip Hotel",
+        "slug": "al-ansar-palace",
+        "stars": 2,
+        "rating": 4.2,
+        "reviewsCount": null,
+        "description": "Located on the north side of the Prophet's Mosque, this hotel is just a 4-minute walk to the women's entrance (Gate 24) and features 24-hour room service and a trendy café.",
+        "location": {
+          "address": "North side of the Prophet's Mosque",
+          "city": "Al Madinah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 4340,
+        "facilities": [
+          "24-hour Room Service",
+          "Al Ansar Restaurant",
+          "Trendy Café",
+          "Eastern & Western Sweets",
+          "Free WiFi"
+        ],
+        "images": [
+          "madinah/al-ansar/1.jpg",
+          "madinah/al-ansar/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Quadruple Room with Bathroom",
+            "type": "Quad",
+            "capacity": 4,
+            "pricePerNight": 4340
+          }
+        ],
+        "locationType": "City Center"
+      },
+      {
+        "name": "Al Madina Golden Hotel",
+        "slug": "al-madina-golden",
+        "stars": 1,
+        "rating": 4.5,
+        "reviewsCount": null,
+        "description": "A comfortable 1-star option located only a 5-minute walk from Al-Masjid an-Nabawi, offering essential facilities and full-day security for budget-conscious travelers.",
+        "location": {
+          "address": "5-minute walk from Al-Masjid an-Nabawi",
+          "city": "Al Madinah",
+          "country": "Saudi Arabia"
+        },
+        "startingFrom": 4340,
+        "facilities": [
+          "Lounge",
+          "Daily Housekeeping",
+          "Full-day Security",
+          "Lift",
+          "Free WiFi"
+        ],
+        "images": [
+          "madinah/golden-hotel/1.jpg",
+          "madinah/golden-hotel/2.jpg"
+        ],
+        "roomTypes": [
+          {
+            "name": "Twin Room",
+            "type": "Twin",
+            "capacity": 2,
+            "pricePerNight": 4340
+          }
+        ],
+        "locationType": "City Center"
+      }
+    ]
+  }
+]

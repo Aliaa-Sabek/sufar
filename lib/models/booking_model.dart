@@ -1,0 +1,84 @@
+class Booking {
+  final String id;       // MongoDB _id is a string
+  final String userId;
+  final String hotelId;  // MongoDB hotel ref is a string
+  final String checkIn;
+  final String checkOut;
+  final int guests;
+  final double totalPrice;
+  final String status; // pending, confirmed, cancelled, completed
+  final String createdAt;
+  final String? hotelName;   // populated from backend
+  final String? hotelCity;
+
+  Booking({
+    required this.id,
+    required this.userId,
+    required this.hotelId,
+    required this.checkIn,
+    required this.checkOut,
+    required this.guests,
+    required this.totalPrice,
+    required this.status,
+    required this.createdAt,
+    this.hotelName,
+    this.hotelCity,
+  });
+
+  static double _toDouble(dynamic value) {
+    if (value is double) return value;
+    if (value is num) return value.toDouble();
+    if (value is String) return double.tryParse(value) ?? 0.0;
+    return 0.0;
+  }
+
+  static int _toInt(dynamic value) {
+    if (value is int) return value;
+    if (value is num) return value.toInt();
+    if (value is String) return int.tryParse(value) ?? 0;
+    return 0;
+  }
+
+  factory Booking.fromJson(Map<String, dynamic> json) {
+    // Hotel may be a nested object or an ID string
+    final hotelRaw = json['hotel'];
+    String hotelId = '';
+    String? hotelName;
+    String? hotelCity;
+    if (hotelRaw is Map<String, dynamic>) {
+      hotelId = (hotelRaw['_id'] ?? hotelRaw['id'] ?? '').toString();
+      hotelName = hotelRaw['name']?.toString();
+      final loc = hotelRaw['location'] as Map<String, dynamic>?;
+      hotelCity = loc?['city']?.toString();
+    } else if (hotelRaw != null) {
+      hotelId = hotelRaw.toString();
+    }
+    // Fallback to hotelId field
+    if (hotelId.isEmpty) {
+      hotelId = (json['hotelId'] ?? json['hotel_id'] ?? '').toString();
+    }
+
+    return Booking(
+      id: (json['_id'] ?? json['id'] ?? '').toString(),
+      userId: (json['user'] ?? json['userId'] ?? json['user_id'] ?? '').toString(),
+      hotelId: hotelId,
+      checkIn: (json['checkIn'] ?? json['check_in'] ?? '').toString(),
+      checkOut: (json['checkOut'] ?? json['check_out'] ?? '').toString(),
+      guests: _toInt(json['totalGuests'] ?? json['guests'] ?? 1),
+      totalPrice: _toDouble(json['totalPrice'] ?? json['total_price'] ?? 0),
+      status: (json['status'] ?? 'pending').toString(),
+      createdAt: (json['createdAt'] ?? json['created_at'] ?? '').toString(),
+      hotelName: hotelName,
+      hotelCity: hotelCity,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    'hotelId': hotelId,
+    'checkIn': checkIn,
+    'checkOut': checkOut,
+    'totalGuests': guests,
+    'totalPrice': totalPrice,
+    'status': status,
+  };
+}

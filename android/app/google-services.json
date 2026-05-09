@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "95707773579",
+    "project_id": "sufar-89113",
+    "storage_bucket": "sufar-89113.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95707773579:android:7a5070b8e607caf9bbb28e",
+        "android_client_info": {
+          "package_name": "com.example.sufar_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95707773579-5hn5e4shf47aslunep2r5pu7seu736s5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcQvr7BsLxqxU42tTFPyMNQ_T9BAo7EBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95707773579-5hn5e4shf47aslunep2r5pu7seu736s5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "95707773579-fdo30fup2ubt948urmue41r1ju8u17cu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sufarProject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

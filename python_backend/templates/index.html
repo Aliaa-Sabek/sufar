@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sufar - AI Travel Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <main class="container">
+        <!-- Header / Logo -->
+        <div class="logo-container">
+            <div class="logo-icon">✦</div>
+            <h1>AI Travel Planner</h1>
+            <p>Tell us your preferences and let our AI create a personalized itinerary just for you</p>
+        </div>
+
+        <!-- AI Travel Planner Form -->
+        <section class="planner-form-card">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Country / Destination</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📍</span>
+                        <input type="text" id="destination" placeholder="e.g., Italy, Thailand, Japan">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Budget (USD)</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">💵</span>
+                        <input type="number" id="budget" placeholder="e.g., 1500">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Duration (days)</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📅</span>
+                        <input type="number" id="duration" placeholder="e.g., 7">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group interests-group">
+                <label>Interests (select all that apply)</label>
+                <div class="interests-container" id="interests-container">
+                    <button type="button" class="interest-badge" data-value="Beach & Relaxation">Beach & Relaxation</button>
+                    <button type="button" class="interest-badge" data-value="Adventure & Sports">Adventure & Sports</button>
+                    <button type="button" class="interest-badge" data-value="Culture & History">Culture & History</button>
+                    <button type="button" class="interest-badge" data-value="Food & Cuisine">Food & Cuisine</button>
+                    <button type="button" class="interest-badge" data-value="Nature & Wildlife">Nature & Wildlife</button>
+                    <button type="button" class="interest-badge" data-value="Shopping">Shopping</button>
+                    <button type="button" class="interest-badge" data-value="Nightlife">Nightlife</button>
+                    <button type="button" class="interest-badge" data-value="Photography">Photography</button>
+                </div>
+            </div>
+
+            <button type="button" id="generate-btn" class="generate-btn">
+                ✦ Generate Plan
+            </button>
+        </section>
+
+        <!-- Preview Section -->
+        <section class="preview-section" id="preview-section" style="display: none;">
+            <div class="preview-header">
+                <h2>👁 Your Preview</h2>
+            </div>
+
+            <!-- Featured Stay -->
+            <div id="featured-stay-container">
+                <!-- Injected via JS -->
+            </div>
+
+            <!-- Itinerary -->
+            <div id="itinerary-container">
+                <!-- Injected via JS -->
+            </div>
+            
+            <div id="raw-output" style="display:none; white-space: pre-wrap; background: #fff; padding: 20px; border-radius: 12px; margin-top: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #333; line-height: 1.6; border: 1px solid #eee;">
+            </div>
+            
+        </section>
+        
+        <!-- Loading overlay -->
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="spinner"></div>
+            <p>Crafting your perfect trip...</p>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

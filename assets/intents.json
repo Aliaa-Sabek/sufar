@@ -1,0 +1,2393 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "Hello",
+        "Good day",
+        "Good morning",
+        "Good evening",
+        "How are you",
+        "Is anyone there?",
+        "Hey there",
+        "Greetings",
+        "مرحبا",
+        "أهلاً",
+        "اهلا وسهلا",
+        "السلام عليكم",
+        "صباح الخير",
+        "مساء الخير",
+        "كيف حالك",
+        "في أحد هنا؟",
+        "هاي"
+      ],
+      "responses": [
+        "Hey! Welcome to Sufar ✈️ How can I help you today?",
+        "Hello! I'm Sufar AI 🌍 Ready to plan your next trip!",
+        "Hi there! Looking for a great travel deal? I'm here to help! 🌟",
+        "أهلاً وسهلاً بك في سُفَر! ✈️ كيف يمكنني مساعدتك اليوم؟",
+        "مرحباً! أنا مساعد سُفَر الذكي 🌍 هنا لأساعدك في تخطيط رحلتك القادمة!",
+        "أهلاً! هل تبحث عن أفضل عروض السفر؟ أنا هنا لخدمتك 🌟"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "Goodbye",
+        "See you later",
+        "Take care",
+        "I'm done",
+        "That's all",
+        "Thanks bye",
+        "مع السلامة",
+        "وداعاً",
+        "إلى اللقاء",
+        "تصبح على خير",
+        "خلاص شكراً",
+        "باي",
+        "هذا كل شيء"
+      ],
+      "responses": [
+        "Safe travels! Come back whenever you need help ✈️",
+        "Goodbye! Hope to see you again at Sufar 🌍",
+        "Bye! Have an amazing trip! 🌟",
+        "مع السلامة! نتمنى لك رحلة موفقة ✈️",
+        "إلى اللقاء! نراك قريباً في سُفَر 🌍",
+        "وداعاً! لا تنسَ الاطلاع على أحدث عروضنا 🎉"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "That's helpful",
+        "Thanks a lot",
+        "Great help",
+        "You're amazing",
+        "Perfect",
+        "Awesome",
+        "شكراً",
+        "شكراً جزيلاً",
+        "ممتاز",
+        "رائع",
+        "جميل",
+        "أحسنت",
+        "مشكور",
+        "تسلم"
+      ],
+      "responses": [
+        "Happy to help! 😊",
+        "My pleasure! Enjoy your trip 🌍",
+        "Anytime! That's what I'm here for ✈️",
+        "بكل سرور! 😊",
+        "على الرحب والسعة! استمتع برحلتك 🌍",
+        "في أي وقت! هذا ما أنا هنا من أجله ✈️"
+      ]
+    },
+    {
+      "tag": "search_flights",
+      "patterns": [
+        "I want to book a flight",
+        "Search for flights",
+        "Find me a flight",
+        "Book a flight to Paris",
+        "Flights from Cairo to Dubai",
+        "What flights are available?",
+        "I need a ticket",
+        "Can I book a flight?",
+        "Show me available flights",
+        "Cheap flights",
+        "One way ticket",
+        "Round trip ticket",
+        "عايز أحجز تذكرة طيران",
+        "ابحث عن رحلات",
+        "رحلات من القاهرة لدبي",
+        "أريد حجز طيران",
+        "ابحث لي عن رحلة",
+        "تذاكر طيران رخيصة",
+        "تذكرة ذهاب فقط",
+        "تذكرة ذهاب وعودة",
+        "ما هي الرحلات المتاحة؟",
+        "أحتاج تذكرة سفر"
+      ],
+      "responses": [
+        "Sure! To search for flights, please provide:\n✈️ Departure city\n🌍 Destination city\n📅 Travel date\n👥 Number of passengers",
+        "I can help you find the best flights! ✈️\nJust tell me: From where? To where? When? How many passengers?",
+        "بالتأكيد! لأبحث لك عن أفضل الرحلات، أخبرني بـ:\n✈️ مدينة المغادرة\n🌍 وجهتك\n📅 تاريخ السفر\n👥 عدد المسافرين",
+        "سأساعدك في إيجاد أفضل الرحلات! ✈️\nأخبرني: من أين ستسافر؟ إلى أين؟ متى؟ كم عدد المسافرين؟"
+      ]
+    },
+    {
+      "tag": "search_hotels",
+      "patterns": [
+        "Find me a hotel",
+        "I need a hotel in Dubai",
+        "Book a hotel",
+        "Search hotels",
+        "Where can I stay in Paris?",
+        "Show me hotels",
+        "Hotel recommendations",
+        "I'm looking for accommodation",
+        "Best hotels near me",
+        "Cheap hotels",
+        "Luxury hotels",
+        "ابحث عن فندق",
+        "عايز أحجز فندق",
+        "فنادق في دبي",
+        "أريد فندق في باريس",
+        "أين أقيم في إسطنبول؟",
+        "فنادق رخيصة",
+        "فنادق فاخرة",
+        "أبحث عن إقامة",
+        "احجز لي فندق",
+        "ما هي أفضل الفنادق؟"
+      ],
+      "responses": [
+        "Great! I'll help you find the perfect hotel 🏨\nPlease share:\n1. Destination city\n2. Check-in date\n3. Check-out date\n4. Number of guests\n5. Budget range (optional)",
+        "Let me search for hotels for you! 🏨\nTell me the city, your dates, and budget — I'll find the best deals!",
+        "رائع! سأساعدك في إيجاد الفندق المثالي 🏨\nأخبرني بـ:\n1. المدينة\n2. تاريخ الوصول\n3. تاريخ المغادرة\n4. عدد الضيوف\n5. الميزانية (اختياري)",
+        "سأبحث لك عن فنادق الآن! 🏨\nأخبرني بالمدينة وتواريخ إقامتك وميزانيتك — وسأجد أفضل العروض!"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_jeddah",
+      "patterns": [
+        "Hotel in Jeddah",
+        "Need hotel in Jeddah",
+        "Show me hotels in Jeddah",
+        "I need a hotel in Jeddah",
+        "Book a hotel in Jeddah",
+        "Best hotels in Jeddah",
+        "Need a place to stay in Jeddah",
+        "عايز فندق في جدة",
+        "محتاج أوضة في جدة",
+        "وريني فنادق جدة",
+        "احسن فنادق جدة",
+        "عايز إقامة في جدة",
+        "عندكم أوتيلات في جدة",
+        "فندق محترم في جدة",
+        "عايز مكان أسكن فيه في جدة",
+        "hotel جدة",
+        "عايز أحجز في جدة"
+      ],
+      "responses": [
+        "Sure! Jeddah has great hotels! 🏨\nTell me:\n- Budget\n- Star rating (3/4/5)\n- Number of guests\n- Preferred area (Airport / Corniche / Mall)\n\nI'll find the best options for you!",
+        "تمام! جدة فيها فنادق رائعة! 🏨\nأخبرني بـ:\n- ميزانيتك\n- عدد النجوم المطلوبة\n- عدد الضيوف\n- المنطقة المفضلة (المطار / الكورنيش / المول)\n\nوسأرشح لك أفضل الخيارات!"
+      ]
+    },
+    {
+      "tag": "ask_best_hotel_jeddah",
+      "patterns": [
+        "Best hotel in Jeddah",
+        "Top hotel Jeddah",
+        "أفضل فندق جدة",
+        "أحسن أوتيل في جدة",
+        "أنضف فندق جدة"
+      ],
+      "responses": [
+        "Top hotels in Jeddah include:\n⭐ Novotel Jeddah Tahlia — Rooftop pool + city center\n⭐ Best Western Plus — Near airport\n⭐ Elaf Jeddah — Near Red Sea Mall\n⭐ Crown Town Hotel — Budget-friendly option\n\nWhat's your budget and preference?",
+        "أفضل فنادق جدة:\n⭐ نوفوتيل جدة طاليا — مسبح على السطح + وسط المدينة\n⭐ بست ويسترن بلاس — قريب المطار\n⭐ إيلاف جدة — قريب رد سي مول\n⭐ كراون تاون — اقتصادي ومناسب\n\nما هي ميزانيتك؟"
+      ]
+    },
+    {
+      "tag": "ask_budget_hotel_jeddah",
+      "patterns": [
+        "Cheap hotel Jeddah",
+        "Budget hotel Jeddah",
+        "Affordable hotel in Jeddah",
+        "Cheapest hotel in Jeddah",
+        "Low budget stay in Jeddah",
+        "عايز فندق رخيص في جدة",
+        "أرخص أوتيل في جدة",
+        "حاجة اقتصادية في جدة",
+        "فندق جدة بسعر قليل",
+        "عايز أوضة بسعر حلو في جدة",
+        "ميزانيتي قليلة في جدة",
+        "أقل سعر فندق في جدة",
+        "cheap في جدة"
+      ],
+      "responses": [
+        "Best budget options in Jeddah:\n💰 Crown Town Hotel — from 3,500 SAR/night\n💰 Best Western Plus — from 4,500 SAR/night\n\nWant me to check availability?",
+        "أفضل خيارات اقتصادية في جدة:\n💰 كراون تاون هوتيل — من 3500 ريال/ليلة\n💰 بست ويسترن بلاس — من 4500 ريال/ليلة\n\nهل تريد أتحقق من التوافر؟"
+      ]
+    },
+    {
+      "tag": "ask_luxury_hotel_jeddah",
+      "patterns": [
+        "Luxury hotel Jeddah",
+        "5 star hotel Jeddah",
+        "Premium hotel in Jeddah",
+        "Best luxury hotel Jeddah",
+        "High-end stay in Jeddah",
+        "عايز فندق فخم في جدة",
+        "خمس نجوم في جدة",
+        "أفخم أوتيل جدة",
+        "luxury في جدة",
+        "أفضل إقامة فاخرة في جدة",
+        "فندق راقي جداً جدة",
+        "عايز hotel شيك في جدة"
+      ],
+      "responses": [
+        "Top luxury options in Jeddah:\n💎 Novotel Jeddah Tahlia — 5-star, rooftop pool\n💎 Elaf Jeddah — 5-star, sea view available\n\nWhat's your preferred check-in date?",
+        "أفضل الخيارات الفاخرة في جدة:\n💎 نوفوتيل جدة طاليا — 5 نجوم، مسبح على السطح\n💎 إيلاف جدة — 5 نجوم، إطلالة بحر متاحة\n\nما هو تاريخ الوصول المفضل لديك؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_near_airport_jeddah",
+      "patterns": [
+        "Hotel near Jeddah airport",
+        "Airport hotel in Jeddah",
+        "Transit hotel Jeddah",
+        "Stay near airport in Jeddah",
+        "فندق قريب مطار جدة",
+        "أوتيل عند المطار جدة",
+        "قريب من airport جدة",
+        "عايز مكان قريب من المطار في جدة",
+        "hotel near airport jeddah",
+        "إقامة transit في جدة"
+      ],
+      "responses": [
+        "Best hotel near Jeddah airport:\n✈️ Best Western Plus — closest to King Abdulaziz Airport\n\nNeed airport pickup? Let me know!",
+        "أفضل فندق قريب مطار جدة:\n✈️ بست ويسترن بلاس — الأقرب لمطار الملك عبدالعزيز\n\nتريد توصيل من المطار؟ أخبرني!"
+      ]
+    },
+    {
+      "tag": "ask_hotel_near_red_sea_mall_jeddah",
+      "patterns": [
+        "Hotel near Red Sea Mall",
+        "Jeddah hotel near mall",
+        "Shopping hotel in Jeddah",
+        "Stay near Red Sea Mall",
+        "فندق قريب رد سي مول",
+        "جنب رد سي مول جدة",
+        "hotel near red sea mall",
+        "عايز أوتيل عند المول في جدة",
+        "قريب من الموالات في جدة",
+        "فندق للتسوق جدة"
+      ],
+      "responses": [
+        "Best hotel near Red Sea Mall:\n🛍️ Elaf Jeddah Hotel — Walking distance to Red Sea Mall\n\nWant to know about sea view rooms?",
+        "أفضل فندق قريب رد سي مول:\n🛍️ إيلاف جدة هوتيل — مشي من رد سي مول\n\nتريد معلومات عن أوض الإطلالة البحرية؟"
+      ]
+    },
+    {
+      "tag": "ask_honeymoon_hotel_jeddah",
+      "patterns": [
+        "Honeymoon hotel in Jeddah",
+        "Romantic hotel Jeddah",
+        "Couple stay in Jeddah",
+        "شهر عسل جدة",
+        "فندق رومانسي جدة",
+        "مكان شيك لشخصين جدة",
+        "honeymoon hotel jeddah",
+        "romantic stay جدة",
+        "عايز فندق لطيف للكابلز في جدة"
+      ],
+      "responses": [
+        "Perfect romantic stays in Jeddah:\n💑 Novotel Jeddah — Sea view suite + rooftop pool\n💑 Elaf Jeddah — Romantic rooms with sea view\n\nShall I book a suite for two?",
+        "أجمل خيارات شهر العسل في جدة:\n💑 نوفوتيل جدة — سويت إطلالة بحر + مسبح على السطح\n💑 إيلاف جدة — غرف رومانسية بإطلالة البحر\n\nهل أحجز سويت لشخصين؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_makkah",
+      "patterns": [
+        "Hotel in Makkah",
+        "Stay in Makkah",
+        "Best hotels in Makkah",
+        "Accommodation in Makkah",
+        "I need a hotel in Makkah",
+        "فندق مكة",
+        "عايز فندق في مكة",
+        "إقامة مكة",
+        "أفضل فنادق مكة",
+        "محتاج أوضة في مكة",
+        "عايز أسكن في مكة",
+        "مكان كويس في مكة",
+        "hotel قريب الكعبة",
+        "أسكن فين في مكة"
+      ],
+      "responses": [
+        "Hotels in Makkah — near Haram or walking distance?\n🕋 Tell me:\n- Budget\n- Number of guests\n- Do you need Haram view?\n- Walking distance to Haram?",
+        "فنادق مكة — قريب الحرم أو مشي من الحرم؟\n🕋 أخبرني:\n- الميزانية\n- عدد الضيوف\n- هل تريد إطلالة على الحرم؟\n- مشي من الحرم؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_near_haram_makkah",
+      "patterns": [
+        "Hotel near Haram Makkah",
+        "Hotel near Kaaba",
+        "Walking distance to Haram in Makkah",
+        "Stay near Grand Mosque",
+        "فندق قريب الحرم",
+        "قريب الكعبة",
+        "hotel near haram makkah",
+        "مشي للحرم مكة",
+        "فندق جنب الحرم",
+        "أقرب فندق للكعبة",
+        "مكان قريب من الحرم المكي",
+        "أوتيل قريب الطواف"
+      ],
+      "responses": [
+        "Closest hotels to Haram in Makkah:\n🕋 Hotels in Abraj Al-Bait (Towers) — Steps from Haram\n🕋 Several 4-5 star hotels within walking distance\n\nWhat's your budget?",
+        "أقرب فنادق للحرم في مكة:\n🕋 فنادق أبراج البيت — خطوات من الحرم\n🕋 عدة فنادق 4-5 نجوم على مشي من الحرم\n\nما هي ميزانيتك؟"
+      ]
+    },
+    {
+      "tag": "ask_haram_view_hotel_makkah",
+      "patterns": [
+        "Haram view hotel in Makkah",
+        "Room with Kaaba view",
+        "Hotel with Haram view",
+        "فندق مطل على الحرم",
+        "haram view makkah",
+        "إطلالة على الكعبة",
+        "عايز منظر الحرم من الأوضة",
+        "room with haram view"
+      ],
+      "responses": [
+        "Haram view rooms are available in towers near Masjid Al-Haram.\n🕌 These rooms offer a direct view of the Kaaba.\nPrices are higher but the experience is unforgettable!\n\nWant me to search available options?",
+        "غرف الإطلالة على الحرم متوفرة في الأبراج القريبة من المسجد الحرام.\n🕌 هذه الغرف توفر إطلالة مباشرة على الكعبة المشرفة.\nالأسعار أعلى لكن التجربة لا تُنسى!\n\nهل تريد أبحث في الخيارات المتاحة؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_madinah",
+      "patterns": [
+        "Hotel in Madinah",
+        "Best hotels in Madinah",
+        "Stay in Madinah",
+        "Accommodation in Madinah",
+        "I need a hotel in Madinah",
+        "فندق المدينة",
+        "عايز فندق المدينة",
+        "إقامة المدينة",
+        "أفضل فنادق المدينة",
+        "محتاج أوضة في المدينة المنورة",
+        "عايز مكان في المدينة",
+        "فندق للزيارة في المدينة",
+        "أسكن فين في المدينة"
+      ],
+      "responses": [
+        "Hotels in Madinah near Prophet's Mosque:\n🕌 Al Ansar Palace — Near Gate 17 & 24\n🕌 Al Madina Golden Hotel — Budget friendly, close to Haram\n\nHow many guests and what's your budget?",
+        "فنادق المدينة قريبة من المسجد النبوي:\n🕌 الأنصار بالاس — قريب باب 17 و24\n🕌 المدينة جولدن هوتيل — اقتصادي وقريب الحرم\n\nكم عدد الضيوف وما هي ميزانيتك؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_near_prophet_mosque",
+      "patterns": [
+        "Hotel near Prophet Mosque",
+        "Hotel near Haram Madinah",
+        "Stay near Al Masjid an Nabawi",
+        "Walking distance hotel to Prophet Mosque",
+        "فندق قريب المسجد النبوي",
+        "فندق قريب الحرم المدني",
+        "قريب من الحرم في المدينة",
+        "hotel near prophet mosque",
+        "عايز أوتيل مشي من المسجد النبوي",
+        "مكان قريب من الزيارة في المدينة",
+        "فندق جنب المسجد النبوي",
+        "أقرب فندق للحرم المدني"
+      ],
+      "responses": [
+        "Closest hotels to Prophet's Mosque:\n🕌 Al Ansar Palace — Near Gate 17 (5 min walk)\n🕌 Al Madina Golden — Affordable, near Haram\n\nNeed walking distance or view of mosque?",
+        "أقرب فنادق للمسجد النبوي:\n🕌 الأنصار بالاس — قريب باب 17 (5 دقائق مشي)\n🕌 المدينة جولدن — اقتصادي وقريب الحرم\n\nتريد مشي أو إطلالة على المسجد؟"
+      ]
+    },
+    {
+      "tag": "ask_gate17_hotel_madinah",
+      "patterns": [
+        "Hotel near Gate 17 in Madinah",
+        "Gate 17 hotel Madinah",
+        "فندق قريب باب 17",
+        "عند بوابة 17",
+        "hotel near gate 17",
+        "قريب مدخل 17 المدينة",
+        "أوتيل عند باب 17"
+      ],
+      "responses": [
+        "Al Ansar Palace Hotel is located very close to Gate 17 of the Prophet's Mosque.\n🕌 Perfect for easy access to prayer times!",
+        "فندق الأنصار بالاس قريب جداً من باب 17 للمسجد النبوي.\n🕌 مثالي للوصول السهل لأوقات الصلاة!"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_riyadh",
+      "patterns": [
+        "Hotel in Riyadh",
+        "Need hotel in Riyadh",
+        "Best hotels in Riyadh",
+        "I need a hotel in Riyadh",
+        "Stay in Riyadh",
+        "فندق الرياض",
+        "عايز فندق في الرياض",
+        "إقامة في الرياض",
+        "أفضل فنادق الرياض",
+        "محتاج أوضة بالرياض",
+        "hotel الرياض",
+        "عايز أسكن في الرياض",
+        "مكان كويس في الرياض"
+      ],
+      "responses": [
+        "Hotels in Riyadh for every need! 🏙️\nTell me:\n- Budget\n- Purpose (business / family / tourism)\n- Star rating preference\n\nI'll find the best options!",
+        "فنادق الرياض لكل الاحتياجات! 🏙️\nأخبرني:\n- الميزانية\n- الغرض (عمل / عائلة / سياحة)\n- عدد النجوم المفضل\n\nوسأجد أفضل الخيارات!"
+      ]
+    },
+    {
+      "tag": "ask_business_hotel_riyadh",
+      "patterns": [
+        "Business hotel in Riyadh",
+        "Work trip hotel Riyadh",
+        "Corporate hotel Riyadh",
+        "فندق رجال أعمال الرياض",
+        "business hotel riyadh",
+        "فندق للشغل في الرياض",
+        "work trip riyadh",
+        "إقامة عمل في الرياض",
+        "فندق مناسب لرحلة شغل الرياض"
+      ],
+      "responses": [
+        "Top business hotels in Riyadh:\n💼 Radisson Riyadh Airport — Near King Khalid Airport\n💼 Hilton Riyadh Hotel & Residences — City center\n\nNeed conference facilities?",
+        "أفضل فنادق الأعمال في الرياض:\n💼 راديسون مطار الرياض — قريب مطار الملك خالد\n💼 هيلتون الرياض — وسط المدينة\n\nهل تحتاج قاعات اجتماعات؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_cairo",
+      "patterns": [
+        "Hotel in Cairo",
+        "Need hotel in Cairo",
+        "Show me hotels in Cairo",
+        "Accommodation in Cairo",
+        "Best hotels in Cairo",
+        "I need a hotel in Cairo",
+        "Stay in Cairo",
+        "عايز فندق في القاهرة",
+        "فندق القاهرة",
+        "إقامة القاهرة",
+        "وريني فنادق القاهرة",
+        "محتاج أوتيل في القاهرة",
+        "أفضل فنادق القاهرة",
+        "أسكن فين في القاهرة"
+      ],
+      "responses": [
+        "Great Cairo hotels for every budget! 🏙️\nTell me:\n- Budget\n- Area preference (Downtown / Nile view / Near Pyramids)\n- Number of guests\n\nI'll find you the best!",
+        "فنادق القاهرة رائعة لكل ميزانية! 🏙️\nأخبرني:\n- الميزانية\n- المنطقة المفضلة (وسط البلد / إطلالة النيل / قريب الأهرامات)\n- عدد الضيوف\n\nوسأجد الأفضل لك!"
+      ]
+    },
+    {
+      "tag": "ask_hotel_near_pyramids",
+      "patterns": [
+        "Hotel near Pyramids in Cairo",
+        "Hotel near Giza Pyramids",
+        "Stay near the pyramids",
+        "Hotel near Giza",
+        "فندق قريب الأهرامات",
+        "قريب الهرم",
+        "hotel near pyramids cairo",
+        "أوتيل الجيزة قريب الأهرامات",
+        "عايز مكان قريب من أهرامات الجيزة",
+        "فندق عند الهرم"
+      ],
+      "responses": [
+        "Hotels near Giza Pyramids:\n🔺 Pyramisa Suites Cairo — Great pyramid views\n🔺 Marriott Mena House — Right next to the Pyramids!\n\nWhat's your budget?",
+        "فنادق قريبة من أهرامات الجيزة:\n🔺 بيراميزا سويتس القاهرة — إطلالة رائعة على الأهرامات\n🔺 ماريوت ميناهاوس — ملاصق للأهرامات!\n\nما هي ميزانيتك؟"
+      ]
+    },
+    {
+      "tag": "ask_nile_view_hotel_cairo",
+      "patterns": [
+        "Nile view hotel in Cairo",
+        "Room with Nile view",
+        "Hotel on the Nile in Cairo",
+        "فندق على النيل القاهرة",
+        "nile view cairo",
+        "مطل على النيل",
+        "room with nile view cairo",
+        "عايز منظر النيل",
+        "فندق بإطلالة على النيل"
+      ],
+      "responses": [
+        "Best Nile view hotels in Cairo:\n🌊 Hilton Cairo Grand Nile Tower — Stunning Nile views\n🌊 Steigenberger Hotel El Tahrir — Nile view from some rooms\n\nNeed a specific room type?",
+        "أفضل فنادق إطلالة النيل في القاهرة:\n🌊 هيلتون القاهرة جراند نايل تاور — إطلالة رائعة على النيل\n🌊 شتايجنبرجر التحرير — إطلالة النيل في بعض الغرف\n\nتريد نوع غرفة محدد؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_near_tahrir_cairo",
+      "patterns": [
+        "Hotel near Tahrir Square",
+        "Downtown Cairo hotel",
+        "Hotel near city center Cairo",
+        "فندق قريب التحرير",
+        "قريب من ميدان التحرير",
+        "hotel near tahrir",
+        "عايز أوتيل وسط البلد القاهرة",
+        "مكان قريب التحرير"
+      ],
+      "responses": [
+        "Hotels near Tahrir Square:\n🏛️ Steigenberger Hotel El Tahrir — Steps from Tahrir\n🏛️ Pyramisa Suites — Downtown area\n\nAny specific preference?",
+        "فنادق قريبة من ميدان التحرير:\n🏛️ شتايجنبرجر التحرير — خطوات من التحرير\n🏛️ بيراميزا سويتس — منطقة وسط البلد\n\nأي تفضيل محدد؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_alexandria",
+      "patterns": [
+        "Hotel in Alexandria",
+        "Stay in Alexandria",
+        "Best hotels in Alexandria",
+        "I need a hotel in Alexandria",
+        "Accommodation in Alexandria",
+        "فندق اسكندرية",
+        "عايز فندق في اسكندرية",
+        "إقامة الإسكندرية",
+        "أفضل فنادق اسكندرية",
+        "محتاج أوضة في الإسكندرية",
+        "مكان حلو في اسكندرية",
+        "أسكن فين في اسكندرية"
+      ],
+      "responses": [
+        "Alexandria has amazing sea-view hotels! 🌊\nTell me:\n- Budget\n- Do you need sea view?\n- Number of guests\n\nTop options: Cecil Hotel, Windsor Palace, Le Metropole",
+        "اسكندرية فيها فنادق إطلالة بحرية رائعة! 🌊\nأخبرني:\n- الميزانية\n- هل تريد إطلالة بحر؟\n- عدد الضيوف\n\nأبرز الخيارات: سيسيل، ويندسور بالاس، لو متروبول"
+      ]
+    },
+    {
+      "tag": "ask_sea_view_hotel_alexandria",
+      "patterns": [
+        "Sea view hotel in Alexandria",
+        "Room with sea view in Alexandria",
+        "Hotel on the sea in Alexandria",
+        "فندق مطل على البحر اسكندرية",
+        "sea view alexandria",
+        "أوضة على البحر في اسكندرية",
+        "عايز منظر البحر في اسكندرية",
+        "فندق بإطلالة بحرية اسكندرية",
+        "مكان على البحر في الإسكندرية"
+      ],
+      "responses": [
+        "Best sea view hotels in Alexandria:\n🌊 Steigenberger Cecil — Classic hotel with Mediterranean view\n🌊 Windsor Palace Hotel — Sea view rooms available\n🌊 Le Metropole — Seafront location\n\nWhich one interests you?",
+        "أفضل فنادق إطلالة البحر في اسكندرية:\n🌊 شتايجنبرجر سيسيل — فندق كلاسيكي بإطلالة المتوسط\n🌊 ويندسور بالاس هوتيل — غرف بإطلالة البحر\n🌊 لو متروبول — موقع على البحر مباشرة\n\nأيهم يهمك؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_sharm",
+      "patterns": [
+        "Hotel in Sharm El Sheikh",
+        "Stay in Sharm",
+        "Resort in Sharm El Sheikh",
+        "Best hotels in Sharm",
+        "I need a hotel in Sharm El Sheikh",
+        "فندق شرم الشيخ",
+        "عايز فندق في شرم",
+        "إقامة شرم الشيخ",
+        "أفضل فنادق شرم",
+        "عايز ريزورت شرم",
+        "مكان حلو في شرم",
+        "أسكن فين في شرم الشيخ",
+        "عايز أوتيل على البحر في شرم"
+      ],
+      "responses": [
+        "Sharm El Sheikh resorts are amazing! 🏖️\nTell me:\n- Budget\n- Private beach needed?\n- Pool preferred?\n- Trip type (honeymoon/family/relaxation)\n\nI'll find the perfect resort!",
+        "ريزورتات شرم الشيخ رائعة! 🏖️\nأخبرني:\n- الميزانية\n- هل تريد شاطئ خاص؟\n- مسبح مطلوب؟\n- نوع الرحلة (شهر عسل / عائلة / استرخاء)\n\nوسأجد الريزورت المثالي!"
+      ]
+    },
+    {
+      "tag": "ask_honeymoon_hotel_sharm",
+      "patterns": [
+        "Honeymoon hotel in Sharm",
+        "Romantic resort Sharm",
+        "Couple stay in Sharm",
+        "شهر عسل شرم",
+        "فندق رومانسي شرم",
+        "honeymoon resort sharm",
+        "عايز مكان للكابلز في شرم",
+        "أفضل فندق لشخصين في شرم",
+        "مكان شيك للعرسان في شرم"
+      ],
+      "responses": [
+        "Perfect honeymoon resorts in Sharm:\n💑 5-star beachfront resorts with private pools\n💑 Romantic suites with sea view\n💑 Couples spa packages available\n\nWhat's your budget for the honeymoon?",
+        "أجمل ريزورتات شهر العسل في شرم:\n💑 ريزورتات 5 نجوم على الشاطئ مع مسبح خاص\n💑 سويتات رومانسية بإطلالة البحر\n💑 باقات سبا للزوجين متاحة\n\nما هي ميزانيتك لشهر العسل؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_hurghada",
+      "patterns": [
+        "Hotel in Hurghada",
+        "Stay in Hurghada",
+        "Resort Hurghada",
+        "Best hotels in Hurghada",
+        "I need a hotel in Hurghada",
+        "فندق الغردقة",
+        "عايز فندق الغردقة",
+        "إقامة الغردقة",
+        "أفضل فنادق الغردقة",
+        "عايز ريزورت الغردقة",
+        "مكان حلو في الغردقة",
+        "أسكن فين في الغردقة",
+        "عايز أوتيل على البحر في الغردقة"
+      ],
+      "responses": [
+        "Hurghada has great resorts! 🌊\nTop option: ALDAU Beach Hotel (Steigenberger)\n\nTell me:\n- Budget\n- Family or couple?\n- Need pool/beach?",
+        "الغردقة فيها ريزورتات رائعة! 🌊\nأبرز خيار: ALDAU بيتش هوتيل (شتايجنبرجر)\n\nأخبرني:\n- الميزانية\n- عائلة أو زوجين؟\n- تريد مسبح/شاطئ؟"
+      ]
+    },
+    {
+      "tag": "ask_family_hotel_hurghada",
+      "patterns": [
+        "Family hotel in Hurghada",
+        "Room for 4 in Hurghada",
+        "Kid-friendly resort Hurghada",
+        "عايز فندق للعيلة في الغردقة",
+        "غرفة 4 أشخاص الغردقة",
+        "family room hurghada",
+        "مكان مناسب لالأطفال في الغردقة",
+        "إقامة للعيلة الغردقة",
+        "أفضل ريزورت للعيلة في الغردقة"
+      ],
+      "responses": [
+        "Best family resorts in Hurghada:\n👨‍👩‍👧‍👦 ALDAU Beach Hotel — Kids pool + family rooms\n👨‍👩‍👧‍👦 Steigenberger Al Dau Beach — Waterpark & family amenities\n\nHow many kids and what ages?",
+        "أفضل ريزورتات عائلية في الغردقة:\n👨‍👩‍👧‍👦 أولداو بيتش هوتيل — مسبح أطفال + غرف عائلية\n👨‍👩‍👧‍👦 شتايجنبرجر ألداو بيتش — ألعاب مائية ومرافق عائلية\n\nكم عدد الأطفال وأعمارهم؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_aswan",
+      "patterns": [
+        "Hotel in Aswan",
+        "Stay in Aswan",
+        "Best hotels in Aswan",
+        "I need a hotel in Aswan",
+        "Accommodation in Aswan",
+        "فندق أسوان",
+        "عايز فندق في أسوان",
+        "إقامة أسوان",
+        "أفضل فنادق أسوان",
+        "مكان حلو في أسوان",
+        "أسكن فين في أسوان",
+        "فندق على النيل في أسوان",
+        "عايز مكان هادي في أسوان"
+      ],
+      "responses": [
+        "Aswan — peaceful Nile-side retreat! 🌿\nTop hotel: Mövenpick Resort Aswan — On Elephantine Island, stunning Nile views\n\nWant Nile view rooms or peaceful garden rooms?",
+        "أسوان — ملاذ هادئ على النيل! 🌿\nأفضل فندق: موفنبيك ريزورت أسوان — على جزيرة إلفنتاين، إطلالات رائعة على النيل\n\nتريد غرف إطلالة النيل أو غرف حديقة هادئة؟"
+      ]
+    },
+    {
+      "tag": "ask_nile_view_hotel_aswan",
+      "patterns": [
+        "Nile view hotel in Aswan",
+        "Room with Nile view in Aswan",
+        "Hotel on the Nile in Aswan",
+        "فندق مطل على النيل أسوان",
+        "nile view aswan",
+        "أوضة على النيل في أسوان",
+        "عايز منظر النيل في أسوان",
+        "room with nile view aswan",
+        "فندق بإطلالة نيل أسوان",
+        "مكان على النيل في أسوان"
+      ],
+      "responses": [
+        "Best Nile view hotel in Aswan:\n🌊 Mövenpick Resort Aswan — Breathtaking Nile panorama\n🌊 Sofitel Legend Old Cataract — Historic hotel with Nile views\n\nWhich style do you prefer?",
+        "أفضل فنادق إطلالة النيل في أسوان:\n🌊 موفنبيك ريزورت أسوان — بانوراما نيل خلابة\n🌊 سوفيتيل ليجند أولد كاتاراكت — فندق تاريخي بإطلالات النيل\n\nأي طابع تفضل؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_paris",
+      "patterns": [
+        "Hotel in Paris",
+        "Need hotel in Paris",
+        "Stay in Paris",
+        "Best hotels in Paris",
+        "I need a hotel in Paris",
+        "Accommodation in Paris",
+        "فندق باريس",
+        "عايز فندق في باريس",
+        "إقامة باريس",
+        "أفضل فنادق باريس",
+        "محتاج أوضة في باريس",
+        "أسكن فين في باريس",
+        "مكان حلو في باريس",
+        "عايز أوتيل شيك في باريس"
+      ],
+      "responses": [
+        "Paris — City of Love! 🗼\nTell me:\n- Budget\n- Near Eiffel Tower or Champs-Élysées?\n- Romantic / Business / Family trip?\n\nI'll find the perfect Parisian hotel!",
+        "باريس — مدينة الحب! 🗼\nأخبرني:\n- الميزانية\n- قريب برج إيفل أو الشانزليزيه؟\n- رحلة رومانسية / عمل / عائلة؟\n\nوسأجد الفندق الباريسي المثالي!"
+      ]
+    },
+    {
+      "tag": "ask_romantic_hotel_paris",
+      "patterns": [
+        "Romantic hotel in Paris",
+        "Honeymoon hotel Paris",
+        "Couple stay in Paris",
+        "فندق رومانسي باريس",
+        "شهر عسل باريس",
+        "honeymoon paris",
+        "مكان شيك للكابلز في باريس",
+        "عايز أوتيل romantic في باريس",
+        "أفضل فندق لشخصين في باريس",
+        "مكان هادي ورومانسي باريس"
+      ],
+      "responses": [
+        "Most romantic hotels in Paris:\n💑 Hôtel Plaza Athénée — Avenue Montaigne luxury\n💑 Le Meurice — Tuileries Garden view\n💑 Hôtel de Crillon — Steps from Champs-Élysées\n\nShall I search availability for two?",
+        "أرومانسية فنادق باريس:\n💑 هوتيل بلازا أثيني — فخامة شارع مونتاني\n💑 لو موريس — إطلالة حديقة التويلري\n💑 هوتيل دو كريون — خطوات من الشانزليزيه\n\nهل أبحث في التوافر لشخصين؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_near_eiffel_tower",
+      "patterns": [
+        "Hotel near Eiffel Tower",
+        "Stay near Eiffel Tower in Paris",
+        "Hotel close to Eiffel Tower",
+        "فندق قريب برج إيفل",
+        "hotel near eiffel tower",
+        "قريب من برج إيفل",
+        "عايز أوتيل جنب برج إيفل",
+        "إقامة قريبة من برج إيفل"
+      ],
+      "responses": [
+        "Hotels near Eiffel Tower:\n🗼 Hôtel Shangri-La Paris — Eiffel Tower view!\n🗼 Hôtel Pullman Eiffel Tower — Steps away\n\nDo you prefer Eiffel view rooms?",
+        "فنادق قريبة من برج إيفل:\n🗼 هوتيل شانغريلا باريس — إطلالة على برج إيفل!\n🗼 هوتيل بولمان برج إيفل — خطوات من البرج\n\nهل تفضل غرف بإطلالة برج إيفل؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_istanbul",
+      "patterns": [
+        "Hotel in Istanbul",
+        "Stay in Istanbul",
+        "Best hotels in Istanbul",
+        "I need a hotel in Istanbul",
+        "Accommodation in Istanbul",
+        "فندق إسطنبول",
+        "عايز فندق إسطنبول",
+        "إقامة إسطنبول",
+        "أفضل فنادق إسطنبول",
+        "محتاج أوضة في إسطنبول",
+        "أسكن فين في إسطنبول",
+        "مكان حلو في إسطنبول",
+        "hotel istanbul"
+      ],
+      "responses": [
+        "Istanbul — where East meets West! 🕌\nTell me:\n- Budget\n- Near Grand Bazaar, Sultanahmet, or Taksim?\n- With hammam / spa?\n\nI'll find the best hotel for you!",
+        "إسطنبول — حيث يلتقي الشرق بالغرب! 🕌\nأخبرني:\n- الميزانية\n- قريب الجراند بازار أو السلطان أحمد أو تقسيم؟\n- مع حمام تركي / سبا؟\n\nوسأجد أفضل فندق لك!"
+      ]
+    },
+    {
+      "tag": "ask_hotel_near_grand_bazaar",
+      "patterns": [
+        "Hotel near Grand Bazaar",
+        "Stay near Grand Bazaar in Istanbul",
+        "Hotel close to shopping area in Istanbul",
+        "فندق قريب جراند بازار",
+        "hotel near grand bazaar",
+        "قريب السوق الكبير إسطنبول",
+        "عايز مكان قريب من البازار",
+        "فندق في منطقة التسوق إسطنبول"
+      ],
+      "responses": [
+        "Hotels near Grand Bazaar in Istanbul:\n🛍️ Days Inn by Wyndham Istanbul — Walking distance to Bazaar\n🛍️ Historical Sultanahmet area hotels nearby\n\nNeed budget or luxury option?",
+        "فنادق قريبة من الجراند بازار في إسطنبول:\n🛍️ دايز إن باي ويندهام إسطنبول — مشي من البازار\n🛍️ فنادق المنطقة التاريخية السلطان أحمد القريبة\n\nتريد خيار اقتصادي أو فاخر؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_maldives",
+      "patterns": [
+        "Hotel in Maldives",
+        "Resort Maldives",
+        "Stay in Maldives",
+        "Best hotels in Maldives",
+        "I need a hotel in Maldives",
+        "فندق المالديف",
+        "منتجع المالديف",
+        "إقامة المالديف",
+        "أفضل فنادق المالديف",
+        "عايز فيلا في المالديف",
+        "مكان كويس لشهر العسل في المالديف"
+      ],
+      "responses": [
+        "Maldives — Paradise on Earth! 🌴\nTop resorts:\n🌊 Constance Moofushi — Overwater villas\n🌊 Heritance Aarah — All-inclusive luxury\n\nWater villa, private pool, or honeymoon package?",
+        "المالديف — جنة على الأرض! 🌴\nأبرز المنتجعات:\n🌊 كونستانس موفوشي — فيلات فوق الماء\n🌊 هيريتانس آره — فاخر شامل كل شيء\n\nفيلا مائية أو مسبح خاص أو باقة شهر عسل؟"
+      ]
+    },
+    {
+      "tag": "ask_water_villa_maldives",
+      "patterns": [
+        "Water villa in Maldives",
+        "Overwater villa Maldives",
+        "Stay over the water in Maldives",
+        "Best water villa Maldives",
+        "عايز ووتر فيلا في المالديف",
+        "water villa maldives",
+        "فيلا فوق البحر",
+        "إقامة على الماء في المالديف",
+        "أوضة فوق البحر في المالديف"
+      ],
+      "responses": [
+        "Best water villas in Maldives:\n🌊 Constance Moofushi — Spectacular overwater villas\n🌊 Conrad Maldives Rangali Island — Iconic water villas with glass floors!\n\nWant private pool water villa?",
+        "أفضل الفيلات المائية في المالديف:\n🌊 كونستانس موفوشي — فيلات مائية رائعة\n🌊 كونراد مالديف رانغالي آيلاند — فيلات مائية أيقونية بأرضية زجاجية!\n\nتريد فيلا مائية بمسبح خاص؟"
+      ]
+    },
+    {
+      "tag": "ask_honeymoon_maldives",
+      "patterns": [
+        "Honeymoon hotel in Maldives",
+        "Honeymoon resort Maldives",
+        "Romantic stay in Maldives",
+        "Couple resort Maldives",
+        "شهر عسل المالديف",
+        "honeymoon maldives",
+        "مكان رومانسي في المالديف",
+        "أفضل فندق للكابلز في المالديف",
+        "romantic resort maldives",
+        "عايز منتجع شيك لشخصين في المالديف"
+      ],
+      "responses": [
+        "Ultimate honeymoon destinations in Maldives:\n💑 Water villa with private infinity pool\n💑 Sunrise or sunset facing villas\n💑 Couples spa & romantic dinner on the beach\n\nWhat's your honeymoon budget?",
+        "وجهات شهر العسل المثالية في المالديف:\n💑 فيلا مائية مع مسبح لا نهائي خاص\n💑 فيلات بإطلالة شروق أو غروب الشمس\n💑 سبا للزوجين وعشاء رومانسي على الشاطئ\n\nما هي ميزانية شهر العسل؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_london",
+      "patterns": [
+        "Hotel in London",
+        "Stay in London",
+        "Best hotels in London",
+        "I need a hotel in London",
+        "Accommodation in London",
+        "فندق لندن",
+        "عايز فندق لندن",
+        "إقامة في لندن",
+        "أفضل فنادق لندن",
+        "محتاج أوضة في لندن",
+        "أسكن فين في لندن",
+        "مكان حلو في لندن",
+        "hotel london"
+      ],
+      "responses": [
+        "London hotels for every need! 🎡\nTell me:\n- Budget\n- Area (Hyde Park / Oxford Street / City center)\n- Business or leisure trip?\n\nI'll find your perfect London hotel!",
+        "فنادق لندن لكل الاحتياجات! 🎡\nأخبرني:\n- الميزانية\n- المنطقة (هايد بارك / أوكسفورد ستريت / وسط المدينة)\n- رحلة عمل أو سياحة؟\n\nوسأجد فندق لندن المثالي لك!"
+      ]
+    },
+    {
+      "tag": "ask_single_room",
+      "patterns": [
+        "Single room",
+        "Room for one person",
+        "Single room for one guest",
+        "I am traveling alone",
+        "Just me",
+        "Solo traveler room",
+        "عايز غرفة فردي",
+        "أوضة لشخص واحد",
+        "single room لواحد",
+        "أنا لوحدي",
+        "محتاج إقامة لوحدي",
+        "أوضة فردي",
+        "غرفة شخص واحد",
+        "عايز مكان لفرد واحد بس"
+      ],
+      "responses": [
+        "Standard single rooms are available at most hotels! 🛏️\nJust tell me which city and your budget — I'll find the best single room for you!",
+        "غرف الفردي متوفرة في معظم الفنادق! 🛏️\nفقط أخبرني بالمدينة وميزانيتك — وسأجد أفضل غرفة فردية لك!"
+      ]
+    },
+    {
+      "tag": "ask_double_room",
+      "patterns": [
+        "Double room",
+        "Room for two",
+        "Couple room",
+        "Me and my wife",
+        "عايز غرفة دبل",
+        "أوضة لشخصين",
+        "أنا ومراتي",
+        "أنا وخطيبتي",
+        "room for 2",
+        "double room",
+        "أوضة دبل"
+      ],
+      "responses": [
+        "Double rooms available with King or Queen bed options! 🛏️\nDo you prefer king bed or twin beds? And which city?",
+        "غرف الدبل متوفرة مع خيارات سرير كينج أو كوين! 🛏️\nتفضل كينج بيد أم سريرين؟ وأي مدينة؟"
+      ]
+    },
+    {
+      "tag": "ask_family_room",
+      "patterns": [
+        "Family room",
+        "Room for 4 people",
+        "Room for family",
+        "Family hotel",
+        "Kid-friendly hotel",
+        "غرفة عائلية",
+        "family room",
+        "غرفة 4 أشخاص",
+        "أوضة للعيلة",
+        "فندق للعيلة",
+        "عايز غرفة عائلية"
+      ],
+      "responses": [
+        "Family rooms available! 👨‍👩‍👧‍👦\nMost family rooms accommodate 2 adults + 2 children.\nNeed interconnecting rooms for larger families?\n\nWhich city and how many family members?",
+        "غرف عائلية متوفرة! 👨‍👩‍👧‍👦\nمعظم الغرف العائلية تتسع لبالغَين + طفلَين.\nتريد غرف متصلة للعائلات الكبيرة؟\n\nأي مدينة وكم عدد أفراد العائلة؟"
+      ]
+    },
+    {
+      "tag": "ask_suite_room",
+      "patterns": [
+        "Suite room",
+        "Junior suite",
+        "Executive suite",
+        "I need a suite",
+        "عايز جناح",
+        "suite room",
+        "junior suite",
+        "جناح فندقي",
+        "عايز سويت",
+        "جناح تنفيذي"
+      ],
+      "responses": [
+        "Suites available in different types! 🏆\n- Junior Suite: Living area + bedroom\n- Executive Suite: Business amenities\n- Honeymoon Suite: Romantic décor + Jacuzzi\n\nWhich type and which city?",
+        "الأجنحة متوفرة بأنواع مختلفة! 🏆\n- جونيور سويت: غرفة جلوس + غرفة نوم\n- سويت تنفيذي: مرافق أعمال\n- سويت شهر العسل: ديكور رومانسي + جاكوزي\n\nأي نوع وأي مدينة؟"
+      ]
+    },
+    {
+      "tag": "ask_sea_view_room",
+      "patterns": [
+        "Sea view room",
+        "Room with sea view",
+        "Hotel room facing the sea",
+        "Stay with sea view",
+        "عايز أوضة sea view",
+        "غرفة بإطلالة بحر",
+        "room with sea view",
+        "مطل على البحر",
+        "منظر البحر",
+        "إقامة على البحر"
+      ],
+      "responses": [
+        "Sea view rooms are magical! 🌊\nAvailable in coastal cities: Jeddah, Alexandria, Sharm, Hurghada, Aswan, Maldives\n\nWhich city are you planning to visit?",
+        "غرف الإطلالة البحرية ساحرة! 🌊\nمتوفرة في المدن الساحلية: جدة، اسكندرية، شرم، الغردقة، أسوان، المالديف\n\nأي مدينة تخطط لزيارتها؟"
+      ]
+    },
+    {
+      "tag": "ask_city_view_room",
+      "patterns": [
+        "City view room",
+        "Room with city view",
+        "Skyline view room",
+        "Stay with city skyline",
+        "عايز city view",
+        "أوضة بإطلالة المدينة",
+        "room with city view",
+        "منظر المدينة",
+        "skyline view",
+        "إقامة بإطلالة المدينة"
+      ],
+      "responses": [
+        "City view rooms available in:\n🏙️ Cairo — Nile + city panorama\n🏙️ Riyadh — Modern skyline views\n🏙️ Istanbul — Bosphorus + city views\n🏙️ Tokyo — Amazing city skyline\n\nWhich city?",
+        "غرف إطلالة المدينة متوفرة في:\n🏙️ القاهرة — بانوراما النيل والمدينة\n🏙️ الرياض — إطلالات أفق حديثة\n🏙️ إسطنبول — إطلالات البوسفور والمدينة\n🏙️ طوكيو — أفق المدينة الرائع\n\nأي مدينة؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_under_3000",
+      "patterns": [
+        "Hotel under 3000",
+        "Budget is 3000",
+        "Stay below 3000",
+        "Room under 3000",
+        "عايز فندق تحت 3000",
+        "أقل من 3000",
+        "budget 3000",
+        "room under 3000",
+        "مش عايز أعدي 3000",
+        "مكان حلو تحت 3000",
+        "فندق اقتصادي تحت 3000"
+      ],
+      "responses": [
+        "Budget hotels under 3,000:\n💰 Crown Town Hotel, Jeddah — Great value\n💰 Al Ansar Palace, Madinah — Near Haram\n💰 Budget options in Cairo & Alexandria\n\nWhich city are you looking in?",
+        "فنادق اقتصادية تحت 3000:\n💰 كراون تاون هوتيل، جدة — قيمة ممتازة\n💰 الأنصار بالاس، المدينة — قريب الحرم\n💰 خيارات اقتصادية في القاهرة والإسكندرية\n\nأي مدينة تبحث فيها؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_under_5000",
+      "patterns": [
+        "Hotel under 5000",
+        "Budget is 5000",
+        "Stay below 5000",
+        "Room under 5000",
+        "عايز فندق تحت 5000",
+        "أقل من 5000",
+        "budget 5000",
+        "أوضة لحد 5000",
+        "مكان حلو تحت 5000",
+        "فندق مناسب تحت 5000"
+      ],
+      "responses": [
+        "Mid-range hotels under 5,000:\n🌟 Best Western Plus Jeddah\n🌟 Al Madina Golden, Madinah\n🌟 Pyramisa Suites, Cairo\n\nWhich city and how many nights?",
+        "فنادق متوسطة تحت 5000:\n🌟 بست ويسترن بلاس جدة\n🌟 المدينة جولدن، المدينة المنورة\n🌟 بيراميزا سويتس، القاهرة\n\nأي مدينة وكم عدد الليالي؟"
+      ]
+    },
+    {
+      "tag": "ask_luxury_hotel_open_budget",
+      "patterns": [
+        "Hotel above 10000",
+        "Open budget",
+        "Budget does not matter",
+        "I want the most luxurious option",
+        "Luxury only",
+        "Most expensive hotel",
+        "عايز فندق فوق 10000",
+        "budget مفتوح",
+        "مش مهم السعر",
+        "عايز أفخم حاجة",
+        "luxury only",
+        "أعلى فئة",
+        "أغلى وأفخم حاجة"
+      ],
+      "responses": [
+        "Absolute luxury options:\n💎 Constance Maldives — Water villas from $2,000/night\n💎 Hôtel Plaza Athénée Paris — From €1,500/night\n💎 Mövenpick Aswan — Premium Nile suites\n💎 5-star Makkah towers — Haram view suites\n\nWhich destination?",
+        "خيارات الفخامة المطلقة:\n💎 كونستانس المالديف — فيلات مائية من 2000$/ليلة\n💎 هوتيل بلازا أثيني باريس — من 1500€/ليلة\n💎 موفنبيك أسوان — سويتات نيل فاخرة\n💎 أبراج مكة المكرمة 5 نجوم — سويتات إطلالة الحرم\n\nأي وجهة؟"
+      ]
+    },
+    {
+      "tag": "ask_best_value_hotel",
+      "patterns": [
+        "Best value for money",
+        "Best hotel for the price",
+        "Hotel worth the price",
+        "Good value stay",
+        "أفضل قيمة مقابل السعر",
+        "أحسن حاجة بالنسبة للسعر",
+        "best value",
+        "حاجة تستاهل السعر",
+        "فندق خدمته كويسة بالنسبة لسعره"
+      ],
+      "responses": [
+        "Best value picks:\n⭐ Best Western Plus Jeddah — Great facilities for price\n⭐ Al Ansar Palace Madinah — Excellent location value\n⭐ Pyramisa Cairo — Good service at fair price\n\nWhich city are you considering?",
+        "أفضل اختيارات قيمة مقابل السعر:\n⭐ بست ويسترن بلاس جدة — مرافق ممتازة مقابل السعر\n⭐ الأنصار بالاس المدينة — موقع ممتاز بقيمة جيدة\n⭐ بيراميزا القاهرة — خدمة جيدة بسعر معقول\n\nأي مدينة تفكر فيها؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_with_pool",
+      "patterns": [
+        "Hotel with pool",
+        "Does it have a pool?",
+        "Swimming pool hotel",
+        "Rooftop pool hotel",
+        "فيه مسبح؟",
+        "حمام سباحة؟",
+        "فندق فيه مسبح",
+        "عايز pool",
+        "فندق حمام سباحة",
+        "hotel with pool",
+        "rooftop pool",
+        "عايز مسبح على السطح"
+      ],
+      "responses": [
+        "Hotels with pools are available in all cities! 🏊\nNotable pool hotels:\n- Novotel Jeddah — Rooftop pool\n- ALDAU Hurghada — Multiple pools\n- Sharm resorts — Large pools + beach\n\nWhich city are you looking in?",
+        "فنادق بمسابح متوفرة في كل المدن! 🏊\nأبرز فنادق المسابح:\n- نوفوتيل جدة — مسبح على السطح\n- أولداو الغردقة — مسابح متعددة\n- ريزورتات شرم — مسابح كبيرة + شاطئ\n\nأي مدينة تبحث فيها؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_with_spa",
+      "patterns": [
+        "Spa hotel",
+        "Does it have spa?",
+        "Hotel with spa and sauna",
+        "Wellness hotel",
+        "Spa and massage hotel",
+        "فيه سبا؟",
+        "spa hotel",
+        "فندق فيه سبا",
+        "سونا ومساج",
+        "مكان استرخاء",
+        "wellness hotel",
+        "محتاج spa وsauna"
+      ],
+      "responses": [
+        "Best spa hotels:\n💆 Novotel Jeddah — Full spa & wellness\n💆 ALDAU Hurghada — World-class spa\n💆 Maldives resorts — Overwater spa!\n\nWhich city are you visiting?",
+        "أفضل فنادق السبا:\n💆 نوفوتيل جدة — سبا ورفاهية كاملة\n💆 أولداو الغردقة — سبا عالمي المستوى\n💆 منتجعات المالديف — سبا فوق الماء!\n\nأي مدينة ستزورها؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_with_breakfast",
+      "patterns": [
+        "Breakfast hotel",
+        "Is breakfast included?",
+        "Hotel with breakfast",
+        "Breakfast included",
+        "Free breakfast",
+        "الفطار شامل؟",
+        "فندق بفطار",
+        "شامل الإفطار",
+        "breakfast included",
+        "فطار مجاني",
+        "عايز فندق مع فطار"
+      ],
+      "responses": [
+        "Most hotels offer breakfast options:\n🍳 Bed & Breakfast (B&B) — Breakfast included\n🍳 Half Board — Breakfast + Dinner\n🍳 Full Board — All meals\n\nWant me to filter breakfast-included hotels for your city?",
+        "معظم الفنادق تقدم خيارات الفطار:\n🍳 بيد آند بريكفاست (B&B) — فطار شامل\n🍳 نصف إقامة — فطار + عشاء\n🍳 إقامة كاملة — جميع الوجبات\n\nهل تريد أفلتر فنادق بالفطار الشامل لمدينتك؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_with_parking",
+      "patterns": [
+        "Hotel with free parking",
+        "Is parking included?",
+        "Parking available?",
+        "Stay with parking",
+        "عايز فندق فيه باركينج مجاني",
+        "free parking hotel",
+        "فيه موقف مجاني؟",
+        "hotel with free parking",
+        "محتاج باركينج",
+        "موقف عربية مجاني"
+      ],
+      "responses": [
+        "Free parking available at select hotels! 🚗\nMost city hotels offer paid parking while resort hotels usually have free parking.\n\nWhich city are you visiting? I'll confirm parking options!",
+        "باركينج مجاني متوفر في فنادق مختارة! 🚗\nمعظم فنادق المدن تقدم باركينج مدفوع بينما فنادق الريزورت عادةً باركينج مجاني.\n\nأي مدينة ستزورها؟ وسأأكد خيارات الباركينج!"
+      ]
+    },
+    {
+      "tag": "manage_booking",
+      "patterns": [
+        "Show my bookings",
+        "View my reservation",
+        "Check my booking",
+        "I want to cancel my booking",
+        "Modify my booking",
+        "Booking status",
+        "Track my reservation",
+        "عايز أشوف حجوزاتي",
+        "إلغاء الحجز",
+        "تعديل الحجز",
+        "أريد إلغاء رحلتي",
+        "تغيير موعد السفر",
+        "ما هي حالة حجزي؟",
+        "أين حجزي؟",
+        "تتبع الحجز"
+      ],
+      "responses": [
+        "To manage your booking:\n1️⃣ Go to 'My Bookings'\n2️⃣ Select the booking\n3️⃣ Choose: View / Modify / Cancel\n\nOr share your booking ID and I'll help directly! 📋",
+        "لإدارة حجزك:\n1️⃣ اذهب إلى 'حجوزاتي'\n2️⃣ اختر الحجز\n3️⃣ اختر: عرض / تعديل / إلغاء\n\nأو شاركني رقم الحجز وسأساعدك مباشرةً! 📋"
+      ]
+    },
+    {
+      "tag": "payments",
+      "patterns": [
+        "How can I pay?",
+        "Payment methods",
+        "Do you accept credit cards?",
+        "Can I pay with Visa?",
+        "Do you accept Mastercard?",
+        "Can I pay with PayPal?",
+        "Installment payment",
+        "طرق الدفع",
+        "كيف أدفع؟",
+        "هل تقبلون فيزا؟",
+        "هل تقبلون ماستركارد؟",
+        "الدفع بالتقسيط",
+        "أقساط"
+      ],
+      "responses": [
+        "We accept multiple payment methods 💳:\n✅ Visa & Mastercard\n✅ PayPal\n✅ Apple Pay & Google Pay\n✅ Bank Transfer\n✅ Installments up to 12 months\n\nAll payments secured with SSL 256-bit 🔒",
+        "نقبل طرق دفع متعددة 💳:\n✅ فيزا وماستركارد\n✅ PayPal\n✅ Apple Pay وGoogle Pay\n✅ تحويل بنكي\n✅ الدفع بالتقسيط حتى 12 شهراً\n\nجميع المدفوعات مؤمّنة بتشفير SSL 🔒"
+      ]
+    },
+    {
+      "tag": "cancellation_policy",
+      "patterns": [
+        "What is the cancellation policy?",
+        "Can I cancel my booking?",
+        "Refund policy",
+        "How to get a refund?",
+        "Cancel my trip",
+        "سياسة الإلغاء",
+        "هل يمكنني إلغاء الحجز؟",
+        "سياسة الاسترداد",
+        "كيف أسترد أموالي؟",
+        "إلغاء رحلتي"
+      ],
+      "responses": [
+        "Cancellation & Refund Policy 📋:\n✅ 7+ days before → Full refund (100%)\n⚠️ 3–7 days before → 50% refund\n❌ Under 3 days → Non-refundable\n\nTo cancel: My Bookings → Select → Cancel",
+        "سياسة الإلغاء والاسترداد 📋:\n✅ قبل 7 أيام أو أكثر ← استرداد كامل (100%)\n⚠️ قبل 3-7 أيام ← استرداد جزئي (50%)\n❌ أقل من 3 أيام ← غير قابل للاسترداد\n\nللإلغاء: حجوزاتي ← اختر الحجز ← إلغاء"
+      ]
+    },
+    {
+      "tag": "student_deals",
+      "patterns": [
+        "Student discount",
+        "Do you have student offers?",
+        "I'm a student",
+        "Student travel deals",
+        "Student packages",
+        "خصم طلاب",
+        "هل لديكم عروض للطلاب؟",
+        "أنا طالب",
+        "عروض سفر للطلاب",
+        "باقات الطلاب",
+        "رحلات رخيصة للطلاب"
+      ],
+      "responses": [
+        "Student Deals at Sufar! 🎓\n✅ Up to 30% off selected trips\n✅ Budget packages from $149\n✅ Group student discounts\n\nVerify your student status in your profile to unlock deals!",
+        "عروض الطلاب في سُفَر! 🎓\n✅ خصم يصل إلى 30% على رحلات مختارة\n✅ باقات اقتصادية من 149 دولار\n✅ خصومات خاصة لمجموعات الطلاب\n\nتحقق من حالتك كطالب في ملفك الشخصي لتفعيل الخصومات!"
+      ]
+    },
+    {
+      "tag": "visa_info",
+      "patterns": [
+        "Do I need a visa?",
+        "Visa requirements",
+        "How to get a visa?",
+        "Visa information",
+        "What documents do I need?",
+        "Visa on arrival",
+        "e-Visa",
+        "هل أحتاج فيزا؟",
+        "معلومات التأشيرة",
+        "كيف أحصل على فيزا؟",
+        "متطلبات السفر",
+        "ما هي الوثائق المطلوبة للسفر؟",
+        "فيزا عند الوصول",
+        "تأشيرة إلكترونية"
+      ],
+      "responses": [
+        "Visa guide (Egyptian passport) 🛂:\n🇦🇪 Dubai — e-Visa or on arrival ✅\n🇹🇷 Istanbul — e-Visa online ✅\n🇲🇦 Morocco — No visa needed ✅\n🇫🇷 Paris — Schengen visa required 📋\n🇮🇩 Bali — Visa on arrival ✅\n\nTell me your nationality and destination for accurate info!",
+        "دليل التأشيرة (جواز سفر مصري) 🛂:\n🇦🇪 دبي — تأشيرة إلكترونية أو عند الوصول ✅\n🇹🇷 إسطنبول — تأشيرة إلكترونية ✅\n🇲🇦 المغرب — لا تأشيرة مطلوبة ✅\n🇫🇷 باريس — تأشيرة شنغن مطلوبة 📋\n🇮🇩 بالي — تأشيرة عند الوصول ✅\n\nأخبرني بجنسيتك ووجهتك للحصول على معلومات دقيقة!"
+      ]
+    },
+    {
+      "tag": "travel_tips",
+      "patterns": [
+        "Any travel tips?",
+        "Travel advice",
+        "What should I pack?",
+        "Tips for first-time travelers",
+        "Travel hacks",
+        "Packing tips",
+        "نصائح للسفر",
+        "ماذا أحضر معي؟",
+        "نصائح للمسافر",
+        "حيل السفر",
+        "نصائح الحقيبة",
+        "كيف أسافر بأمان؟"
+      ],
+      "responses": [
+        "Top Travel Tips ✈️:\n📋 Book 3 weeks in advance\n📋 Check visa requirements early\n📋 Get travel insurance\n📋 Keep digital document copies\n🧳 Pack light — use carry-on\n💡 Inform your bank before traveling\n🔒 Share itinerary with someone at home",
+        "أهم نصائح السفر ✈️:\n📋 احجز قبل 3 أسابيع\n📋 تحقق من التأشيرة مبكراً\n📋 احصل على تأمين سفر\n📋 احتفظ بنسخ رقمية من وثائقك\n🧳 سافر خفيف — استخدم حقيبة الكابين\n💡 أخبر بنكك قبل السفر\n🔒 شارك خطة رحلتك مع شخص في المنزل"
+      ]
+    },
+    {
+      "tag": "recommend_destination",
+      "patterns": [
+        "Where should I travel?",
+        "Recommend a destination",
+        "Best places to travel",
+        "Give me travel ideas",
+        "Trending destinations",
+        "What are popular destinations?",
+        "فين أسافر؟",
+        "اقترح لي مكان",
+        "أحسن أماكن سياحية",
+        "ما هي أفضل الوجهات السياحية؟",
+        "اقترح علي رحلة",
+        "أين أذهب في الإجازة؟",
+        "وين أروح؟"
+      ],
+      "responses": [
+        "Top destinations right now 🌍:\n🇦🇪 Dubai — Luxury & Shopping\n🇹🇷 Istanbul — Culture & Food\n🇫🇷 Paris — Romance & Art\n🇮🇩 Bali — Nature & Wellness\n🇲🇦 Marrakech — Exotic & Affordable\n🇬🇷 Santorini — Stunning Views\n🇲🇻 Maldives — Ultimate Paradise\n\nTell me your budget & interests for a personalized recommendation!",
+        "أفضل الوجهات الآن 🌍:\n🇦🇪 دبي — الفخامة والتسوق\n🇹🇷 إسطنبول — الثقافة والمأكولات\n🇫🇷 باريس — الرومانسية والفن\n🇮🇩 بالي — الطبيعة والعافية\n🇲🇦 مراكش — الأجواء الاستثنائية والأسعار المناسبة\n🇬🇷 سانتوريني — مناظر رائعة\n🇲🇻 المالديف — الجنة المطلقة\n\nأخبرني بميزانيتك واهتماماتك للحصول على توصية مخصصة!"
+      ]
+    },
+    {
+      "tag": "about_sufar",
+      "patterns": [
+        "What is Sufar?",
+        "Tell me about Sufar",
+        "Who are you?",
+        "What can you do?",
+        "About this app",
+        "How does Sufar work?",
+        "ما هو تطبيق سُفَر؟",
+        "حدثني عن سُفَر",
+        "من أنت؟",
+        "ماذا تستطيع أن تفعل؟",
+        "عن التطبيق",
+        "ما هي الخدمات التي تقدمها؟"
+      ],
+      "responses": [
+        "Welcome to Sufar! 🌍✈️\nYour all-in-one smart travel platform:\n✈️ Search & book flights\n🏨 Find & reserve hotels\n🗺️ Discover amazing destinations\n📦 All-inclusive trip packages\n🎓 Exclusive student deals\n🤖 AI-powered recommendations\n💳 Secure flexible payments\n\nAll in one place with best prices guaranteed! 💎",
+        "أهلاً بك في سُفَر! 🌍✈️\nمنصتك الذكية المتكاملة للسفر:\n✈️ البحث وحجز الرحلات الجوية\n🏨 إيجاد وحجز الفنادق\n🗺️ اكتشاف وجهات مذهلة\n📦 باقات سياحية شاملة\n🎓 عروض الطلاب الحصرية\n🤖 توصيات مدعومة بالذكاء الاصطناعي\n💳 خيارات دفع آمنة ومرنة\n\nكل شيء في مكان واحد بأفضل الأسعار المضمونة! 💎"
+      ]
+    },
+    {
+      "tag": "contact_support",
+      "patterns": [
+        "I need help",
+        "Contact support",
+        "Talk to a human",
+        "Customer service",
+        "I have a complaint",
+        "Report a problem",
+        "محتاج مساعدة",
+        "التواصل مع الدعم",
+        "تحدث مع موظف",
+        "خدمة العملاء",
+        "لدي شكوى",
+        "الإبلاغ عن مشكلة",
+        "ساعدني من فضلك"
+      ],
+      "responses": [
+        "Our support team is here for you! 💙\n📧 Email: support@sufar.com\n📞 Phone: +20-800-SUFAR\n💬 Live Chat: 24/7 in the app\n\nOr describe your issue here and I'll help right away!",
+        "فريق الدعم هنا من أجلك! 💙\n📧 البريد: support@sufar.com\n📞 الهاتف: 800-SUFAR-20+\n💬 الدردشة المباشرة: 24/7 في التطبيق\n\nأو صف مشكلتك هنا وسأساعدك فوراً!"
+      ]
+    },
+    {
+      "tag": "compare_hotels",
+      "patterns": [
+        "Compare hotels",
+        "Which hotel is better?",
+        "Which is best?",
+        "Compare these two hotels",
+        "قارن الفنادق",
+        "أنهي أفضل؟",
+        "قارن الفندقين",
+        "أيهما أفضل؟",
+        "أنهي أحسن؟"
+      ],
+      "responses": [
+        "I can help you compare hotels! 🔍\nPlease tell me:\n- Which two hotels?\n- What matters most to you? (Price / Location / Facilities)\n\nI'll give you a clear comparison!",
+        "يمكنني مساعدتك في مقارنة الفنادق! 🔍\nأخبرني:\n- أي فندقين تريد المقارنة؟\n- ما الأهم بالنسبة لك؟ (السعر / الموقع / المرافق)\n\nوسأعطيك مقارنة واضحة!"
+      ]
+    },
+    {
+      "tag": "book_now",
+      "patterns": [
+        "Book now",
+        "Reserve it",
+        "I want to book",
+        "Book this one",
+        "احجزلي",
+        "تمام خد ده",
+        "عايز أحجز",
+        "احجز ده"
+      ],
+      "responses": [
+        "Let's book it! 🎉\nTo complete your booking:\n1️⃣ Confirm your dates\n2️⃣ Enter guest details\n3️⃣ Choose payment method\n4️⃣ Confirm and get your e-ticket!\n\nReady to proceed?",
+        "هيا نحجز! 🎉\nلإتمام حجزك:\n1️⃣ أكّد تواريخك\n2️⃣ أدخل بيانات الضيوف\n3️⃣ اختر طريقة الدفع\n4️⃣ أكّد واستلم تذكرتك الإلكترونية!\n\nجاهز للمتابعة؟"
+      ]
+    },
+    {
+      "tag": "more_options",
+      "patterns": [
+        "Show more",
+        "More options",
+        "Anything cheaper?",
+        "Anything better?",
+        "Give me more choices",
+        "وريني أكتر",
+        "عايز خيارات تانية",
+        "في أرخص؟",
+        "في أحسن؟",
+        "عايز خيارات أكثر"
+      ],
+      "responses": [
+        "Sure! Let me find more options for you 🔍\nCould you confirm:\n- City you're looking in?\n- Same budget or open to different range?\n\nI'll show you more choices right away!",
+        "تمام! هبحث لك على المزيد من الخيارات 🔍\nهل تأكد:\n- المدينة التي تبحث فيها؟\n- نفس الميزانية أو مفتوح لنطاق مختلف؟\n\nوسأريك خيارات أكثر فوراً!"
+      ]
+    },
+    {
+      "tag": "funny",
+      "patterns": [
+        "Tell me a joke",
+        "Say something funny",
+        "Make me laugh",
+        "Do you know any jokes?",
+        "احكيلي نكتة",
+        "قول حاجة مضحكة",
+        "اضحكني"
+      ],
+      "responses": [
+        "Why don't scientists trust atoms? Because they make up everything! 😄 Just like my travel deals — but those are 100% real! ✈️",
+        "Why did the tourist bring a ladder to the bar? Because he heard the drinks were on the house! 🍹✈️",
+        "What do you call someone who's always looking for cheap flights? Budget-curious! 😂 Let me find you the best deals!",
+        "ليه المسافر دايماً مبسوط؟ لأنه كل ما سافر، اكتشف إن العالم أجمل مما تصوّر! 🌍😄",
+        "يقولون السفر يعلّمك... أنا بقولك السفر مع سُفَر يوفّرلك فلوس كمان! 💰😄"
+      ]
+    },
+    {
+      "tag": "activities_cairo",
+      "patterns": [
+        "What to do in Cairo",
+        "Things to do in Cairo",
+        "Activities in Cairo",
+        "Tourist attractions Cairo",
+        "Cairo sightseeing",
+        "What can I visit in Cairo",
+        "Places to visit Cairo",
+        "Best places Cairo",
+        "إيه أشوف في القاهرة",
+        "ماذا أزور في القاهرة",
+        "أنشطة القاهرة",
+        "أماكن سياحية القاهرة",
+        "أحسن أماكن القاهرة",
+        "أفضل مناطق القاهرة",
+        "برنامج سياحي القاهرة",
+        "أشهر معالم القاهرة"
+      ],
+      "responses": [
+        "Top things to do in Cairo 🏛️:\n  ⭐ Pyramids of Giza & Sphinx\n  • Grand Egyptian Museum\n  • Citadel & Muhammad Ali Mosque\n  • Khan el-Khalili Bazaar\n  • Nile Dinner Cruise\n  • Ibn Tulun Mosque\n\nWant hotel recommendations in Cairo too?",
+        "أبرز الأنشطة في القاهرة 🏛️:\n  ⭐ أهرامات الجيزة والأبو الهول\n  • المتحف المصري الكبير\n  • القلعة ومسجد محمد علي\n  • خان الخليلي\n  • رحلة عشاء على النيل\n  • مسجد ابن طولون\n\nهل تريد توصيات فنادق في القاهرة أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_cairo",
+      "patterns": [
+        "Hotel and things to do in Cairo",
+        "Plan my trip to Cairo",
+        "Book hotel in Cairo and what to visit",
+        "فندق وأنشطة في القاهرة",
+        "خطط رحلتي للقاهرة",
+        "فندق في القاهرة وأماكن سياحية"
+      ],
+      "responses": [
+        "Here's your complete Cairo plan 🏛️:\n\n🏨 Hotel: Hyatt Regency Cairo or Hilton Grand Nile Tower\n\n🗺️ Top Activities Nearby:\n  • Pyramids of Giza & Sphinx\n  • Grand Egyptian Museum\n  • Citadel & Muhammad Ali Mosque\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في القاهرة 🏛️:\n\n🏨 الفندق: حياة ريجنسي القاهرة أو هيلتون جراند نايل تاور\n\n🗺️ أبرز الأنشطة القريبة:\n  • أهرامات الجيزة والأبو الهول\n  • المتحف المصري الكبير\n  • القلعة ومسجد محمد علي\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_alexandria",
+      "patterns": [
+        "What to do in Alexandria",
+        "Things to do in Alexandria",
+        "Activities in Alexandria",
+        "Tourist attractions Alexandria",
+        "Alexandria sightseeing",
+        "Places to visit Alexandria",
+        "إيه أشوف في اسكندرية",
+        "ماذا أزور في الإسكندرية",
+        "أنشطة اسكندرية",
+        "أماكن سياحية اسكندرية",
+        "برنامج سياحي اسكندرية",
+        "معالم اسكندرية"
+      ],
+      "responses": [
+        "Top things to do in Alexandria 🌊:\n  ⭐ Bibliotheca Alexandrina\n  • Qaitbay Citadel\n  • Alexandria Corniche\n  • Roman Amphitheatre\n  • Famous Seafood Restaurants\n  • Beach Swimming\n\nWant hotel recommendations in Alexandria too?",
+        "أبرز الأنشطة في الإسكندرية 🌊:\n  ⭐ مكتبة الإسكندرية\n  • قلعة قايتباي\n  • كورنيش الإسكندرية\n  • المدرج الروماني\n  • مطاعم المأكولات البحرية\n  • شواطئ الإسكندرية\n\nهل تريد توصيات فنادق في الإسكندرية أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_alexandria",
+      "patterns": [
+        "Hotel and things to do in Alexandria",
+        "Plan my trip to Alexandria",
+        "فندق وأنشطة في اسكندرية",
+        "خطط رحلتي للإسكندرية"
+      ],
+      "responses": [
+        "Here's your complete Alexandria plan 🌊:\n\n🏨 Hotel: Steigenberger Cecil or Windsor Palace Hotel\n\n🗺️ Top Activities Nearby:\n  • Bibliotheca Alexandrina\n  • Qaitbay Citadel\n  • Alexandria Corniche\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في الإسكندرية 🌊:\n\n🏨 الفندق: شتايجنبرجر سيسيل أو ويندسور بالاس هوتيل\n\n🗺️ أبرز الأنشطة القريبة:\n  • مكتبة الإسكندرية\n  • قلعة قايتباي\n  • كورنيش الإسكندرية\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_hurghada",
+      "patterns": [
+        "What to do in Hurghada",
+        "Things to do in Hurghada",
+        "Activities in Hurghada",
+        "Tourist attractions Hurghada",
+        "Hurghada sightseeing",
+        "إيه أشوف في الغردقة",
+        "ماذا أزور في الغردقة",
+        "أنشطة الغردقة",
+        "أماكن سياحية الغردقة",
+        "برنامج سياحي الغردقة"
+      ],
+      "responses": [
+        "Top things to do in Hurghada 🤿:\n  ⭐ Diving & Snorkeling\n  • Yacht Trips\n  • Red Sea Safari\n  • Water Sports\n  • Hurghada Aquarium\n  • Desert Safari\n\nWant hotel recommendations in Hurghada too?",
+        "أبرز الأنشطة في الغردقة 🤿:\n  ⭐ الغوص والسنوركل\n  • رحلات اليخوت\n  • سفاري البحر الأحمر\n  • الرياضات المائية\n  • أكواريوم الغردقة\n  • سفاري الصحراء\n\nهل تريد توصيات فنادق في الغردقة أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_hurghada",
+      "patterns": [
+        "Hotel and things to do in Hurghada",
+        "Plan my trip to Hurghada",
+        "فندق وأنشطة في الغردقة",
+        "خطط رحلتي للغردقة"
+      ],
+      "responses": [
+        "Here's your complete Hurghada plan 🤿:\n\n🏨 Hotel: ALDAU Beach Hotel (Steigenberger)\n\n🗺️ Top Activities Nearby:\n  • Diving & Snorkeling\n  • Yacht Trips\n  • Red Sea Safari\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في الغردقة 🤿:\n\n🏨 الفندق: أولداو بيتش هوتيل (شتايجنبرجر)\n\n🗺️ أبرز الأنشطة القريبة:\n  • الغوص والسنوركل\n  • رحلات اليخوت\n  • سفاري البحر الأحمر\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_sharm",
+      "patterns": [
+        "What to do in Sharm El Sheikh",
+        "Things to do in Sharm",
+        "Activities in Sharm",
+        "Tourist attractions Sharm",
+        "Sharm sightseeing",
+        "إيه أشوف في شرم الشيخ",
+        "ماذا أزور في شرم",
+        "أنشطة شرم الشيخ",
+        "أماكن سياحية شرم",
+        "برنامج سياحي شرم الشيخ"
+      ],
+      "responses": [
+        "Top things to do in Sharm El Sheikh 🏖️:\n  ⭐ Ras Mohamed Diving\n  • Coral Reef Garden\n  • Windsurfing & Water Sports\n  • Mount Sinai Trek\n  • Dolphin Trip\n  • Old Sharm Market\n\nWant hotel recommendations in Sharm El Sheikh too?",
+        "أبرز الأنشطة في شرم الشيخ 🏖️:\n  ⭐ غوص رأس محمد\n  • حديقة الشعاب المرجانية\n  • ركوب الأمواج والرياضات المائية\n  • تسلق جبل موسى\n  • رحلة الدلافين\n  • سوق شرم القديم\n\nهل تريد توصيات فنادق في شرم الشيخ أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_sharm",
+      "patterns": [
+        "Hotel and things to do in Sharm",
+        "Plan my trip to Sharm El Sheikh",
+        "فندق وأنشطة في شرم",
+        "خطط رحلتي لشرم الشيخ"
+      ],
+      "responses": [
+        "Here's your complete Sharm El Sheikh plan 🏖️:\n\n🏨 Hotel: 5-star beachfront resort in Naama Bay\n\n🗺️ Top Activities Nearby:\n  • Ras Mohamed Diving\n  • Coral Reef Garden\n  • Windsurfing & Water Sports\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في شرم الشيخ 🏖️:\n\n🏨 الفندق: ريزورت 5 نجوم على الشاطئ في خليج نعمة\n\n🗺️ أبرز الأنشطة القريبة:\n  • غوص رأس محمد\n  • حديقة الشعاب المرجانية\n  • ركوب الأمواج والرياضات المائية\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_luxor",
+      "patterns": [
+        "What to do in Luxor",
+        "Things to do in Luxor",
+        "Activities in Luxor",
+        "Tourist attractions Luxor",
+        "Luxor sightseeing",
+        "Places to visit Luxor",
+        "إيه أشوف في الأقصر",
+        "ماذا أزور في الأقصر",
+        "أنشطة الأقصر",
+        "أماكن سياحية الأقصر",
+        "برنامج سياحي الأقصر",
+        "معالم الأقصر"
+      ],
+      "responses": [
+        "Top things to do in Luxor 🏺:\n  ⭐ Karnak Temple\n  • Luxor Nile Cruise\n  • Valley of the Kings\n  • Luxor Temple by Night\n  • Hot Air Balloon Ride\n  • Horse Carriage Tour\n\nWant hotel recommendations in Luxor too?",
+        "أبرز الأنشطة في الأقصر 🏺:\n  ⭐ معبد الكرنك\n  • رحلة نيلية بالأقصر\n  • وادي الملوك\n  • معبد الأقصر ليلاً\n  • رحلة بالون الهواء الساخن\n  • جولة بالعربة\n\nهل تريد توصيات فنادق في الأقصر أيضاً؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_luxor",
+      "patterns": [
+        "Hotel in Luxor",
+        "Need hotel in Luxor",
+        "Stay in Luxor",
+        "Best hotels in Luxor",
+        "I need a hotel in Luxor",
+        "فندق الأقصر",
+        "عايز فندق في الأقصر",
+        "إقامة الأقصر",
+        "أفضل فنادق الأقصر",
+        "أسكن فين في الأقصر"
+      ],
+      "responses": [
+        "Luxor — Land of the Pharaohs! 🏺\nTop hotels in Luxor:\n⭐ Sofitel Winter Palace Luxor — Historic palace hotel on the Nile\n⭐ Hilton Luxor Resort & Spa — Nile view rooms\n⭐ Steigenberger Nile Palace — 5-star comfort\n\nWhat's your budget and how many nights?",
+        "الأقصر — أرض الفراعنة! 🏺\nأفضل فنادق الأقصر:\n⭐ سوفيتيل وينتر بالاس الأقصر — فندق قصر تاريخي على النيل\n⭐ هيلتون الأقصر ريزورت وسبا — غرف بإطلالة النيل\n⭐ شتايجنبرجر نايل بالاس — راحة 5 نجوم\n\nما هي ميزانيتك وكم عدد الليالي؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_luxor",
+      "patterns": [
+        "Hotel and things to do in Luxor",
+        "Plan my trip to Luxor",
+        "فندق وأنشطة في الأقصر",
+        "خطط رحلتي للأقصر"
+      ],
+      "responses": [
+        "Here's your complete Luxor plan 🏺:\n\n🏨 Hotel: Sofitel Winter Palace Luxor\n\n🗺️ Top Activities Nearby:\n  • Karnak Temple\n  • Luxor Nile Cruise\n  • Valley of the Kings\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في الأقصر 🏺:\n\n🏨 الفندق: سوفيتيل وينتر بالاس الأقصر\n\n🗺️ أبرز الأنشطة القريبة:\n  • معبد الكرنك\n  • رحلة نيلية بالأقصر\n  • وادي الملوك\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_aswan",
+      "patterns": [
+        "What to do in Aswan",
+        "Things to do in Aswan",
+        "Activities in Aswan",
+        "Tourist attractions Aswan",
+        "Aswan sightseeing",
+        "إيه أشوف في أسوان",
+        "ماذا أزور في أسوان",
+        "أنشطة أسوان",
+        "أماكن سياحية أسوان",
+        "برنامج سياحي أسوان"
+      ],
+      "responses": [
+        "Top things to do in Aswan 🌿:\n  ⭐ Abu Simbel Temple\n  • Philae Island & Temple\n  • High Dam\n  • Felucca Sailing\n  • Nubian Market\n\nWant hotel recommendations in Aswan too?",
+        "أبرز الأنشطة في أسوان 🌿:\n  ⭐ معبد أبو سمبل\n  • جزيرة فيلة والمعبد\n  • السد العالي\n  • الإبحار بالفلوكة\n  • السوق النوبية\n\nهل تريد توصيات فنادق في أسوان أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_aswan",
+      "patterns": [
+        "Hotel and things to do in Aswan",
+        "Plan my trip to Aswan",
+        "فندق وأنشطة في أسوان",
+        "خطط رحلتي لأسوان"
+      ],
+      "responses": [
+        "Here's your complete Aswan plan 🌿:\n\n🏨 Hotel: Mövenpick Resort Aswan\n\n🗺️ Top Activities Nearby:\n  • Abu Simbel Temple\n  • Philae Island & Temple\n  • High Dam\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في أسوان 🌿:\n\n🏨 الفندق: موفنبيك ريزورت أسوان\n\n🗺️ أبرز الأنشطة القريبة:\n  • معبد أبو سمبل\n  • جزيرة فيلة والمعبد\n  • السد العالي\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_riyadh",
+      "patterns": [
+        "What to do in Riyadh",
+        "Things to do in Riyadh",
+        "Activities in Riyadh",
+        "Tourist attractions Riyadh",
+        "Riyadh sightseeing",
+        "إيه أشوف في الرياض",
+        "ماذا أزور في الرياض",
+        "أنشطة الرياض",
+        "أماكن سياحية الرياض",
+        "برنامج سياحي الرياض",
+        "معالم الرياض"
+      ],
+      "responses": [
+        "Top things to do in Riyadh 🏙️:\n  ⭐ Masmak Fortress\n  • Kingdom Tower\n  • National Museum\n  • Diriyah Heritage Village\n  • Riyadh Season\n  • Authentic Saudi Cuisine\n\nWant hotel recommendations in Riyadh too?",
+        "أبرز الأنشطة في الرياض 🏙️:\n  ⭐ قصر المصمك\n  • برج المملكة\n  • المتحف الوطني\n  • الدرعية التراثية\n  • موسم الرياض\n  • المطبخ السعودي الأصيل\n\nهل تريد توصيات فنادق في الرياض أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_riyadh",
+      "patterns": [
+        "Hotel and things to do in Riyadh",
+        "Plan my trip to Riyadh",
+        "فندق وأنشطة في الرياض",
+        "خطط رحلتي للرياض"
+      ],
+      "responses": [
+        "Here's your complete Riyadh plan 🏙️:\n\n🏨 Hotel: Hilton Riyadh Hotel or Radisson Airport Hotel\n\n🗺️ Top Activities Nearby:\n  • Masmak Fortress\n  • Kingdom Tower\n  • National Museum\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في الرياض 🏙️:\n\n🏨 الفندق: هيلتون الرياض أو راديسون مطار الرياض\n\n🗺️ أبرز الأنشطة القريبة:\n  • قصر المصمك\n  • برج المملكة\n  • المتحف الوطني\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_jeddah",
+      "patterns": [
+        "What to do in Jeddah",
+        "Things to do in Jeddah",
+        "Activities in Jeddah",
+        "Tourist attractions Jeddah",
+        "Jeddah sightseeing",
+        "إيه أشوف في جدة",
+        "ماذا أزور في جدة",
+        "أنشطة جدة",
+        "أماكن سياحية جدة",
+        "برنامج سياحي جدة",
+        "معالم جدة"
+      ],
+      "responses": [
+        "Top things to do in Jeddah 🌊:\n  ⭐ Jeddah Corniche\n  • Al-Balad Historic District\n  • King Fahd Fountain\n  • Red Sea Diving\n  • Traditional & Modern Shopping\n\nWant hotel recommendations in Jeddah too?",
+        "أبرز الأنشطة في جدة 🌊:\n  ⭐ كورنيش جدة\n  • حي البلد التاريخي\n  • نافورة الملك فهد\n  • غوص البحر الأحمر\n  • التسوق التقليدي والحديث\n\nهل تريد توصيات فنادق في جدة أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_jeddah",
+      "patterns": [
+        "Hotel and things to do in Jeddah",
+        "Plan my trip to Jeddah",
+        "فندق وأنشطة في جدة",
+        "خطط رحلتي لجدة"
+      ],
+      "responses": [
+        "Here's your complete Jeddah plan 🌊:\n\n🏨 Hotel: Novotel Jeddah Tahlia or Elaf Jeddah Hotel\n\n🗺️ Top Activities Nearby:\n  • Jeddah Corniche\n  • Al-Balad Historic District\n  • King Fahd Fountain\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في جدة 🌊:\n\n🏨 الفندق: نوفوتيل جدة طاليا أو إيلاف جدة هوتيل\n\n🗺️ أبرز الأنشطة القريبة:\n  • كورنيش جدة\n  • حي البلد التاريخي\n  • نافورة الملك فهد\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_makkah",
+      "patterns": [
+        "What to do in Makkah",
+        "Things to do in Makkah",
+        "Activities in Makkah",
+        "Places to visit Makkah",
+        "Makkah sightseeing",
+        "إيه أشوف في مكة",
+        "ماذا أزور في مكة",
+        "أنشطة مكة المكرمة",
+        "أماكن دينية مكة",
+        "برنامج زيارة مكة",
+        "معالم مكة"
+      ],
+      "responses": [
+        "Top things to do in Makkah 🕋:\n  ⭐ Kaaba & Grand Mosque\n  • Al-Masjid Al-Haram\n  • Jabal Al-Noor & Cave Hira\n  • Jabal Thawr\n\nWant hotel recommendations in Makkah too?",
+        "أبرز الأنشطة في مكة المكرمة 🕋:\n  ⭐ الكعبة والمسجد الحرام\n  • المسجد الحرام\n  • جبل النور وغار حراء\n  • جبل ثور\n\nهل تريد توصيات فنادق في مكة المكرمة أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_makkah",
+      "patterns": [
+        "Hotel and places to visit in Makkah",
+        "Plan my trip to Makkah",
+        "فندق وأماكن زيارة في مكة",
+        "خطط رحلتي لمكة"
+      ],
+      "responses": [
+        "Here's your complete Makkah plan 🕋:\n\n🏨 Hotel: 5-star hotel near Haram (Abraj Al-Bait Towers area)\n\n🗺️ Top Activities Nearby:\n  • Kaaba & Grand Mosque\n  • Al-Masjid Al-Haram\n  • Jabal Al-Noor & Cave Hira\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في مكة المكرمة 🕋:\n\n🏨 الفندق: فندق 5 نجوم قريب الحرم (منطقة أبراج البيت)\n\n🗺️ أبرز الأنشطة القريبة:\n  • الكعبة والمسجد الحرام\n  • المسجد الحرام\n  • جبل النور وغار حراء\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_madinah",
+      "patterns": [
+        "What to do in Madinah",
+        "Things to do in Madinah",
+        "Activities in Madinah",
+        "Places to visit Madinah",
+        "Madinah sightseeing",
+        "إيه أشوف في المدينة",
+        "ماذا أزور في المدينة المنورة",
+        "أنشطة المدينة",
+        "أماكن دينية المدينة",
+        "برنامج زيارة المدينة",
+        "معالم المدينة المنورة"
+      ],
+      "responses": [
+        "Top things to do in Madinah 🕌:\n  ⭐ Al-Masjid An-Nabawi\n  • Islamic Civilization Museum\n  • Mount Uhud\n  • Medina's Green Gardens\n\nWant hotel recommendations in Madinah too?",
+        "أبرز الأنشطة في المدينة المنورة 🕌:\n  ⭐ المسجد النبوي الشريف\n  • متحف الحضارة الإسلامية\n  • جبل أحد\n  • الحدائق الخضراء بالمدينة\n\nهل تريد توصيات فنادق في المدينة المنورة أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_madinah",
+      "patterns": [
+        "Hotel and places to visit in Madinah",
+        "Plan my trip to Madinah",
+        "فندق وأماكن زيارة في المدينة",
+        "خطط رحلتي للمدينة المنورة"
+      ],
+      "responses": [
+        "Here's your complete Madinah plan 🕌:\n\n🏨 Hotel: Al Ansar Palace or Al Madina Golden Hotel\n\n🗺️ Top Activities Nearby:\n  • Al-Masjid An-Nabawi\n  • Islamic Civilization Museum\n  • Mount Uhud\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في المدينة المنورة 🕌:\n\n🏨 الفندق: الأنصار بالاس أو المدينة جولدن هوتيل\n\n🗺️ أبرز الأنشطة القريبة:\n  • المسجد النبوي الشريف\n  • متحف الحضارة الإسلامية\n  • جبل أحد\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_dubai",
+      "patterns": [
+        "What to do in Dubai",
+        "Things to do in Dubai",
+        "Activities in Dubai",
+        "Tourist attractions Dubai",
+        "Dubai sightseeing",
+        "Best places Dubai",
+        "إيه أشوف في دبي",
+        "ماذا أزور في دبي",
+        "أنشطة دبي",
+        "أماكن سياحية دبي",
+        "برنامج سياحي دبي",
+        "معالم دبي"
+      ],
+      "responses": [
+        "Top things to do in Dubai 🏙️:\n  ⭐ Burj Khalifa\n  • Dubai Mall\n  • Desert Safari\n  • Dubai Metro Experience\n  • Jumeirah Beach\n  • Theme Parks & Entertainment\n\nWant hotel recommendations in Dubai too?",
+        "أبرز الأنشطة في دبي 🏙️:\n  ⭐ برج خليفة\n  • دبي مول\n  • سفاري الصحراء\n  • تجربة مترو دبي\n  • شاطئ جميرا\n  • الملاهي والترفيه\n\nهل تريد توصيات فنادق في دبي أيضاً؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_dubai",
+      "patterns": [
+        "Hotel in Dubai",
+        "Need hotel in Dubai",
+        "Stay in Dubai",
+        "Best hotels in Dubai",
+        "I need a hotel in Dubai",
+        "فندق دبي",
+        "عايز فندق في دبي",
+        "إقامة دبي",
+        "أفضل فنادق دبي",
+        "محتاج أوضة في دبي",
+        "أسكن فين في دبي"
+      ],
+      "responses": [
+        "Dubai — City of Wonders! 🏙️\nTop hotels:\n⭐ Burj Al Arab — World's most iconic luxury hotel\n⭐ Atlantis The Palm — Waterpark + beach\n⭐ Address Downtown — Burj Khalifa views\n⭐ JW Marriott Marquis — Business & leisure\n\nWhat's your budget and trip purpose?",
+        "دبي — مدينة العجائب! 🏙️\nأفضل الفنادق:\n⭐ برج العرب — أشهر فندق فاخر في العالم\n⭐ أتلانتس النخلة — ووترباركو + شاطئ\n⭐ أدريس داون تاون — إطلالات برج خليفة\n⭐ جي دبليو ماريوت ماركيز — أعمال وترفيه\n\nما هي ميزانيتك وغرض الرحلة؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_dubai",
+      "patterns": [
+        "Hotel and things to do in Dubai",
+        "Plan my trip to Dubai",
+        "فندق وأنشطة في دبي",
+        "خطط رحلتي لدبي"
+      ],
+      "responses": [
+        "Here's your complete Dubai plan 🏙️:\n\n🏨 Hotel: Atlantis The Palm or Address Downtown Dubai\n\n🗺️ Top Activities Nearby:\n  • Burj Khalifa\n  • Dubai Mall\n  • Desert Safari\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في دبي 🏙️:\n\n🏨 الفندق: أتلانتس النخلة أو أدريس داون تاون دبي\n\n🗺️ أبرز الأنشطة القريبة:\n  • برج خليفة\n  • دبي مول\n  • سفاري الصحراء\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_abudhabi",
+      "patterns": [
+        "What to do in Abu Dhabi",
+        "Things to do in Abu Dhabi",
+        "Activities in Abu Dhabi",
+        "Tourist attractions Abu Dhabi",
+        "Abu Dhabi sightseeing",
+        "إيه أشوف في أبوظبي",
+        "ماذا أزور في أبوظبي",
+        "أنشطة أبوظبي",
+        "أماكن سياحية أبوظبي",
+        "برنامج سياحي أبوظبي"
+      ],
+      "responses": [
+        "Top things to do in Abu Dhabi 🕌:\n  ⭐ Sheikh Zayed Grand Mosque\n  • Formula 1 Circuit\n  • Louvre Abu Dhabi\n  • Yas Island\n  • Corniche Sunset\n\nWant hotel recommendations in Abu Dhabi too?",
+        "أبرز الأنشطة في أبوظبي 🕌:\n  ⭐ مسجد الشيخ زايد الكبير\n  • حلبة الفورمولا 1\n  • متحف اللوفر أبوظبي\n  • جزيرة ياس\n  • غروب الشمس على الكورنيش\n\nهل تريد توصيات فنادق في أبوظبي أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_abudhabi",
+      "patterns": [
+        "Hotel and things to do in Abu Dhabi",
+        "Plan my trip to Abu Dhabi",
+        "فندق وأنشطة في أبوظبي",
+        "خطط رحلتي لأبوظبي"
+      ],
+      "responses": [
+        "Here's your complete Abu Dhabi plan 🕌:\n\n🏨 Hotel: Emirates Palace or Yas Plaza Hotels\n\n🗺️ Top Activities Nearby:\n  • Sheikh Zayed Grand Mosque\n  • Formula 1 Circuit\n  • Louvre Abu Dhabi\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في أبوظبي 🕌:\n\n🏨 الفندق: إيميراتس بالاس أو ياس بلازا هوتيلز\n\n🗺️ أبرز الأنشطة القريبة:\n  • مسجد الشيخ زايد الكبير\n  • حلبة الفورمولا 1\n  • متحف اللوفر أبوظبي\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_doha",
+      "patterns": [
+        "What to do in Doha",
+        "Things to do in Doha",
+        "Activities in Doha",
+        "Tourist attractions Doha",
+        "Doha sightseeing",
+        "إيه أشوف في الدوحة",
+        "ماذا أزور في الدوحة",
+        "أنشطة الدوحة",
+        "أماكن سياحية الدوحة",
+        "برنامج سياحي الدوحة",
+        "معالم الدوحة"
+      ],
+      "responses": [
+        "Top things to do in Doha 🏟️:\n  ⭐ Museum of Islamic Art\n  • Souq Waqif\n  • Lusail City\n  • 2022 World Cup Stadiums\n  • Doha Beaches\n  • Katara Cultural Village\n\nWant hotel recommendations in Doha too?",
+        "أبرز الأنشطة في الدوحة 🏟️:\n  ⭐ متحف الفن الإسلامي\n  • سوق واقف\n  • مدينة لوسيل\n  • ملاعب كأس العالم 2022\n  • شواطئ الدوحة\n  • القرية الثقافية كتارا\n\nهل تريد توصيات فنادق في الدوحة أيضاً؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_doha",
+      "patterns": [
+        "Hotel in Doha",
+        "Need hotel in Doha",
+        "Stay in Doha",
+        "Best hotels in Doha",
+        "I need a hotel in Doha",
+        "فندق الدوحة",
+        "عايز فندق في الدوحة",
+        "إقامة الدوحة",
+        "أفضل فنادق الدوحة",
+        "أسكن فين في الدوحة"
+      ],
+      "responses": [
+        "Doha — Modern Qatar! 🏟️\nTop hotels:\n⭐ Four Seasons Hotel Doha — Corniche waterfront luxury\n⭐ W Doha — Design & nightlife hub\n⭐ Mondrian Doha — Unique architecture near Souq Waqif\n\nWhat's your budget?",
+        "الدوحة — قطر الحديثة! 🏟️\nأفضل الفنادق:\n⭐ فور سيزونز هوتيل الدوحة — فخامة على كورنيش الدوحة\n⭐ دبليو الدوحة — تصميم وحياة ليلية\n⭐ موندريان الدوحة — معمار فريد قريب سوق واقف\n\nما هي ميزانيتك؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_doha",
+      "patterns": [
+        "Hotel and things to do in Doha",
+        "Plan my trip to Doha",
+        "فندق وأنشطة في الدوحة",
+        "خطط رحلتي للدوحة"
+      ],
+      "responses": [
+        "Here's your complete Doha plan 🏟️:\n\n🏨 Hotel: Four Seasons Hotel Doha or W Doha\n\n🗺️ Top Activities Nearby:\n  • Museum of Islamic Art\n  • Souq Waqif\n  • Lusail City\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في الدوحة 🏟️:\n\n🏨 الفندق: فور سيزونز هوتيل الدوحة أو دبليو الدوحة\n\n🗺️ أبرز الأنشطة القريبة:\n  • متحف الفن الإسلامي\n  • سوق واقف\n  • مدينة لوسيل\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_amman",
+      "patterns": [
+        "What to do in Amman",
+        "Things to do in Amman",
+        "Activities in Amman",
+        "Tourist attractions Amman",
+        "Amman sightseeing",
+        "إيه أشوف في عمّان",
+        "ماذا أزور في عمان",
+        "أنشطة عمّان",
+        "أماكن سياحية عمان",
+        "برنامج سياحي عمان",
+        "معالم عمان"
+      ],
+      "responses": [
+        "Top things to do in Amman 🏛️:\n  ⭐ Roman Amphitheatre\n  • Al-Husseini Mosque\n  • Mansaf & Jordanian Food\n  • Jordan Museum\n\nWant hotel recommendations in Amman too?",
+        "أبرز الأنشطة في عمّان 🏛️:\n  ⭐ المدرج الروماني\n  • مسجد الحسيني\n  • المنسف والمطبخ الأردني\n  • متحف الأردن\n\nهل تريد توصيات فنادق في عمّان أيضاً؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_amman",
+      "patterns": [
+        "Hotel in Amman",
+        "Need hotel in Amman",
+        "Stay in Amman",
+        "Best hotels in Amman",
+        "I need a hotel in Amman",
+        "فندق عمان",
+        "عايز فندق في عمان",
+        "إقامة عمان",
+        "أفضل فنادق عمان",
+        "أسكن فين في عمان"
+      ],
+      "responses": [
+        "Amman — Gateway to Jordan! 🏛️\nTop hotels:\n⭐ Four Seasons Hotel Amman — Luxury city views\n⭐ Grand Hyatt Amman — City center elegance\n⭐ W Amman — Modern design hotel\n\nWhat's your budget and trip purpose?",
+        "عمّان — بوابة الأردن! 🏛️\nأفضل الفنادق:\n⭐ فور سيزونز هوتيل عمان — فخامة مع إطلالات المدينة\n⭐ جراند حياة عمان — أناقة وسط المدينة\n⭐ دبليو عمان — تصميم عصري\n\nما هي ميزانيتك وغرض الرحلة؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_amman",
+      "patterns": [
+        "Hotel and things to do in Amman",
+        "Plan my trip to Amman",
+        "فندق وأنشطة في عمان",
+        "خطط رحلتي لعمان"
+      ],
+      "responses": [
+        "Here's your complete Amman plan 🏛️:\n\n🏨 Hotel: Four Seasons Hotel Amman or Grand Hyatt Amman\n\n🗺️ Top Activities Nearby:\n  • Roman Amphitheatre\n  • Al-Husseini Mosque\n  • Mansaf & Jordanian Food\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في عمّان 🏛️:\n\n🏨 الفندق: فور سيزونز هوتيل عمان أو جراند حياة عمان\n\n🗺️ أبرز الأنشطة القريبة:\n  • المدرج الروماني\n  • مسجد الحسيني\n  • المنسف والمطبخ الأردني\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_beirut",
+      "patterns": [
+        "What to do in Beirut",
+        "Things to do in Beirut",
+        "Activities in Beirut",
+        "Tourist attractions Beirut",
+        "Beirut sightseeing",
+        "إيه أشوف في بيروت",
+        "ماذا أزور في بيروت",
+        "أنشطة بيروت",
+        "أماكن سياحية بيروت",
+        "برنامج سياحي بيروت",
+        "معالم بيروت"
+      ],
+      "responses": [
+        "Top things to do in Beirut 🌿:\n  ⭐ Downtown Beirut\n  • Lebanese Cuisine\n  • Gemmayzeh & Mar Mikhael\n  • National Museum of Beirut\n  • Beirut Corniche\n\nWant hotel recommendations in Beirut too?",
+        "أبرز الأنشطة في بيروت 🌿:\n  ⭐ وسط بيروت\n  • المطبخ اللبناني\n  • الجميزة ومار مخايل\n  • المتحف الوطني بيروت\n  • كورنيش بيروت\n\nهل تريد توصيات فنادق في بيروت أيضاً؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_beirut",
+      "patterns": [
+        "Hotel in Beirut",
+        "Need hotel in Beirut",
+        "Stay in Beirut",
+        "Best hotels in Beirut",
+        "I need a hotel in Beirut",
+        "فندق بيروت",
+        "عايز فندق في بيروت",
+        "إقامة بيروت",
+        "أفضل فنادق بيروت",
+        "أسكن فين في بيروت"
+      ],
+      "responses": [
+        "Beirut — Paris of the Middle East! 🌿\nTop hotels:\n⭐ Four Seasons Hotel Beirut — Luxury on the waterfront\n⭐ Le Gray Beirut — Boutique luxury in downtown\n⭐ Intercontinental Phoenicia Beirut — Iconic Corniche hotel\n\nWhat's your budget?",
+        "بيروت — باريس الشرق الأوسط! 🌿\nأفضل الفنادق:\n⭐ فور سيزونز هوتيل بيروت — فخامة على الواجهة البحرية\n⭐ لو جراي بيروت — فندق بوتيك فاخر في وسط المدينة\n⭐ إنتركونتيننتال فينيسيا بيروت — فندق الكورنيش الأيقوني\n\nما هي ميزانيتك؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_beirut",
+      "patterns": [
+        "Hotel and things to do in Beirut",
+        "Plan my trip to Beirut",
+        "فندق وأنشطة في بيروت",
+        "خطط رحلتي لبيروت"
+      ],
+      "responses": [
+        "Here's your complete Beirut plan 🌿:\n\n🏨 Hotel: Four Seasons Hotel Beirut or Le Gray Beirut\n\n🗺️ Top Activities Nearby:\n  • Downtown Beirut\n  • Lebanese Cuisine\n  • Gemmayzeh & Mar Mikhael\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في بيروت 🌿:\n\n🏨 الفندق: فور سيزونز هوتيل بيروت أو لو جراي بيروت\n\n🗺️ أبرز الأنشطة القريبة:\n  • وسط بيروت\n  • المطبخ اللبناني\n  • الجميزة ومار مخايل\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_paris",
+      "patterns": [
+        "What to do in Paris",
+        "Things to do in Paris",
+        "Activities in Paris",
+        "Tourist attractions Paris",
+        "Paris sightseeing",
+        "Best places Paris",
+        "إيه أشوف في باريس",
+        "ماذا أزور في باريس",
+        "أنشطة باريس",
+        "أماكن سياحية باريس",
+        "برنامج سياحي باريس",
+        "معالم باريس"
+      ],
+      "responses": [
+        "Top things to do in Paris 🗼:\n  ⭐ Eiffel Tower\n  • Louvre Museum\n  • Notre-Dame Cathedral\n  • Seine River Cruise\n  • Champs-Élysées Shopping\n  • Montmartre Village\n\nWant hotel recommendations in Paris too?",
+        "أبرز الأنشطة في باريس 🗼:\n  ⭐ برج إيفل\n  • متحف اللوفر\n  • كاتدرائية نوتردام\n  • رحلة نهر السين\n  • تسوق الشانزليزيه\n  • قرية مونمارتر\n\nهل تريد توصيات فنادق في باريس أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_paris",
+      "patterns": [
+        "Hotel and things to do in Paris",
+        "Plan my trip to Paris",
+        "فندق وأنشطة في باريس",
+        "خطط رحلتي لباريس"
+      ],
+      "responses": [
+        "Here's your complete Paris plan 🗼:\n\n🏨 Hotel: Hôtel Shangri-La Paris or Hôtel Plaza Athénée\n\n🗺️ Top Activities Nearby:\n  • Eiffel Tower\n  • Louvre Museum\n  • Notre-Dame Cathedral\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في باريس 🗼:\n\n🏨 الفندق: هوتيل شانغريلا باريس أو هوتيل بلازا أثيني\n\n🗺️ أبرز الأنشطة القريبة:\n  • برج إيفل\n  • متحف اللوفر\n  • كاتدرائية نوتردام\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_rome",
+      "patterns": [
+        "What to do in Rome",
+        "Things to do in Rome",
+        "Activities in Rome",
+        "Tourist attractions Rome",
+        "Rome sightseeing",
+        "Best places Rome",
+        "إيه أشوف في روما",
+        "ماذا أزور في روما",
+        "أنشطة روما",
+        "أماكن سياحية روما",
+        "برنامج سياحي روما",
+        "معالم روما"
+      ],
+      "responses": [
+        "Top things to do in Rome 🏛️:\n  ⭐ Colosseum\n  • Vatican & its Museums\n  • Trevi Fountain\n  • Roman Forum\n  • Sistine Chapel\n  • Authentic Roman Cuisine\n\nWant hotel recommendations in Rome too?",
+        "أبرز الأنشطة في روما 🏛️:\n  ⭐ الكولوسيوم\n  • الفاتيكان ومتاحفه\n  • نافورة تريفي\n  • المنتدى الروماني\n  • كنيسة سيستين\n  • المطبخ الروماني الأصيل\n\nهل تريد توصيات فنادق في روما أيضاً؟"
+      ]
+    },
+    {
+      "tag": "ask_hotel_in_rome",
+      "patterns": [
+        "Hotel in Rome",
+        "Need hotel in Rome",
+        "Stay in Rome",
+        "Best hotels in Rome",
+        "I need a hotel in Rome",
+        "فندق روما",
+        "عايز فندق في روما",
+        "إقامة روما",
+        "أفضل فنادق روما",
+        "أسكن فين في روما"
+      ],
+      "responses": [
+        "Rome — The Eternal City! 🏛️\nTop hotels:\n⭐ Hotel Eden Rome — Stunning city views\n⭐ Palazzo Manfredi — Colosseum view rooms!\n⭐ The St. Regis Rome — Classic luxury near Spanish Steps\n\nWhat's your budget?",
+        "روما — المدينة الأبدية! 🏛️\nأفضل الفنادق:\n⭐ هوتيل إيدن روما — إطلالات رائعة على المدينة\n⭐ بالازو مانفريدي — غرف بإطلالة الكولوسيوم!\n⭐ ذا سانت ريجيس روما — فخامة كلاسيكية قريب الدرج الإسباني\n\nما هي ميزانيتك؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_rome",
+      "patterns": [
+        "Hotel and things to do in Rome",
+        "Plan my trip to Rome",
+        "فندق وأنشطة في روما",
+        "خطط رحلتي لروما"
+      ],
+      "responses": [
+        "Here's your complete Rome plan 🏛️:\n\n🏨 Hotel: Palazzo Manfredi or Hotel Eden Rome\n\n🗺️ Top Activities Nearby:\n  • Colosseum\n  • Vatican & its Museums\n  • Trevi Fountain\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في روما 🏛️:\n\n🏨 الفندق: بالازو مانفريدي أو هوتيل إيدن روما\n\n🗺️ أبرز الأنشطة القريبة:\n  • الكولوسيوم\n  • الفاتيكان ومتاحفه\n  • نافورة تريفي\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_barcelona",
+      "patterns": [
+        "What to do in Barcelona",
+        "Things to do in Barcelona",
+        "Activities in Barcelona",
+        "Tourist attractions Barcelona",
+        "Barcelona sightseeing",
+        "إيه أشوف في برشلونة",
+        "ماذا أزور في برشلونة",
+        "أنشطة برشلونة",
+        "أماكن سياحية برشلونة",
+        "برنامج سياحي برشلونة",
+        "معالم برشلونة"
+      ],
+      "responses": [
+        "Top things to do in Barcelona 🌊:\n  ⭐ Sagrada Familia\n  • Barcelona Beaches\n  • Picasso Museum\n  • Las Ramblas\n  • Tapas & Catalan Cuisine\n  • Park Güell\n\nWant hotel recommendations in Barcelona too?",
+        "أبرز الأنشطة في برشلونة 🌊:\n  ⭐ كنيسة ساغرادا فاميليا\n  • شواطئ برشلونة\n  • متحف بيكاسو\n  • شارع لاس رامبلاس\n  • التاباس والمطبخ الكاتالوني\n  • حديقة غويل\n\nهل تريد توصيات فنادق في برشلونة أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_barcelona",
+      "patterns": [
+        "Hotel and things to do in Barcelona",
+        "Plan my trip to Barcelona",
+        "فندق وأنشطة في برشلونة",
+        "خطط رحلتي لبرشلونة"
+      ],
+      "responses": [
+        "Here's your complete Barcelona plan 🌊:\n\n🏨 Hotel: Hotel El Palace Barcelona or W Barcelona\n\n🗺️ Top Activities Nearby:\n  • Sagrada Familia\n  • Barcelona Beaches\n  • Picasso Museum\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في برشلونة 🌊:\n\n🏨 الفندق: هوتيل إل بالاس برشلونة أو دبليو برشلونة\n\n🗺️ أبرز الأنشطة القريبة:\n  • كنيسة ساغرادا فاميليا\n  • شواطئ برشلونة\n  • متحف بيكاسو\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_london",
+      "patterns": [
+        "What to do in London",
+        "Things to do in London",
+        "Activities in London",
+        "Tourist attractions London",
+        "London sightseeing",
+        "Best places London",
+        "إيه أشوف في لندن",
+        "ماذا أزور في لندن",
+        "أنشطة لندن",
+        "أماكن سياحية لندن",
+        "برنامج سياحي لندن",
+        "معالم لندن"
+      ],
+      "responses": [
+        "Top things to do in London 🎡:\n  ⭐ Tower of London & Tower Bridge\n  • London Eye\n  • British Museum\n  • West End Shows\n  • Oxford Street & Harrods\n  • Hyde Park Gardens\n\nWant hotel recommendations in London too?",
+        "أبرز الأنشطة في لندن 🎡:\n  ⭐ برج لندن وجسر البرج\n  • عين لندن\n  • المتحف البريطاني\n  • عروض الويست إند\n  • أكسفورد ستريت وهارودز\n  • حدائق هايد بارك\n\nهل تريد توصيات فنادق في لندن أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_london",
+      "patterns": [
+        "Hotel and things to do in London",
+        "Plan my trip to London",
+        "فندق وأنشطة في لندن",
+        "خطط رحلتي للندن"
+      ],
+      "responses": [
+        "Here's your complete London plan 🎡:\n\n🏨 Hotel: The Savoy London or Claridge's Hotel\n\n🗺️ Top Activities Nearby:\n  • Tower of London & Tower Bridge\n  • London Eye\n  • British Museum\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في لندن 🎡:\n\n🏨 الفندق: ذا سافوي لندن أو كلاريدجز هوتيل\n\n🗺️ أبرز الأنشطة القريبة:\n  • برج لندن وجسر البرج\n  • عين لندن\n  • المتحف البريطاني\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_newyork",
+      "patterns": [
+        "What to do in New York",
+        "Things to do in New York",
+        "Activities in New York",
+        "Tourist attractions New York",
+        "NYC sightseeing",
+        "Best places New York",
+        "إيه أشوف في نيويورك",
+        "ماذا أزور في نيويورك",
+        "أنشطة نيويورك",
+        "أماكن سياحية نيويورك",
+        "برنامج سياحي نيويورك",
+        "معالم نيويورك"
+      ],
+      "responses": [
+        "Top things to do in New York 🗽:\n  ⭐ Statue of Liberty\n  • Central Park\n  • Times Square\n  • Metropolitan Museum of Art\n  • Brooklyn Bridge Walk\n  • Broadway Shows\n\nWant hotel recommendations in New York too?",
+        "أبرز الأنشطة في نيويورك 🗽:\n  ⭐ تمثال الحرية\n  • سنترال بارك\n  • تايمز سكوير\n  • متحف متروبوليتان للفنون\n  • جولة جسر بروكلين\n  • عروض برودواي\n\nهل تريد توصيات فنادق في نيويورك أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_newyork",
+      "patterns": [
+        "Hotel and things to do in New York",
+        "Plan my trip to New York",
+        "فندق وأنشطة في نيويورك",
+        "خطط رحلتي لنيويورك"
+      ],
+      "responses": [
+        "Here's your complete New York plan 🗽:\n\n🏨 Hotel: Marriott Marquis Times Square or The Plaza Hotel\n\n🗺️ Top Activities Nearby:\n  • Statue of Liberty\n  • Central Park\n  • Times Square\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في نيويورك 🗽:\n\n🏨 الفندق: ماريوت ماركيز تايمز سكوير أو ذا بلازا هوتيل\n\n🗺️ أبرز الأنشطة القريبة:\n  • تمثال الحرية\n  • سنترال بارك\n  • تايمز سكوير\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_losangeles",
+      "patterns": [
+        "What to do in Los Angeles",
+        "Things to do in Los Angeles",
+        "Activities in LA",
+        "Tourist attractions Los Angeles",
+        "LA sightseeing",
+        "Best places LA",
+        "إيه أشوف في لوس أنجلوس",
+        "ماذا أزور في لوس أنجلوس",
+        "أنشطة لوس أنجلوس",
+        "أماكن سياحية لوس أنجلوس",
+        "برنامج سياحي لوس أنجلوس"
+      ],
+      "responses": [
+        "Top things to do in Los Angeles 🎬:\n  ⭐ Hollywood Walk of Fame\n  • Santa Monica Beach\n  • Universal Studios Hollywood\n  • Getty Museum\n  • Beverly Hills & Rodeo Drive\n\nWant hotel recommendations in Los Angeles too?",
+        "أبرز الأنشطة في لوس أنجلوس 🎬:\n  ⭐ ممشى المشاهير بهوليوود\n  • شاطئ سانتا مونيكا\n  • يونيفرسال ستوديوز هوليوود\n  • متحف جيتي\n  • بيفرلي هيلز وشارع رودو دريف\n\nهل تريد توصيات فنادق في لوس أنجلوس أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_losangeles",
+      "patterns": [
+        "Hotel and things to do in Los Angeles",
+        "Plan my trip to LA",
+        "فندق وأنشطة في لوس أنجلوس",
+        "خطط رحلتي للوس أنجلوس"
+      ],
+      "responses": [
+        "Here's your complete Los Angeles plan 🎬:\n\n🏨 Hotel: InterContinental Los Angeles or Level Hollywood\n\n🗺️ Top Activities Nearby:\n  • Hollywood Walk of Fame\n  • Santa Monica Beach\n  • Universal Studios Hollywood\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في لوس أنجلوس 🎬:\n\n🏨 الفندق: إنتركونتيننتال لوس أنجلوس أو ليفل هوليوود\n\n🗺️ أبرز الأنشطة القريبة:\n  • ممشى المشاهير بهوليوود\n  • شاطئ سانتا مونيكا\n  • يونيفرسال ستوديوز هوليوود\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_istanbul",
+      "patterns": [
+        "What to do in Istanbul",
+        "Things to do in Istanbul",
+        "Activities in Istanbul",
+        "Tourist attractions Istanbul",
+        "Istanbul sightseeing",
+        "إيه أشوف في إسطنبول",
+        "ماذا أزور في إسطنبول",
+        "أنشطة إسطنبول",
+        "أماكن سياحية إسطنبول",
+        "برنامج سياحي إسطنبول",
+        "معالم إسطنبول"
+      ],
+      "responses": [
+        "Top things to do in Istanbul 🕌:\n  ⭐ Hagia Sophia\n  • Blue Mosque\n  • Grand Bazaar\n  • Bosphorus Tour\n  • Turkish Cuisine\n  • Topkapi Palace\n\nWant hotel recommendations in Istanbul too?",
+        "أبرز الأنشطة في إسطنبول 🕌:\n  ⭐ آيا صوفيا\n  • المسجد الأزرق\n  • الجراند بازار\n  • جولة البوسفور\n  • المطبخ التركي\n  • قصر طوب قابي\n\nهل تريد توصيات فنادق في إسطنبول أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_istanbul",
+      "patterns": [
+        "Hotel and things to do in Istanbul",
+        "Plan my trip to Istanbul",
+        "فندق وأنشطة في إسطنبول",
+        "خطط رحلتي لإسطنبول"
+      ],
+      "responses": [
+        "Here's your complete Istanbul plan 🕌:\n\n🏨 Hotel: Four Seasons Istanbul at Sultanahmet or Çırağan Palace Kempinski\n\n🗺️ Top Activities Nearby:\n  • Hagia Sophia\n  • Blue Mosque\n  • Grand Bazaar\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في إسطنبول 🕌:\n\n🏨 الفندق: فور سيزونز إسطنبول سلطان أحمد أو قصر شيراغان كمبينسكي\n\n🗺️ أبرز الأنشطة القريبة:\n  • آيا صوفيا\n  • المسجد الأزرق\n  • الجراند بازار\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_tokyo",
+      "patterns": [
+        "What to do in Tokyo",
+        "Things to do in Tokyo",
+        "Activities in Tokyo",
+        "Tourist attractions Tokyo",
+        "Tokyo sightseeing",
+        "Best places Tokyo",
+        "إيه أشوف في طوكيو",
+        "ماذا أزور في طوكيو",
+        "أنشطة طوكيو",
+        "أماكن سياحية طوكيو",
+        "برنامج سياحي طوكيو",
+        "معالم طوكيو"
+      ],
+      "responses": [
+        "Top things to do in Tokyo 🗼:\n  ⭐ Tokyo Tower & Sky Tree\n  • Senso-ji Temple in Asakusa\n  • Akihabara Electronics District\n  • Shinjuku Gyoen Garden\n  • Tsukiji & Toyosu Market\n  • Tokyo at Night\n\nWant hotel recommendations in Tokyo too?",
+        "أبرز الأنشطة في طوكيو 🗼:\n  ⭐ برج طوكيو وسكاي تري\n  • معبد سنسوجي في أساكوسا\n  • حي أكيهابارا للإلكترونيات\n  • حديقة شينجوكو جيوين\n  • سوق تسوكيجي وتويوسو\n  • طوكيو ليلاً\n\nهل تريد توصيات فنادق في طوكيو أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_tokyo",
+      "patterns": [
+        "Hotel and things to do in Tokyo",
+        "Plan my trip to Tokyo",
+        "فندق وأنشطة في طوكيو",
+        "خطط رحلتي لطوكيو"
+      ],
+      "responses": [
+        "Here's your complete Tokyo plan 🗼:\n\n🏨 Hotel: Grand Nikko Tokyo or Grand Prince Hotel Takanawa\n\n🗺️ Top Activities Nearby:\n  • Tokyo Tower & Sky Tree\n  • Senso-ji Temple in Asakusa\n  • Akihabara Electronics District\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في طوكيو 🗼:\n\n🏨 الفندق: جراند نيكو طوكيو أو جراند برنس هوتيل تاكانوا\n\n🗺️ أبرز الأنشطة القريبة:\n  • برج طوكيو وسكاي تري\n  • معبد سنسوجي في أساكوسا\n  • حي أكيهابارا للإلكترونيات\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "activities_maldives",
+      "patterns": [
+        "What to do in Maldives",
+        "Things to do in Maldives",
+        "Activities in Maldives",
+        "Tourist attractions Maldives",
+        "Maldives sightseeing",
+        "إيه أشوف في المالديف",
+        "ماذا أزور في المالديف",
+        "أنشطة المالديف",
+        "أماكن سياحية المالديف",
+        "برنامج إجازة المالديف"
+      ],
+      "responses": [
+        "Top things to do in Maldives 🌴:\n  ⭐ Coral Reef Diving\n  • Private Island Resorts\n  • Dolphin & Whale Shark Swimming\n  • Sunset over the Indian Ocean\n  • Luxury Water Sports\n  • Coral Reef Tour\n\nWant hotel recommendations in Maldives too?",
+        "أبرز الأنشطة في المالديف 🌴:\n  ⭐ غوص الشعاب المرجانية\n  • منتجعات الجزر الخاصة\n  • السباحة مع الدلافين وقرش الحوت\n  • غروب الشمس على المحيط الهندي\n  • الرياضات المائية الفاخرة\n  • جولة الشعاب المرجانية\n\nهل تريد توصيات فنادق في المالديف أيضاً؟"
+      ]
+    },
+    {
+      "tag": "hotel_and_activities_maldives",
+      "patterns": [
+        "Hotel and things to do in Maldives",
+        "Plan my trip to Maldives",
+        "فندق وأنشطة في المالديف",
+        "خطط رحلتي للمالديف"
+      ],
+      "responses": [
+        "Here's your complete Maldives plan 🌴:\n\n🏨 Hotel: Constance Moofushi or Conrad Maldives Rangali Island\n\n🗺️ Top Activities Nearby:\n  • Coral Reef Diving\n  • Private Island Resorts\n  • Dolphin & Whale Shark Swimming\n\nWant more hotels or full activity list?",
+        "إليك خطتك الكاملة في المالديف 🌴:\n\n🏨 الفندق: كونستانس موفوشي أو كونراد مالديف رانغالي آيلاند\n\n🗺️ أبرز الأنشطة القريبة:\n  • غوص الشعاب المرجانية\n  • منتجعات الجزر الخاصة\n  • السباحة مع الدلافين وقرش الحوت\n\nهل تريد المزيد من الفنادق أو قائمة الأنشطة الكاملة؟"
+      ]
+    },
+    {
+      "tag": "plan_full_trip",
+      "patterns": [
+        "Plan my full trip",
+        "I want a complete trip plan",
+        "Help me plan my vacation",
+        "Trip planning",
+        "Full itinerary",
+        "Complete travel plan",
+        "خطط رحلتي كاملة",
+        "عايز برنامج رحلة كامل",
+        "ساعدني في تخطيط إجازتي",
+        "تخطيط الرحلة",
+        "جدول رحلة كامل",
+        "خطة سفر متكاملة"
+      ],
+      "responses": [
+        "I'd love to plan your complete trip! 🌍✈️\n\nTell me:\n1️⃣ Which city/country?\n2️⃣ How many days?\n3️⃣ Budget range?\n4️⃣ Who's traveling? (Solo / Couple / Family)\n5️⃣ Trip purpose? (Tourism / Honeymoon / Business / Relaxation)\n\nI'll give you:\n🏨 Best hotel recommendations\n🗺️ Top activities & attractions\n💡 Insider tips\n💳 Estimated budget breakdown",
+        "يسعدني تخطيط رحلتك الكاملة! 🌍✈️\n\nأخبرني:\n1️⃣ أي مدينة أو دولة؟\n2️⃣ كم عدد الأيام؟\n3️⃣ نطاق الميزانية؟\n4️⃣ من سيسافر؟ (فرد / زوجين / عائلة)\n5️⃣ غرض الرحلة؟ (سياحة / شهر عسل / عمل / استرخاء)\n\nوسأقدم لك:\n🏨 أفضل توصيات الفنادق\n🗺️ أبرز الأنشطة والمعالم\n💡 نصائح من الداخل\n💳 توزيع تقديري للميزانية"
+      ]
+    },
+    {
+      "tag": "city_detected_ask_preference",
+      "patterns": [
+        "I want to go to Paris",
+        "I'm traveling to Dubai",
+        "Going to Istanbul",
+        "Trip to Cairo",
+        "Visit Maldives",
+        "Travel to London",
+        "عايز أسافر لباريس",
+        "هسافر لدبي",
+        "رحلة لإسطنبول",
+        "زيارة القاهرة",
+        "سفر للمالديف",
+        "رحلة للندن"
+      ],
+      "responses": [
+        "Great choice! 🌍 To give you the perfect plan, tell me:\n\n🏨 Need a hotel?\n🗺️ Looking for activities?\n📦 Want a complete package (hotel + activities)?\n\nJust tell me what you need and I'll take care of everything! ✈️",
+        "اختيار رائع! 🌍 لأعطيك الخطة المثالية، أخبرني:\n\n🏨 تريد فندق؟\n🗺️ تبحث عن أنشطة؟\n📦 تريد باقة متكاملة (فندق + أنشطة)؟\n\nأخبرني فقط ما تحتاجه وسأهتم بكل شيء! ✈️"
+      ]
+    },
+    {
+      "tag": "give_all_info_get_recommendation",
+      "patterns": [
+        "I told you everything, now recommend",
+        "Based on my preferences recommend a hotel",
+        "Find me the best option now",
+        "What do you recommend based on what I said",
+        "قولتلك كل حاجة دلوقتي ارشحلي",
+        "على أساس اللي قلتهولك ارشحلي فندق",
+        "إيه أحسن خيار دلوقتي",
+        "ما رأيك الآن بناء على ما قلته"
+      ],
+      "responses": [
+        "Based on everything you've shared, here's my recommendation 🎯:\n\nI'll match you with:\n✅ The best hotel fitting your budget & preferences\n✅ Top activities near your hotel\n✅ Estimated total trip cost\n\nCould you confirm your city and budget one more time so I give you the most accurate recommendation? 🏨",
+        "بناءً على كل ما شاركتني إياه، إليك توصيتي 🎯:\n\nسأوفر لك:\n✅ أفضل فندق يناسب ميزانيتك وتفضيلاتك\n✅ أبرز الأنشطة القريبة من فندقك\n✅ التكلفة التقديرية الإجمالية للرحلة\n\nهل تأكد المدينة والميزانية مرة أخرى لأعطيك أدق توصية؟ 🏨"
+      ]
+    }
+  ]
+}
