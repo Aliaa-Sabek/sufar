@@ -8,13 +8,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 // For Android emulator use: http://10.0.2.2:5000
 // For real device on same WiFi: http://YOUR_PC_IP:5000
 // ─────────────────────────────────────────────
-import 'dart:io' show Platform;
+import '../config/app_config.dart';
 
 class ApiService {
   static String get baseUrl {
-    if (kIsWeb) return 'http://localhost:5000/api';
-    if (Platform.isAndroid) return 'http://10.0.2.2:5000/api';
-    return 'http://127.0.0.1:5000/api';
+    return AppConfig.apiBaseUrl;
   }
 
   // ── Token helpers ─────────────────────────────────────────────────────────
@@ -196,7 +194,12 @@ class ApiService {
     final uri = Uri.parse('$baseUrl/destinations').replace(queryParameters: params);
     final res = await http.get(uri, headers: await _headers());
     final data = jsonDecode(res.body);
-    return data is List ? data : [];
+    if (data is List) return data;
+    if (data is Map<String, dynamic>) {
+      final inner = data['data'] ?? data['destinations'] ?? data['results'];
+      if (inner is List) return inner;
+    }
+    return [];
   }
 
   static Future<Map<String, dynamic>> getDestination(String id) async {

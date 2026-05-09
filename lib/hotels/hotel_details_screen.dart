@@ -21,8 +21,6 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen> {
   final List<Review> _reviews = [];
   bool _isReviewsLoading = true;
   final bool _isFavorited = false;
-  int? _favoriteId;
-  final bool _isFavoriteLoading = false;
   final bool _isBookingLoading = false;
 
   // Map state

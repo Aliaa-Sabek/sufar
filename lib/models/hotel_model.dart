@@ -39,10 +39,12 @@ class Hotel {
 
   // Convenience getters for backward-compatible usage in screens
   String get imageUrl {
-    if (images.isNotEmpty && images[0].isNotEmpty) {
-      return images[0];
-    }
-    return '';
+    final first = images.isNotEmpty ? images[0].trim() : '';
+    if (first.isNotEmpty) return first;
+
+    // Always provide a safe https placeholder so UI shows something even
+    // when backend has no images for a hotel yet.
+    return 'https://placehold.co/800x500/png?text=Hotel';
   }
 
   int get price => startingFrom.toInt();
@@ -76,15 +78,23 @@ class Hotel {
       country: (location['country'] ?? json['country'] ?? '').toString(),
       description: (json['description'] ?? '').toString(),
       images: () {
-        if (json['images'] != null && (json['images'] as List).isNotEmpty) {
-          return List<String>.from(json['images']);
+        String normalize(String u) {
+          final s = u.trim();
+          if (s.startsWith('//')) return 'https:$s';
+          if (s.startsWith('http://')) return 'https://${s.substring('http://'.length)}';
+          return s;
         }
-        if (json['image_url'] != null && json['image_url'].toString().isNotEmpty) {
-          return [json['image_url'].toString()];
+
+        if (json['images'] is List) {
+          final raw = (json['images'] as List).whereType<Object>().map((e) => e.toString());
+          final urls = raw.map(normalize).where((u) => u.isNotEmpty).toList();
+          if (urls.isNotEmpty) return urls;
         }
-        if (json['image'] != null && json['image'].toString().isNotEmpty) {
-          return [json['image'].toString()];
-        }
+
+        final single = (json['image_url'] ?? json['image'])?.toString() ?? '';
+        final u = normalize(single);
+        if (u.isNotEmpty) return [u];
+
         return <String>[];
       }(),
       stars: _toInt(json['stars'] ?? json['rating']),

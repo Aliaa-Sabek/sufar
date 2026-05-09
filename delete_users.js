@@ -1,8 +1,13 @@
 const { MongoClient } = require('mongodb');
 
-const uri = 'mongodb+srv://nadak4540_db_user:nadasufar2026@sufar.w06wwj9.mongodb.net/sufar?retryWrites=true&w=majority&appName=Sufar';
+const uri = process.env.MONGO_URI;
 
 async function run() {
+  if (!uri) {
+    console.error('Missing MONGO_URI env var');
+    process.exitCode = 1;
+    return;
+  }
   const client = new MongoClient(uri);
 
   try {

@@ -30,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<TravelOfficeModel> _offices = [];
   bool _isLoadingDest = true;
   bool _isLoadingOffices = true;
+  String? _loadError;
 
   @override
   void initState() {
@@ -43,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _fetchData() async {
     const timeout = Duration(seconds: 10);
     try {
+      _loadError = null;
       final destsFuture = ApiService.getDestinations(featured: true);
       final officesFuture = ApiService.getTravelOffices(limit: 3);
 
@@ -51,7 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
         officesFuture.timeout(timeout),
       ]);
 
-      final destsResult = results[0] as List<dynamic>;
+      var destsResult = results[0] as List<dynamic>;
+      if (destsResult.isEmpty) {
+        // Backend may not have featured destinations yet; fallback to all.
+        destsResult = await ApiService.getDestinations().timeout(timeout);
+      }
       final officesResult = results[1] as Map<String, dynamic>;
 
       if (mounted) {
@@ -76,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {
           _isLoadingDest = false;
           _isLoadingOffices = false;
+          _loadError = e.toString();
         });
       }
     }
@@ -474,6 +481,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                     horizontal: 24,
                                   ),
                                   children: [
+                                    if (_loadError != null)
+                                      Center(
+                                        child: Text(
+                                          'Failed to load: $_loadError',
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      )
+                                    else
                                     if (_destinations.isEmpty)
                                       Center(
                                         child: Text('No destinations found'),

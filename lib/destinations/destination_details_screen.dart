@@ -18,8 +18,6 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
   final List<Review> _reviews = [];
   bool _isReviewsLoading = true;
   final bool _isFavorited = false;
-  int? _favoriteId;
-  final bool _isFavoriteLoading = false;
 
   @override
   void initState() {

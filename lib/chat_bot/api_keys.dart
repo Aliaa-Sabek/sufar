@@ -1,3 +1,5 @@
+import '../config/app_config.dart';
+
 class ApiKeys {
 
   static const String hotelsApiKey =
@@ -7,5 +9,5 @@ class ApiKeys {
       '';
 
 
-  static const String backendUrl = 'http://10.0.2.2:5000/api';
+  static String get backendUrl => AppConfig.apiBaseUrl;
 }

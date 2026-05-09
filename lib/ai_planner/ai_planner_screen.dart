@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../services/api_service.dart';
 
 // ── Data models matching the Flask /api/recommend response ────────────────────
 
@@ -82,44 +83,52 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
     if (t.contains('pyramid') ||
         t.contains('أهرام') ||
         t.contains('temple') ||
-        t.contains('معبد'))
+        t.contains('معبد')) {
       return Icons.account_balance;
+    }
     if (t.contains('museum') || t.contains('متحف')) return Icons.museum;
     if (t.contains('food') ||
         t.contains('dinner') ||
         t.contains('عشاء') ||
         t.contains('طعام') ||
-        t.contains('مطعم'))
+        t.contains('مطعم')) {
       return Icons.restaurant;
+    }
     if (t.contains('shop') ||
         t.contains('mall') ||
         t.contains('bazaar') ||
         t.contains('تسوق') ||
-        t.contains('سوق'))
+        t.contains('سوق')) {
       return Icons.shopping_bag_outlined;
+    }
     if (t.contains('beach') ||
         t.contains('sea') ||
         t.contains('شاطئ') ||
-        t.contains('بحر'))
+        t.contains('بحر')) {
       return Icons.beach_access;
+    }
     if (t.contains('boat') ||
         t.contains('cruise') ||
         t.contains('felucca') ||
         t.contains('فلوكة') ||
-        t.contains('رحلة نيلية'))
+        t.contains('رحلة نيلية')) {
       return Icons.sailing;
+    }
     if (t.contains('mosque') ||
         t.contains('haram') ||
         t.contains('مسجد') ||
-        t.contains('حرم'))
+        t.contains('حرم')) {
       return Icons.mosque;
-    if (t.contains('park') || t.contains('garden') || t.contains('حديقة'))
+    }
+    if (t.contains('park') || t.contains('garden') || t.contains('حديقة')) {
       return Icons.park;
+    }
     if (t.contains('walk') ||
         t.contains('corniche') ||
         t.contains('كورنيش') ||
-        t.contains('جولة'))
+        t.contains('جولة')) {
       return Icons.directions_walk;
+    }
     return Icons.place_outlined;
   }
 
@@ -140,9 +149,7 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
 
     try {
       // Call the Flask backend /api/recommend endpoint
-      const baseUrl = 'http://10.0.2.2:5000/api'; // Android emulator
-      // For web: const baseUrl = 'http://localhost:5000/api';
-      // For real device: adjust to your PC IP like 'http://192.168.x.x:5000/api'
+      final baseUrl = ApiService.baseUrl;
 
       final res = await http
           .post(
@@ -187,7 +194,7 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
       } else {
         setState(() {
           _error =
-              'Error from server (${res.statusCode}). Make sure backend is running on http://localhost:5000';
+              'Error from server (${res.statusCode}). Make sure the backend is reachable on $baseUrl';
           _loading = false;
         });
       }

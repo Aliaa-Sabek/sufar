@@ -26,7 +26,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
   String? _bookingError;
 
   // Check-in date (default: today)
-  DateTime _checkIn = DateTime.now().add(const Duration(days: 1));
+  final DateTime _checkIn = DateTime.now().add(const Duration(days: 1));
 
   DateTime get _checkOut => _checkIn.add(Duration(days: _days));
 
@@ -77,10 +77,15 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
         },
       );
 
-      if (result['success'] == true || result['booking'] != null || result['_id'] != null) {
+      if (result['success'] == true ||
+          result['booking'] != null ||
+          result['_id'] != null) {
         if (mounted) setState(() => _currentStep = 3);
       } else {
-        final msg = result['message'] ?? result['error'] ?? 'Booking failed. Please try again.';
+        final msg =
+            result['message'] ??
+            result['error'] ??
+            'Booking failed. Please try again.';
         if (mounted) setState(() => _bookingError = msg.toString());
       }
     } catch (e) {
@@ -279,11 +284,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
       children: [
         Text(
           'Booking Information',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            
-          ),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 8),
         Text(
@@ -313,11 +314,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
           children: [
             Text(
               widget.roomTitle,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                
-                fontSize: 14,
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
             ),
             Text(
               widget.hotel.city,
@@ -330,11 +327,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
           alignment: Alignment.centerLeft,
           child: Text(
             'How long you will stay?',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              
-              fontSize: 13,
-            ),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
           ),
         ),
         SizedBox(height: 12),
@@ -363,7 +356,10 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
                     ),
                   ),
                   child: Center(
-                    child: Icon(Icons.remove, color: Theme.of(context).cardColor),
+                    child: Icon(
+                      Icons.remove,
+                      color: Theme.of(context).cardColor,
+                    ),
                   ),
                 ),
               ),
@@ -371,10 +367,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
                 child: Center(
                   child: Text(
                     '$_days Days',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -404,11 +397,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
           alignment: Alignment.centerLeft,
           child: Text(
             'Pick a Date',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              
-              fontSize: 13,
-            ),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
           ),
         ),
         SizedBox(height: 12),
@@ -424,7 +413,6 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
               Container(
                 width: 48,
                 decoration: BoxDecoration(
-                  
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
@@ -442,10 +430,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
                 child: Center(
                   child: Text(
                     '20 Jan - ${20 + _days} Jan', // Mock date string
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -462,18 +447,12 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
                 TextSpan(text: 'You will pay '),
                 TextSpan(
                   text: '\$$totalPrice USD ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 TextSpan(text: '\nper '),
                 TextSpan(
                   text: '$_days Days',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -493,11 +472,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
       children: [
         Text(
           'Enter your information',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            
-          ),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 8),
         Text(
@@ -529,7 +504,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              
+
               height: 1.5,
             ),
           ),
@@ -539,11 +514,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
           alignment: Alignment.centerLeft,
           child: Text(
             'Total: \$$totalPrice USD',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              
-            ),
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ),
         SizedBox(height: 12),
@@ -551,11 +522,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
           alignment: Alignment.centerLeft,
           child: Text(
             'Initial Payment: \$${totalPrice ~/ 2}',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              
-            ),
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ),
         SizedBox(height: 32),
@@ -590,11 +557,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
       children: [
         Text(
           'Payment',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            
-          ),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 6),
         Text(
@@ -623,7 +586,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
                       '$_days Days at ${widget.hotel.name}',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        
+
                         fontSize: 14,
                       ),
                       overflow: TextOverflow.ellipsis,
@@ -714,11 +677,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
                   color: const Color(0xFFE0F7FA),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Icon(
-                  Icons.security,
-                  color: Color(0xFF1A94C4),
-                  size: 20,
-                ),
+                child: Icon(Icons.security, color: Color(0xFF1A94C4), size: 20),
               ),
               SizedBox(width: 12),
               Expanded(
@@ -759,7 +718,9 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
           ),
         _buildActionButtons(
           onNext: _isBookingLoading ? () {} : _submitBooking,
-          nextLabel: _isBookingLoading ? 'Processing...' : 'Pay \$$totalPrice USD',
+          nextLabel: _isBookingLoading
+              ? 'Processing...'
+              : 'Pay \$$totalPrice USD',
         ),
       ],
     );
@@ -811,11 +772,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
         children: [
           Text(
             'Yay! Payment Completed',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              
-            ),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 40),
           // Placeholder for the illustration
@@ -869,11 +826,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
       children: [
         Text(
           label,
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.bold,
-            
-          ),
+          style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 8),
         TextField(
@@ -883,10 +836,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
             hintStyle: TextStyle(color: Colors.grey.shade400, fontSize: 13),
             filled: true,
             fillColor: Colors.grey[50],
-            contentPadding: EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 14,
-            ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide.none,
@@ -903,11 +853,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
       children: [
         Text(
           'Phone number',
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.bold,
-            
-          ),
+          style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 8),
         Row(
@@ -920,16 +866,9 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
               ),
               child: Row(
                 children: [
-                  Icon(
-                    Icons.keyboard_arrow_down,
-                    size: 16,
-                    
-                  ),
+                  Icon(Icons.keyboard_arrow_down, size: 16),
                   SizedBox(width: 4),
-                  Text(
-                    '+20',
-                    style: TextStyle( fontSize: 13),
-                  ),
+                  Text('+20', style: TextStyle(fontSize: 13)),
                 ],
               ),
             ),
