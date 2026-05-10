@@ -215,7 +215,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 child: Transform.translate(
                   offset: const Offset(0, 5),
                   child: Container(
-                    color: const Color(0xFF1A94C4).withValues(alpha: 0.8),
+                    color: const Color(0xFF1A94C4).withOpacity(0.8),
                   ),
                 ),
               ),

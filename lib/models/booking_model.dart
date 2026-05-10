@@ -10,6 +10,7 @@ class Booking {
   final String createdAt;
   final String? hotelName;   // populated from backend
   final String? hotelCity;
+  final String? hotelImageUrl;
 
   Booking({
     required this.id,
@@ -23,6 +24,7 @@ class Booking {
     required this.createdAt,
     this.hotelName,
     this.hotelCity,
+    this.hotelImageUrl,
   });
 
   static double _toDouble(dynamic value) {
@@ -45,11 +47,18 @@ class Booking {
     String hotelId = '';
     String? hotelName;
     String? hotelCity;
+    String? hotelImageUrl;
     if (hotelRaw is Map<String, dynamic>) {
       hotelId = (hotelRaw['_id'] ?? hotelRaw['id'] ?? '').toString();
       hotelName = hotelRaw['name']?.toString();
       final loc = hotelRaw['location'] as Map<String, dynamic>?;
       hotelCity = loc?['city']?.toString();
+      final imgs = hotelRaw['images'] as List?;
+      if (imgs != null && imgs.isNotEmpty) {
+        hotelImageUrl = imgs[0].toString();
+      } else {
+        hotelImageUrl = hotelRaw['image_url']?.toString() ?? hotelRaw['image']?.toString();
+      }
     } else if (hotelRaw != null) {
       hotelId = hotelRaw.toString();
     }
@@ -70,6 +79,7 @@ class Booking {
       createdAt: (json['createdAt'] ?? json['created_at'] ?? '').toString(),
       hotelName: hotelName,
       hotelCity: hotelCity,
+      hotelImageUrl: hotelImageUrl,
     );
   }
 

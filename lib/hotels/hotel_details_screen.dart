@@ -758,7 +758,7 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen> {
                 Container(
                   height: 200,
                   width: double.infinity,
-                  color: Colors.black.withValues(alpha: 0.3),
+                  color: Colors.black.withOpacity(0.3),
                   alignment: Alignment.center,
                   child: Container(
                     padding: EdgeInsets.symmetric(
@@ -766,7 +766,7 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen> {
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade800.withValues(alpha: 0.9),
+                      color: Colors.grey.shade800.withOpacity(0.9),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
@@ -890,7 +890,7 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen> {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: Colors.black.withOpacity(0.05),
             blurRadius: 10,
           ),
         ],

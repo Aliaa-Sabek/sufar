@@ -354,7 +354,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.orange.withValues(alpha: 0.8),
+                          color: Colors.orange.withOpacity(0.8),
                           offset: const Offset(12, 0),
                         ),
                       ],
@@ -545,7 +545,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.05),
+                color: Colors.black.withOpacity(0.05),
                 blurRadius: 20,
                 offset: const Offset(0, 10),
               ),
@@ -731,7 +731,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.02),
+                color: Colors.black.withOpacity(0.02),
                 blurRadius: 10,
                 offset: const Offset(0, 5),
               ),
@@ -862,7 +862,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.02),
+                color: Colors.black.withOpacity(0.02),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -1011,7 +1011,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.02),
+                color: Colors.black.withOpacity(0.02),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -1695,7 +1695,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
             decoration: BoxDecoration(
               color: color,
               borderRadius: BorderRadius.circular(4),
-              border: Border.all(color: Colors.blue.withValues(alpha: 0.3)),
+              border: Border.all(color: Colors.blue.withOpacity(0.3)),
             ),
           ),
           SizedBox(height: 2),
@@ -1976,7 +1976,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
           _buildPaymentRow('1x Checked Baggage', '£34'),
           _buildPaymentRow('2x Hand Baggage', 'Included'),
           SizedBox(height: 24),
-          Container(height: 1, color: Theme.of(context).cardColor.withValues(alpha: 0.2)),
+          Container(height: 1, color: Theme.of(context).cardColor.withOpacity(0.2)),
           SizedBox(height: 24),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

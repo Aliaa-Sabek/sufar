@@ -110,7 +110,7 @@ class OfficeDetailsPage extends StatelessWidget {
                                       vertical: 6,
                                     ),
                                     decoration: BoxDecoration(
-                                      color: Theme.of(context).brightness == Brightness.dark ? Colors.amber.withValues(alpha: 0.2) : const Color(0xFFFFF9E6),
+                                      color: Theme.of(context).brightness == Brightness.dark ? Colors.amber.withOpacity(0.2) : const Color(0xFFFFF9E6),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: Row(

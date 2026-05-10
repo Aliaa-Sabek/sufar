@@ -152,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: size.height * 0.45,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            image: DecorationImage(
+                            image: const DecorationImage(
                               image: AssetImage('assets/home_bg.png'),
                               fit: BoxFit.cover,
                             ),
@@ -163,8 +163,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 colors: [
-                                  Colors.white.withValues(alpha: 0.1),
-                                  Colors.black.withValues(alpha: 0.6),
+                                  Colors.white.withOpacity(0.1),
+                                  Colors.black.withOpacity(0.6),
                                 ],
                               ),
                             ),
@@ -307,7 +307,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderRadius: BorderRadius.circular(20),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withValues(alpha: 0.1),
+                                  color: Colors.black.withOpacity(0.1),
                                   blurRadius: 20,
                                   offset: const Offset(0, 10),
                                 ),
@@ -579,6 +579,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   office.city ?? 'Unknown',
                                   office.rating ?? 0.0,
                                   office.reviewsCount ?? 0,
+                                  imageUrl: office.logoUrl ?? office.imageUrl,
                                 ),
                               ),
                             ),
@@ -611,7 +612,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Container(
                             padding: EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).cardColor.withValues(alpha: 0.1),
+                              color: Theme.of(context).cardColor.withOpacity(0.1),
                               shape: BoxShape.circle,
                             ),
                             child: Icon(
@@ -731,7 +732,7 @@ class _HomeScreenState extends State<HomeScreen> {
       width: 280,
       margin: EdgeInsets.only(right: 20),
       decoration: BoxDecoration(
-        color: const Color(0xFFFFE0E0).withValues(alpha: 0.3),
+        color: const Color(0xFFFFE0E0).withOpacity(0.3),
         borderRadius: BorderRadius.circular(32),
       ),
       child: Column(
@@ -849,13 +850,14 @@ class _HomeScreenState extends State<HomeScreen> {
     String name,
     String location,
     double rating,
-    int reviews,
-  ) {
+    int reviews, {
+    String? imageUrl,
+  }) {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: const Color(0xFFFFE0E0).withValues(alpha: 0.3),
+        color: const Color(0xFFFFE0E0).withOpacity(0.3),
         borderRadius: BorderRadius.circular(32),
       ),
       child: Column(
@@ -864,16 +866,27 @@ class _HomeScreenState extends State<HomeScreen> {
           Row(
             children: [
               Container(
-                padding: EdgeInsets.all(12),
+                width: 60,
+                height: 60,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF1A94C4).withValues(alpha: 0.1),
+                  color: const Color(0xFF1A94C4).withOpacity(0.1),
                   borderRadius: BorderRadius.circular(16),
+                  image: imageUrl != null && imageUrl.isNotEmpty
+                      ? DecorationImage(
+                          image: imageUrl.startsWith('http')
+                              ? NetworkImage(imageUrl)
+                              : AssetImage(imageUrl) as ImageProvider,
+                          fit: BoxFit.cover,
+                        )
+                      : null,
                 ),
-                child: Icon(
-                  Icons.business,
-                  color: Color(0xFF1A94C4),
-                  size: 32,
-                ),
+                child: imageUrl == null || imageUrl.isEmpty
+                    ? Icon(
+                        Icons.business,
+                        color: Color(0xFF1A94C4),
+                        size: 32,
+                      )
+                    : null,
               ),
               const Spacer(),
               Container(

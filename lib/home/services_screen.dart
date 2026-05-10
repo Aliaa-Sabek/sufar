@@ -137,7 +137,7 @@ class ServicesScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.05),
+              color: Colors.black.withOpacity(0.05),
               blurRadius: 15,
               offset: const Offset(0, 8),
             ),
@@ -149,7 +149,7 @@ class ServicesScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: item.color.withValues(alpha: 0.1),
+                color: item.color.withOpacity(0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(item.icon, size: 36, color: item.color),

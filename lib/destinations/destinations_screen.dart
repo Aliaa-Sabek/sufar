@@ -17,6 +17,8 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
   bool _isLoading = true;
   String? _errorMessage;
 
+
+
   @override
   void initState() {
     super.initState();
@@ -63,8 +65,8 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
                   height: 300,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/all_tours_bg.png'),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/all_tours.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -74,7 +76,7 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
                         colors: [
-                          Colors.black.withValues(alpha: 0.6),
+                          Colors.black.withOpacity(0.6),
                           Colors.transparent,
                         ],
                       ),
@@ -398,7 +400,7 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
             gradient: LinearGradient(
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              colors: [Colors.black.withValues(alpha: 0.8), Colors.transparent],
+              colors: [Colors.black.withOpacity(0.8), Colors.transparent],
               stops: const [0.0, 0.5],
             ),
           ),

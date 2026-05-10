@@ -548,7 +548,7 @@ class _HotelCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: Colors.black.withOpacity(0.05),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -599,7 +599,7 @@ class _HotelCard extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.all(6),
                       decoration: BoxDecoration(
-                        color: Colors.black.withValues(alpha: 0.3),
+                        color: Colors.black.withOpacity(0.3),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
@@ -628,7 +628,7 @@ class _HotelCard extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.all(6),
                       decoration: BoxDecoration(
-                        color: Colors.black.withValues(alpha: 0.3),
+                        color: Colors.black.withOpacity(0.3),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
@@ -817,7 +817,7 @@ class _HotelCard extends StatelessWidget {
       width: 6,
       height: 6,
       decoration: BoxDecoration(
-        color: isActive ? Colors.white : Colors.white.withValues(alpha: 0.5),
+        color: isActive ? Colors.white : Colors.white.withOpacity(0.5),
         shape: BoxShape.circle,
       ),
     );

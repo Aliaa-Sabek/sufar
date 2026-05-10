@@ -271,7 +271,7 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: Colors.black.withOpacity(0.05),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -363,7 +363,7 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
                   padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                   decoration: BoxDecoration(
                     color: s
-                        ? const Color(0xFF1A94C4).withValues(alpha: 0.1)
+                        ? const Color(0xFF1A94C4).withOpacity(0.1)
                         : const Color(0xFFF5F7FA),
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
@@ -555,7 +555,7 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: Colors.black.withOpacity(0.05),
             blurRadius: 10,
             offset: const Offset(0, 3),
           ),
@@ -631,7 +631,7 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
                         decoration: BoxDecoration(
                           color: const Color(
                             0xFF0D4B88,
-                          ).withValues(alpha: 0.08),
+                          ).withOpacity(0.08),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Icon(
@@ -672,7 +672,7 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
                                     vertical: 2,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: budgetColor.withValues(alpha: 0.1),
+                                    color: budgetColor.withOpacity(0.1),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Text(
@@ -727,7 +727,7 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
+            color: Colors.black.withOpacity(0.04),
             blurRadius: 8,
             offset: const Offset(0, 3),
           ),
@@ -740,7 +740,7 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.08),
+              color: color.withOpacity(0.08),
               borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
             ),
             child: Row(
@@ -794,7 +794,7 @@ class _AIPlannerPageState extends State<AIPlannerPage> {
                         width: 52,
                         height: 52,
                         decoration: BoxDecoration(
-                          color: color.withValues(alpha: 0.1),
+                          color: color.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Icon(_iconFor(text), color: color, size: 26),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import '../models/flight_model.dart';
+import '../models/travel_office_model.dart';
 import 'flight_landing_screen.dart';
+import '../travel_offices/travel_offices_directory.dart';
+import '../travel_offices/office_details_screen.dart';
 
 class FlightSearchPage extends StatefulWidget {
   const FlightSearchPage({super.key});
@@ -19,6 +22,8 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
   bool _isLoading = false;
   bool _hasSearched = false;
   String? _errorMessage;
+  List<TravelOfficeModel> _flightOffices = [];
+  bool _isLoadingOffices = true;
 
   // Fallback demo data for when API has no results
   static final List<Map<String, dynamic>> _demoFlights = [
@@ -73,6 +78,38 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
       'price': '\$850',
     },
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchFlightOffices();
+  }
+
+  Future<void> _fetchFlightOffices() async {
+    setState(() => _isLoadingOffices = true);
+    try {
+      final response = await ApiService.getTravelOffices(limit: 5);
+      final List<dynamic> data = response['data'] ?? [];
+      if (mounted) {
+        setState(() {
+          // Filter for offices that offer flight services if possible, 
+          // or just show top offices.
+          _flightOffices = data
+              .map((e) => TravelOfficeModel.fromJson(e))
+              .where((o) => 
+                o.services.any((s) => s.toLowerCase().contains('flight')) || 
+                o.services.isEmpty // Fallback for demo
+              )
+              .toList();
+          _isLoadingOffices = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() => _isLoadingOffices = false);
+      }
+    }
+  }
 
   @override
   void dispose() {
@@ -162,7 +199,7 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                   border: Border.all(color: Colors.grey.shade200),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.02),
+                      color: Colors.black.withOpacity(0.02),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
@@ -309,6 +346,39 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                       _buildFlightCard(context, _demoFlights[index]),
                 ),
               ],
+
+              SizedBox(height: 40),
+
+              // Flight Offices Section
+              Text(
+                'Recommended Flight Offices',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'Book through trusted travel agencies',
+                style: TextStyle(color: Colors.grey, fontSize: 14),
+              ),
+              SizedBox(height: 24),
+              if (_isLoadingOffices)
+                Center(child: CircularProgressIndicator())
+              else if (_flightOffices.isEmpty)
+                Text('No flight offices found.')
+              else
+                SizedBox(
+                  height: 180,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: _flightOffices.length,
+                    itemBuilder: (context, index) {
+                      final office = _flightOffices[index];
+                      return _buildMiniOfficeCard(context, office);
+                    },
+                  ),
+                ),
 
               SizedBox(height: 40),
 
@@ -541,6 +611,107 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildMiniOfficeCard(BuildContext context, TravelOfficeModel office) {
+    final imageUrl = office.logoUrl ?? office.imageUrl;
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => OfficeDetailsPage(officeData: office),
+          ),
+        );
+      },
+      child: Container(
+        width: 200,
+        margin: EdgeInsets.only(right: 16),
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: Colors.grey.shade200),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF1A94C4).withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(8),
+                    image: imageUrl != null && imageUrl.isNotEmpty
+                        ? DecorationImage(
+                            image: imageUrl.startsWith('http')
+                                ? NetworkImage(imageUrl)
+                                : AssetImage(imageUrl) as ImageProvider,
+                            fit: BoxFit.cover,
+                          )
+                        : null,
+                  ),
+                  child: imageUrl == null || imageUrl.isEmpty
+                      ? Icon(Icons.business, color: Color(0xFF1A94C4), size: 20)
+                      : null,
+                ),
+                SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        office.name,
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(
+                        office.city ?? 'Cairo',
+                        style: TextStyle(color: Colors.grey, fontSize: 11),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+            Text(
+              office.description ?? 'Book your flights easily with our agency.',
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontSize: 11, color: Colors.grey[600], height: 1.4),
+            ),
+            Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.star, color: Colors.amber, size: 14),
+                    SizedBox(width: 4),
+                    Text(
+                      office.rating?.toString() ?? '5.0',
+                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                Text(
+                  'View →',
+                  style: TextStyle(
+                    color: Color(0xFF1A94C4),
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import '../models/destination_model.dart';
 import '../models/review_model.dart';
 import '../flights/flight_landing_screen_v2.dart';
+import '../models/hotel_model.dart';
+import '../services/api_service.dart';
+import '../hotels/hotel_details_screen.dart';
 
 class DestinationDetailsScreen extends StatefulWidget {
   final DestinationModel destination;
@@ -19,11 +22,16 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
   bool _isReviewsLoading = true;
   final bool _isFavorited = false;
 
+  final List<Hotel> _hotels = [];
+  bool _isHotelsLoading = true;
+  String? _hotelsError;
+
   @override
   void initState() {
     super.initState();
     _fetchReviews();
     _checkIfFavorited();
+    _fetchHotels();
   }
 
   Future<void> _checkIfFavorited() async {
@@ -41,6 +49,35 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
       setState(() {
         _isReviewsLoading = false;
       });
+    }
+  }
+
+  Future<void> _fetchHotels() async {
+    setState(() {
+      _isHotelsLoading = true;
+      _hotelsError = null;
+    });
+    try {
+      // Try to filter by destination name as city (backend supports city filter).
+      final res = await ApiService.getHotels(city: widget.destination.name, limit: 10);
+      final hotelList = res['hotels'] as List? ?? [];
+      final parsed = hotelList.map((e) => Hotel.fromJson(e as Map<String, dynamic>)).toList();
+
+      if (mounted) {
+        setState(() {
+          _hotels
+            ..clear()
+            ..addAll(parsed);
+          _isHotelsLoading = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _isHotelsLoading = false;
+          _hotelsError = e.toString();
+        });
+      }
     }
   }
 
@@ -80,9 +117,9 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
-                            Colors.black.withValues(alpha: 0.4),
+                            Colors.black.withOpacity(0.4),
                             Colors.transparent,
-                            Colors.black.withValues(alpha: 0.7),
+                            Colors.black.withOpacity(0.7),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -130,7 +167,7 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.05),
+                          color: Colors.black.withOpacity(0.05),
                           blurRadius: 10,
                           offset: const Offset(0, 5),
                         ),
@@ -187,7 +224,7 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.05),
+                          color: Colors.black.withOpacity(0.05),
                           blurRadius: 10,
                           offset: const Offset(0, 5),
                         ),
@@ -243,23 +280,26 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
                     scrollDirection: Axis.horizontal,
                     padding: EdgeInsets.symmetric(horizontal: 24),
                     children: [
-                      _buildThingToDoCard(
-                        'https://images.unsplash.com/photo-1544256740-1ec3b4dc3dfb',
-                        'Visit Tanah Lot Temple',
-                        'Ancient Hindu temple on a rock formation',
-                      ),
-                      SizedBox(width: 16),
-                      _buildThingToDoCard(
-                        'https://images.unsplash.com/photo-1555021200-e144a4ab5a29',
-                        'Explore Rice Terraces',
-                        'UNESCO World Heritage rice paddies',
-                      ),
-                      SizedBox(width: 16),
-                      _buildThingToDoCard(
-                        'https://images.unsplash.com/photo-1537996194471-e657df975ab4',
-                        'Beach Hopping',
-                        'Pristine beaches and crystal clear waters',
-                      ),
+                      ...(widget.destination.highlights.isNotEmpty
+                              ? widget.destination.highlights
+                              : const [
+                                  'Explore the city center',
+                                  'Try local food & cafes',
+                                  'Visit popular attractions',
+                                ])
+                          .take(6)
+                          .expand((h) => [
+                                _buildThingToDoCard(
+                                  widget.destination.imageUrl.isNotEmpty
+                                      ? widget.destination.imageUrl
+                                      : 'https://placehold.co/800x500/png?text=Things+to+do',
+                                  h,
+                                  widget.destination.country,
+                                ),
+                                const SizedBox(width: 16),
+                              ])
+                          .toList()
+                        ..removeLast(),
                     ],
                   ),
                 ),
@@ -299,26 +339,33 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
                     scrollDirection: Axis.horizontal,
                     padding: EdgeInsets.symmetric(horizontal: 24),
                     children: [
-                      _buildHotelCard(
-                        'https://images.unsplash.com/photo-1566073771259-6a8506099945',
-                        'The Mulia Resort',
-                        4.8,
-                        '\$250/night',
-                      ),
-                      SizedBox(width: 16),
-                      _buildHotelCard(
-                        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b',
-                        'Four Seasons Bali',
-                        4.9,
-                        '\$380/night',
-                      ),
-                      SizedBox(width: 16),
-                      _buildHotelCard(
-                        'https://images.unsplash.com/photo-1537996194471-e657df975ab4',
-                        'Alila Ubud',
-                        4.7,
-                        '\$320/night',
-                      ),
+                      if (_isHotelsLoading)
+                        const Center(child: CircularProgressIndicator())
+                      else if (_hotelsError != null)
+                        Center(child: Text('Failed to load hotels: $_hotelsError'))
+                      else if (_hotels.isEmpty)
+                        const Center(child: Text('No hotels found for this destination'))
+                      else
+                        ..._hotels.take(10).expand((h) => [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => HotelDetailsScreen(hotel: h),
+                                    ),
+                                  );
+                                },
+                                child: _buildHotelCard(
+                                  h.imageUrl,
+                                  h.name,
+                                  h.rating,
+                                  '\$${h.price}/night',
+                                ),
+                              ),
+                              const SizedBox(width: 16),
+                            ]).toList()
+                          ..removeLast(),
                     ],
                   ),
                 ),
@@ -435,11 +482,11 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
                       color: Theme.of(context).cardColor,
                       borderRadius: BorderRadius.circular(24),
                       border: Border.all(
-                        color: const Color(0xFF1A94C4).withValues(alpha: 0.5),
+                        color: const Color(0xFF1A94C4).withOpacity(0.5),
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.05),
+                          color: Colors.black.withOpacity(0.05),
                           blurRadius: 20,
                           offset: const Offset(0, 10),
                         ),
@@ -614,7 +661,7 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
             left: 16,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.35),
+                color: Colors.black.withOpacity(0.35),
                 shape: BoxShape.circle,
               ),
               child: IconButton(
@@ -634,7 +681,7 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
             right: 16,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.35),
+                color: Colors.black.withOpacity(0.35),
                 shape: BoxShape.circle,
               ),
               child: IconButton(
@@ -660,7 +707,7 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: Colors.black.withOpacity(0.05),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -725,7 +772,7 @@ class _DestinationDetailsScreenState extends State<DestinationDetailsScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: Colors.black.withOpacity(0.05),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),

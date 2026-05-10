@@ -573,7 +573,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
             color: const Color(0xFFF0F8FD),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: const Color(0xFF1A94C4).withValues(alpha: 0.2),
+              color: const Color(0xFF1A94C4).withOpacity(0.2),
             ),
           ),
           child: Column(

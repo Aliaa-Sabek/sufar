@@ -115,7 +115,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 padding: EdgeInsets.all(12),
                 margin: EdgeInsets.only(bottom: 16),
                 decoration: BoxDecoration(
-                  color: Colors.red.withValues(alpha: 0.1),
+                  color: Colors.red.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(

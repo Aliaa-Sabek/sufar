@@ -258,7 +258,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
           Container(
             padding: EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Theme.of(context).cardColor.withValues(alpha: 0.2),
+              color: Theme.of(context).cardColor.withOpacity(0.2),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(Icons.auto_awesome, color: Theme.of(context).cardColor),

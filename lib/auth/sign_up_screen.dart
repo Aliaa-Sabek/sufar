@@ -447,7 +447,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         color: isAutoFilled ? const Color(0xFFE9F0FD) : Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: isAutoFilled ? const Color(0xFF1396D8).withValues(alpha: 0.3) : Colors.grey.shade200, 
+          color: isAutoFilled ? const Color(0xFF1396D8).withOpacity(0.3) : Colors.grey.shade200, 
           width: 1.5,
         ),
       ),

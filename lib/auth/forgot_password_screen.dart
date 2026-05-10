@@ -314,7 +314,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                       size: 120,
                                       color: const Color(
                                         0xFF1396D8,
-                                      ).withValues(alpha: 0.5),
+                                      ).withOpacity(0.5),
                                     ),
                                     SizedBox(height: 16),
                                     Text(

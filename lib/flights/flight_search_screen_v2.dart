@@ -788,7 +788,7 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 7),
       decoration: BoxDecoration(
-        color: Theme.of(context).cardColor.withValues(alpha: 0.18),
+        color: Theme.of(context).cardColor.withOpacity(0.18),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -828,7 +828,7 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
         border: Border.all(color: Colors.grey.shade200),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
+            color: Colors.black.withOpacity(0.04),
             blurRadius: 8,
             offset: const Offset(0, 3),
           ),
@@ -1005,10 +1005,10 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: badgeColor.withValues(alpha: 0.12),
+                        color: badgeColor.withOpacity(0.12),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
-                          color: badgeColor.withValues(alpha: 0.4),
+                          color: badgeColor.withOpacity(0.4),
                           width: 1,
                         ),
                       ),

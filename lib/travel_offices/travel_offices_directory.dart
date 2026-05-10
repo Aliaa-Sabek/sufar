@@ -455,7 +455,7 @@ class _TravelOfficesDirectoryState extends State<TravelOfficesDirectory> {
         border: Border.all(color: Colors.grey.shade200),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: Colors.black.withOpacity(0.02),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -478,16 +478,27 @@ class _TravelOfficesDirectoryState extends State<TravelOfficesDirectory> {
                 child: office.logoUrl != null && office.logoUrl!.isNotEmpty
                     ? ClipRRect(
                         borderRadius: BorderRadius.circular(12),
-                        child: Image.network(
-                          office.logoUrl!,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) =>
-                              Icon(
-                                Icons.business,
-                                color: Color(0xFF1A94C4),
-                                size: 28,
+                        child: office.logoUrl!.startsWith('http')
+                            ? Image.network(
+                                office.logoUrl!,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) =>
+                                    Icon(
+                                  Icons.business,
+                                  color: Color(0xFF1A94C4),
+                                  size: 28,
+                                ),
+                              )
+                            : Image.asset(
+                                office.logoUrl!,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) =>
+                                    Icon(
+                                  Icons.business,
+                                  color: Color(0xFF1A94C4),
+                                  size: 28,
+                                ),
                               ),
-                        ),
                       )
                     : Icon(
                         Icons.business,
@@ -501,7 +512,7 @@ class _TravelOfficesDirectoryState extends State<TravelOfficesDirectory> {
                   vertical: 6,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).brightness == Brightness.dark ? Colors.amber.withValues(alpha: 0.2) : const Color(0xFFFFF9E6),
+                  color: Theme.of(context).brightness == Brightness.dark ? Colors.amber.withOpacity(0.2) : const Color(0xFFFFF9E6),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(

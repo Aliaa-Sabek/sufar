@@ -669,7 +669,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             borderRadius: BorderRadius.circular(24),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.02),
+                                color: Colors.black.withOpacity(0.02),
                                 blurRadius: 20,
                               ),
                             ],
@@ -775,7 +775,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               BoxShadow(
                                 color: const Color(
                                   0xFF1A94C4,
-                                ).withValues(alpha: 0.3),
+                                ).withOpacity(0.3),
                                 blurRadius: 20,
                                 offset: const Offset(0, 10),
                               ),
@@ -856,7 +856,7 @@ class _ProfilePageState extends State<ProfilePage> {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: Colors.black.withOpacity(0.02),
             blurRadius: 20,
           ),
         ],
@@ -895,7 +895,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: EdgeInsets.only(bottom: 16),
                 child: _buildSavedItem(
                   dest.name,
-                  'Saved on Dec 10, 2024',
+                  'Saved destination',
                   null,
                   imageUrl: dest.imageUrl,
                 ),
@@ -914,7 +914,7 @@ class _ProfilePageState extends State<ProfilePage> {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: Colors.black.withOpacity(0.02),
             blurRadius: 20,
           ),
         ],
@@ -961,6 +961,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   hotel.name,
                   hotel.city,
                   '\$${hotel.price}',
+                  imageUrl: hotel.imageUrl,
                 ),
               ),
             ),
@@ -1036,7 +1037,7 @@ class _ProfilePageState extends State<ProfilePage> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: Colors.black.withOpacity(0.02),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -1084,13 +1085,15 @@ class _ProfilePageState extends State<ProfilePage> {
               borderRadius: BorderRadius.circular(12),
               image: imageUrl != null && imageUrl.isNotEmpty
                   ? DecorationImage(
-                      image: NetworkImage(imageUrl),
+                      image: imageUrl.startsWith('http') 
+                          ? NetworkImage(imageUrl) 
+                          : AssetImage(imageUrl) as ImageProvider,
                       fit: BoxFit.cover,
                     )
                   : null,
             ),
             child: imageUrl == null || imageUrl.isEmpty
-                ? Icon(Icons.image, color: Theme.of(context).cardColor.withValues(alpha: 0.5))
+                ? Icon(Icons.image, color: Theme.of(context).cardColor.withOpacity(0.5))
                 : null,
           ),
           SizedBox(width: 16),
@@ -1137,23 +1140,34 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget _buildBookingItem(Booking booking) {
+    final imageUrl = booking.hotelImageUrl;
     return Container(
       padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: const Color(0xFFF7F9FC),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.green.withValues(alpha: 0.3)),
+        border: Border.all(color: Colors.green.withOpacity(0.3)),
       ),
       child: Row(
         children: [
           Container(
-            width: 50,
-            height: 50,
+            width: 60,
+            height: 60,
             decoration: BoxDecoration(
               color: Colors.green[50],
-              shape: BoxShape.circle,
+              borderRadius: BorderRadius.circular(12),
+              image: imageUrl != null && imageUrl.isNotEmpty
+                  ? DecorationImage(
+                      image: imageUrl.startsWith('http')
+                          ? NetworkImage(imageUrl)
+                          : AssetImage(imageUrl) as ImageProvider,
+                      fit: BoxFit.cover,
+                    )
+                  : null,
             ),
-            child: Icon(Icons.check_circle_outline, color: Colors.green),
+            child: imageUrl == null || imageUrl.isEmpty
+                ? Icon(Icons.check_circle_outline, color: Colors.green)
+                : null,
           ),
           SizedBox(width: 16),
           Expanded(
@@ -1194,9 +1208,9 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildHotelItem(String name, String location, String price) {
+  Widget _buildHotelItem(String name, String location, String price, {String? imageUrl}) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: const Color(0xFFF7F9FC),
         borderRadius: BorderRadius.circular(16),
@@ -1204,36 +1218,69 @@ class _ProfilePageState extends State<ProfilePage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                  
+          Expanded(
+            child: Row(
+              children: [
+                Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(12),
+                    image: imageUrl != null && imageUrl.isNotEmpty
+                        ? DecorationImage(
+                            image: imageUrl.startsWith('http')
+                                ? NetworkImage(imageUrl)
+                                : AssetImage(imageUrl) as ImageProvider,
+                            fit: BoxFit.cover,
+                          )
+                        : null,
+                  ),
+                  child: imageUrl == null || imageUrl.isEmpty
+                      ? Icon(Icons.hotel, color: Colors.grey[500])
+                      : null,
                 ),
-              ),
-              SizedBox(height: 6),
-              Row(
-                children: [
-                  Icon(
-                    Icons.location_on_outlined,
-                    size: 14,
-                    color: Color(0xFF8FA2B4),
+                SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: 6),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.location_on_outlined,
+                            size: 14,
+                            color: Color(0xFF8FA2B4),
+                          ),
+                          SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              location,
+                              style: TextStyle(
+                                color: Color(0xFF8FA2B4),
+                                fontSize: 13,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  SizedBox(width: 4),
-                  Text(
-                    location,
-                    style: TextStyle(
-                      color: Color(0xFF8FA2B4),
-                      fontSize: 13,
-                    ),
-                  ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,

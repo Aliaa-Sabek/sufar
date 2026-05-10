@@ -118,8 +118,8 @@ class _FlightLandingPageState extends State<FlightLandingPage> {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.black.withValues(alpha: 0.4),
-                  Colors.black.withValues(alpha: 0.1),
+                  Colors.black.withOpacity(0.4),
+                  Colors.black.withOpacity(0.1),
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -182,7 +182,7 @@ class _FlightLandingPageState extends State<FlightLandingPage> {
         decoration: BoxDecoration(
           color: isSelected
               ? Colors.white
-              : Colors.white.withValues(alpha: 0.2),
+              : Colors.white.withOpacity(0.2),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -215,7 +215,7 @@ class _FlightLandingPageState extends State<FlightLandingPage> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
+            color: Colors.black.withOpacity(0.1),
             blurRadius: 15,
             offset: const Offset(0, 5),
           ),
@@ -583,8 +583,8 @@ class _FlightLandingPageState extends State<FlightLandingPage> {
           borderRadius: BorderRadius.circular(16),
           gradient: LinearGradient(
             colors: [
-              Colors.black.withValues(alpha: 0.8),
-              Colors.black.withValues(alpha: 0.4),
+              Colors.black.withOpacity(0.8),
+              Colors.black.withOpacity(0.4),
               Colors.transparent,
             ],
             begin: Alignment.bottomCenter,
