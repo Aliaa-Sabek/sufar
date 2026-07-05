@@ -1,0 +1,22 @@
+﻿{
+    "destination":  {
+                        "_id":  "6a0794df65257a55332642cd",
+                        "name":  "Cairo",
+                        "name_ar":  "القاهرة",
+                        "country":  "Egypt",
+                        "region":  "North Africa",
+                        "description":  "The capital of Egypt and home to ancient wonders of the world.",
+                        "highlights":  [
+
+                                       ],
+                        "image":  "https://images.pexels.com/photos/21405346/pexels-photo-21405346.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=350",
+                        "isFeatured":  false,
+                        "createdAt":  "2026-05-15T21:49:19.441Z",
+                        "updatedAt":  "2026-05-15T21:49:19.441Z",
+                        "slug":  "cairo",
+                        "__v":  0
+                    },
+    "topHotels":  [
+
+                  ]
+}

@@ -45,9 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
       if (mounted) {
         setState(() {
           _bookings.clear();
-          _bookings.addAll(
-            rows.map((b) => Booking.fromJson(b)).toList(),
-          );
+          _bookings.addAll(rows.map((b) => Booking.fromJson(b)).toList());
         });
       }
     } catch (e) {
@@ -59,6 +57,35 @@ class _ProfilePageState extends State<ProfilePage> {
     // Backend API for favorites not implemented yet
   }
 
+  Future<UserModel?> _loadCachedUser(SharedPreferences prefs) async {
+    final storedUserJson = prefs.getString('backend_user');
+    if (storedUserJson != null && storedUserJson != 'null') {
+      final decoded = jsonDecode(storedUserJson);
+      if (decoded is Map<String, dynamic>) {
+        final user = UserModel.fromApiResponse(decoded) ??
+            UserModel.fromJson(decoded);
+        if (user.name.isNotEmpty || user.email.isNotEmpty) {
+          return user;
+        }
+      }
+    }
+
+    final email =
+        prefs.getString('logged_in_email') ?? prefs.getString('saved_email');
+    final name = prefs.getString('logged_in_name');
+    if ((email != null && email.isNotEmpty) ||
+        (name != null && name.isNotEmpty)) {
+      return UserModel(
+        id: '',
+        name: name ?? '',
+        email: email ?? '',
+        createdAt: DateTime.now().toIso8601String(),
+      );
+    }
+
+    return null;
+  }
+
   Future<void> _fetchUserProfile() async {
     setState(() {
       _isLoading = true;
@@ -66,49 +93,38 @@ class _ProfilePageState extends State<ProfilePage> {
     });
 
     try {
-      // 1. First try to get user from SharedPreferences (saved at login)
       final prefs = await SharedPreferences.getInstance();
-      final storedUserJson = prefs.getString('backend_user');
-      if (storedUserJson != null && storedUserJson != 'null') {
-        final decoded = jsonDecode(storedUserJson);
-        if (decoded is Map<String, dynamic>) {
-          if (mounted) {
-            setState(() {
-              _userModel = UserModel.fromJson(decoded);
-              _isLoading = false;
-            });
-          }
-        }
-      }
+      var user = await _loadCachedUser(prefs);
 
-      // 2. Try to fetch fresh data from backend (non-blocking)
       try {
         final profileData = await ApiService.getMyProfile();
-        // Backend may return { user: {...} } or the user directly
-        final userData = profileData['user'] as Map<String, dynamic>? ?? profileData;
-        if (userData.isNotEmpty && mounted) {
-          final freshUser = UserModel.fromJson(userData);
-          await prefs.setString('backend_user', jsonEncode(userData));
-          if (mounted) {
-            setState(() {
-              _userModel = freshUser;
-              _isLoading = false;
-            });
+        final fresh = UserModel.fromApiResponse(profileData);
+        if (fresh != null) {
+          user = user != null ? user.mergeWith(fresh) : fresh;
+          await prefs.setString(
+            'backend_user',
+            jsonEncode(user.toStorageJson()),
+          );
+          if (user.email.isNotEmpty) {
+            await prefs.setString('logged_in_email', user.email);
+          }
+          if (user.name.isNotEmpty) {
+            await prefs.setString('logged_in_name', user.name);
           }
         }
       } catch (profileError) {
         debugPrint('Could not refresh profile from backend: $profileError');
       }
 
-      // 3. If still no user data, show default
-      if (mounted && _userModel == null) {
+      if (mounted) {
         setState(() {
-          _userModel = UserModel(
-            id: '',
-            name: 'Traveler',
-            email: '',
-            createdAt: DateTime.now().toIso8601String(),
-          );
+          _userModel = user ??
+              UserModel(
+                id: '',
+                name: 'Traveler',
+                email: '',
+                createdAt: DateTime.now().toIso8601String(),
+              );
           _isLoading = false;
         });
       }
@@ -143,10 +159,7 @@ class _ProfilePageState extends State<ProfilePage> {
             // Custom Web-style App Bar
             Container(
               color: Theme.of(context).cardColor,
-              padding: EdgeInsets.symmetric(
-                horizontal: 24.0,
-                vertical: 16.0,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
               child: Row(
                 children: [
                   Image.asset(
@@ -159,38 +172,36 @@ class _ProfilePageState extends State<ProfilePage> {
                       size: 30,
                     ),
                   ),
-                  const Spacer(),
-                  // Web Navigation Links
-                  if (!isMobile) ...[
-                    _buildNavText('Home'),
-                    _buildNavText('Destinations'),
-                    _buildNavText('Hotels'),
-                    _buildNavText('Flights'),
-                    _buildNavText('Travel Offices'),
-                    _buildNavText(
-                      'AI Planner',
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const AIPlannerPage(),
+                  if (!isMobile)
+                    Expanded(
+                      child: Wrap(
+                        alignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        spacing: 12,
+                        runSpacing: 8,
+                        children: [
+                          _buildNavText('Home'),
+                          _buildNavText('Destinations'),
+                          _buildNavText('Hotels'),
+                          _buildNavText('Flights'),
+                          _buildNavText('Travel Offices'),
+                          _buildNavText(
+                            'AI Planner',
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const AIPlannerPage(),
+                                ),
+                              );
+                            },
                           ),
-                        );
-                      },
-                    ),
-                    _buildNavText('Visa Advisor'),
-                  ] else ...[
-                    IconButton(
-                      icon: Icon(
-                        Icons.menu,
-                        color: Colors.grey,
-                        size: 20,
+                          _buildNavText('Visa Advisor'),
+                        ],
                       ),
-                      onPressed: () {
-                        // Open mobile menu
-                      },
-                    ),
-                  ],
+                    )
+                  else
+                    const Spacer(),
                   SizedBox(width: 24),
                   IconButton(
                     icon: Icon(
@@ -218,8 +229,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           size: 20,
                         ),
                         onPressed: () {
-                          AppTheme.themeNotifier.value =
-                              isDark ? ThemeMode.light : ThemeMode.dark;
+                          AppTheme.themeNotifier.value = isDark
+                              ? ThemeMode.light
+                              : ThemeMode.dark;
                         },
                       );
                     },
@@ -304,7 +316,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                           label: Text(
                                             'Edit Profile',
                                             style: TextStyle(
-                                              color: Theme.of(context).cardColor,
+                                              color: Theme.of(
+                                                context,
+                                              ).cardColor,
                                             ),
                                           ),
                                           style: ElevatedButton.styleFrom(
@@ -353,17 +367,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 width: 80,
                                                 height: 80,
                                                 decoration: BoxDecoration(
-                                                  gradient:
-                                                      LinearGradient(
-                                                        colors: [
-                                                          Color(0xFF1A94C4),
-                                                          Color(0xFF0D1C52),
-                                                        ],
-                                                        begin:
-                                                            Alignment.topLeft,
-                                                        end: Alignment
-                                                            .bottomRight,
-                                                      ),
+                                                  gradient: LinearGradient(
+                                                    colors: [
+                                                      Color(0xFF1A94C4),
+                                                      Color(0xFF0D1C52),
+                                                    ],
+                                                    begin: Alignment.topLeft,
+                                                    end: Alignment.bottomRight,
+                                                  ),
                                                   borderRadius:
                                                       BorderRadius.circular(16),
                                                   image:
@@ -391,7 +402,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                                     ? Text(
                                                         _userModel!.initials,
                                                         style: TextStyle(
-                                                          color: Theme.of(context).cardColor,
+                                                          color: Theme.of(
+                                                            context,
+                                                          ).cardColor,
                                                           fontSize: 32,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -405,39 +418,33 @@ class _ProfilePageState extends State<ProfilePage> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Text(
-                                                      _userModel!.name,
-                                                      style: TextStyle(
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Color(
-                                                          0xFF0D1C52,
+                                                    // Name
+                                                    if (_userModel!
+                                                        .name
+                                                        .isNotEmpty)
+                                                      Text(
+                                                        _userModel!.name,
+                                                        style: TextStyle(
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Color(
+                                                            0xFF0D1C52,
+                                                          ),
+                                                        ),
+                                                      )
+                                                    else
+                                                      Text(
+                                                        'Traveler',
+                                                        style: TextStyle(
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.grey,
                                                         ),
                                                       ),
-                                                    ),
-                                                    SizedBox(height: 6),
-                                                    _buildIconText(
-                                                      Icons.email_outlined,
-                                                      _userModel!.email,
-                                                    ),
-                                                    if (_userModel!
-                                                            .nationality !=
-                                                        null) ...[
-                                                      SizedBox(height: 4),
-                                                      _buildIconText(
-                                                        Icons
-                                                            .location_on_outlined,
-                                                        _userModel!
-                                                            .nationality!,
-                                                      ),
-                                                    ],
-                                                    SizedBox(height: 4),
-                                                    _buildIconText(
-                                                      Icons
-                                                          .calendar_today_outlined,
-                                                      'Member since ${_formatDate(_userModel!.createdAt)}',
-                                                    ),
+                                                    SizedBox(height: 8),
+                                                    _buildUserDetailRows(),
                                                   ],
                                                 ),
                                               ),
@@ -458,9 +465,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         else if (_errorMessage != null)
                                           Text('Error: $_errorMessage')
                                         else if (_userModel == null)
-                                          Text(
-                                            'Please log in to see profile',
-                                          )
+                                          Text('Please log in to see profile')
                                         else ...[
                                           Container(
                                             width: 100,
@@ -492,7 +497,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 ? Text(
                                                     _userModel!.initials,
                                                     style: TextStyle(
-                                                      color: Theme.of(context).cardColor,
+                                                      color: Theme.of(
+                                                        context,
+                                                      ).cardColor,
                                                       fontSize: 32,
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -506,32 +513,29 @@ class _ProfilePageState extends State<ProfilePage> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Text(
-                                                  _userModel!.name,
-                                                  style: TextStyle(
-                                                    fontSize: 20,
-                                                    fontWeight: FontWeight.bold,
-                                                    
+                                                // Name
+                                                if (_userModel!.name.isNotEmpty)
+                                                  Text(
+                                                    _userModel!.name,
+                                                    style: TextStyle(
+                                                      fontSize: 22,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Color(0xFF0D1C52),
+                                                    ),
+                                                  )
+                                                else
+                                                  Text(
+                                                    'Traveler',
+                                                    style: TextStyle(
+                                                      fontSize: 22,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.grey,
+                                                    ),
                                                   ),
-                                                ),
-                                                SizedBox(height: 8),
-                                                _buildIconText(
-                                                  Icons.email_outlined,
-                                                  _userModel!.email,
-                                                ),
-                                                if (_userModel!.nationality !=
-                                                    null) ...[
-                                                  SizedBox(height: 4),
-                                                  _buildIconText(
-                                                    Icons.location_on_outlined,
-                                                    _userModel!.nationality!,
-                                                  ),
-                                                ],
-                                                SizedBox(height: 4),
-                                                _buildIconText(
-                                                  Icons.calendar_today_outlined,
-                                                  'Member since ${_formatDate(_userModel!.createdAt)}',
-                                                ),
+                                                SizedBox(height: 10),
+                                                _buildUserDetailRows(),
                                               ],
                                             ),
                                           ),
@@ -551,9 +555,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                                           ),
                                                     ),
                                                   );
-                                           if (result == true) {
-                                             _fetchProfileAndData();
-                                           }
+                                              if (result == true) {
+                                                _fetchProfileAndData();
+                                              }
                                             }
                                           },
                                           icon: Icon(
@@ -564,7 +568,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                           label: Text(
                                             'Edit Profile',
                                             style: TextStyle(
-                                              color: Theme.of(context).cardColor,
+                                              color: Theme.of(
+                                                context,
+                                              ).cardColor,
                                             ),
                                           ),
                                           style: ElevatedButton.styleFrom(
@@ -688,7 +694,6 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Text(
                                     'Past AI Travel Plans',
                                     style: TextStyle(
-                                      
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -696,61 +701,55 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ],
                               ),
                               SizedBox(height: 24),
-                              isMobile
-                                  ? Column(
-                                      children: [
-                                        _buildPlanCard(
-                                          'Thailand Adventure',
-                                          '7 days',
-                                          '\$1,500',
-                                          'Nov 15, 2024',
-                                        ),
-                                        SizedBox(height: 16),
-                                        _buildPlanCard(
-                                          'European Tour',
-                                          '14 days',
-                                          '\$3,200',
-                                          'Oct 20, 2024',
-                                        ),
-                                        SizedBox(height: 16),
-                                        _buildPlanCard(
-                                          'Dubai Experience',
-                                          '5 days',
-                                          '\$2,000',
-                                          'Sep 12, 2024',
-                                        ),
-                                      ],
-                                    )
-                                  : Row(
-                                      children: [
-                                        Expanded(
-                                          child: _buildPlanCard(
-                                            'Thailand Adventure',
-                                            '7 days',
-                                            '\$1,500',
-                                            'Nov 15, 2024',
-                                          ),
-                                        ),
-                                        SizedBox(width: 16),
-                                        Expanded(
-                                          child: _buildPlanCard(
-                                            'European Tour',
-                                            '14 days',
-                                            '\$3,200',
-                                            'Oct 20, 2024',
-                                          ),
-                                        ),
-                                        SizedBox(width: 16),
-                                        Expanded(
-                                          child: _buildPlanCard(
-                                            'Dubai Experience',
-                                            '5 days',
-                                            '\$2,000',
-                                            'Sep 12, 2024',
-                                          ),
-                                        ),
-                                      ],
+                              // Past Bookings (from backend)
+                              if (_bookings.isEmpty)
+                                Center(
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 20),
+                                    child: Text(
+                                      'No bookings yet. Start planning your trip!',
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontStyle: FontStyle.italic,
+                                      ),
+                                      textAlign: TextAlign.center,
                                     ),
+                                  ),
+                                )
+                              else
+                                isMobile
+                                    ? Column(
+                                        children: [
+                                          ..._bookings
+                                              .take(3)
+                                              .map(
+                                                (b) => Padding(
+                                                  padding: EdgeInsets.only(
+                                                    bottom: 16,
+                                                  ),
+                                                  child: _buildBookingPlanCard(
+                                                    b,
+                                                  ),
+                                                ),
+                                              ),
+                                        ],
+                                      )
+                                    : Wrap(
+                                        spacing: 16,
+                                        runSpacing: 16,
+                                        children: [
+                                          ..._bookings
+                                              .take(3)
+                                              .map(
+                                                (b) => SizedBox(
+                                                  width: 280,
+                                                  child: _buildBookingPlanCard(
+                                                    b,
+                                                  ),
+                                                ),
+                                              ),
+                                        ],
+                                      ),
                             ],
                           ),
                         ),
@@ -773,9 +772,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             borderRadius: BorderRadius.circular(24),
                             boxShadow: [
                               BoxShadow(
-                                color: const Color(
-                                  0xFF1A94C4,
-                                ).withOpacity(0.3),
+                                color: const Color(0xFF1A94C4).withOpacity(0.3),
                                 blurRadius: 20,
                                 offset: const Offset(0, 10),
                               ),
@@ -855,10 +852,7 @@ class _ProfilePageState extends State<ProfilePage> {
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.02),
-            blurRadius: 20,
-          ),
+          BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 20),
         ],
       ),
       child: Column(
@@ -870,11 +864,7 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(width: 8),
               Text(
                 'Saved Destinations',
-                style: TextStyle(
-                  
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
             ],
           ),
@@ -913,10 +903,7 @@ class _ProfilePageState extends State<ProfilePage> {
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.02),
-            blurRadius: 20,
-          ),
+          BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 20),
         ],
       ),
       child: Column(
@@ -928,11 +915,7 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(width: 8),
               Text(
                 'Bookmarked Hotels',
-                style: TextStyle(
-                  
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
             ],
           ),
@@ -968,6 +951,66 @@ class _ProfilePageState extends State<ProfilePage> {
           ],
         ],
       ),
+    );
+  }
+
+  Widget _buildUserDetailRows() {
+    if (_userModel == null) return SizedBox.shrink();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (_userModel!.email.isNotEmpty)
+          _buildIconText(Icons.email_outlined, _userModel!.email)
+        else
+          _buildIconText(
+            Icons.email_outlined,
+            'No email added',
+            isPlaceholder: true,
+          ),
+        if (_userModel!.phone != null && _userModel!.phone!.isNotEmpty) ...[
+          SizedBox(height: 6),
+          _buildIconText(Icons.phone_outlined, _userModel!.phone!),
+        ] else ...[
+          SizedBox(height: 6),
+          _buildIconText(
+            Icons.phone_outlined,
+            'Add phone in Edit Profile',
+            isPlaceholder: true,
+          ),
+        ],
+        if (_userModel!.nationality != null &&
+            _userModel!.nationality!.isNotEmpty) ...[
+          SizedBox(height: 6),
+          _buildIconText(Icons.location_on_outlined, _userModel!.nationality!),
+        ] else ...[
+          SizedBox(height: 6),
+          _buildIconText(
+            Icons.location_on_outlined,
+            'Add nationality in Edit Profile',
+            isPlaceholder: true,
+          ),
+        ],
+        if (_userModel!.dateOfBirth != null &&
+            _userModel!.dateOfBirth!.isNotEmpty) ...[
+          SizedBox(height: 6),
+          _buildIconText(
+            Icons.cake_outlined,
+            'Born ${Booking.formatDisplayDate(_userModel!.dateOfBirth!)}',
+          ),
+        ],
+        if (_userModel!.gender != null && _userModel!.gender!.isNotEmpty) ...[
+          SizedBox(height: 6),
+          _buildIconText(Icons.person_outline, _userModel!.gender!),
+        ],
+        SizedBox(height: 6),
+        _buildIconText(
+          Icons.calendar_today_outlined,
+          _userModel!.createdAt.isNotEmpty
+              ? 'Member since ${_formatDate(_userModel!.createdAt)}'
+              : 'Member since ${_formatDate(DateTime.now().toIso8601String())}',
+        ),
+      ],
     );
   }
 
@@ -1012,15 +1055,27 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildIconText(IconData icon, String text) {
+  Widget _buildIconText(
+    IconData icon,
+    String text, {
+    bool isPlaceholder = false,
+  }) {
     return Row(
       children: [
-        Icon(icon, size: 14, color: const Color(0xFF8FA2B4)),
+        Icon(
+          icon,
+          size: 14,
+          color: isPlaceholder ? Colors.grey : const Color(0xFF8FA2B4),
+        ),
         SizedBox(width: 8),
         Expanded(
           child: Text(
             text,
-            style: TextStyle(color: Color(0xFF5D6B78), fontSize: 13),
+            style: TextStyle(
+              color: isPlaceholder ? Colors.grey[400] : Color(0xFF5D6B78),
+              fontSize: 13,
+              fontStyle: isPlaceholder ? FontStyle.italic : FontStyle.normal,
+            ),
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -1054,10 +1109,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
           SizedBox(height: 4),
-          Text(
-            label,
-            style: TextStyle(color: Color(0xFF5D6B78), fontSize: 14),
-          ),
+          Text(label, style: TextStyle(color: Color(0xFF5D6B78), fontSize: 14)),
         ],
       ),
     );
@@ -1085,15 +1137,18 @@ class _ProfilePageState extends State<ProfilePage> {
               borderRadius: BorderRadius.circular(12),
               image: imageUrl != null && imageUrl.isNotEmpty
                   ? DecorationImage(
-                      image: imageUrl.startsWith('http') 
-                          ? NetworkImage(imageUrl) 
+                      image: imageUrl.startsWith('http')
+                          ? NetworkImage(imageUrl)
                           : AssetImage(imageUrl) as ImageProvider,
                       fit: BoxFit.cover,
                     )
                   : null,
             ),
             child: imageUrl == null || imageUrl.isEmpty
-                ? Icon(Icons.image, color: Theme.of(context).cardColor.withOpacity(0.5))
+                ? Icon(
+                    Icons.image,
+                    color: Theme.of(context).cardColor.withOpacity(0.5),
+                  )
                 : null,
           ),
           SizedBox(width: 16),
@@ -1103,19 +1158,12 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
                 SizedBox(height: 4),
                 Text(
                   date,
-                  style: TextStyle(
-                    color: Color(0xFF8FA2B4),
-                    fontSize: 12,
-                  ),
+                  style: TextStyle(color: Color(0xFF8FA2B4), fontSize: 12),
                 ),
               ],
             ),
@@ -1149,6 +1197,7 @@ class _ProfilePageState extends State<ProfilePage> {
         border: Border.all(color: Colors.green.withOpacity(0.3)),
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             width: 60,
@@ -1169,24 +1218,27 @@ class _ProfilePageState extends State<ProfilePage> {
                 ? Icon(Icons.check_circle_outline, color: Colors.green)
                 : null,
           ),
-          SizedBox(width: 16),
+          SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hotel Booking #${booking.id}',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
+                  booking.displayTitle,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
+                SizedBox(height: 4),
                 Text(
-                  '${booking.checkIn} to ${booking.checkOut}',
+                  booking.formattedDateRange,
                   style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
+                SizedBox(height: 4),
                 Text(
-                  'Status: ${booking.status.toUpperCase()}',
+                  '${booking.guests} guest${booking.guests == 1 ? '' : 's'} · ${booking.status.toUpperCase()}',
                   style: TextStyle(
                     color: Colors.green,
                     fontSize: 10,
@@ -1196,11 +1248,13 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
+          SizedBox(width: 8),
           Text(
-            '\$${booking.totalPrice}',
+            booking.formattedPrice,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Color(0xFF1A94C4),
+              fontSize: 14,
             ),
           ),
         ],
@@ -1208,7 +1262,12 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildHotelItem(String name, String location, String price, {String? imageUrl}) {
+  Widget _buildHotelItem(
+    String name,
+    String location,
+    String price, {
+    String? imageUrl,
+  }) {
     return Container(
       padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -1304,72 +1363,108 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildPlanCard(
-    String title,
-    String duration,
-    String budget,
-    String date,
-  ) {
+  Widget _buildBookingPlanCard(Booking booking) {
+    final statusColor = booking.status == 'confirmed'
+        ? Colors.green
+        : booking.status == 'pending'
+        ? Colors.orange
+        : booking.status == 'cancelled'
+        ? Colors.red
+        : Colors.blue;
+
     return Container(
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: const Color(0xFFF7F9FC),
         borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: statusColor.withOpacity(0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              
-            ),
-          ),
-          SizedBox(height: 12),
           Row(
             children: [
-              Icon(
-                Icons.calendar_today_outlined,
-                size: 14,
-                color: Color(0xFF8FA2B4),
+              Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFE3F2FD),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(Icons.hotel, color: Color(0xFF1A94C4), size: 20),
               ),
-              SizedBox(width: 6),
-              Text(
-                duration,
-                style: TextStyle(fontSize: 13, color: Color(0xFF5D6B78)),
+              SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  booking.displayTitle,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: statusColor.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  booking.status.toUpperCase(),
+                  style: TextStyle(
+                    color: statusColor,
+                    fontSize: 9,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ],
           ),
-          SizedBox(height: 8),
-          Text(
-            'Budget: $budget',
-            style: TextStyle(fontSize: 13, color: Color(0xFF5D6B78)),
+          SizedBox(height: 12),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.calendar_today_outlined,
+                size: 13,
+                color: Color(0xFF8FA2B4),
+              ),
+              SizedBox(width: 6),
+              Expanded(
+                child: Text(
+                  booking.formattedDateRange,
+                  style: TextStyle(fontSize: 12, color: Color(0xFF5D6B78)),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
           ),
-          SizedBox(height: 8),
+          SizedBox(height: 6),
           Text(
-            'Created: $date',
-            style: TextStyle(fontSize: 12, color: Color(0xFF8FA2B4)),
+            '${booking.guests} guest${booking.guests == 1 ? '' : 's'} · Total: ${booking.formattedPrice}',
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF1A94C4),
+            ),
           ),
           SizedBox(height: 16),
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton(
+            child: OutlinedButton(
               onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF1A94C4),
-                elevation: 0,
-                padding: EdgeInsets.symmetric(vertical: 12),
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(color: const Color(0xFF1A94C4)),
+                padding: EdgeInsets.symmetric(vertical: 10),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
               child: Text(
-                'View Plan',
+                'View Booking',
                 style: TextStyle(
-                  color: Theme.of(context).cardColor,
+                  color: Color(0xFF1A94C4),
                   fontWeight: FontWeight.w600,
+                  fontSize: 13,
                 ),
               ),
             ),

@@ -290,18 +290,12 @@ class OfficeDetailsPage extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: const Color(
-                    0xFF0D6488,
-                  ), // Dark Blueish from screenshot
-                  borderRadius: BorderRadius.circular(16),
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      'https://placehold.co/100x100/png?text=Pattern',
-                    ), // Subtle pattern
-                    opacity: 0.1,
-                    fit: BoxFit.cover,
-                    alignment: Alignment.topRight,
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF0D6488), Color(0xFF1A94C4)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
                   ),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

@@ -73,6 +73,15 @@ class _SignInScreenState extends State<SignInScreen> {
       await ApiService.saveToken(result['token']);
 
       final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('logged_in_email', email);
+      final user = result['user'];
+      if (user is Map) {
+        final name = (user['fullName'] ?? user['name'])?.toString();
+        if (name != null && name.isNotEmpty) {
+          await prefs.setString('logged_in_name', name);
+        }
+      }
+
       if (_rememberMe) {
         await prefs.setString('saved_email', email);
         await prefs.setString('saved_password', password);

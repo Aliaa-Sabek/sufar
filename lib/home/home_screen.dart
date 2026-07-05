@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../services/api_service.dart';
+import '../services/destination_catalog_service.dart';
+import '../services/image_service.dart';
 import '../ai_planner/ai_planner_screen.dart';
 import '../travel_offices/travel_offices_directory.dart';
+import '../travel_offices/office_details_screen.dart';
 import '../destinations/destinations_screen.dart';
 import '../models/destination_model.dart';
 import '../models/travel_office_model.dart';
@@ -31,63 +34,63 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _isLoadingDest = true;
   bool _isLoadingOffices = true;
   String? _loadError;
+  String? _officesError;
 
   @override
   void initState() {
     super.initState();
-    // Defer fetch after first frame so UI renders immediately
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _fetchData();
+      _fetchDestinations();
+      _fetchOffices();
     });
   }
 
-  Future<void> _fetchData() async {
-    const timeout = Duration(seconds: 10);
+  Future<void> _fetchDestinations() async {
+    setState(() => _loadError = null);
     try {
-      _loadError = null;
-      final destsFuture = ApiService.getDestinations(featured: true);
-      final officesFuture = ApiService.getTravelOffices(limit: 3);
-
-      final results = await Future.wait([
-        destsFuture.timeout(timeout),
-        officesFuture.timeout(timeout),
-      ]);
-
-      var destsResult = results[0] as List<dynamic>;
-      if (destsResult.isEmpty) {
-        // Backend may not have featured destinations yet; fallback to all.
-        destsResult = await ApiService.getDestinations().timeout(timeout);
-      }
-      final officesResult = results[1] as Map<String, dynamic>;
-
+      final featured = await DestinationCatalogService.featuredDestinations();
       if (mounted) {
         setState(() {
-          _destinations.clear();
-          _destinations.addAll(
-            destsResult.map((e) => DestinationModel.fromJson(e)).toList(),
-          );
+          _destinations
+            ..clear()
+            ..addAll(featured);
           _isLoadingDest = false;
-
-          _offices.clear();
-          final officeList = officesResult['data'] as List? ?? [];
-          _offices.addAll(
-            officeList.map((e) => TravelOfficeModel.fromJson(e)).toList(),
-          );
-          _isLoadingOffices = false;
         });
       }
     } catch (e) {
-      // Timeout or network error — show empty state gracefully
       if (mounted) {
         setState(() {
           _isLoadingDest = false;
-          _isLoadingOffices = false;
           _loadError = e.toString();
         });
       }
     }
   }
 
+  Future<void> _fetchOffices() async {
+    setState(() {
+      _isLoadingOffices = true;
+      _officesError = null;
+    });
+    try {
+      final offices = await ApiService.fetchTravelOffices(limit: 6);
+      if (!mounted) return;
+      setState(() {
+        _offices
+          ..clear()
+          ..addAll(offices.take(6));
+        _isLoadingOffices = false;
+      });
+    } catch (e) {
+      debugPrint('[HomeScreen] Travel offices failed: $e');
+      if (mounted) {
+        setState(() {
+          _isLoadingOffices = false;
+          _officesError = 'Could not load travel offices';
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,10 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             // Custom Navigation Bar
             Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 8.0,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -118,19 +118,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       IconButton(
                         onPressed: widget.onNavigateToChat,
-                        icon: Icon(
-                          Icons.chat_bubble_outline,
-                          
-                          size: 26,
-                        ),
+                        icon: Icon(Icons.chat_bubble_outline, size: 26),
                       ),
                       IconButton(
                         onPressed: widget.onNavigateToProfile,
-                        icon: Icon(
-                          Icons.person_outline,
-                          
-                          size: 28,
-                        ),
+                        icon: Icon(Icons.person_outline, size: 28),
                       ),
                     ],
                   ),
@@ -174,9 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         // Content Overlay
                         Positioned.fill(
                           child: Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 24.0,
-                            ),
+                            padding: EdgeInsets.symmetric(horizontal: 24.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -397,16 +387,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              
                             ),
                           ),
                           SizedBox(height: 8),
                           Text(
                             'Everything you need for the perfect trip',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 16,
-                            ),
+                            style: TextStyle(color: Colors.grey, fontSize: 16),
                           ),
                           SizedBox(height: 48),
                           _buildFeatureItem(
@@ -456,7 +442,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 style: TextStyle(
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
-                                  
                                 ),
                               ),
                               SizedBox(height: 8),
@@ -477,9 +462,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ? Center(child: CircularProgressIndicator())
                               : ListView(
                                   scrollDirection: Axis.horizontal,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 24,
-                                  ),
+                                  padding: EdgeInsets.symmetric(horizontal: 24),
                                   children: [
                                     if (_loadError != null)
                                       Center(
@@ -488,8 +471,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           textAlign: TextAlign.center,
                                         ),
                                       )
-                                    else
-                                    if (_destinations.isEmpty)
+                                    else if (_destinations.isEmpty)
                                       Center(
                                         child: Text('No destinations found'),
                                       )
@@ -497,9 +479,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ..._destinations.map(
                                         (dest) => _buildDestinationCard(
                                           context,
-                                          dest.imageUrl,
+                                          dest.coverImageUrl,
                                           dest.name,
                                           dest.description,
+                                          citySlug: dest.slug,
                                         ),
                                       ),
                                   ],
@@ -530,7 +513,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       style: TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
-                                        
                                       ),
                                     ),
                                     SizedBox(height: 8),
@@ -566,21 +548,49 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           SizedBox(height: 32),
                           if (_isLoadingOffices)
-                            Center(child: CircularProgressIndicator())
-                          else if (_offices.isEmpty)
-                            Center(child: Text('No travel offices found'))
-                          else
-                            ..._offices.map(
-                              (office) => Padding(
-                                padding: EdgeInsets.only(bottom: 16),
-                                child: _buildOfficeCard(
-                                  context,
-                                  office.name,
-                                  office.city ?? 'Unknown',
-                                  office.rating ?? 0.0,
-                                  office.reviewsCount ?? 0,
-                                  imageUrl: office.logoUrl ?? office.imageUrl,
+                            const SizedBox(
+                              height: 220,
+                              child: Center(child: CircularProgressIndicator()),
+                            )
+                          else if (_officesError != null)
+                            Column(
+                              children: [
+                                Text(
+                                  _officesError!,
+                                  style: TextStyle(color: Colors.grey[600]),
                                 ),
+                                TextButton(
+                                  onPressed: _fetchOffices,
+                                  child: const Text('Retry'),
+                                ),
+                              ],
+                            )
+                          else if (_offices.isEmpty)
+                            Center(
+                              child: Text(
+                                'No travel offices found',
+                                style: TextStyle(color: Colors.grey[600]),
+                              ),
+                            )
+                          else
+                            SizedBox(
+                              height: 300,
+                              child: ListView.separated(
+                                scrollDirection: Axis.horizontal,
+                                padding: const EdgeInsets.symmetric(horizontal: 4),
+                                itemCount: _offices.length,
+                                separatorBuilder: (_, _) =>
+                                    const SizedBox(width: 16),
+                                itemBuilder: (context, index) {
+                                  final office = _offices[index];
+                                  return SizedBox(
+                                    width: 300,
+                                    child: _buildOfficeCard(
+                                      context,
+                                      office,
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                         ],
@@ -612,7 +622,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           Container(
                             padding: EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).cardColor.withOpacity(0.1),
+                              color: Theme.of(
+                                context,
+                              ).cardColor.withOpacity(0.1),
                               shape: BoxShape.circle,
                             ),
                             child: Icon(
@@ -702,21 +714,13 @@ class _HomeScreenState extends State<HomeScreen> {
         Text(
           title,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            
-          ),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 8),
         Text(
           description,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 14,
-            height: 1.5,
-          ),
+          style: TextStyle(color: Colors.grey, fontSize: 14, height: 1.5),
         ),
       ],
     );
@@ -726,8 +730,9 @@ class _HomeScreenState extends State<HomeScreen> {
     BuildContext context,
     String imageUrl,
     String title,
-    String description,
-  ) {
+    String description, {
+    String? citySlug,
+  }) {
     return Container(
       width: 280,
       margin: EdgeInsets.only(right: 20),
@@ -750,39 +755,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.grey,
                     ),
                   )
-                : (imageUrl.startsWith('http')
-                      ? Image.network(
-                          imageUrl,
-                          height: 220,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) =>
-                              Container(
-                                height: 220,
-                                color: Colors.grey[200],
-                                child: Icon(
-                                  Icons.landscape,
-                                  size: 50,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                        )
-                      : Image.asset(
-                          imageUrl,
-                          height: 220,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) =>
-                              Container(
-                                height: 220,
-                                color: Colors.grey[200],
-                                child: Icon(
-                                  Icons.landscape,
-                                  size: 50,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                        )),
+                : SizedBox(
+                    height: 220,
+                    width: double.infinity,
+                    child: ImageService.buildNetworkCover(
+                      imageUrl: imageUrl,
+                      citySlug: citySlug,
+                      cityName: title,
+                      type: 'destination',
+                    ),
+                  ),
           ),
           Expanded(
             child: Padding(
@@ -794,11 +776,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      
-                    ),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 8),
                   Expanded(
@@ -845,17 +823,16 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildOfficeCard(
-    BuildContext context,
-    String name,
-    String location,
-    double rating,
-    int reviews, {
-    String? imageUrl,
-  }) {
+  Widget _buildOfficeCard(BuildContext context, TravelOfficeModel office) {
+    final name = office.name;
+    final location = office.city ?? office.country ?? 'Unknown';
+    final rating = office.rating ?? 0.0;
+    final reviews = office.reviewsCount ?? 0;
+    final imageUrl = office.logoUrl ?? office.imageUrl;
+
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(24),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: const Color(0xFFFFE0E0).withOpacity(0.3),
         borderRadius: BorderRadius.circular(32),
@@ -877,23 +854,21 @@ class _HomeScreenState extends State<HomeScreen> {
                               ? NetworkImage(imageUrl)
                               : AssetImage(imageUrl) as ImageProvider,
                           fit: BoxFit.cover,
+                          onError: (exception, stackTrace) {
+                            debugPrint(
+                              'Failed to load office image: $imageUrl',
+                            );
+                          },
                         )
                       : null,
                 ),
                 child: imageUrl == null || imageUrl.isEmpty
-                    ? Icon(
-                        Icons.business,
-                        color: Color(0xFF1A94C4),
-                        size: 32,
-                      )
+                    ? Icon(Icons.business, color: Color(0xFF1A94C4), size: 32)
                     : null,
               ),
               const Spacer(),
               Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
                   color: const Color(0xFFFFE0D0),
                   borderRadius: BorderRadius.circular(20),
@@ -914,20 +889,12 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: 20),
           Text(
             name,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              
-            ),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 8),
           Row(
             children: [
-              Icon(
-                Icons.location_on_outlined,
-                size: 16,
-                color: Colors.grey,
-              ),
+              Icon(Icons.location_on_outlined, size: 16, color: Colors.grey),
               SizedBox(width: 4),
               Text(location, style: TextStyle(color: Colors.grey)),
             ],
@@ -945,7 +912,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const TravelOfficesDirectory(),
+                    builder: (context) =>
+                        OfficeDetailsPage(officeData: office),
                   ),
                 );
               },

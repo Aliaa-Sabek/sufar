@@ -1,0 +1,434 @@
+[
+  {
+    "name": "Cairo",
+    "name_ar": "القاهرة",
+    "country": "Egypt",
+    "region": "North Africa",
+    "description": "The capital of Egypt and home to ancient wonders of the world.",
+    "image": "cairo.jpg",
+    "activities": [
+      {
+        "title": "Pyramids of Giza & Sphinx",
+        "description": "Icons of ancient Egyptian civilization in Giza",
+        "image": "pyramids.jpg"
+      },
+      {
+        "title": "Grand Egyptian Museum",
+        "description": "The largest archaeological museum in the world",
+        "image": "gem.jpg"
+      },
+      {
+        "title": "Khan el-Khalili Bazaar",
+        "description": "The most famous traditional market in the Middle East",
+        "image": "khan.jpg"
+      },
+      {
+        "title": "Nile Dinner Cruise",
+        "description": "Scenic boat ride on the Nile with dinner and music",
+        "image": "nile.jpg"
+      }
+    ]
+  },
+
+  {
+    "name": "Alexandria",
+    "country": "Egypt",
+    "region": "Mediterranean Coast",
+    "description": "The bride of the Mediterranean with rich history and sea views.",
+    "image": "alex.jpg",
+    "activities": [
+      {
+        "title": "Bibliotheca Alexandrina",
+        "description": "A revival of the greatest library in ancient history",
+        "image": "library.jpg"
+      },
+      {
+        "title": "Qaitbay Citadel",
+        "description": "Historic sea fortress on the Mediterranean shore",
+        "image": "citadel.jpg"
+      },
+      {
+        "title": "Alexandria Corniche",
+        "description": "Walk along the famous seafront promenade",
+        "image": "corniche.jpg"
+      },
+      {
+        "title": "Roman Amphitheatre",
+        "description": "Roman ruins showcasing ancient architecture",
+        "image": "roman.jpg"
+      }
+    ]
+  },
+
+  {
+    "name": "Hurghada",
+    "country": "Egypt",
+    "region": "Red Sea",
+    "description": "A paradise for diving and water activities.",
+    "image": "hurghada.jpg",
+    "activities": [
+      {
+        "title": "Diving & Snorkeling",
+        "description": "Explore coral reefs and marine life",
+        "image": "diving.jpg"
+      },
+      {
+        "title": "Yacht Trips",
+        "description": "Boat tours to islands and reefs",
+        "image": "yacht.jpg"
+      },
+      {
+        "title": "Red Sea Safari",
+        "description": "Spot dolphins and marine life",
+        "image": "safari.jpg"
+      },
+      {
+        "title": "Water Sports",
+        "description": "Jet skiing and parasailing adventures",
+        "image": "water.jpg"
+      }
+    ]
+  },
+
+  {
+    "name": "Sharm El Sheikh",
+    "country": "Egypt",
+    "region": "Sinai",
+    "description": "Famous for diving spots and desert adventures.",
+    "image": "sharm.jpg",
+    "activities": [
+      {
+        "title": "Ras Mohamed Diving",
+        "description": "One of the most famous dive sites in the world",
+        "image": "ras.jpg"
+      },
+      {
+        "title": "Coral Reef Garden",
+        "description": "Colorful coral reefs in Naama Bay",
+        "image": "coral.jpg"
+      },
+      {
+        "title": "Mount Sinai Trek",
+        "description": "Climb Moses' Mountain at sunrise",
+        "image": "sinai.jpg"
+      },
+      {
+        "title": "Dolphin Trip",
+        "description": "Swimming with dolphins in the Red Sea",
+        "image": "dolphin.jpg"
+      }
+    ]
+  },
+
+  {
+    "name": "Luxor",
+    "country": "Egypt",
+    "region": "Upper Egypt",
+    "description": "The world’s greatest open-air museum.",
+    "image": "luxor.jpg",
+    "activities": [
+      {
+        "title": "Karnak Temple",
+        "description": "The largest ancient temple complex in history",
+        "image": "karnak.jpg"
+      },
+      {
+        "title": "Valley of the Kings",
+        "description": "Tombs of ancient pharaohs",
+        "image": "kings.jpg"
+      },
+      {
+        "title": "Hot Air Balloon Ride",
+        "description": "Fly over temples at sunrise",
+        "image": "balloon.jpg"
+      },
+      {
+        "title": "Luxor Temple by Night",
+        "description": "Magical illuminated temple experience",
+        "image": "luxor-temple.jpg"
+      }
+    ]
+  },
+
+  {
+    "name": "Aswan",
+    "country": "Egypt",
+    "region": "Upper Egypt",
+    "description": "A peaceful Nile city with Nubian culture.",
+    "image": "aswan.jpg",
+    "activities": [
+      {
+        "title": "Abu Simbel Temple",
+        "description": "Majestic temple of Ramses II",
+        "image": "abu.jpg"
+      },
+      {
+        "title": "Philae Temple",
+        "description": "Temple of Isis on an island",
+        "image": "philae.jpg"
+      },
+      {
+        "title": "Felucca Sailing",
+        "description": "Traditional sailing on the Nile",
+        "image": "felucca.jpg"
+      },
+      {
+        "title": "Nubian Market",
+        "description": "Colorful local culture and crafts",
+        "image": "nubian.jpg"
+      }
+    ]
+  },
+
+  {
+    "name": "Riyadh",
+    "country": "Saudi Arabia",
+    "region": "Middle East",
+    "description": "The modern capital of Saudi Arabia blending tradition and innovation.",
+    "image": "riyadh.jpg",
+    "activities": [
+      { "title": "Masmak Fortress", "description": "Historic fortress of Saudi unification", "image": "masmak.jpg" },
+      { "title": "Kingdom Tower", "description": "Iconic skyscraper with sky bridge view", "image": "tower.jpg" },
+      { "title": "Diriyah Heritage Village", "description": "Birthplace of the Saudi state", "image": "diriyah.jpg" },
+      { "title": "Riyadh Season", "description": "Largest entertainment festival in the region", "image": "season.jpg" }
+    ]
+  },
+
+  {
+    "name": "Jeddah",
+    "country": "Saudi Arabia",
+    "region": "Red Sea",
+    "description": "A vibrant coastal city with rich history and modern lifestyle.",
+    "image": "jeddah.jpg",
+    "activities": [
+      { "title": "Jeddah Corniche", "description": "Beautiful waterfront promenade", "image": "corniche.jpg" },
+      { "title": "Al-Balad Historic District", "description": "UNESCO heritage old town", "image": "balad.jpg" },
+      { "title": "King Fahd Fountain", "description": "Tallest fountain in the world", "image": "fountain.jpg" },
+      { "title": "Red Sea Diving", "description": "Amazing coral reefs experience", "image": "diving.jpg" }
+    ]
+  },
+
+  {
+    "name": "Makkah",
+    "country": "Saudi Arabia",
+    "region": "Middle East",
+    "description": "The holiest city in Islam.",
+    "image": "Makkah.jpg",
+    "activities": [
+      { "title": "Al-Masjid Al-Haram", "description": "The largest mosque in the world", "image": "haram.jpg" },
+      { "title": "Kaaba", "description": "The most sacred site in Islam", "image": "kaaba.jpg" },
+      { "title": "Jabal Al-Noor", "description": "Cave of Hira where revelation began", "image": "noor.jpg" },
+      { "title": "Jabal Thawr", "description": "Historic mountain cave", "image": "thawr.jpg" }
+    ]
+  },
+
+  {
+    "name": "Al Madinah",
+    "country": "Saudi Arabia",
+    "region": "Middle East",
+    "description": "The city of the Prophet Muhammad ﷺ.",
+    "image": "Al Madinah.jpg",
+    "activities": [
+      { "title": "Al-Masjid An-Nabawi", "description": "Second holiest mosque in Islam", "image": "nabawi.jpg" },
+      { "title": "Mount Uhud", "description": "Historic battlefield", "image": "uhud.jpg" },
+      { "title": "Islamic Museum", "description": "History of Islam exhibits", "image": "museum.jpg" },
+      { "title": "Green Gardens", "description": "Peaceful walking areas around mosque", "image": "garden.jpg" }
+    ]
+  },
+
+  {
+    "name": "Dubai",
+    "country": "UAE",
+    "region": "Middle East",
+    "description": "A futuristic city known for luxury and innovation.",
+    "image": "dubai.jpg",
+    "activities": [
+      { "title": "Burj Khalifa", "description": "Tallest building in the world", "image": "burj.jpg" },
+      { "title": "Dubai Mall", "description": "One of the largest malls globally", "image": "mall.jpg" },
+      { "title": "Desert Safari", "description": "Dune bashing and Bedouin dinner", "image": "desert.jpg" },
+      { "title": "Jumeirah Beach", "description": "Famous white sand beach", "image": "beach.jpg" }
+    ]
+  },
+
+  {
+    "name": "Abu Dhabi",
+    "country": "UAE",
+    "region": "Middle East",
+    "description": "The cultural and political capital of UAE.",
+    "image": "abudhabi.jpg",
+    "activities": [
+      { "title": "Sheikh Zayed Mosque", "description": "One of the most beautiful mosques", "image": "mosque.jpg" },
+      { "title": "Louvre Abu Dhabi", "description": "World-class art museum", "image": "louvre.jpg" },
+      { "title": "Yas Island", "description": "Entertainment and Ferrari World", "image": "yas.jpg" },
+      { "title": "Corniche Walk", "description": "Beautiful waterfront sunset views", "image": "corniche.jpg" }
+    ]
+  },
+
+  {
+    "name": "Doha",
+    "country": "Qatar",
+    "region": "Middle East",
+    "description": "Modern city with rich culture and heritage.",
+    "image": "doha.jpg",
+    "activities": [
+      { "title": "Museum of Islamic Art", "description": "Architectural masterpiece", "image": "museum.jpg" },
+      { "title": "Souq Waqif", "description": "Traditional market experience", "image": "souq.jpg" },
+      { "title": "Lusail City", "description": "Modern futuristic city", "image": "lusail.jpg" },
+      { "title": "Katara Village", "description": "Cultural and arts center", "image": "katara.jpg" }
+    ]
+  },
+
+  {
+    "name": "Amman",
+    "country": "Jordan",
+    "region": "Middle East",
+    "description": "Ancient city blending history and modern life.",
+    "image": "amman.jpg",
+    "activities": [
+      { "title": "Roman Amphitheatre", "description": "Ancient Roman architecture", "image": "theatre.jpg" },
+      { "title": "Citadel Hill", "description": "Historic views of Amman", "image": "citadel.jpg" },
+      { "title": "Jordan Museum", "description": "Rich cultural history", "image": "museum.jpg" },
+      { "title": "Downtown Food Tour", "description": "Traditional Jordanian cuisine", "image": "food.jpg" }
+    ]
+  },
+
+  {
+    "name": "Beirut",
+    "country": "Lebanon",
+    "region": "Middle East",
+    "description": "A vibrant Mediterranean city full of life.",
+    "image": "beirut.jpg",
+    "activities": [
+      { "title": "Downtown Beirut", "description": "Historic city center", "image": "downtown.jpg" },
+      { "title": "Corniche Walk", "description": "Mediterranean sea view", "image": "corniche.jpg" },
+      { "title": "Gemmayzeh District", "description": "Nightlife and culture", "image": "gemmayzeh.jpg" },
+      { "title": "National Museum", "description": "Ancient Lebanese history", "image": "museum.jpg" }
+    ]
+  },
+
+  {
+    "name": "Paris",
+    "country": "France",
+    "region": "Europe",
+    "description": "The city of love and lights.",
+    "image": "paris.jpg",
+    "activities": [
+      { "title": "Eiffel Tower", "description": "Icon of Paris", "image": "eiffel.jpg" },
+      { "title": "Louvre Museum", "description": "World's largest art museum", "image": "louvre.jpg" },
+      { "title": "Seine River Cruise", "description": "Romantic boat ride", "image": "seine.jpg" },
+      { "title": "Montmartre", "description": "Artistic hilltop district", "image": "montmartre.jpg" }
+    ]
+  },
+
+  {
+    "name": "Rome",
+    "country": "Italy",
+    "region": "Europe",
+    "description": "The eternal city of ancient history.",
+    "image": "rome.jpg",
+    "activities": [
+      { "title": "Colosseum", "description": "Ancient Roman arena", "image": "colosseum.jpg" },
+      { "title": "Vatican City", "description": "Smallest country in the world", "image": "vatican.jpg" },
+      { "title": "Trevi Fountain", "description": "Famous wishing fountain", "image": "trevi.jpg" },
+      { "title": "Roman Forum", "description": "Heart of ancient Rome", "image": "forum.jpg" }
+    ]
+  },
+
+  {
+    "name": "Barcelona",
+    "country": "Spain",
+    "region": "Europe",
+    "description": "City of art, architecture, and beaches.",
+    "image": "barcelona.jpg",
+    "activities": [
+      { "title": "Sagrada Familia", "description": "Gaudi’s masterpiece", "image": "sagrada.jpg" },
+      { "title": "Park Güell", "description": "Colorful mosaic park", "image": "park.jpg" },
+      { "title": "Las Ramblas", "description": "Famous street in Barcelona", "image": "ramblas.jpg" },
+      { "title": "Barcelona Beach", "description": "Mediterranean coast", "image": "beach.jpg" }
+    ]
+  },
+
+  {
+    "name": "London",
+    "country": "UK",
+    "region": "Europe",
+    "description": "Historic and modern global capital.",
+    "image": "london.jpg",
+    "activities": [
+      { "title": "London Eye", "description": "Panoramic city views", "image": "eye.jpg" },
+      { "title": "Tower Bridge", "description": "Iconic bridge over Thames", "image": "bridge.jpg" },
+      { "title": "British Museum", "description": "World heritage artifacts", "image": "museum.jpg" },
+      { "title": "Hyde Park", "description": "Royal park relaxation", "image": "park.jpg" }
+    ]
+  },
+
+  {
+    "name": "New York",
+    "country": "USA",
+    "region": "North America",
+    "description": "The city that never sleeps.",
+    "image": "nyc.jpg",
+    "activities": [
+      { "title": "Statue of Liberty", "description": "Symbol of freedom", "image": "liberty.jpg" },
+      { "title": "Central Park", "description": "Huge urban park", "image": "park.jpg" },
+      { "title": "Times Square", "description": "Bright city lights", "image": "times.jpg" },
+      { "title": "Brooklyn Bridge", "description": "Iconic walk bridge", "image": "bridge.jpg" }
+    ]
+  },
+
+  {
+    "name": "Los Angeles",
+    "country": "USA",
+    "region": "North America",
+    "description": "Entertainment capital of the world.",
+    "image": "la.jpg",
+    "activities": [
+      { "title": "Hollywood Walk of Fame", "description": "Stars of celebrities", "image": "hollywood.jpg" },
+      { "title": "Santa Monica Beach", "description": "Famous California beach", "image": "beach.jpg" },
+      { "title": "Universal Studios", "description": "Movie theme park", "image": "studio.jpg" },
+      { "title": "Beverly Hills", "description": "Luxury lifestyle area", "image": "beverly.jpg" }
+    ]
+  },
+
+  {
+    "name": "Istanbul",
+    "country": "Turkey",
+    "region": "Europe/Asia",
+    "description": "City between two continents.",
+    "image": "istanbul.jpg",
+    "activities": [
+      { "title": "Hagia Sophia", "description": "Historic architectural wonder", "image": "hagia.jpg" },
+      { "title": "Blue Mosque", "description": "Famous Ottoman mosque", "image": "mosque.jpg" },
+      { "title": "Grand Bazaar", "description": "Huge traditional market", "image": "bazaar.jpg" },
+      { "title": "Bosphorus Cruise", "description": "Boat between continents", "image": "bosphorus.jpg" }
+    ]
+  },
+
+  {
+    "name": "Tokyo",
+    "country": "Japan",
+    "region": "Asia",
+    "description": "Futuristic city with deep tradition.",
+    "image": "tokyo.jpg",
+    "activities": [
+      { "title": "Shibuya Crossing", "description": "Busiest crossing in the world", "image": "shibuya.jpg" },
+      { "title": "Tokyo Tower", "description": "City panoramic view", "image": "tower.jpg" },
+      { "title": "Akihabara", "description": "Anime & tech district", "image": "akihabara.jpg" },
+      { "title": "Senso-ji Temple", "description": "Oldest temple in Tokyo", "image": "temple.jpg" }
+    ]
+  },
+
+  {
+    "name": "Maldives",
+    "country": "Maldives",
+    "region": "Indian Ocean",
+    "description": "Luxury island paradise.",
+    "image": "maldives.jpg",
+    "activities": [
+      { "title": "Coral Diving", "description": "Underwater coral world", "image": "diving.jpg" },
+      { "title": "Overwater Villas", "description": "Luxury sea villas", "image": "villa.jpg" },
+      { "title": "Dolphin Watching", "description": "Marine life experience", "image": "dolphin.jpg" },
+      { "title": "Sunset Cruise", "description": "Ocean sunset view", "image": "sunset.jpg" }
+    ]
+  }
+]

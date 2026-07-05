@@ -3,7 +3,6 @@ import '../services/api_service.dart';
 import '../models/flight_model.dart';
 import '../models/travel_office_model.dart';
 import 'flight_landing_screen.dart';
-import '../travel_offices/travel_offices_directory.dart';
 import '../travel_offices/office_details_screen.dart';
 
 class FlightSearchPage extends StatefulWidget {
@@ -92,13 +91,14 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
       final List<dynamic> data = response['data'] ?? [];
       if (mounted) {
         setState(() {
-          // Filter for offices that offer flight services if possible, 
+          // Filter for offices that offer flight services if possible,
           // or just show top offices.
           _flightOffices = data
               .map((e) => TravelOfficeModel.fromJson(e))
-              .where((o) => 
-                o.services.any((s) => s.toLowerCase().contains('flight')) || 
-                o.services.isEmpty // Fallback for demo
+              .where(
+                (o) =>
+                    o.services.any((s) => s.toLowerCase().contains('flight')) ||
+                    o.services.isEmpty, // Fallback for demo
               )
               .toList();
           _isLoadingOffices = false;
@@ -129,9 +129,15 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
 
     try {
       final results = await ApiService.searchFlights(
-        from: _fromController.text.trim().isEmpty ? null : _fromController.text.trim(),
-        to: _toController.text.trim().isEmpty ? null : _toController.text.trim(),
-        date: _dateController.text.trim().isEmpty ? null : _dateController.text.trim(),
+        from: _fromController.text.trim().isEmpty
+            ? null
+            : _fromController.text.trim(),
+        to: _toController.text.trim().isEmpty
+            ? null
+            : _toController.text.trim(),
+        date: _dateController.text.trim().isEmpty
+            ? null
+            : _dateController.text.trim(),
       );
 
       if (mounted) {
@@ -268,7 +274,10 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                               )
                             : Text(
                                 'Search Flights',
-                                style: TextStyle(color: Theme.of(context).cardColor, fontSize: 16),
+                                style: TextStyle(
+                                  color: Theme.of(context).cardColor,
+                                  fontSize: 16,
+                                ),
                               ),
                       ),
                     ),
@@ -313,12 +322,14 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                             ? '${dep.hour.toString().padLeft(2, '0')}:${dep.minute.toString().padLeft(2, '0')}'
                             : '--:--',
                         'departureAirport': '${f.originCity} (${f.originCode})',
-                        'duration': '${f.durationMinutes ~/ 60}h ${f.durationMinutes % 60}m',
+                        'duration':
+                            '${f.durationMinutes ~/ 60}h ${f.durationMinutes % 60}m',
                         'stops': 'Non-stop',
                         'arrivalTime': arr != null
                             ? '${arr.hour.toString().padLeft(2, '0')}:${arr.minute.toString().padLeft(2, '0')}'
                             : '--:--',
-                        'arrivalAirport': '${f.destinationCity} (${f.destinationCode})',
+                        'arrivalAirport':
+                            '${f.destinationCity} (${f.destinationCode})',
                         'price': 'EGP ${f.priceEGP.toStringAsFixed(0)}',
                       };
                       return _buildFlightCard(context, flightData);
@@ -352,10 +363,7 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
               // Flight Offices Section
               Text(
                 'Recommended Flight Offices',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 8),
               Text(
@@ -443,7 +451,9 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           decoration: BoxDecoration(
-            color: Theme.of(context).brightness == Brightness.dark ? Colors.grey[850]! : const Color(0xFFF5F6F8),
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.grey[850]!
+                : const Color(0xFFF5F6F8),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Row(
@@ -496,13 +506,12 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: Theme.of(context).brightness == Brightness.dark ? Colors.grey[850]! : const Color(0xFFF5F6F8),
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.grey[850]!
+                  : const Color(0xFFF5F6F8),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Icon(
-              Icons.flight,
-              color: Color(0xFF1A94C4),
-            ),
+            child: Icon(Icons.flight, color: Color(0xFF1A94C4)),
           ),
           SizedBox(width: 16),
           Expanded(
@@ -584,7 +593,6 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
-                        
                       ),
                     ),
                     SizedBox(height: 8),
@@ -602,7 +610,10 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                       ),
                       child: Text(
                         'Select Flight',
-                        style: TextStyle(color: Theme.of(context).cardColor, fontSize: 12),
+                        style: TextStyle(
+                          color: Theme.of(context).cardColor,
+                          fontSize: 12,
+                        ),
                       ),
                     ),
                   ],
@@ -666,7 +677,10 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                     children: [
                       Text(
                         office.name,
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -684,7 +698,11 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
               office.description ?? 'Book your flights easily with our agency.',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 11, color: Colors.grey[600], height: 1.4),
+              style: TextStyle(
+                fontSize: 11,
+                color: Colors.grey[600],
+                height: 1.4,
+              ),
             ),
             Spacer(),
             Row(
@@ -696,7 +714,10 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                     SizedBox(width: 4),
                     Text(
                       office.rating?.toString() ?? '5.0',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),

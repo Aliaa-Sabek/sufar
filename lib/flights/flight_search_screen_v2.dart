@@ -339,6 +339,59 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
     return const Color(0xFFE04040);
   }
 
+  List<FlightModel> _getFilteredAndSortedFlights() {
+    // Step 1: Apply Stage Filter
+    List<FlightModel> filtered = _flights.where((flight) {
+      final stopLabel = _stopLabel(flight);
+      // If no stage is selected, show all
+      final hasStageFilter = _stageChecks.any((v) => v);
+      if (!hasStageFilter) return true;
+      
+      if (_stageChecks[0] && stopLabel == 'Direct') return true;
+      if (_stageChecks[1] && stopLabel == '1 stop') return true;
+      if (_stageChecks[2] && stopLabel == '2+ stops') return true;
+      return false;
+    }).toList();
+
+    // Step 2: Apply Departure Time Filter
+    final selectedTimes = <int>[];
+    for (int i = 0; i < _depTimeChecks.length; i++) {
+      if (_depTimeChecks[i]) {
+        selectedTimes.add(i); // 00:00, 01:00, ... 15:00
+      }
+    }
+
+    if (selectedTimes.isNotEmpty) {
+      filtered = filtered.where((flight) {
+        final depHour = flight.departureDatetime?.hour ?? -1;
+        return selectedTimes.contains(depHour);
+      }).toList();
+    }
+
+    // Step 3: Apply Sorting
+    switch (_selectedSort) {
+      case 'Cheapest':
+        filtered.sort((a, b) => a.priceEGP.compareTo(b.priceEGP));
+        break;
+      case 'Fastest':
+        filtered.sort((a, b) => a.durationMinutes.compareTo(b.durationMinutes));
+        break;
+      case 'Earliest':
+        filtered.sort((a, b) {
+          final aTime = a.departureDatetime?.hour ?? 24;
+          final bTime = b.departureDatetime?.hour ?? 24;
+          return aTime.compareTo(bTime);
+        });
+        break;
+      case 'Recommended':
+      default:
+        // Keep original order or sort by a combination
+        break;
+    }
+
+    return filtered;
+  }
+
   // ─── Show filter bottom sheet ───────────────────────────────────────────────
   void _showFilters() {
     showModalBottomSheet(
@@ -624,7 +677,7 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                             Text(
                               _isLoading
                                   ? 'Loading...'
-                                  : '${_flights.length} Results',
+                                  : '${_getFilteredAndSortedFlights().length} Results',
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey,
@@ -732,47 +785,53 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                   const SliverFillRemaining(
                     child: Center(child: CircularProgressIndicator()),
                   )
-                else if (_flights.isEmpty)
-                  const SliverFillRemaining(
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.flight_takeoff,
-                            color: Colors.grey,
-                            size: 56,
-                          ),
-                          SizedBox(height: 14),
-                          Text(
-                            'No flights found',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              
-                              fontSize: 16,
+                else
+                  Builder(
+                    builder: (ctx) {
+                      final filteredFlights = _getFilteredAndSortedFlights();
+                      if (filteredFlights.isEmpty) {
+                        return const SliverFillRemaining(
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.flight_takeoff,
+                                  color: Colors.grey,
+                                  size: 56,
+                                ),
+                                SizedBox(height: 14),
+                                Text(
+                                  'No flights found',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                SizedBox(height: 6),
+                                Text(
+                                  'Try adjusting your search criteria',
+                                  style: TextStyle(color: Colors.grey, fontSize: 13),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(height: 6),
-                          Text(
-                            'Try adjusting your search criteria',
-                            style: TextStyle(color: Colors.grey, fontSize: 13),
+                        );
+                      }
+                      return SliverPadding(
+                        padding: EdgeInsets.fromLTRB(16, 0, 16, 32),
+                        sliver: SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (ctx, i) => Padding(
+                              padding: EdgeInsets.only(bottom: 14),
+                              child: _buildFlightCard(filteredFlights[i]),
+                            ),
+                            childCount: filteredFlights.length,
                           ),
-                        ],
-                      ),
-                    ),
-                  )
-                else
-                  SliverPadding(
-                    padding: EdgeInsets.fromLTRB(16, 0, 16, 32),
-                    sliver: SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (ctx, i) => Padding(
-                          padding: EdgeInsets.only(bottom: 14),
-                          child: _buildFlightCard(_flights[i]),
                         ),
-                        childCount: _flights.length,
-                      ),
-                    ),
+                      );
+                    },
                   ),
               ],
             ),

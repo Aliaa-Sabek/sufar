@@ -2,8 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
-import 'api_keys.dart';
+import '../services/ai_service.dart';
 
 
 class ChatMessage {
@@ -50,13 +49,7 @@ class ChatBotPage extends StatefulWidget {
 
 class _ChatBotPageState extends State<ChatBotPage> {
 
-  static const String _groqApiKey = ApiKeys.groqApiKey;
-  static const String _model = 'llama-3.3-70b-versatile';
-  static const String _systemPrompt =
-      'You are Sufar AI, a friendly and knowledgeable travel assistant for the Sufar travel app. '
-      'You help users plan trips, find destinations, book hotels, search flights, check visa requirements, '
-      'and provide travel tips. Keep responses concise, helpful, and friendly. '
-      'You support both English and Arabic. Always stay on travel-related topics.';
+  // Uses AIService → Railway backend (AI_SERVICE_URL dart-define)
 
 
   final TextEditingController _inputController = TextEditingController();
@@ -139,40 +132,31 @@ class _ChatBotPageState extends State<ChatBotPage> {
     }
 
     try {
-      final List<Map<String, String>> messages = [
-        {'role': 'system', 'content': _systemPrompt},
-        ..._messages.map((m) => {
-          'role': m.isUser ? 'user' : 'assistant',
-          'content': m.text,
-        }),
-      ];
+      // Detect language: if message contains Arabic chars → 'ar'
+      final bool isArabic = RegExp(r'[\u0600-\u06FF]').hasMatch(text.trim());
+      final String language = isArabic ? 'ar' : 'en';
 
-      final response = await http.post(
-        Uri.parse('https://api.groq.com/openai/v1/chat/completions'),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $_groqApiKey',
-        },
-        body: jsonEncode({
-          'model': _model,
-          'messages': messages,
-          'max_tokens': 1024,
-        }),
-      ).timeout(const Duration(seconds: 30));
+      final result = await AIService.chat(
+        message: text.trim(),
+        language: language,
+      );
 
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        final reply =
-        data['choices'][0]['message']['content'] as String;
-        setState(() {
-          _isTyping = false;
-          _messages.add(ChatMessage(text: reply.trim(), isUser: false));
-        });
+      final responseData = result['response'] ?? result['reply'] ?? result['message'];
+      String reply = '';
+      if (responseData is Map) {
+        reply = (isArabic ? responseData['ar'] : responseData['en'])?.toString() ?? 
+                responseData.values.firstOrNull?.toString() ?? 
+                'Sorry, I could not understand the response.';
       } else {
-        _showError('Error ${response.statusCode}: ${response.body}');
+        reply = responseData?.toString() ?? 'Sorry, I could not understand the response.';
       }
+
+      setState(() {
+        _isTyping = false;
+        _messages.add(ChatMessage(text: reply, isUser: false));
+      });
     } catch (e) {
-      _showError('Failed to connect. Please check your internet connection.');
+      _showError('Failed to connect: $e');
     }
 
     _scrollToBottom();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../services/api_service.dart';
+import '../services/destination_catalog_service.dart';
 import '../models/destination_model.dart';
+import '../services/image_service.dart';
 import 'destination_details_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../theme/app_theme.dart';
@@ -17,8 +18,6 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
   bool _isLoading = true;
   String? _errorMessage;
 
-
-
   @override
   void initState() {
     super.initState();
@@ -32,13 +31,12 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
     });
 
     try {
-      final response = await ApiService.getDestinations();
+      final list = await DestinationCatalogService.allDestinations();
       if (mounted) {
         setState(() {
-          _destinations.clear();
-          _destinations.addAll(
-            response.map((json) => DestinationModel.fromJson(json)).toList(),
-          );
+          _destinations
+            ..clear()
+            ..addAll(list);
           _isLoading = false;
         });
       }
@@ -111,7 +109,10 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
                   top: 40,
                   left: 20,
                   child: IconButton(
-                    icon: Icon(Icons.arrow_back_ios, color: Theme.of(context).cardColor),
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      color: Theme.of(context).cardColor,
+                    ),
                     onPressed: () => Navigator.pop(context),
                   ),
                 ),
@@ -127,11 +128,7 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
                 children: [
                   Text(
                     'Our Featured Destinations',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      
-                    ),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 24),
                   if (_isLoading)
@@ -157,18 +154,11 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
               children: [
                 Text(
                   'Vacation Ag',
-                  style: GoogleFonts.greatVibes(
-                    fontSize: 24,
-                    
-                  ),
+                  style: GoogleFonts.greatVibes(fontSize: 24),
                 ),
                 Text(
                   'The Best Holidays',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    
-                  ),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 24),
                 SizedBox(
@@ -370,6 +360,9 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
     required DestinationModel destination,
     required double height,
   }) {
+    final cover = destination.coverImageUrl;
+    final compact = height < 130;
+
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -380,50 +373,66 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
           ),
         );
       },
-      child: Container(
-        height: height,
-        decoration: BoxDecoration(
-          color: Colors.grey[200],
-          borderRadius: BorderRadius.circular(12),
-          image: destination.imageUrl.isNotEmpty
-              ? DecorationImage(
-                  image: destination.imageUrl.startsWith('http')
-                      ? NetworkImage(destination.imageUrl)
-                      : AssetImage(destination.imageUrl) as ImageProvider,
-                  fit: BoxFit.cover,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: SizedBox(
+          height: height,
+          width: double.infinity,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              if (cover.isNotEmpty)
+                ImageService.buildNetworkCover(
+                  imageUrl: cover,
+                  citySlug: destination.slug,
+                  cityName: destination.name,
+                  type: 'destination',
                 )
-              : null,
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            gradient: LinearGradient(
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-              colors: [Colors.black.withOpacity(0.8), Colors.transparent],
-              stops: const [0.0, 0.5],
-            ),
-          ),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  destination.name,
-                  textAlign: TextAlign.center,
-                  style: AppFonts.destinationTitle,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+              else
+                ColoredBox(color: Colors.grey.shade300),
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Colors.black.withValues(alpha: 0.85),
+                      Colors.transparent,
+                    ],
+                    stops: const [0.0, 0.55],
+                  ),
                 ),
-                SizedBox(height: 4),
-                Text(
-                  destination.country.toUpperCase(),
-                  textAlign: TextAlign.center,
-                  style: AppFonts.destinationSubtitle,
+              ),
+              Positioned(
+                left: 8,
+                right: 8,
+                bottom: compact ? 6 : 10,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      destination.name,
+                      textAlign: TextAlign.center,
+                      style: compact
+                          ? AppFonts.destinationTitle.copyWith(fontSize: 18)
+                          : AppFonts.destinationTitle.copyWith(fontSize: 28),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    SizedBox(height: compact ? 2 : 4),
+                    Text(
+                      destination.country.toUpperCase(),
+                      textAlign: TextAlign.center,
+                      style: AppFonts.destinationSubtitle.copyWith(
+                        fontSize: compact ? 10 : 12,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
                 ),
-                SizedBox(height: 12),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -441,55 +450,49 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
           ),
         );
       },
-      child: Container(
-        width: 220,
-        decoration: BoxDecoration(
-          color: Colors.grey[200],
-          borderRadius: BorderRadius.circular(24),
-          image: destination.imageUrl.isNotEmpty
-              ? DecorationImage(
-                  image: destination.imageUrl.startsWith('http')
-                      ? NetworkImage(destination.imageUrl)
-                      : AssetImage(destination.imageUrl) as ImageProvider,
-                  fit: BoxFit.cover,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(24),
+        child: SizedBox(
+          width: 220,
+          height: 320,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              if (destination.coverImageUrl.isNotEmpty)
+                ImageService.buildNetworkCover(
+                  imageUrl: destination.coverImageUrl,
+                  citySlug: destination.slug,
+                  cityName: destination.name,
+                  type: 'destination',
                 )
-              : null,
-        ),
-        child: Stack(
-          children: [
-            Positioned(
-              bottom: 16,
-              left: 16,
-              child: Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 8,
-                ),
+              else
+                ColoredBox(color: Colors.grey.shade300),
+              Positioned(
+                bottom: 16,
+                left: 16,
+                child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
                   color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.location_on,
-                      size: 14,
-                      
-                    ),
+                    Icon(Icons.location_on, size: 14),
                     SizedBox(width: 4),
                     Text(
                       destination.city,
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
-                        
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -508,20 +511,12 @@ class _DestinationsScreenState extends State<DestinationsScreen> {
           SizedBox(height: 16),
           Text(
             title,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              
-            ),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 12),
           Text(
             description,
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 14,
-              height: 1.5,
-            ),
+            style: TextStyle(color: Colors.grey, fontSize: 14, height: 1.5),
           ),
         ],
       ),

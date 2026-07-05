@@ -91,4 +91,49 @@ class Booking {
     'totalPrice': totalPrice,
     'status': status,
   };
+
+  /// Human-readable card title (hotel name when populated).
+  String get displayTitle {
+    if (hotelName != null && hotelName!.trim().isNotEmpty) {
+      return hotelName!.trim();
+    }
+    if (hotelCity != null && hotelCity!.trim().isNotEmpty) {
+      return 'Hotel in ${hotelCity!.trim()}';
+    }
+    return 'Hotel Booking';
+  }
+
+  String get formattedPrice {
+    if (totalPrice % 1 == 0) return '\$${totalPrice.toInt()}';
+    return '\$${totalPrice.toStringAsFixed(2)}';
+  }
+
+  String get formattedDateRange =>
+      '${formatDisplayDate(checkIn)} – ${formatDisplayDate(checkOut)}';
+
+  static String formatDisplayDate(String raw) {
+    final value = raw.trim();
+    if (value.isEmpty) return '—';
+    try {
+      final date = DateTime.parse(value).toLocal();
+      const months = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ];
+      return '${months[date.month - 1]} ${date.day}, ${date.year}';
+    } catch (_) {
+      if (value.length >= 10) return value.substring(0, 10);
+      return value;
+    }
+  }
 }

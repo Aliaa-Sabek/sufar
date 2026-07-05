@@ -1,12 +1,33 @@
 from flask import Flask, request, jsonify, render_template
 import os
+import json
 from sufar_smart_travel_assistant_v2 import generate_plan_from_form
 
 app = Flask(__name__)
 
+# Load destination catalog from destination.json
+def load_destination_catalog():
+    """Load destination catalog from destination.json"""
+    try:
+        with open(os.path.join(os.path.dirname(__file__), 'destination.json'), 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Error loading destination catalog: {e}")
+        return []
+
 @app.route("/")
 def index():
     return render_template("index.html")
+
+@app.route("/api/destinations/catalog", methods=["GET"])
+def get_destinations_catalog():
+    """Get all destinations from backend catalog"""
+    catalog = load_destination_catalog()
+    return jsonify({
+        "success": True,
+        "data": catalog,
+        "count": len(catalog)
+    })
 
 @app.route("/api/recommend", methods=["POST"])
 def recommend():

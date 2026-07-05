@@ -55,14 +55,10 @@ class BookingPage4 extends StatelessWidget {
             // Success Image
             SizedBox(
               height: 250,
-              child: Image.network(
-                'https://placehold.co/400x300/png?text=Success',
-                fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) => Icon(
-                  Icons.check_circle,
-                  size: 100,
-                  color: Color(0xFF1A94C4),
-                ),
+              child: Icon(
+                Icons.check_circle_outline_rounded,
+                size: 120,
+                color: Color(0xFF1A94C4),
               ),
             ),
 

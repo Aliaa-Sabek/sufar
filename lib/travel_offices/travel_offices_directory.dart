@@ -57,15 +57,16 @@ class _TravelOfficesDirectoryState extends State<TravelOfficesDirectory> {
       );
 
       final List<dynamic> data = response['data'] ?? [];
+      final offices = ApiService.parseTravelOfficesList(data);
       final int pages = response['pages'] ?? 1;
       final int total = response['total'] ?? 0;
 
       if (mounted) {
         setState(() {
           if (reset) {
-            _offices = data.map((e) => TravelOfficeModel.fromJson(e)).toList();
+            _offices = offices;
           } else {
-            _offices.addAll(data.map((e) => TravelOfficeModel.fromJson(e)));
+            _offices.addAll(offices);
           }
           _totalPages = pages;
           _total = total;

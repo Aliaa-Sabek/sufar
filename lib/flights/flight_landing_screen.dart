@@ -1,7 +1,38 @@
 import 'package:flutter/material.dart';
+import 'flight_search_screen.dart';
 
-class FlightLandingPage extends StatelessWidget {
+class FlightLandingPage extends StatefulWidget {
   const FlightLandingPage({super.key});
+
+  @override
+  State<FlightLandingPage> createState() => _FlightLandingPageState();
+}
+
+class _FlightLandingPageState extends State<FlightLandingPage> {
+  final TextEditingController _fromController = TextEditingController();
+  final TextEditingController _toController = TextEditingController();
+  final TextEditingController _departureController = TextEditingController();
+  final TextEditingController _returnController = TextEditingController();
+  final TextEditingController _travelersController = TextEditingController(
+    text: '1 Adult, Economy',
+  );
+
+  @override
+  void dispose() {
+    _fromController.dispose();
+    _toController.dispose();
+    _departureController.dispose();
+    _returnController.dispose();
+    _travelersController.dispose();
+    super.dispose();
+  }
+
+  void _searchFlights() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const FlightSearchPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,143 +68,47 @@ class FlightLandingPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Hero Section
+            // Hero Section with Background Image
             Stack(
-              alignment: Alignment.center,
               children: [
                 Container(
-                  height: 300,
+                  height: 400,
                   width: double.infinity,
                   color: Colors.blue[100],
-                  child: Image.network(
-                    'https://placehold.co/800x400/png?text=Plane+Sky',
+                  child: Image.asset(
+                    'assets/flights_bg.png',
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) =>
-                        Container(color: Colors.blue[100]),
+                        Container(color: Colors.blue[200]),
                   ),
                 ),
-                Positioned(
-                  bottom: -40,
-                  left: 24,
-                  right: 24,
-                  child: Container(
-                    padding: EdgeInsets.all(24),
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).cardColor,
-                      borderRadius: BorderRadius.circular(16),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 10,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // Dark overlay
+                Container(height: 400, color: Colors.black.withOpacity(0.3)),
+                // Content
+                Positioned.fill(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 40),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                color: Colors.blue[50],
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Icon(
-                                Icons.flight,
-                                color: Color(0xFF1A94C4),
-                              ),
-                            ),
-                            SizedBox(width: 16),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Emirates',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  'Non-stop',
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text(
-                              '10:30 AM',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              'New York (JFK)',
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 60,
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.flight_takeoff,
-                                size: 16,
-                                color: Color(0xFF1A94C4),
-                              ),
-                              Container(height: 1, color: Colors.grey[300]),
-                              Text(
-                                '14h 15m',
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ],
+                        SizedBox(height: 20),
+                        Text(
+                          'Hey Buddy! Where are you',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text(
-                              '6:45 PM',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              'Dubai (DXB)',
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Text(
-                              'From',
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.grey,
-                              ),
-                            ),
-                            Text(
-                              '\$850',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                
-                              ),
-                            ),
-                          ],
+                        Text(
+                          'Flying to?',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic,
+                          ),
                         ),
                       ],
                     ),
@@ -181,22 +116,207 @@ class FlightLandingPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 60),
 
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(vertical: 40, horizontal: 24),
-              color: Colors.blue[50],
-              child: Column(
-                children: const [
-                  Text(
-                    'Comprehensive Flight\nOptions For Every Budget.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      
+            // Search Form Card
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.15),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
                     ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Trip Type Selector
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Radio(
+                                value: true,
+                                groupValue: true,
+                                onChanged: (val) {},
+                              ),
+                              Text('Return', style: TextStyle(fontSize: 12)),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Radio(
+                                value: false,
+                                groupValue: true,
+                                onChanged: (val) {},
+                              ),
+                              Text('One Way', style: TextStyle(fontSize: 12)),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Checkbox(value: false, onChanged: (val) {}),
+                              Text(
+                                'Direct Flights',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 20),
+
+                    // From and To Fields
+                    Row(
+                      children: [
+                        Expanded(
+                          child: _buildInputField(
+                            'From',
+                            'Egypt - Cairo (CAI)',
+                            Icons.flight_takeoff,
+                            _fromController,
+                          ),
+                        ),
+                        SizedBox(width: 12),
+                        Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[100],
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Icon(
+                            Icons.swap_horiz,
+                            color: Color(0xFF1A94C4),
+                            size: 20,
+                          ),
+                        ),
+                        SizedBox(width: 12),
+                        Expanded(
+                          child: _buildInputField(
+                            'To',
+                            'Country, City or Airport',
+                            Icons.flight_land,
+                            _toController,
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 16),
+
+                    // Date Fields
+                    Row(
+                      children: [
+                        Expanded(
+                          child: _buildInputField(
+                            'Departure',
+                            '14/02/2025',
+                            Icons.calendar_today,
+                            _departureController,
+                          ),
+                        ),
+                        SizedBox(width: 12),
+                        Expanded(
+                          child: _buildInputField(
+                            'Return',
+                            '21/01/2025',
+                            Icons.calendar_today,
+                            _returnController,
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 16),
+
+                    // Travelers Field
+                    _buildInputField(
+                      'Travelers and Cabin Class',
+                      '1 Adult, Economy',
+                      Icons.person_outline,
+                      _travelersController,
+                    ),
+
+                    SizedBox(height: 24),
+
+                    // Search Button
+                    SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: _searchFlights,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF0D1C52),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.search, color: Colors.white, size: 20),
+                            SizedBox(width: 8),
+                            Text(
+                              'Search Flights',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            SizedBox(height: 40),
+
+            // Why Travel Cart Section
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Why Travel Cart',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _buildFeatureCard(
+                          icon: Icons.shield_rounded,
+                          title: 'ATOL Protected Flights',
+                          subtitle: 'Your booking is financially protected',
+                        ),
+                      ),
+                      SizedBox(width: 16),
+                      Expanded(
+                        child: _buildFeatureCard(
+                          icon: Icons.check_circle_rounded,
+                          title: 'Best Prices Guarantee',
+                          subtitle: 'We match any lower price',
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -204,17 +324,30 @@ class FlightLandingPage extends StatelessWidget {
 
             SizedBox(height: 40),
 
+            // Destination Cards
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: _buildDestinationCard(context, 'Cape Town, South Africa'),
+                  Text(
+                    'Popular Destinations',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(width: 16),
-                  Expanded(
-                    child: _buildDestinationCard(context, 'Cape Town, South Africa'),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _buildDestinationCard(
+                          context,
+                          'Cape Town,\nSouth Africa',
+                        ),
+                      ),
+                      SizedBox(width: 16),
+                      Expanded(
+                        child: _buildDestinationCard(context, 'Paris,\nFrance'),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -223,6 +356,83 @@ class FlightLandingPage extends StatelessWidget {
             SizedBox(height: 40),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildInputField(
+    String label,
+    String hint,
+    IconData icon,
+    TextEditingController controller,
+  ) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.grey[600],
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        SizedBox(height: 6),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          decoration: BoxDecoration(
+            border: Border(bottom: BorderSide(color: Colors.grey[300]!)),
+          ),
+          child: Row(
+            children: [
+              Icon(icon, size: 18, color: Colors.grey[400]),
+              SizedBox(width: 8),
+              Expanded(
+                child: TextField(
+                  controller: controller,
+                  decoration: InputDecoration(
+                    hintText: hint,
+                    hintStyle: TextStyle(color: Colors.grey[400], fontSize: 12),
+                    border: InputBorder.none,
+                    isDense: true,
+                  ),
+                  style: TextStyle(fontSize: 13),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildFeatureCard({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+  }) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey[200]!),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        children: [
+          Icon(icon, size: 32, color: Color(0xFF1A94C4)),
+          SizedBox(height: 12),
+          Text(
+            title,
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 6),
+          Text(
+            subtitle,
+            style: TextStyle(fontSize: 11, color: Colors.grey[600]),
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }
@@ -236,44 +446,37 @@ class FlightLandingPage extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: Column(
         children: [
-          Image.network(
-            'https://placehold.co/400x300/png?text=Destination',
-            height: 150,
-            width: double.infinity,
-            fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) =>
-                Container(height: 150, color: Colors.blue[200]),
-          ),
+           Container(
+              height: 120,
+              width: double.infinity,
+              color: const Color(0xFF1565C0),
+              child: Icon(Icons.location_on, color: Colors.white54, size: 48),
+            ),
           Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(12.0),
             child: Column(
               children: [
                 Text(
                   title,
                   style: TextStyle(
                     color: Theme.of(context).cardColor,
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 8),
-                Text(
-                  'The City of Lights is calling! Discover iconic landmarks like the Eiffel Tower, world-class museums, and romantic streets.',
-                  style: TextStyle(color: Colors.white70, fontSize: 10),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: const Color(0xFF0D1C52),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(16),
                     ),
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                   ),
-                  child: Text('Book Now'),
+                  child: Text('Book Now', style: TextStyle(fontSize: 12)),
                 ),
               ],
             ),

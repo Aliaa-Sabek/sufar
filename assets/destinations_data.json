@@ -1,0 +1,722 @@
+[
+  {
+    "name": "Cairo",
+    "name_ar": "القاهرة",
+    "country": "Egypt",
+    "region": "North Africa",
+    "description": "The capital of Egypt and home to ancient wonders of the world.",
+    "image": "assets/destinations/cairo.jpg",
+    "activities": [
+      {
+        "title": "Pyramids of Giza & Sphinx",
+        "description": "Icons of ancient Egyptian civilization in Giza",
+        "image": "pyramids"
+      },
+      {
+        "title": "Grand Egyptian Museum",
+        "description": "The largest archaeological museum in the world",
+        "image": "museum egypt"
+      },
+      {
+        "title": "Khan el-Khalili Bazaar",
+        "description": "The most famous traditional market in the Middle East",
+        "image": "khan el khalili cairo market"
+      },
+      {
+        "title": "Nile Dinner Cruise",
+        "description": "Scenic boat ride on the Nile with dinner and music",
+        "image": "nile cruise cairo"
+      }
+    ]
+  },
+  {
+    "name": "Alexandria",
+    "name_ar": "الإسكندرية",
+    "country": "Egypt",
+    "region": "Mediterranean Coast",
+    "description": "The bride of the Mediterranean with rich history and sea views.",
+    "image": "assets/destinations/alexandria.png",
+    "activities": [
+      {
+        "title": "Bibliotheca Alexandrina",
+        "description": "A revival of the greatest library in ancient history",
+        "image": "bibliotheca alexandrina library"
+      },
+      {
+        "title": "Qaitbay Citadel",
+        "description": "Historic sea fortress on the Mediterranean shore",
+        "image": "qaitbay citadel alexandria"
+      },
+      {
+        "title": "Alexandria Corniche",
+        "description": "Walk along the famous seafront promenade",
+        "image": "alexandria corniche seafront"
+      },
+      {
+        "title": "Roman Amphitheatre",
+        "description": "Roman ruins showcasing ancient architecture",
+        "image": "roman amphitheatre ruins"
+      }
+    ]
+  },
+  {
+    "name": "Hurghada",
+    "name_ar": "الغردقة",
+    "country": "Egypt",
+    "region": "Red Sea",
+    "description": "A paradise for diving and water activities.",
+    "image": "assets/destinations/hurghada.jpeg",
+    "activities": [
+      {
+        "title": "Diving & Snorkeling",
+        "description": "Explore coral reefs and marine life",
+        "image": "scuba diving red sea"
+      },
+      {
+        "title": "Yacht Trips",
+        "description": "Boat tours to islands and reefs",
+        "image": "yacht trip red sea"
+      },
+      {
+        "title": "Red Sea Safari",
+        "description": "Spot dolphins and marine life",
+        "image": "red sea dolphin safari"
+      },
+      {
+        "title": "Water Sports",
+        "description": "Jet skiing and parasailing adventures",
+        "image": "water sports jet ski"
+      }
+    ]
+  },
+  {
+    "name": "Sharm El Sheikh",
+    "name_ar": "شرم الشيخ",
+    "country": "Egypt",
+    "region": "Sinai",
+    "description": "Famous for diving spots and desert adventures.",
+    "image": "assets/destinations/sharm-el-sheikh.jpg",
+    "activities": [
+      {
+        "title": "Ras Mohamed Diving",
+        "description": "One of the most famous dive sites in the world",
+        "image": "ras mohamed diving sharm"
+      },
+      {
+        "title": "Coral Reef Garden",
+        "description": "Colorful coral reefs in Naama Bay",
+        "image": "coral reef naama bay"
+      },
+      {
+        "title": "Mount Sinai Trek",
+        "description": "Climb Moses' Mountain at sunrise",
+        "image": "mount sinai trek sunrise"
+      },
+      {
+        "title": "Dolphin Trip",
+        "description": "Swimming with dolphins in the Red Sea",
+        "image": "dolphin swimming red sea"
+      }
+    ]
+  },
+  {
+    "name": "Luxor",
+    "name_ar": "الأقصر",
+    "country": "Egypt",
+    "region": "Upper Egypt",
+    "description": "The world's greatest open-air museum.",
+    "image": "assets/destinations/luxor.png",
+    "activities": [
+      {
+        "title": "Karnak Temple",
+        "description": "The largest ancient temple complex in history",
+        "image": "karnak temple luxor"
+      },
+      {
+        "title": "Valley of the Kings",
+        "description": "Tombs of ancient pharaohs",
+        "image": "valley of the kings luxor"
+      },
+      {
+        "title": "Hot Air Balloon Ride",
+        "description": "Fly over temples at sunrise",
+        "image": "hot air balloon luxor sunrise"
+      },
+      {
+        "title": "Luxor Temple by Night",
+        "description": "Magical illuminated temple experience",
+        "image": "luxor temple night lights"
+      }
+    ]
+  },
+  {
+    "name": "Aswan",
+    "name_ar": "أسوان",
+    "country": "Egypt",
+    "region": "Upper Egypt",
+    "description": "A peaceful Nile city with Nubian culture.",
+    "image": "assets/destinations/aswan.jpg",
+    "activities": [
+      {
+        "title": "Abu Simbel Temple",
+        "description": "Majestic temple of Ramses II",
+        "image": "abu simbel temple egypt"
+      },
+      {
+        "title": "Philae Temple",
+        "description": "Temple of Isis on an island",
+        "image": "philae temple aswan"
+      },
+      {
+        "title": "Felucca Sailing",
+        "description": "Traditional sailing on the Nile",
+        "image": "felucca sailing nile aswan"
+      },
+      {
+        "title": "Nubian Market",
+        "description": "Colorful local culture and crafts",
+        "image": "nubian market aswan"
+      }
+    ]
+  },
+  {
+    "name": "Riyadh",
+    "name_ar": "الرياض",
+    "country": "Saudi Arabia",
+    "region": "Middle East",
+    "description": "The modern capital of Saudi Arabia blending tradition and innovation.",
+    "image": "assets/destinations/riyadh.png",
+    "activities": [
+      {
+        "title": "Masmak Fortress",
+        "description": "Historic fortress of Saudi unification",
+        "image": "masmak fortress riyadh"
+      },
+      {
+        "title": "Kingdom Tower",
+        "description": "Iconic skyscraper with sky bridge view",
+        "image": "kingdom tower riyadh"
+      },
+      {
+        "title": "Diriyah Heritage Village",
+        "description": "Birthplace of the Saudi state",
+        "image": "diriyah heritage village"
+      },
+      {
+        "title": "Riyadh Season",
+        "description": "Largest entertainment festival in the region",
+        "image": "riyadh season festival"
+      }
+    ]
+  },
+  {
+    "name": "Jeddah",
+    "name_ar": "جدة",
+    "country": "Saudi Arabia",
+    "region": "Red Sea",
+    "description": "A vibrant coastal city with rich history and modern lifestyle.",
+    "image": "assets/destinations/jeddah.jpeg",
+    "activities": [
+      {
+        "title": "Jeddah Corniche",
+        "description": "Beautiful waterfront promenade",
+        "image": "jeddah corniche waterfront"
+      },
+      {
+        "title": "Al-Balad Historic District",
+        "description": "UNESCO heritage old town",
+        "image": "al balad jeddah historic"
+      },
+      {
+        "title": "King Fahd Fountain",
+        "description": "Tallest fountain in the world",
+        "image": "king fahd fountain jeddah"
+      },
+      {
+        "title": "Red Sea Diving",
+        "description": "Amazing coral reefs experience",
+        "image": "red sea diving jeddah"
+      }
+    ]
+  },
+  {
+    "name": "Makkah",
+    "name_ar": "مكة المكرمة",
+    "country": "Saudi Arabia",
+    "region": "Middle East",
+    "description": "The holiest city in Islam.",
+    "image": "assets/destinations/makkah.jpeg",
+    "activities": [
+      {
+        "title": "Al-Masjid Al-Haram",
+        "description": "The largest mosque in the world",
+        "image": "masjid al haram makkah"
+      },
+      {
+        "title": "Kaaba",
+        "description": "The most sacred site in Islam",
+        "image": "kaaba makkah"
+      },
+      {
+        "title": "Jabal Al-Noor",
+        "description": "Cave of Hira where revelation began",
+        "image": "jabal noor makkah"
+      },
+      {
+        "title": "Jabal Thawr",
+        "description": "Historic mountain cave",
+        "image": "jabal thawr makkah"
+      }
+    ]
+  },
+  {
+    "name": "Al Madinah",
+    "name_ar": "المدينة المنورة",
+    "country": "Saudi Arabia",
+    "region": "Middle East",
+    "description": "The city of the Prophet Muhammad ﷺ.",
+    "image": "assets/destinations/al-madina.png",
+    "activities": [
+      {
+        "title": "Al-Masjid An-Nabawi",
+        "description": "Second holiest mosque in Islam",
+        "image": "masjid nabawi madinah"
+      },
+      {
+        "title": "Mount Uhud",
+        "description": "Historic battlefield",
+        "image": "mount uhud madinah"
+      },
+      {
+        "title": "Islamic Museum",
+        "description": "History of Islam exhibits",
+        "image": "islamic museum madinah"
+      },
+      {
+        "title": "Green Gardens",
+        "description": "Peaceful walking areas around mosque",
+        "image": "madinah gardens"
+      }
+    ]
+  },
+  {
+    "name": "Dubai",
+    "name_ar": "دبي",
+    "country": "UAE",
+    "region": "Middle East",
+    "description": "A futuristic city known for luxury and innovation.",
+    "image": "assets/destinations/dubai.jpg",
+    "activities": [
+      {
+        "title": "Burj Khalifa",
+        "description": "Tallest building in the world",
+        "image": "burj khalifa dubai"
+      },
+      {
+        "title": "Dubai Mall",
+        "description": "One of the largest malls globally",
+        "image": "dubai mall shopping"
+      },
+      {
+        "title": "Desert Safari",
+        "description": "Dune bashing and Bedouin dinner",
+        "image": "dubai desert safari dunes"
+      },
+      {
+        "title": "Jumeirah Beach",
+        "description": "Famous white sand beach",
+        "image": "jumeirah beach dubai"
+      }
+    ]
+  },
+  {
+    "name": "Abu Dhabi",
+    "name_ar": "أبو ظبي",
+    "country": "UAE",
+    "region": "Middle East",
+    "description": "The cultural and political capital of UAE.",
+    "image": "assets/destinations/abu-dhabi.png",
+    "activities": [
+      {
+        "title": "Sheikh Zayed Mosque",
+        "description": "One of the most beautiful mosques",
+        "image": "sheikh zayed mosque abu dhabi"
+      },
+      {
+        "title": "Louvre Abu Dhabi",
+        "description": "World-class art museum",
+        "image": "louvre abu dhabi museum"
+      },
+      {
+        "title": "Yas Island",
+        "description": "Entertainment and Ferrari World",
+        "image": "yas island abu dhabi"
+      },
+      {
+        "title": "Corniche Walk",
+        "description": "Beautiful waterfront sunset views",
+        "image": "abu dhabi corniche walk"
+      }
+    ]
+  },
+  {
+    "name": "Doha",
+    "name_ar": "الدوحة",
+    "country": "Qatar",
+    "region": "Middle East",
+    "description": "Modern city with rich culture and heritage.",
+    "image": "assets/destinations/doha.png",
+    "activities": [
+      {
+        "title": "Museum of Islamic Art",
+        "description": "Architectural masterpiece",
+        "image": "museum of islamic art doha"
+      },
+      {
+        "title": "Souq Waqif",
+        "description": "Traditional market experience",
+        "image": "souq waqif doha market"
+      },
+      {
+        "title": "Lusail City",
+        "description": "Modern futuristic city",
+        "image": "lusail city qatar"
+      },
+      {
+        "title": "Katara Village",
+        "description": "Cultural and arts center",
+        "image": "katara cultural village doha"
+      }
+    ]
+  },
+  {
+    "name": "Amman",
+    "name_ar": "عمان",
+    "country": "Jordan",
+    "region": "Middle East",
+    "description": "Ancient city blending history and modern life.",
+    "image": "assets/destinations/amman.png",
+    "activities": [
+      {
+        "title": "Roman Amphitheatre",
+        "description": "Ancient Roman architecture",
+        "image": "roman amphitheatre amman"
+      },
+      {
+        "title": "Citadel Hill",
+        "description": "Historic views of Amman",
+        "image": "amman citadel hill"
+      },
+      {
+        "title": "Jordan Museum",
+        "description": "Rich cultural history",
+        "image": "jordan museum amman"
+      },
+      {
+        "title": "Downtown Food Tour",
+        "description": "Traditional Jordanian cuisine",
+        "image": "amman food tour downtown"
+      }
+    ]
+  },
+  {
+    "name": "Beirut",
+    "name_ar": "بيروت",
+    "country": "Lebanon",
+    "region": "Middle East",
+    "description": "A vibrant Mediterranean city full of life.",
+    "image": "assets/destinations/beirut.png",
+    "activities": [
+      {
+        "title": "Downtown Beirut",
+        "description": "Historic city center",
+        "image": "downtown beirut"
+      },
+      {
+        "title": "Corniche Walk",
+        "description": "Mediterranean sea view",
+        "image": "beirut corniche mediterranean"
+      },
+      {
+        "title": "Gemmayzeh District",
+        "description": "Nightlife and culture",
+        "image": "gemmayzeh beirut nightlife"
+      },
+      {
+        "title": "National Museum",
+        "description": "Ancient Lebanese history",
+        "image": "national museum beirut"
+      }
+    ]
+  },
+  {
+    "name": "Paris",
+    "name_ar": "باريس",
+    "country": "France",
+    "region": "Europe",
+    "description": "The city of love and lights.",
+    "image": "assets/destinations/paris.jpg",
+    "activities": [
+      {
+        "title": "Eiffel Tower",
+        "description": "Icon of Paris",
+        "image": "eiffel tower paris"
+      },
+      {
+        "title": "Louvre Museum",
+        "description": "World's largest art museum",
+        "image": "louvre museum paris"
+      },
+      {
+        "title": "Seine River Cruise",
+        "description": "Romantic boat ride",
+        "image": "seine river cruise paris"
+      },
+      {
+        "title": "Montmartre",
+        "description": "Artistic hilltop district",
+        "image": "montmartre paris"
+      }
+    ]
+  },
+  {
+    "name": "Rome",
+    "name_ar": "روما",
+    "country": "Italy",
+    "region": "Europe",
+    "description": "The eternal city of ancient history.",
+    "image": "assets/destinations/rome.jpg",
+    "activities": [
+      {
+        "title": "Colosseum",
+        "description": "Ancient Roman arena",
+        "image": "colosseum rome"
+      },
+      {
+        "title": "Vatican City",
+        "description": "Smallest country in the world",
+        "image": "vatican city rome"
+      },
+      {
+        "title": "Trevi Fountain",
+        "description": "Famous wishing fountain",
+        "image": "trevi fountain rome"
+      },
+      {
+        "title": "Roman Forum",
+        "description": "Heart of ancient Rome",
+        "image": "roman forum rome"
+      }
+    ]
+  },
+  {
+    "name": "Barcelona",
+    "name_ar": "برشلونة",
+    "country": "Spain",
+    "region": "Europe",
+    "description": "City of art, architecture, and beaches.",
+    "image": "assets/destinations/barcelona.jpg",
+    "activities": [
+      {
+        "title": "Sagrada Familia",
+        "description": "Gaudi's masterpiece",
+        "image": "sagrada familia barcelona"
+      },
+      {
+        "title": "Park Güell",
+        "description": "Colorful mosaic park",
+        "image": "park guell barcelona"
+      },
+      {
+        "title": "Las Ramblas",
+        "description": "Famous street in Barcelona",
+        "image": "las ramblas barcelona"
+      },
+      {
+        "title": "Barcelona Beach",
+        "description": "Mediterranean coast",
+        "image": "barcelona beach mediterranean"
+      }
+    ]
+  },
+  {
+    "name": "London",
+    "name_ar": "لندن",
+    "country": "UK",
+    "region": "Europe",
+    "description": "Historic and modern global capital.",
+    "image": "assets/destinations/london.png",
+    "activities": [
+      {
+        "title": "London Eye",
+        "description": "Panoramic city views",
+        "image": "london eye thames"
+      },
+      {
+        "title": "Tower Bridge",
+        "description": "Iconic bridge over Thames",
+        "image": "tower bridge london"
+      },
+      {
+        "title": "British Museum",
+        "description": "World heritage artifacts",
+        "image": "british museum london"
+      },
+      {
+        "title": "Hyde Park",
+        "description": "Royal park relaxation",
+        "image": "hyde park london"
+      }
+    ]
+  },
+  {
+    "name": "New York",
+    "name_ar": "نيويورك",
+    "country": "USA",
+    "region": "North America",
+    "description": "The city that never sleeps.",
+    "image": "assets/destinations/new-york.png",
+    "activities": [
+      {
+        "title": "Statue of Liberty",
+        "description": "Symbol of freedom",
+        "image": "statue of liberty new york"
+      },
+      {
+        "title": "Central Park",
+        "description": "Huge urban park",
+        "image": "central park new york"
+      },
+      {
+        "title": "Times Square",
+        "description": "Bright city lights",
+        "image": "times square new york night"
+      },
+      {
+        "title": "Brooklyn Bridge",
+        "description": "Iconic walk bridge",
+        "image": "brooklyn bridge new york"
+      }
+    ]
+  },
+  {
+    "name": "Los Angeles",
+    "name_ar": "لوس أنجلوس",
+    "country": "USA",
+    "region": "North America",
+    "description": "Entertainment capital of the world.",
+    "image": "assets/destinations/los-angeles.png",
+    "activities": [
+      {
+        "title": "Hollywood Walk of Fame",
+        "description": "Stars of celebrities",
+        "image": "hollywood walk of fame"
+      },
+      {
+        "title": "Santa Monica Beach",
+        "description": "Famous California beach",
+        "image": "santa monica beach california"
+      },
+      {
+        "title": "Universal Studios",
+        "description": "Movie theme park",
+        "image": "universal studios los angeles"
+      },
+      {
+        "title": "Beverly Hills",
+        "description": "Luxury lifestyle area",
+        "image": "beverly hills los angeles"
+      }
+    ]
+  },
+  {
+    "name": "Istanbul",
+    "name_ar": "اسطنبول",
+    "country": "Turkey",
+    "region": "Europe/Asia",
+    "description": "City between two continents.",
+    "image": "assets/destinations/istanbul.jpg",
+    "activities": [
+      {
+        "title": "Hagia Sophia",
+        "description": "Historic architectural wonder",
+        "image": "hagia sophia istanbul"
+      },
+      {
+        "title": "Blue Mosque",
+        "description": "Famous Ottoman mosque",
+        "image": "blue mosque istanbul"
+      },
+      {
+        "title": "Grand Bazaar",
+        "description": "Huge traditional market",
+        "image": "grand bazaar istanbul"
+      },
+      {
+        "title": "Bosphorus Cruise",
+        "description": "Boat between continents",
+        "image": "bosphorus cruise istanbul"
+      }
+    ]
+  },
+  {
+    "name": "Tokyo",
+    "name_ar": "طوكيو",
+    "country": "Japan",
+    "region": "Asia",
+    "description": "Futuristic city with deep tradition.",
+    "image": "assets/destinations/tokyo.jpg",
+    "activities": [
+      {
+        "title": "Shibuya Crossing",
+        "description": "Busiest crossing in the world",
+        "image": "shibuya crossing tokyo"
+      },
+      {
+        "title": "Tokyo Tower",
+        "description": "City panoramic view",
+        "image": "tokyo tower city view"
+      },
+      {
+        "title": "Akihabara",
+        "description": "Anime & tech district",
+        "image": "akihabara tokyo anime"
+      },
+      {
+        "title": "Senso-ji Temple",
+        "description": "Oldest temple in Tokyo",
+        "image": "sensoji temple tokyo"
+      }
+    ]
+  },
+  {
+    "name": "Maldives",
+    "name_ar": "المالديف",
+    "country": "Maldives",
+    "region": "Indian Ocean",
+    "description": "Luxury island paradise.",
+    "image": "assets/destinations/maldives.jpg",
+    "activities": [
+      {
+        "title": "Coral Diving",
+        "description": "Underwater coral world",
+        "image": "coral diving maldives"
+      },
+      {
+        "title": "Overwater Villas",
+        "description": "Luxury sea villas",
+        "image": "overwater villa maldives"
+      },
+      {
+        "title": "Dolphin Watching",
+        "description": "Marine life experience",
+        "image": "dolphin watching maldives"
+      },
+      {
+        "title": "Sunset Cruise",
+        "description": "Ocean sunset view",
+        "image": "sunset cruise maldives"
+      }
+    ]
+  }
+]

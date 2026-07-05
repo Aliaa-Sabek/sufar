@@ -1,5 +1,9 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/flight_model.dart';
+import '../models/user_model.dart';
+import '../theme/widgets/process_loading_overlay.dart';
 
 class FlightBookingPage extends StatefulWidget {
   final FlightModel? selectedFlight;
@@ -23,6 +27,110 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
   bool _isSeatSelection = false;
   bool _isPaymentStep = false;
   bool _isPaymentCompleted = false;
+
+  // User data
+  String _selectedTitle = 'Mr'; // Mr or Mrs/Ms
+  String _selectedNationality = '';
+
+  // Controllers for traveler form
+  final TextEditingController _emailCtrl = TextEditingController();
+  final TextEditingController _phoneCtrl = TextEditingController();
+  final TextEditingController _firstNameCtrl = TextEditingController();
+  final TextEditingController _lastNameCtrl = TextEditingController();
+  final TextEditingController _passportCtrl = TextEditingController();
+
+  // Date of Birth (parsed from user profile)
+  int? _dobYear;
+  int? _dobMonth;
+  int? _dobDay;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  @override
+  void dispose() {
+    _emailCtrl.dispose();
+    _phoneCtrl.dispose();
+    _firstNameCtrl.dispose();
+    _lastNameCtrl.dispose();
+    _passportCtrl.dispose();
+    super.dispose();
+  }
+
+  Future<void> _loadUserData() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final storedJson = prefs.getString('backend_user');
+      if (storedJson != null && storedJson != 'null') {
+        final decoded = jsonDecode(storedJson);
+        if (decoded is Map<String, dynamic>) {
+          final user = UserModel.fromApiResponse(decoded) ?? UserModel.fromJson(decoded);
+          if (mounted) {
+            setState(() {
+              _emailCtrl.text = user.email;
+              _phoneCtrl.text = user.phone ?? '';
+              // Split full name into first & last
+              final parts = user.name.trim().split(' ');
+              _firstNameCtrl.text = parts.isNotEmpty ? parts.first : '';
+              _lastNameCtrl.text = parts.length > 1 ? parts.sublist(1).join(' ') : '';
+              _selectedNationality = user.nationality ?? '';
+              // Set title based on gender
+              if (user.gender != null) {
+                final g = user.gender!.toLowerCase();
+                _selectedTitle = (g == 'female' || g == 'mrs' || g == 'ms') ? 'Mrs/Ms' : 'Mr';
+              }
+              // Parse date of birth
+              if (user.dateOfBirth != null && user.dateOfBirth!.isNotEmpty) {
+                try {
+                  final dt = DateTime.parse(user.dateOfBirth!);
+                  _dobYear = dt.year;
+                  _dobMonth = dt.month;
+                  _dobDay = dt.day;
+                } catch (_) {
+                  // Try parsing YYYY-MM-DD or DD/MM/YYYY manually
+                  final parts = user.dateOfBirth!.split(RegExp(r'[-/]'));
+                  if (parts.length == 3) {
+                    _dobYear = int.tryParse(parts[0]);
+                    _dobMonth = int.tryParse(parts[1]);
+                    _dobDay = int.tryParse(parts[2]);
+                  }
+                }
+              }
+            });
+          }
+        }
+      }
+    } catch (e) {
+      debugPrint('FlightBookingPage: could not load user data: $e');
+    }
+  }
+
+  Future<void> _processFlightPayment() async {
+    try {
+      await ProcessLoadingOverlay.run(
+        context: context,
+        title: 'Processing Payment',
+        steps: ProcessLoadingPresets.payment,
+        task: (ctrl) async {
+          await ctrl.jumpTo(0);
+          await ctrl.advance();
+          await ctrl.advance();
+
+          if (mounted) {
+            setState(() {
+              _isPaymentCompleted = true;
+              _isPaymentStep = false;
+              _isSeatSelection = false;
+            });
+          }
+          return true;
+        },
+      );
+    } catch (_) {}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -694,13 +802,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                 width: double.infinity,
                 height: 54,
                 child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      _isPaymentCompleted = true;
-                      _isPaymentStep = false;
-                      _isSeatSelection = false;
-                    });
-                  },
+                  onPressed: _processFlightPayment,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF1A94C4),
                     shape: RoundedRectangleBorder(
@@ -889,7 +991,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(child: _buildRefinedTextField('Email', '')),
+                  Expanded(child: _buildRefinedTextField('Email', '', controller: _emailCtrl)),
                   SizedBox(width: 16),
                   Expanded(
                     child: Column(
@@ -955,6 +1057,8 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                                   ),
                                 ),
                                 child: TextField(
+                                  controller: _phoneCtrl,
+                                  keyboardType: TextInputType.phone,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: '',
@@ -1067,14 +1171,14 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
               SizedBox(height: 12),
               Row(
                 children: [
-                  _buildCustomRadio('Mr', true),
+                  _buildCustomRadio('Mr'),
                   SizedBox(width: 24),
-                  _buildCustomRadio('Mrs/Ms', false),
+                  _buildCustomRadio('Mrs/Ms'),
                 ],
               ),
               SizedBox(height: 24),
               if (isMobile) ...[
-                _buildRefinedTextField('First Name', ''),
+                _buildRefinedTextField('First Name', '', controller: _firstNameCtrl),
                 SizedBox(height: 24),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1102,15 +1206,19 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                         border: Border.all(color: Colors.grey[300]!),
                       ),
                       child: Row(
-                        children: const [
-                          Text('🇬🇧', style: TextStyle(fontSize: 18)),
+                        children: [
+                          Icon(Icons.flag, size: 20, color: Color(0xFF1A94C4)),
                           SizedBox(width: 12),
                           Expanded(
                             child: Text(
-                              'United Kingdom',
+                              _selectedNationality.isNotEmpty
+                                  ? _selectedNationality
+                                  : 'Select Nationality',
                               style: TextStyle(
                                 fontSize: 14,
-                                
+                                color: _selectedNationality.isNotEmpty
+                                    ? Colors.black87
+                                    : Colors.grey,
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -1126,13 +1234,13 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                   ],
                 ),
                 SizedBox(height: 24),
-                _buildRefinedTextField('Last Name', ''),
+                _buildRefinedTextField('Last Name', '', controller: _lastNameCtrl),
                 SizedBox(height: 24),
                 _buildDateInputSection('Passport or ID Expiration Date'),
                 SizedBox(height: 24),
-                _buildDateInputSection('Date of Birth'),
+                _buildDateInputSection('Date of Birth', year: _dobYear, month: _dobMonth, day: _dobDay),
                 SizedBox(height: 24),
-                _buildRefinedTextField('Passport Or ID Number', ''),
+                _buildRefinedTextField('Passport Or ID Number', '', controller: _passportCtrl),
                 SizedBox(height: 32),
                 Column(
                   children: [
@@ -1162,9 +1270,9 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(child: _buildRefinedTextField('First Name', '')),
+                    Expanded(child: _buildRefinedTextField('First Name', '', controller: _firstNameCtrl)),
                     SizedBox(width: 16),
-                    Expanded(child: _buildRefinedTextField('Last Name', '')),
+                    Expanded(child: _buildRefinedTextField('Last Name', '', controller: _lastNameCtrl)),
                   ],
                 ),
                 SizedBox(height: 24),
@@ -1198,15 +1306,19 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                               border: Border.all(color: Colors.grey[300]!),
                             ),
                             child: Row(
-                              children: const [
-                                Icon(Icons.flag, size: 20, color: Colors.red),
+                              children: [
+                                Icon(Icons.flag, size: 20, color: Color(0xFF1A94C4)),
                                 SizedBox(width: 12),
                                 Expanded(
                                   child: Text(
-                                    'United Kingdom',
+                                    _selectedNationality.isNotEmpty
+                                        ? _selectedNationality
+                                        : 'Select Nationality',
                                     style: TextStyle(
                                       fontSize: 14,
-                                      
+                                      color: _selectedNationality.isNotEmpty
+                                          ? Colors.black87
+                                          : Colors.grey,
                                     ),
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -1223,7 +1335,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                       ),
                     ),
                     SizedBox(width: 16),
-                    Expanded(child: _buildDateInputSection('Date of Birth')),
+                    Expanded(child: _buildDateInputSection('Date of Birth', year: _dobYear, month: _dobMonth, day: _dobDay)),
                   ],
                 ),
                 SizedBox(height: 24),
@@ -1234,6 +1346,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                       child: _buildRefinedTextField(
                         'Passport Or ID Number',
                         '',
+                        controller: _passportCtrl,
                       ),
                     ),
                     SizedBox(width: 16),
@@ -2036,6 +2149,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
     String hint, {
     bool isRequired = true,
     Widget? suffixIcon,
+    TextEditingController? controller,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -2052,6 +2166,7 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
         ),
         SizedBox(height: 8),
         TextField(
+          controller: controller,
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
@@ -2074,30 +2189,43 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
     );
   }
 
-  Widget _buildCustomRadio(String label, bool isSelected) {
-    return Row(
-      children: [
-        Container(
-          width: 20,
-          height: 20,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: isSelected ? const Color(0xFF1A94C4) : Colors.grey[400]!,
-              width: isSelected ? 6 : 2,
+  Widget _buildCustomRadio(String label) {
+    final isSelected = _selectedTitle == label;
+    return GestureDetector(
+      onTap: () => setState(() => _selectedTitle = label),
+      child: Row(
+        children: [
+          Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: isSelected ? const Color(0xFF1A94C4) : Colors.grey[400]!,
+                width: isSelected ? 6 : 2,
+              ),
             ),
           ),
-        ),
-        SizedBox(width: 8),
-        Text(
-          label,
-          style: TextStyle(fontSize: 14, color: Colors.black87),
-        ),
-      ],
+          SizedBox(width: 8),
+          Text(
+            label,
+            style: TextStyle(fontSize: 14, color: Colors.black87),
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _buildDateInputSection(String label) {
+  Widget _buildDateInputSection(String label, {int? year, int? month, int? day}) {
+    final List<String> months = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
+    final String yearText = year != null ? year.toString() : 'YYYY';
+    final String monthText = month != null ? months[month - 1] : 'Month';
+    final String dayText = day != null ? day.toString().padLeft(2, '0') : 'DD';
+    final bool hasValue = year != null || month != null || day != null;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -2125,8 +2253,11 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
-                  'YYYY',
-                  style: TextStyle(color: Colors.grey, fontSize: 13),
+                  yearText,
+                  style: TextStyle(
+                    color: hasValue && year != null ? Colors.black87 : Colors.grey,
+                    fontSize: 13,
+                  ),
                 ),
               ),
             ),
@@ -2144,10 +2275,13 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
-                      'Month',
-                      style: TextStyle(color: Colors.grey, fontSize: 13),
+                      monthText,
+                      style: TextStyle(
+                        color: hasValue && month != null ? Colors.black87 : Colors.grey,
+                        fontSize: 13,
+                      ),
                     ),
                     Icon(
                       Icons.keyboard_arrow_down,
@@ -2172,8 +2306,11 @@ class _FlightBookingPageState extends State<FlightBookingPage> {
                 ),
                 child: Center(
                   child: Text(
-                    'DD',
-                    style: TextStyle(fontSize: 13, color: Colors.grey),
+                    dayText,
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: hasValue && day != null ? Colors.black87 : Colors.grey,
+                    ),
                   ),
                 ),
               ),

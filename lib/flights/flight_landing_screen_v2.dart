@@ -100,7 +100,7 @@ class _FlightLandingPageState extends State<FlightLandingPage> {
 
   Widget _buildHeroSection() {
     return SizedBox(
-      height: 590,
+      height: 640,
       child: Stack(
         children: [
           // Background Image
@@ -325,38 +325,41 @@ class _FlightLandingPageState extends State<FlightLandingPage> {
             ],
           ),
           SizedBox(height: 16),
-          // Travelers / Search
-          Row(
-            children: [
-              Expanded(
-                child: _buildInputField(
-                  'Travelers and Cabin Class',
-                  '1 Adult, Economy',
-                  Icons.person,
-                  _travelersController,
+          _buildInputField(
+            'Travelers and Cabin Class',
+            '1 Adult, Economy',
+            Icons.person,
+            _travelersController,
+          ),
+          SizedBox(height: 20),
+          SizedBox(
+            width: double.infinity,
+            height: 52,
+            child: ElevatedButton(
+              onPressed: _openSearchResults,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF1A94C4),
+                foregroundColor: Colors.white,
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              SizedBox(width: 16),
-              InkWell(
-                onTap: _openSearchResults,
-                child: Container(
-                  height: 60,
-                  width: 60,
-                  margin: EdgeInsets.only(
-                    top: 20,
-                  ), // Align with input content
-                  decoration: BoxDecoration(
-                    
-                    borderRadius: BorderRadius.circular(12),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.search, size: 22),
+                  SizedBox(width: 10),
+                  Text(
+                    'Search Flights',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  child: Icon(
-                    Icons.search,
-                    color: Theme.of(context).cardColor,
-                    size: 28,
-                  ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
         ],
       ),

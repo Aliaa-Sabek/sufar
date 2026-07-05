@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'theme/app_theme.dart';
 import 'flights/flight_landing_screen_v2.dart';
@@ -7,9 +8,14 @@ import 'chat_bot/chat_bot_screen.dart';
 import 'onboarding/splash_screen.dart';
 import 'ai_planner/ai_planner_screen.dart';
 import 'home/services_screen.dart';
+import 'services/activity_image_resolver.dart';
+import 'services/destination_catalog_service.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await ActivityImageResolver.preloadCatalog();
   runApp(const MyApp());
+  unawaited(DestinationCatalogService.loadRawCatalog());
 }
 
 class MyApp extends StatelessWidget {

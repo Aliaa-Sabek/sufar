@@ -80,9 +80,14 @@ class TravelOfficeModel {
       email: json['email']?.toString(),
       website: json['website']?.toString(),
       imageUrl: (json['image_url'] ?? json['logo'])?.toString(),
-      logoUrl: (json['images'] != null && (json['images'] as List).isNotEmpty)
-          ? json['images'][0].toString()
-          : (json['logo_url'] ?? json['logo'])?.toString(),
+      logoUrl: () {
+        final logo = json['logo']?.toString().trim();
+        if (logo != null && logo.isNotEmpty) return logo;
+        if (json['images'] is List && (json['images'] as List).isNotEmpty) {
+          return json['images'][0].toString();
+        }
+        return (json['logo_url'] ?? json['image_url'])?.toString();
+      }(),
       isActive: json['isActive'] == true || json['is_active'] == true,
     );
   }

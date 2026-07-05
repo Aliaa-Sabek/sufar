@@ -1,6 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sufar_project/models/booking_model.dart';
 import 'package:sufar_project/models/hotel_model.dart';
 import 'package:sufar_project/services/api_service.dart';
+import 'package:sufar_project/theme/widgets/process_loading_overlay.dart';
 
 class HotelBookingProcessScreen extends StatefulWidget {
   final Hotel hotel;
@@ -22,24 +27,146 @@ class HotelBookingProcessScreen extends StatefulWidget {
 class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
   int _currentStep = 0;
   int _days = 2;
-  bool _isBookingLoading = false;
+  int _guests = 1;
   String? _bookingError;
 
-  // Check-in date (default: today)
-  final DateTime _checkIn = DateTime.now().add(const Duration(days: 1));
+  late DateTime _checkIn;
 
-  DateTime get _checkOut => _checkIn.add(Duration(days: _days));
+  DateTime get _checkOut =>
+      DateTime(_checkIn.year, _checkIn.month, _checkIn.day + _days);
 
-  // Form controllers
+  // Guest details
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _countryController = TextEditingController();
   final _phoneController = TextEditingController();
 
+  // Payment details (separate from guest fields)
+  final _cardNumberController = TextEditingController();
+  final _cardHolderController = TextEditingController();
+  final _expiryController = TextEditingController();
+  final _cvvController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    final tomorrow = DateTime.now().add(const Duration(days: 1));
+    _checkIn = DateTime(tomorrow.year, tomorrow.month, tomorrow.day);
+    _prefillFromProfile();
+  }
+
+  Future<void> _prefillFromProfile() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final stored = prefs.getString('backend_user');
+      Map<String, dynamic>? user;
+      if (stored != null && stored != 'null') {
+        final decoded = jsonDecode(stored);
+        if (decoded is Map<String, dynamic>) user = decoded;
+      }
+
+      final name =
+          (user?['fullName'] ??
+                  user?['name'] ??
+                  prefs.getString('logged_in_name') ??
+                  '')
+              .toString()
+              .trim();
+      if (name.isNotEmpty) {
+        final parts = name.split(RegExp(r'\s+'));
+        _firstNameController.text = parts.first;
+        if (parts.length > 1) {
+          _lastNameController.text = parts.sublist(1).join(' ');
+        }
+      }
+
+      final email = (user?['email'] ?? prefs.getString('logged_in_email') ?? '')
+          .toString()
+          .trim();
+      if (email.isNotEmpty) _emailController.text = email;
+
+      final phone = (user?['phone'] ?? '').toString().trim();
+      if (phone.isNotEmpty) {
+        _phoneController.text = phone.replaceFirst(RegExp(r'^\+20'), '');
+      }
+
+      final nationality = (user?['nationality'] ?? '').toString().trim();
+      if (nationality.isNotEmpty) _countryController.text = nationality;
+
+      if (mounted) setState(() {});
+    } catch (e) {
+      debugPrint('[HotelBooking] Profile prefill failed: $e');
+    }
+  }
+
+  Future<void> _pickCheckInDate() async {
+    final picked = await showDatePicker(
+      context: context,
+      initialDate: _checkIn,
+      firstDate: DateTime.now(),
+      lastDate: DateTime.now().add(const Duration(days: 365)),
+      helpText: 'Select check-in date',
+    );
+    if (picked != null) {
+      setState(() {
+        _checkIn = DateTime(picked.year, picked.month, picked.day);
+      });
+    }
+  }
+
+  String get _dateRangeLabel =>
+      '${Booking.formatDisplayDate(_checkIn.toIso8601String())} – '
+      '${Booking.formatDisplayDate(_checkOut.toIso8601String())}';
+
+  void _changeDays(int delta) {
+    setState(() => _days = (_days + delta).clamp(1, 30));
+  }
+
+  void _changeGuests(int delta) {
+    setState(() => _guests = (_guests + delta).clamp(1, 8));
+  }
+
+  bool _validateGuestStep() {
+    if (_firstNameController.text.trim().isEmpty ||
+        _lastNameController.text.trim().isEmpty ||
+        _emailController.text.trim().isEmpty ||
+        _countryController.text.trim().isEmpty ||
+        _phoneController.text.trim().isEmpty) {
+      setState(() => _bookingError = 'Please fill in all guest details.');
+      return false;
+    }
+    final email = _emailController.text.trim();
+    if (!RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]+$').hasMatch(email)) {
+      setState(() => _bookingError = 'Please enter a valid email address.');
+      return false;
+    }
+    setState(() => _bookingError = null);
+    return true;
+  }
+
+  bool _validatePaymentStep() {
+    if (_cardNumberController.text.trim().length < 12 ||
+        _cardHolderController.text.trim().isEmpty ||
+        _expiryController.text.trim().length < 4 ||
+        _cvvController.text.trim().length < 3) {
+      setState(() => _bookingError = 'Please enter valid payment details.');
+      return false;
+    }
+    setState(() => _bookingError = null);
+    return true;
+  }
+
   void _nextStep() {
+    if (_currentStep == 1) {
+      if (!_validateGuestStep()) return;
+      _cardHolderController.text =
+          '${_firstNameController.text.trim()} ${_lastNameController.text.trim()}'
+              .trim();
+    }
     if (_currentStep < 3) {
       setState(() {
+        _bookingError = null;
         _currentStep++;
       });
     }
@@ -57,43 +184,70 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
 
   /// Calls the real Backend booking API
   Future<void> _submitBooking() async {
-    setState(() {
-      _isBookingLoading = true;
-      _bookingError = null;
-    });
+    if (!_validatePaymentStep()) return;
+    setState(() => _bookingError = null);
+
     try {
-      final result = await ApiService.bookHotel(
-        hotelId: widget.hotel.id,
-        roomId: widget.hotel.id, // Use hotel ID as room ID if no room model
-        checkIn: _checkIn.toIso8601String().substring(0, 10),
-        checkOut: _checkOut.toIso8601String().substring(0, 10),
-        totalGuests: 1,
-        guestInfo: {
-          'firstName': _firstNameController.text.trim(),
-          'lastName': _lastNameController.text.trim(),
-          'email': _emailController.text.trim(),
-          'country': _countryController.text.trim(),
-          'phone': _phoneController.text.trim(),
+      await ProcessLoadingOverlay.run(
+        context: context,
+        title: 'Processing Booking',
+        steps: ProcessLoadingPresets.hotelBooking,
+        task: (ctrl) async {
+          await ctrl.jumpTo(0);
+
+          String actualRoomId = widget.hotel.id;
+          try {
+            final hotelDetails = await ApiService.getHotel(widget.hotel.id);
+            if (hotelDetails['data'] != null &&
+                hotelDetails['data']['rooms'] != null &&
+                (hotelDetails['data']['rooms'] as List).isNotEmpty) {
+              actualRoomId =
+                  hotelDetails['data']['rooms'][0]['_id'] ?? widget.hotel.id;
+            } else if (hotelDetails['rooms'] != null &&
+                (hotelDetails['rooms'] as List).isNotEmpty) {
+              actualRoomId = hotelDetails['rooms'][0]['_id'] ?? widget.hotel.id;
+            }
+          } catch (e) {
+            debugPrint('Could not fetch specific room, using fallback: $e');
+          }
+
+          await ctrl.advance();
+
+          final result = await ApiService.bookHotel(
+            hotelId: widget.hotel.id,
+            roomId: actualRoomId,
+            checkIn: _checkIn.toIso8601String().split('T').first,
+            checkOut: _checkOut.toIso8601String().split('T').first,
+            totalGuests: _guests,
+            guestInfo: {
+              'firstName': _firstNameController.text.trim(),
+              'lastName': _lastNameController.text.trim(),
+              'email': _emailController.text.trim(),
+              'country': _countryController.text.trim(),
+              'phone': '+20${_phoneController.text.trim()}',
+            },
+          );
+
+          await ctrl.advance();
+
+          if (result['success'] == true ||
+              result['booking'] != null ||
+              result['_id'] != null) {
+            if (mounted) setState(() => _currentStep = 3);
+            return true;
+          }
+
+          final msg =
+              result['message'] ??
+              result['error'] ??
+              'Booking failed. Please try again.';
+          throw Exception(msg.toString());
         },
       );
-
-      if (result['success'] == true ||
-          result['booking'] != null ||
-          result['_id'] != null) {
-        if (mounted) setState(() => _currentStep = 3);
-      } else {
-        final msg =
-            result['message'] ??
-            result['error'] ??
-            'Booking failed. Please try again.';
-        if (mounted) setState(() => _bookingError = msg.toString());
-      }
     } catch (e) {
       if (mounted) {
         setState(() => _bookingError = 'Error: ${e.toString()}');
       }
-    } finally {
-      if (mounted) setState(() => _isBookingLoading = false);
     }
   }
 
@@ -104,6 +258,10 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
     _emailController.dispose();
     _countryController.dispose();
     _phoneController.dispose();
+    _cardNumberController.dispose();
+    _cardHolderController.dispose();
+    _expiryController.dispose();
+    _cvvController.dispose();
     super.dispose();
   }
 
@@ -295,9 +453,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: Image.network(
-            widget.hotel.imageUrl.isNotEmpty
-                ? widget.hotel.imageUrl
-                : 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+            widget.hotel.imageUrl,
             height: 180,
             width: double.infinity,
             fit: BoxFit.cover,
@@ -341,11 +497,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
           child: Row(
             children: [
               InkWell(
-                onTap: () {
-                  if (_days > 1) {
-                    setState(() => _days--);
-                  }
-                },
+                onTap: () => _changeDays(-1),
                 child: Container(
                   width: 48,
                   decoration: BoxDecoration(
@@ -372,9 +524,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
                 ),
               ),
               InkWell(
-                onTap: () {
-                  setState(() => _days++);
-                },
+                onTap: () => _changeDays(1),
                 child: Container(
                   width: 48,
                   decoration: BoxDecoration(
@@ -396,7 +546,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            'Pick a Date',
+            'Guests',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
           ),
         ),
@@ -410,31 +560,115 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
           ),
           child: Row(
             children: [
-              Container(
-                width: 48,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(8),
-                    bottomLeft: Radius.circular(8),
+              InkWell(
+                onTap: () => _changeGuests(-1),
+                child: Container(
+                  width: 48,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      bottomLeft: Radius.circular(8),
+                    ),
                   ),
-                ),
-                child: Center(
-                  child: Icon(
-                    Icons.calendar_month,
-                    color: Theme.of(context).cardColor,
-                    size: 20,
+                  child: Center(
+                    child: Icon(
+                      Icons.remove,
+                      color: Theme.of(context).cardColor,
+                    ),
                   ),
                 ),
               ),
               Expanded(
                 child: Center(
                   child: Text(
-                    '20 Jan - ${20 + _days} Jan', // Mock date string
+                    '$_guests Guest${_guests == 1 ? '' : 's'}',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
+              InkWell(
+                onTap: () => _changeGuests(1),
+                child: Container(
+                  width: 48,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF1A94C4),
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(8),
+                      bottomRight: Radius.circular(8),
+                    ),
+                  ),
+                  child: Center(
+                    child: Icon(Icons.add, color: Theme.of(context).cardColor),
+                  ),
+                ),
+              ),
             ],
+          ),
+        ),
+        SizedBox(height: 24),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Check-in & Check-out',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+          ),
+        ),
+        SizedBox(height: 12),
+        Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: _pickCheckInDate,
+            borderRadius: BorderRadius.circular(8),
+            child: Container(
+              height: 48,
+              decoration: BoxDecoration(
+                color: Colors.grey[50],
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: Colors.grey.shade200),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 48,
+                    child: Center(
+                      child: Icon(
+                        Icons.calendar_month,
+                        color: Color(0xFF1A94C4),
+                        size: 20,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      _dateRangeLabel,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 12),
+                    child: Icon(
+                      Icons.edit_calendar,
+                      size: 18,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: 8),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Tap to change check-in · $_days night${_days == 1 ? '' : 's'}',
+            style: TextStyle(color: Colors.grey, fontSize: 11),
           ),
         ),
         SizedBox(height: 32),
@@ -483,9 +717,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: Image.network(
-            widget.hotel.imageUrl.isNotEmpty
-                ? widget.hotel.imageUrl
-                : 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+            widget.hotel.imageUrl,
             height: 180,
             width: double.infinity,
             fit: BoxFit.cover,
@@ -497,6 +729,22 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
           ),
         ),
         SizedBox(height: 24),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            '$_days night${_days == 1 ? '' : 's'} · $_guests guest${_guests == 1 ? '' : 's'}',
+            style: TextStyle(color: Colors.grey, fontSize: 12),
+          ),
+        ),
+        SizedBox(height: 8),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            _dateRangeLabel,
+            style: TextStyle(color: Color(0xFF5D6B78), fontSize: 13),
+          ),
+        ),
+        SizedBox(height: 16),
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
@@ -543,6 +791,10 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
         _buildTextField('Country', 'your country', _countryController),
         SizedBox(height: 16),
         _buildPhoneField(),
+        if (_bookingError != null) ...[
+          SizedBox(height: 16),
+          _buildErrorBanner(),
+        ],
         SizedBox(height: 32),
         _buildActionButtons(onNext: _nextStep, nextLabel: 'Next'),
       ],
@@ -573,7 +825,7 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
             color: const Color(0xFFF0F8FD),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: const Color(0xFF1A94C4).withOpacity(0.2),
+              color: const Color(0xFF1A94C4).withValues(alpha: 0.2),
             ),
           ),
           child: Column(
@@ -583,13 +835,13 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
                 children: [
                   Expanded(
                     child: Text(
-                      '$_days Days at ${widget.hotel.name}',
+                      '$_days night${_days == 1 ? '' : 's'} · $_guests guest${_guests == 1 ? '' : 's'} at ${widget.hotel.name}',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-
                         fontSize: 14,
                       ),
                       overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
                     ),
                   ),
                   Text(
@@ -599,6 +851,20 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
                       color: Color(0xFF1A94C4),
                       fontSize: 14,
                     ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    _dateRangeLabel,
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                  ),
+                  Text(
+                    '$_guests guest${_guests == 1 ? '' : 's'}',
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
                   ),
                 ],
               ),
@@ -635,13 +901,14 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
         _buildTextField(
           'Card Number',
           'Enter your card number',
-          _firstNameController,
+          _cardNumberController,
+          keyboardType: TextInputType.number,
         ),
         SizedBox(height: 16),
         _buildTextField(
           'Card Holder Name',
           'Name on card',
-          _lastNameController,
+          _cardHolderController,
         ),
         SizedBox(height: 16),
         Row(
@@ -650,12 +917,18 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
               child: _buildTextField(
                 'Expiry Date',
                 'MM / YY',
-                _emailController,
+                _expiryController,
               ),
             ),
             SizedBox(width: 12),
             Expanded(
-              child: _buildTextField('CVV', 'e.g. 123', _countryController),
+              child: _buildTextField(
+                'CVV',
+                'e.g. 123',
+                _cvvController,
+                keyboardType: TextInputType.number,
+                obscureText: true,
+              ),
             ),
           ],
         ),
@@ -702,25 +975,13 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
           ),
         ),
         SizedBox(height: 40),
-        if (_bookingError != null)
-          Container(
-            padding: EdgeInsets.all(12),
-            margin: EdgeInsets.only(bottom: 12),
-            decoration: BoxDecoration(
-              color: Colors.red.shade50,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.red.shade200),
-            ),
-            child: Text(
-              _bookingError!,
-              style: TextStyle(color: Colors.red.shade700, fontSize: 13),
-            ),
-          ),
+        if (_bookingError != null) ...[
+          _buildErrorBanner(),
+          SizedBox(height: 12),
+        ],
         _buildActionButtons(
-          onNext: _isBookingLoading ? () {} : _submitBooking,
-          nextLabel: _isBookingLoading
-              ? 'Processing...'
-              : 'Pay \$$totalPrice USD',
+          onNext: _submitBooking,
+          nextLabel: 'Pay \$$totalPrice USD',
         ),
       ],
     );
@@ -819,8 +1080,10 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
   Widget _buildTextField(
     String label,
     String hint,
-    TextEditingController controller,
-  ) {
+    TextEditingController controller, {
+    TextInputType keyboardType = TextInputType.text,
+    bool obscureText = false,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -831,6 +1094,8 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
         SizedBox(height: 8),
         TextField(
           controller: controller,
+          keyboardType: keyboardType,
+          obscureText: obscureText,
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: TextStyle(color: Colors.grey.shade400, fontSize: 13),
@@ -894,6 +1159,22 @@ class _HotelBookingProcessScreenState extends State<HotelBookingProcessScreen> {
           ],
         ),
       ],
+    );
+  }
+
+  Widget _buildErrorBanner() {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.red.shade50,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.red.shade200),
+      ),
+      child: Text(
+        _bookingError!,
+        style: TextStyle(color: Colors.red.shade700, fontSize: 13),
+      ),
     );
   }
 

@@ -1,5 +1,8 @@
+import '../services/image_service.dart';
+
 class Hotel {
   final String id;
+  final String slug;
   final String name;
   final String city;
   final String country;
@@ -19,6 +22,7 @@ class Hotel {
 
   Hotel({
     required this.id,
+    this.slug = '',
     required this.name,
     required this.city,
     required this.country,
@@ -39,13 +43,49 @@ class Hotel {
 
   // Convenience getters for backward-compatible usage in screens
   String get imageUrl {
-    final first = images.isNotEmpty ? images[0].trim() : '';
-    if (first.isNotEmpty) return first;
-
-    // Always provide a safe https placeholder so UI shows something even
-    // when backend has no images for a hotel yet.
-    return 'https://placehold.co/800x500/png?text=Hotel';
+    final list = generalImages;
+    if (list.isEmpty) return '';
+    return list.firstWhere((img) => img.trim().isNotEmpty, orElse: () => '');
   }
+
+  static List<String> _dedupeUrls(Iterable<String> urls) {
+    final seen = <String>{};
+    final out = <String>[];
+    for (final raw in urls) {
+      final u = raw.trim();
+      if (u.isEmpty) continue;
+      if (seen.add(ImageService.dedupeKey(u))) out.add(u);
+    }
+    return out;
+  }
+
+  /// Hotel exterior / lobby photos from `.../general/`.
+  List<String> get generalImages {
+    final general = ImageService.hotelGeneralImages(images);
+    final list = general.isNotEmpty
+        ? _dedupeUrls(general)
+        : _dedupeUrls(images.where((u) => !u.contains('/rooms/')));
+    final fallbackList = list.isNotEmpty ? list : _dedupeUrls(images.take(1));
+    return fallbackList;
+  }
+
+  /// Room photos from `.../rooms/` only, with a resilient fallback to any room-related
+  /// image URLs that are present in the hotel payload.
+  List<String> get roomImages {
+    final roomPhotos = _dedupeUrls(ImageService.hotelRoomImages(images));
+    if (roomPhotos.isNotEmpty) return roomPhotos;
+
+    final fallback = _dedupeUrls(
+      images.where((u) {
+        final value = u.toLowerCase();
+        return value.contains('/rooms/') || value.contains('room') || value.contains('suite');
+      }),
+    );
+    return fallback;
+  }
+
+  /// Deduplicated gallery (general shots only — not rooms).
+  List<String> get uniqueImages => generalImages;
 
   int get price => startingFrom.toInt();
 
@@ -73,29 +113,85 @@ class Hotel {
 
     return Hotel(
       id: id,
+      slug: (json['slug'] ?? '').toString(),
       name: (json['name'] ?? 'Unknown Hotel').toString(),
       city: (location['city'] ?? json['city'] ?? 'Unknown').toString(),
       country: (location['country'] ?? json['country'] ?? '').toString(),
       description: (json['description'] ?? '').toString(),
       images: () {
-        String normalize(String u) {
-          final s = u.trim();
-          if (s.startsWith('//')) return 'https:$s';
-          if (s.startsWith('http://')) return 'https://${s.substring('http://'.length)}';
-          return s;
+        String? rawFrom(dynamic value) {
+          if (value == null) return null;
+          if (value is Map) {
+            final raw =
+                value['url'] ?? value['secure_url'] ?? value['src'] ?? '';
+            return raw.toString();
+          }
+          return value.toString();
+        }
+
+        final cityName = (location['city'] ?? json['city'] ?? '').toString();
+        final hotelSlug = (json['slug'] ?? '').toString();
+
+        String normalize(String u, {required String type}) => ImageService.urlForWidget(
+          u,
+          type: type,
+          cityName: cityName,
+          hotelSlug: hotelSlug,
+        );
+
+        final urls = <String>[];
+        final seen = <String>{};
+
+        void add(dynamic value, {required String type}) {
+          final raw = rawFrom(value);
+          if (raw == null || raw.isEmpty) return;
+          if (ImageService.isPexelsUrl(raw)) return;
+          final n = normalize(raw, type: type);
+          if (n.isEmpty) return;
+          if (seen.add(ImageService.dedupeKey(n))) urls.add(n);
         }
 
         if (json['images'] is List) {
-          final raw = (json['images'] as List).whereType<Object>().map((e) => e.toString());
-          final urls = raw.map(normalize).where((u) => u.isNotEmpty).toList();
-          if (urls.isNotEmpty) return urls;
+          for (final item in json['images'] as List) {
+            add(item, type: 'hotel');
+          }
         }
 
-        final single = (json['image_url'] ?? json['image'])?.toString() ?? '';
-        final u = normalize(single);
-        if (u.isNotEmpty) return [u];
+        if (json['generalImages'] is List) {
+          for (final item in json['generalImages'] as List) {
+            add(item, type: 'hotel-general');
+          }
+        }
+        if (json['roomImages'] is List) {
+          for (final item in json['roomImages'] as List) {
+            add(item, type: 'hotel-room');
+          }
+        }
 
-        return <String>[];
+        add(
+          json['image_url'] ?? json['image'] ?? json['imageUrl'],
+          type: 'hotel',
+        );
+
+        if (json['gallery'] is List) {
+          for (final item in json['gallery'] as List) {
+            add(item, type: 'hotel-general');
+          }
+        }
+
+        if (json['rooms'] is List) {
+          for (final room in json['rooms'] as List) {
+            if (room is! Map) continue;
+            final roomMap = Map<String, dynamic>.from(room);
+            if (roomMap['images'] is List) {
+              for (final item in roomMap['images'] as List) {
+                add(item, type: 'hotel-room');
+              }
+            }
+          }
+        }
+
+        return urls;
       }(),
       stars: _toInt(json['stars'] ?? json['rating']),
       rating: _toDouble(json['rating']),

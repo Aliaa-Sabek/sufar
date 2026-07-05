@@ -3,8 +3,7 @@ import '../services/api_service.dart';
 import 'hotel_details_screen.dart';
 import '../chat_bot/chat_bot_screen.dart';
 import 'package:sufar_project/models/hotel_model.dart';
-
-
+import '../services/image_service.dart';
 // the screen =
 class HotelBookingScreen extends StatefulWidget {
   const HotelBookingScreen({super.key});
@@ -33,19 +32,28 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
     setState(() => _isLoading = true);
     try {
       final response = await ApiService.getHotels(limit: 10);
-      final hotelList = response['hotels'] as List? ?? [];
+
+      // Handle response structure
+      List hotelList =
+          response['hotels'] ?? response['data'] ?? response['results'] ?? [];
+
       setState(() {
-        _hotels = hotelList.map((e) => Hotel.fromJson(e)).toList();
+        _hotels = hotelList
+            .map((e) => Hotel.fromJson(e as Map<String, dynamic>))
+            .toList();
         _hasSearched = true;
       });
     } catch (e) {
       debugPrint('Error fetching hotels: $e');
+      setState(() {
+        _errorMessage = 'Failed to load hotels: $e';
+      });
     } finally {
       setState(() => _isLoading = false);
     }
   }
 
-// Api call
+  // Api call
   Future<void> _searchHotels() async {
     final city = _cityController.text.trim();
 
@@ -58,9 +66,15 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
 
     try {
       final response = await ApiService.getHotels(city: city, limit: 20);
-      final hotelList = response['hotels'] as List? ?? [];
+
+      // Handle response structure
+      List hotelList =
+          response['hotels'] ?? response['data'] ?? response['results'] ?? [];
+
       setState(() {
-        _hotels = hotelList.map((e) => Hotel.fromJson(e)).toList();
+        _hotels = hotelList
+            .map((e) => Hotel.fromJson(e as Map<String, dynamic>))
+            .toList();
         if (_hotels.isEmpty) {
           _rawDebugResponse = 'No hotels found for "$city"';
         }
@@ -89,10 +103,7 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
             ),
             actions: [
               IconButton(
-                icon: Icon(
-                  Icons.chat_bubble_outline,
-                  
-                ),
+                icon: Icon(Icons.chat_bubble_outline),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -103,10 +114,7 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
                 },
               ),
               IconButton(
-                icon: Icon(
-                  Icons.person_outline,
-                  
-                ),
+                icon: Icon(Icons.person_outline),
                 onPressed: () {
                   // This is a standalone screen navigation,
                   // but since it's on the bar usually we pop or navigate to main
@@ -161,11 +169,7 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
             children: [
               Text(
                 'Filters',
-                style: TextStyle(
-                  
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
               SizedBox(height: 16),
               Padding(
@@ -307,10 +311,7 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
             Text('\$0', style: TextStyle(color: Colors.grey, fontSize: 11)),
-            Text(
-              '\$500',
-              style: TextStyle(color: Colors.grey, fontSize: 11),
-            ),
+            Text('\$500', style: TextStyle(color: Colors.grey, fontSize: 11)),
           ],
         ),
       ],
@@ -340,10 +341,7 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
             Icon(Icons.star, color: Colors.amber, size: 14),
             SizedBox(width: 4),
           ],
-          Text(
-            label,
-            style: TextStyle( fontSize: 12),
-          ),
+          Text(label, style: TextStyle(fontSize: 12)),
         ],
       ),
     );
@@ -370,10 +368,7 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
             Icon(icon, color: Colors.grey, size: 14),
             SizedBox(width: 6),
           ],
-          Text(
-            label,
-            style: TextStyle( fontSize: 12),
-          ),
+          Text(label, style: TextStyle(fontSize: 12)),
         ],
       ),
     );
@@ -567,21 +562,21 @@ class _HotelCard extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(16),
                     child: hotel.imageUrl.isNotEmpty
-                        ? Image.network(
-                            hotel.imageUrl,
+                        ? ImageService.buildNetworkImage(
+                            imageUrl: hotel.imageUrl,
                             height: 180,
                             width: double.infinity,
                             fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) =>
-                                Container(
-                                  height: 180,
-                                  color: Colors.grey[200],
-                                  child: Icon(
-                                    Icons.hotel,
-                                    size: 40,
-                                    color: Colors.grey,
-                                  ),
-                                ),
+                            errorWidget: Container(
+                              height: 180,
+                              width: double.infinity,
+                              color: Colors.grey[200],
+                              child: Icon(
+                                Icons.hotel,
+                                size: 40,
+                                color: Colors.grey,
+                              ),
+                            ),
                           )
                         : Container(
                             height: 180,
@@ -657,7 +652,6 @@ class _HotelCard extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            
                           ),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -669,40 +663,25 @@ class _HotelCard extends StatelessWidget {
                   SizedBox(height: 6),
                   Text(
                     hotel.description,
-                    style: TextStyle(
-                      fontSize: 11,
-                      
-                      height: 1.4,
-                    ),
+                    style: TextStyle(fontSize: 11, height: 1.4),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(height: 8),
                   Row(
                     children: [
-                      Icon(
-                        Icons.location_on,
-                        size: 14,
-                        color: Colors.grey,
-                      ),
+                      Icon(Icons.location_on, size: 14, color: Colors.grey),
                       SizedBox(width: 4),
                       Text(
                         hotel.city,
-                        style: TextStyle(
-                          fontSize: 11,
-                          color: Colors.grey,
-                        ),
+                        style: TextStyle(fontSize: 11, color: Colors.grey),
                       ),
                     ],
                   ),
                   SizedBox(height: 12),
                   Text(
                     'Hotel Highlights',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.bold,
-                      
-                    ),
+                    style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 6),
                   _buildHighlight('Free Wi-Fi'),
@@ -737,7 +716,6 @@ class _HotelCard extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              
                             ),
                           ),
                           Text(
@@ -802,10 +780,7 @@ class _HotelCard extends StatelessWidget {
         children: [
           Icon(Icons.check, size: 12, color: Colors.green),
           SizedBox(width: 6),
-          Text(
-            label,
-            style: TextStyle(fontSize: 10, color: Colors.black),
-          ),
+          Text(label, style: TextStyle(fontSize: 10, color: Colors.black)),
         ],
       ),
     );
@@ -844,11 +819,7 @@ class _RatingBadge extends StatelessWidget {
           SizedBox(width: 3),
           Text(
             rating.toStringAsFixed(1),
-            style: TextStyle(
-              
-              fontWeight: FontWeight.bold,
-              fontSize: 11,
-            ),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
           ),
         ],
       ),
