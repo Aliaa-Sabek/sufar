@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌍 Sufar
+# Sufar
 ### AI-Powered Smart Travel Assistant
 
 An AI-powered travel platform that helps users discover destinations, plan personalized trips, book travel services, and receive intelligent travel recommendations through a modern, user-friendly mobile application.
@@ -18,28 +18,28 @@ An AI-powered travel platform that helps users discover destinations, plan perso
 
 ---
 
-# 📖 Overview
+## Overview
 
 **Sufar** is an AI-powered travel assistant developed as a **Computer Science Graduation Project**.
 
 The application provides travelers with a complete digital travel experience by allowing them to:
 
-- 🌍 Explore tourist destinations
-- 🏨 Search hotels
-- ✈️ Search flights
-- 📅 Book travel services
-- 🧳 Plan trips with Artificial Intelligence
-- 💬 Chat with an AI Assistant
-- 🛂 Receive visa guidance
-- 🏢 Find travel agencies
+- Explore tourist destinations
+- Search hotels
+- Search flights
+- Book travel services
+- Plan trips with Artificial Intelligence
+- Chat with an AI Assistant
+- Receive visa guidance
+- Find travel agencies
 
 The system follows a **Client–Server Architecture**, where the Flutter application communicates with a custom backend through RESTful APIs while all data is managed in a centralized MongoDB database.
 
 ---
 
-# ✨ Features
+## Features
 
-## 👤 User Features
+### User Features
 
 - User Registration
 - Secure Login
@@ -62,9 +62,7 @@ The system follows a **Client–Server Architecture**, where the Flutter applica
 - Save Favorite Destinations
 - Dark Mode & Light Mode
 
----
-
-## 🛠️ Admin Features
+### Admin Features
 
 - Manage Users
 - Manage Destinations
@@ -77,16 +75,16 @@ The system follows a **Client–Server Architecture**, where the Flutter applica
 
 ---
 
-# 🤖 AI Features
+## AI Features
 
-- 🤖 AI Chat Assistant
-- 🧠 AI Trip Planner
-- 🌍 Smart Destination Recommendations
-- 📍 Personalized Travel Suggestions
+- AI Chat Assistant
+- AI Trip Planner
+- Smart Destination Recommendations
+- Personalized Travel Suggestions
 
 ---
 
-# 📱 Application Modules
+## Application Modules
 
 - Splash Screen
 - Authentication
@@ -105,7 +103,7 @@ The system follows a **Client–Server Architecture**, where the Flutter applica
 
 ---
 
-# 🏗️ System Architecture
+## System Architecture
 
 ```text
                 Flutter Mobile Application
@@ -122,30 +120,30 @@ The system follows a **Client–Server Architecture**, where the Flutter applica
 
 ---
 
-# 🛠️ Tech Stack
+## Tech Stack
 
-## 📱 Mobile Development
+### Mobile Development
 
 - Flutter
 - Dart
 
-## ⚙️ Backend
+### Backend
 
 - Python
 - Flask
 - RESTful API
 
-## 🗄️ Database
+### Database
 
 - MongoDB
 
-## ☁️ Cloud Services
+### Cloud Services
 
 - Firebase Core
 - Firebase Cloud Messaging
 - Firebase Storage
 
-## 🤖 Artificial Intelligence
+### Artificial Intelligence
 
 - AI Trip Planner
 - AI Recommendation Engine
@@ -153,9 +151,9 @@ The system follows a **Client–Server Architecture**, where the Flutter applica
 
 ---
 
-# 📦 Packages & Libraries
+## Packages & Libraries
 
-### State & Networking
+### State Management & Networking
 
 - http
 - shared_preferences
@@ -182,7 +180,7 @@ The system follows a **Client–Server Architecture**, where the Flutter applica
 
 ---
 
-# 📂 Project Structure
+## Project Structure
 
 ```text
 lib/
@@ -209,9 +207,7 @@ lib/
 
 ---
 
-# 🌐 Backend API
-
-The application communicates with the backend through RESTful APIs.
+## Backend API
 
 ### Authentication
 
@@ -252,9 +248,7 @@ The application communicates with the backend through RESTful APIs.
 
 ---
 
-# 🗄️ Database Collections
-
-The system stores:
+## Database Collections
 
 - Users
 - Destinations
@@ -266,7 +260,7 @@ The system stores:
 
 ---
 
-# 🔐 Authentication Flow
+## Authentication Flow
 
 ```text
 Register
@@ -286,9 +280,9 @@ Access Protected APIs
 
 ---
 
-# 🚀 Getting Started
+## Getting Started
 
-## Prerequisites
+### Prerequisites
 
 - Flutter SDK
 - Dart SDK
@@ -296,9 +290,7 @@ Access Protected APIs
 - Python Backend
 - MongoDB
 
----
-
-## Installation
+### Installation
 
 Clone the repository
 
@@ -306,13 +298,9 @@ Clone the repository
 git clone https://github.com/your-username/sufar.git
 ```
 
-Go to the project
-
 ```bash
 cd sufar
 ```
-
-Install dependencies
 
 ```bash
 flutter pub get
@@ -328,15 +316,7 @@ flutter run
 
 ---
 
-# 📸 Screenshots
-
-| Home | Hotels | AI Planner |
-|------|---------|------------|
-| Add Screenshot | Add Screenshot | Add Screenshot |
-
----
-
-# 📚 Software Engineering Concepts
+## Software Engineering Concepts
 
 This project applies several software engineering principles:
 
@@ -353,27 +333,25 @@ This project applies several software engineering principles:
 
 ---
 
-# 🚀 Future Enhancements
+## Future Enhancements
 
-
-- 🌤️ Weather Forecast
-- 🔔 Push Notifications
-- 🌐 Multi-language Support
-- 📶 Offline Mode
-- 🎤 Voice Assistant
-- 📍 Live Location Tracking
-- 🤝 Trip Sharing
-- 📊 Travel Analytics
+- Weather Forecast
+- Push Notifications
+- Multi-language Support
+- Offline Mode
+- Voice Assistant
+- Live Location Tracking
+- Trip Sharing
+- Travel Analytics
 
 ---
 
-
 <div align="center">
 
-## 🌍 Travel Smarter with AI
+## Travel Smarter with AI
 
 **Built with Flutter • Python • MongoDB • REST APIs • Artificial Intelligence**
 
-⭐ If you like this project, don't forget to star the repository!
+⭐ If you find this project useful, consider giving it a star.
 
 </div>
